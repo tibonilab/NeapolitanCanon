@@ -13,7 +13,15 @@ module.exports = {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
   devServer: {
-    contentBase: path.join(__dirname,'src')
+    contentBase: path.join(__dirname,'src'),
+    proxy: {
+      '/solr' : {
+        target: 'http://192.168.1.107:8982/', // we temporarely fetch data from Rodolfo machine
+      },
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
   },
   module: {
     rules: [
