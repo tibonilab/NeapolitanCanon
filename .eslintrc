@@ -31,5 +31,19 @@
         "react/jsx-uses-vars": "error",
         "getter-return": "error",
         "for-direction": "error"
+    },
+    "globals": {
+        "import": false,
+        "module": false,
+        "process": false,
+        "require": false,
+        "__dirname": false,
+        "describe": false,
+        "it": false,
+        "beforeEach": false,
+        "afterEach": false,
+        "document": false,
+        "navigator": false,
+        "window": false
     }
 }
