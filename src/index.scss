@@ -1,5 +1,8 @@
 body {
     div#root{        
-        color: #525252;
+        * {
+            margin: 0;
+            padding: 0;
+        }
     }
-  }
+}
