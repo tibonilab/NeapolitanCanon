@@ -30,7 +30,8 @@
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "getter-return": "error",
-        "for-direction": "error"
+        "for-direction": "error",
+        "react/prop-types": 0
     },
     "globals": {
         "import": false,
