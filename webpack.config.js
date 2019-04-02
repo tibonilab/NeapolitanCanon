@@ -12,7 +12,7 @@ module.exports = {
         publicPath: '/'
     },
     mode: process.env.NODE_ENV || 'development',
-    devtool: production ? null : 'source-map',
+    devtool: production ? false : 'source-map',
     resolve: {
         modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
@@ -21,7 +21,9 @@ module.exports = {
         historyApiFallback: true,
         proxy: {
             '/solr' : {
-                target: 'http://192.168.1.107:8983/', // we temporarely fetch data from Rodolfo machine
+                // it requires onstage-backend local installation, see https://github.com/rism-ch/onstage-backend
+                // if you can access a remote endpoint with CORS enabled set the target below
+                target: 'http://localhost:8983/',
             },
             headers: {
                 'Access-Control-Allow-Origin': '*'
