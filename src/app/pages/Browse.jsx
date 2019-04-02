@@ -5,6 +5,8 @@ import Solr from '../model/Solr';
 import Template from '../components/template/Template.jsx';
 import Select from '../components/form/Select.jsx';
 
+import { BROWSE_INDEXES } from '../model/INDEXES';
+
 export default class Browse extends Component {
 
     constructor(props) {
@@ -51,13 +53,7 @@ export default class Browse extends Component {
                 <h4>Browse</h4>
                 <Select
                     placeholder="Select index"
-                    options={[
-                        {label: 'Composers', value: 'composer_ss'},
-                        {label: 'Intepreters', value: 'interpreter_ss'},
-                        {label: 'Dates', value: 'year_i'},
-                        {label: 'Places', value: 'place_s'},
-                        {label: 'Series', value: 'series_s'},
-                    ]}
+                    options={BROWSE_INDEXES}
                     onChangeHandler={this.onSelectChangeHandler.bind(this)} 
                 />
 
