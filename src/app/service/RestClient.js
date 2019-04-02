@@ -3,7 +3,7 @@ import Http from './Http';
 const manageHttpError = (error) => {
     // TODO: if needed error management goes here
     return Promise.reject(error);
-}
+};
 
 const get = params => {
     const { url, config } = params;
