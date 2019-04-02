@@ -23,24 +23,27 @@ class Select extends Component {
     }
 
     render() {
-        const { options } = this.props;
+        const { options, label } = this.props;
 
         return (
-            <select 
-                value={this.state.value}
-                onChange={this.onChangeHandler.bind(this)}
-            >
-                {
-                    this.props.placeholder ? (
-                        <option value="" disabled selected hidden>{this.props.placeholder}</option>
-                    ) : (
-                        <option value="" />
-                    )
-                }
-                {
-                    options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)
-                }
-            </select>
+            <div>
+                {label && <label>{label}</label>}
+                <select 
+                    value={this.state.value}
+                    onChange={this.onChangeHandler.bind(this)}
+                >
+                    {
+                        this.props.placeholder ? (
+                            <option value="" disabled selected hidden>{this.props.placeholder}</option>
+                        ) : (
+                            <option value="" />
+                        )
+                    }
+                    {
+                        options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)
+                    }
+                </select>
+            </div>
         );
     }
 
