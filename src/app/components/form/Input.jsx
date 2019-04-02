@@ -7,7 +7,7 @@ export default class Input extends Component {
 
         this.state = {
             value: props.value || ''
-        }
+        };
     }
 
     onChangeHandler(e) {
@@ -16,7 +16,7 @@ export default class Input extends Component {
         this.setState(
             () => ({ value }),
             () => this.emitValue(value)
-        )
+        );
     }
 
     emitValue(value) {
@@ -34,7 +34,7 @@ export default class Input extends Component {
                     placeholder={this.props.placeholder}
                 />
             </div>
-        )
+        );
     }
 
 }
