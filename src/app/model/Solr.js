@@ -4,6 +4,23 @@ const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join
 
 const generateFacetsQueryString = ({ facets }) => `facet=on&facet.sort=count&facet.limit=-1&facet.mincount=1&facet.field=${facets.join('&facet.field=')}`;
 
+const generateFilterQueryByFilters = ({ filters }) => `fq=${filters.join('&fq=')}`;
+
+const generateQueryString = ({ facets, filters }) => {
+    const params = [];
+
+    if(facets.length > 0) {
+        params.push(generateFacetsQueryString({ facets }));
+    }
+
+    if(filters.length > 0) {
+
+        params.push(generateFilterQueryByFilters({ filters }));
+    }
+
+    return params.length > 0 && `?${params.join('&')}`;
+};
+
 const generateSearchQuery = params => {
     const {
         searchKey, 
@@ -73,15 +90,33 @@ export const normalizeFacetsResults = list => {
     return normalized;
 };
 
-export const search = ({ facets = [], ...params}) => RestClient.get({ 
-    url: `/solr/onstage/select?${generateFacetsQueryString({ facets })}`, 
-    config: generateSearchQuery(params) 
-}).then(r => r);
+const debug = query => {
+    if (DEBUG) {
+        console.log(query.url, query.config && query.config.params);
+    }
 
-export const browse = params => RestClient.get({ 
-    url: '/solr/onstage/terms', 
-    config: generateBrowseQuery(params)
-}).then(r => r.terms && r.terms[params.index]);
+    return query;
+};
+
+export const search = ({ facets = [], filters = [], ...params}) => {
+    
+    const query = debug({
+        url: `/solr/onstage/select${generateQueryString({ facets, filters })}`, 
+        config: generateSearchQuery(params) 
+    });
+
+    return RestClient.get(query).then(r => r);
+};
+
+export const browse = params => {
+
+    const query = debug({ 
+        url: '/solr/onstage/terms', 
+        config: generateBrowseQuery(params)
+    });
+
+    return RestClient.get(query).then(r => r.terms && r.terms[params.index]);
+};
 
 export default {
     search,
