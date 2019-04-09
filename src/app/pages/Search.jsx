@@ -148,7 +148,7 @@ export default class Search extends Component {
         return (
             <div>
                 <a href="#" onClick={e => { e.preventDefault(); this.setState({ selected: null });}}>close</a>
-                <Diva manifest={this.state.selected.id.substring(this.state.selected.id.lastIndexOf('/')+1)} />
+                <Diva manifest={this.state.selected.id} />
             </div>
         );
     }
