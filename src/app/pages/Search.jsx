@@ -4,11 +4,12 @@ import Solr from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
 
+import Checkbox from '../components/form/Checkbox.jsx';
 import Input from '../components/form/Input.jsx';
 import Select from '../components/form/Select.jsx';
 import Diva from '../components/wrappers/Diva.jsx';
 
-import { SEARCH_INDEXES, DEFAULT_FACETS } from '../model/INDEXES';
+import { SEARCH_INDEXES, DEFAULT_FACETS, COLLECTIONS } from '../model/INDEXES';
 
 
 export default class Search extends Component {
@@ -22,6 +23,7 @@ export default class Search extends Component {
                 indexes: [],
                 facets: DEFAULT_FACETS,
                 filters: [],
+                collections: COLLECTIONS.map(element => element.field),
                 dateRange: {}
             },
             numFound: null,
@@ -191,6 +193,34 @@ export default class Search extends Component {
         ));
     }
 
+    renderCollectionsSelector() {
+        return COLLECTIONS.map(element => (
+            <div key={element.field}>
+                <label>
+                    <Checkbox 
+                        onChangeHandler={checked => {
+                            let collections = this.state.searchTerms.collections;
+
+                            if (checked) {
+                                collections = collections.concat(element.field);
+                            } else {
+                                collections = collections.filter(e => e !== element.field);
+                            }
+
+                            console.log(checked, element, collections);
+
+                            this.setState({ searchTerms: Object.assign({}, this.state.searchTerms, { collections }) });
+                        }}
+                        value={element.field} 
+                        name="collection_s" 
+                        checked={this.state.searchTerms.collections.includes(element.field)}
+                    />
+                    {element.label}
+                </label>
+            </div>
+        ));
+    }
+
     render() {
 
         return (
@@ -213,6 +243,11 @@ export default class Search extends Component {
                         options={[{ label: 'Full-text', value: '' }].concat(SEARCH_INDEXES)}
                         onChangeHandler={this.onParamChangeHandler('indexes')}
                     />
+                    
+                    <div>
+                        <h4>Collections</h4>
+                        {this.renderCollectionsSelector()}
+                    </div>
                 </div>
 
                 <div style={{padding: '1em 0'}}>
