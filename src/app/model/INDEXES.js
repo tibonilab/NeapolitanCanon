@@ -21,8 +21,15 @@ export const DEFAULT_FACETS = [
     'series_s'
 ];
 
+export const COLLECTIONS = [
+    { field: 'ch_gc', label: 'Geneve' },
+    { field: 'ch_lac', label: 'Losanne' },
+    { field: 'ch_famb', label: 'Basel' }
+];
+
 export default {
     SEARCH_INDEXES,
     BROWSE_INDEXES,
-    DEFAULT_FACETS
+    DEFAULT_FACETS,
+    COLLECTIONS
 };
