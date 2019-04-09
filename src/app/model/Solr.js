@@ -6,7 +6,9 @@ const generateFacetsQueryString = ({ facets }) => `facet=on&facet.sort=count&fac
 
 const generateFilterQueryByFilters = ({ filters }) => `fq=${filters.join('&fq=')}`;
 
-const generateQueryString = ({ facets, filters }) => {
+const generateCollectionsQueryByFilters = ({ collections }) => `fq=collection_s:(${collections.join(' OR ')})`;
+
+const generateQueryString = ({ facets, filters, collections }) => {
     const params = [];
 
     if(facets.length > 0) {
@@ -14,8 +16,11 @@ const generateQueryString = ({ facets, filters }) => {
     }
 
     if(filters.length > 0) {
-
         params.push(generateFilterQueryByFilters({ filters }));
+    }
+
+    if (collections.length > 0) {
+        params.push(generateCollectionsQueryByFilters({ collections }));
     }
 
     return params.length > 0 ? `?${params.join('&')}` : '';
@@ -98,10 +103,10 @@ const debug = query => {
     return query;
 };
 
-export const search = ({ facets = [], filters = [], ...params}) => {
+export const search = ({ facets = [], filters = [], collections = [], ...params}) => {
     
     const query = debug({
-        url: `/solr/onstage/select${generateQueryString({ facets, filters })}`, 
+        url: `/solr/onstage/select${generateQueryString({ facets, filters, collections })}`, 
         config: generateSearchQuery(params) 
     });
 
