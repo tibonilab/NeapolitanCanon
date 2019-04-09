@@ -27,7 +27,7 @@ export default class DivaReact extends Component {
     initDiva() {
         if(this.props.manifest) {
             this.diva = new Diva(this.divaWrapper.id, {
-                objectData: `http://86.119.38.20/manifest/${this.props.manifest}`
+                objectData: `${DIVA_BASE_MANIFEST_SERVER}${this.props.manifest}`
             });
         }
     }
@@ -40,7 +40,3 @@ export default class DivaReact extends Component {
     }
 
 }
-
-DivaReact.defaultProps = {
-    manifest: 'http://86.119.38.20/manifest/CH_Gc_prg_12-1140.xml'
-};
