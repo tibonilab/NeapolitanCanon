@@ -34,7 +34,7 @@ class Select extends Component {
                 >
                     {
                         this.props.placeholder ? (
-                            <option value="" disabled selected hidden>{this.props.placeholder}</option>
+                            <option value="" disabled hidden>{this.props.placeholder}</option>
                         ) : (
                             <option value="" />
                         )
