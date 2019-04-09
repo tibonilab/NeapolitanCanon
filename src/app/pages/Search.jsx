@@ -6,8 +6,10 @@ import Template from '../components/template/Template.jsx';
 
 import Input from '../components/form/Input.jsx';
 import Select from '../components/form/Select.jsx';
+import Diva from '../components/wrappers/Diva.jsx';
 
 import { SEARCH_INDEXES, DEFAULT_FACETS } from '../model/INDEXES';
+
 
 export default class Search extends Component {
 
@@ -25,7 +27,8 @@ export default class Search extends Component {
             numFound: null,
             results: [],
             facets: [],
-            loading: false
+            loading: false,
+            selected: null
         };
 
         // TODO: move this logic into autocompleter component
@@ -94,36 +97,62 @@ export default class Search extends Component {
     }
 
     renderSearchResults() {
-        return this.state.results.map(element => (
-            <div key={element.id}>
-                <br />
-                <h2>{element.title_s}</h2> 
-                <h3>{element.place_s} - {element.year_i}</h3>
-                <div style={{display:'none'}}>
-                    { 
-                        element.composer_ss && (
-                            <div>
-                                <h4>Composers</h4>
-                                {
-                                    element.composer_ss.map((composer, index) => <div key={index}>{composer}</div>)
-                                }
+
+        return this.state.results.length > 0 ? (
+            <div style={{display:'flex', jusityContent: 'flext-start'}}>
+                <div style={{padding: '2em 0', width: '300px'}}>
+                    <h3>Facets</h3>
+                    {this.renderFacets()}
+                </div>
+                <div style={{padding: '2em'}}>
+                    <h3>Found {this.state.numFound} results.</h3>
+                    {
+                        this.state.results.map(element => (
+                            <div key={element.id} style={{cursor: 'pointer'}} onClick={() => this.setState({ selected: element })}>
+                                <br />
+                                <h2>{element.title_s}</h2> 
+                                <h3>{element.place_s} - {element.year_i}</h3>
+                                <div style={{display:'none'}}>
+                                    { 
+                                        element.composer_ss && (
+                                            <div>
+                                                <h4>Composers</h4>
+                                                {
+                                                    element.composer_ss.map((composer, index) => <div key={index}>{composer}</div>)
+                                                }
+                                            </div>
+                                        )
+                                    }
+                                    { 
+                                        element.interpreter_ss && (
+                                            <div style={{paddingLeft: '2em'}}>
+                                                <h4>Interpreters</h4>
+                                                {
+                                                    element.interpreter_ss.map((interpreter, index) => <div key={index}>{interpreter}</div>)
+                                                }
+                                            </div>
+                                        )
+                                    }
+                                </div>
                             </div>
-                        )
-                    }
-                    { 
-                        element.interpreter_ss && (
-                            <div style={{paddingLeft: '2em'}}>
-                                <h4>Interpreters</h4>
-                                {
-                                    element.interpreter_ss.map((interpreter, index) => <div key={index}>{interpreter}</div>)
-                                }
-                            </div>
-                        )
+                        ))
                     }
                 </div>
             </div>
-        ));
+        ) : (
+            this.state.numFound != null && <h3>No results found</h3>
+        );
     }
+
+    renderDivaWrapper() {
+        return (
+            <div>
+                <a href="#" onClick={e => { e.preventDefault(); this.setState({ selected: null });}}>close</a>
+                <Diva manifest={this.state.selected.id.substring(this.state.selected.id.lastIndexOf('/')+1)} />
+            </div>
+        );
+    }
+
 
     setFilter(field, value) {
         this.setState({
@@ -163,6 +192,7 @@ export default class Search extends Component {
     }
 
     render() {
+
         return (
             <Template>
                 <h4>Search</h4>
@@ -187,22 +217,7 @@ export default class Search extends Component {
 
                 <div style={{padding: '1em 0'}}>
                     {this.renderLoading()}
-                    {
-                        this.state.results.length > 0 ? (
-                            <div style={{display:'flex', jusityContent: 'flext-start'}}>
-                                <div style={{padding: '2em 0', width: '300px'}}>
-                                    <h3>Facets</h3>
-                                    {this.renderFacets()}
-                                </div>
-                                <div style={{padding: '2em'}}>
-                                    <h3>Found {this.state.numFound} results.</h3>
-                                    {this.renderSearchResults()}
-                                </div>
-                            </div>
-                        ) : (
-                            this.state.numFound != null && <h3>No results found</h3>
-                        )
-                    }
+                    { this.state.selected ? this.renderDivaWrapper() : this.renderSearchResults() }
                 </div>
             </Template>
         );
