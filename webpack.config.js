@@ -60,7 +60,8 @@ module.exports = {
             template: path.join(__dirname,'src','index.html')
         }),
         new webpack.DefinePlugin({
-            DEBUG: !production
+            DEBUG: !production,
+            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://86.119.38.20/manifest/')
         })
     ]
 };

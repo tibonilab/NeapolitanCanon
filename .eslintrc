@@ -45,6 +45,8 @@
         "afterEach": false,
         "document": false,
         "navigator": false,
-        "window": false
+        "window": false,
+        "DIVA_BASE_MANIFEST_SERVER": false,
+        "DEBUG": false
     }
 }
