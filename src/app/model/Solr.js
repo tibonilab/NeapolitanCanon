@@ -18,7 +18,7 @@ const generateQueryString = ({ facets, filters }) => {
         params.push(generateFilterQueryByFilters({ filters }));
     }
 
-    return params.length > 0 && `?${params.join('&')}`;
+    return params.length > 0 ? `?${params.join('&')}` : '';
 };
 
 const generateSearchQuery = params => {
@@ -32,7 +32,7 @@ const generateSearchQuery = params => {
 
     let query = {
         params: {
-            q: indexes.length ? generateSearchQueryByIndexes({ searchKey, indexes }) : `${searchKey}*`,
+            q: indexes.length ? generateSearchQueryByIndexes({ searchKey, indexes }) : searchKey ? `${searchKey}*` : '*:*',
             start: page,
             rows,
             wt: 'json'
