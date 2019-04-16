@@ -254,9 +254,11 @@ export default class Search extends Component {
                     </div>
 
                     <div>
-                        <h4>Date</h4>
+                        <h4>Date range</h4>
                         <DateRangePicker 
-                            onChangeHandler={this.onParamChangeHandler('dateRange')} 
+                            onChangeHandler={this.onParamChangeHandler('dateRange')}
+                            minFrom={1826}
+                            maxTo={2016}
                         />
                     </div>
 
