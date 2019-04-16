@@ -10,6 +10,18 @@ export default class Input extends Component {
         };
     }
 
+    static getDerivedStateFromProps(nextProps) {
+        return { value: nextProps.value };
+    }
+
+    componentDidUpdate(nextProps) {
+        if(nextProps.value !== this.state.value) {
+            this.setState({
+                value: nextProps.value
+            });
+        }
+    }
+
     onChangeHandler(e) {
         const value = e.target.value || '';
 
