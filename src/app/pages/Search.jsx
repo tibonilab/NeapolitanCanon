@@ -7,6 +7,8 @@ import Template from '../components/template/Template.jsx';
 import Checkbox from '../components/form/Checkbox.jsx';
 import Input from '../components/form/Input.jsx';
 import Select from '../components/form/Select.jsx';
+import DateRangePicker from '../components/form/DateRangePicker.jsx';
+
 import Diva from '../components/wrappers/Diva.jsx';
 
 import { SEARCH_INDEXES, DEFAULT_FACETS, COLLECTIONS } from '../model/INDEXES';
@@ -60,6 +62,11 @@ export default class Search extends Component {
                         case 'indexes': 
                             return Object.assign({}, this.state.searchTerms, {
                                 [param]: value ? [value] : []
+                            });
+                            
+                        case 'dateRange':
+                            return Object.assign({}, this.state.searchTerms, { 
+                                dateRange: Object.assign({}, this.state.searchTerms.dateRange, value) 
                             });
                         }
                     }
@@ -206,9 +213,6 @@ export default class Search extends Component {
                             } else {
                                 collections = collections.filter(e => e !== element.field);
                             }
-
-                            console.log(checked, element, collections);
-
                             this.setState({ searchTerms: Object.assign({}, this.state.searchTerms, { collections }) });
                         }}
                         value={element.field} 
@@ -248,6 +252,14 @@ export default class Search extends Component {
                         <h4>Collections</h4>
                         {this.renderCollectionsSelector()}
                     </div>
+
+                    <div>
+                        <h4>Date</h4>
+                        <DateRangePicker 
+                            onChangeHandler={this.onParamChangeHandler('dateRange')} 
+                        />
+                    </div>
+
                 </div>
 
                 <div style={{padding: '1em 0'}}>
