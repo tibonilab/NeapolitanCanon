@@ -8,7 +8,6 @@ import Input from '../components/form/Input.jsx';
 import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
 import DateRangePicker from '../components/form/DateRangePicker.jsx';
 
-
 import { BROWSE_INDEXES, COLLECTIONS } from '../model/INDEXES';
 
 export default class Browse extends Component {
@@ -20,34 +19,44 @@ export default class Browse extends Component {
             searchResults: [],
             browseResults: [],
             browseTerms: {
+                facets: {
+                    fields: [],
+                    prefix: '',
+                    sort: 'index'
+                },
                 collections: COLLECTIONS.map(element => element.field),
                 dateRange: {}
             },
             loading: false,
-            facet: '',
-            prefix: ''
+            index: ''
         };
     }
 
-    onSelectChangeHandler(facet) {
-        this.setState({ facet });
+    onSelectChangeHandler(index) {
+        const facets = Object.assign({}, this.state.browseTerms.facets, { fields: [index] });
+
+        this.setState({ index }, this.setBrowseTerms({ facets }));
     }
 
     onPrefixFilterChangeHandler(prefix) {
-        this.setState({ prefix });
+        const facets = Object.assign({}, this.state.browseTerms.facets, { prefix });
+
+        this.setBrowseTerms({ facets });
     }
 
     onDateRangeChangeHandelr(dateRange) {
-        const browseTerms = Object.assign({}, this.state.browseTerms, { dateRange });
+        this.setBrowseTerms({ dateRange });
+    }
 
-        this.setState({ browseTerms });
+    setBrowseTerms(props) {
+        this.setState({ browseTerms: Object.assign({}, this.state.browseTerms, props)});
     }
 
     renderLoading() {
         return this.state.loading ? 'loading' : null;
     }
 
-    search(searchKey) {
+    fetchIndexElements(searchKey) {
         let payload = {};
 
         if(this.state.index === 'year_i') {
@@ -60,7 +69,7 @@ export default class Browse extends Component {
         } else {
             payload = {
                 searchKey,
-                indexes: [this.state.facet]
+                indexes: [this.state.index]
             };
         }
         
@@ -78,8 +87,8 @@ export default class Browse extends Component {
     renderBrowseResults() {
         if(this.state.browseResults) {
             return Solr.normalizeFacetsResults(this.state.browseResults).map((term, index) => (
-                <div key={index} onClick={() => this.search(term.label)} style={{cursor:'pointer'}}>
-                    <h4>{term.label}</h4>
+                <div key={index}>
+                    <h4 onClick={() => this.fetchIndexElements(term.label)} style={{cursor:'pointer'}}>{term.label}</h4>
                     {
                         this.state.searchResults[term.label] && (
                             <div>
@@ -105,26 +114,19 @@ export default class Browse extends Component {
     onFormSubmitHandler(e) {
         e && e.preventDefault();
 
-        const facets = {
-            fields: [this.state.facet],
-            sort: 'index',
-            limit: -1,
-            mincount: 1,
-            ...this.state.prefix != '' && { prefix: this.state.prefix }
-        };
-
         this.setState({ 
             loading: true,
             searchResults: [], 
             browseResults: [],
         }, 
         () => Solr
-            .search({ facets, ...this.state.browseTerms })
-            .then(browseResults => this.setState({ browseResults: browseResults.facet_counts.facet_fields[this.state.facet], loading: false }))
+            .search(this.state.browseTerms)
+            .then(browseResults => this.setState({ browseResults: browseResults.facet_counts.facet_fields[this.state.index], loading: false }))
         );
     }
 
     render() {
+
         return (
             <Template>
 
@@ -132,12 +134,12 @@ export default class Browse extends Component {
                 <form onSubmit={this.onFormSubmitHandler.bind(this)}>
                     <div style={{display:'flex', jusityContent: 'flext-start'}}>
                         <Select
-                            value={this.state.facet}
+                            value={this.state.index}
                             placeholder="Select index"
                             options={BROWSE_INDEXES}
                             onChangeHandler={this.onSelectChangeHandler.bind(this)} 
                         />
-                        <button type="submit" disabled={this.state.facet == ''}>browse</button>
+                        <button type="submit" disabled={this.state.index == ''}>browse</button>
                     </div>
 
                     <h4>Collections</h4>
@@ -148,8 +150,7 @@ export default class Browse extends Component {
 
                     <h4>Index Prefix</h4>
                     <Input 
-                        placeholder="prefix" 
-                        value={this.state.prefix} 
+                        placeholder="prefix"
                         onChangeHandler={this.onPrefixFilterChangeHandler.bind(this)} 
                     />
 
