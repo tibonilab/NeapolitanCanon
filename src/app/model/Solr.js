@@ -2,7 +2,7 @@ import RestClient from '../service/RestClient';
 
 const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join(`:${searchKey}*`)}:${searchKey}*`;
 
-const generateFacetsQueryString = ({ facets }) => `facet=on&facet.sort=${facets.sort || 'count'}&facet.limit=${facets.limit || '-1'}&facet.mincount=${facets.mincount || 1}&facet.field=${facets.fields.join('&facet.field=')}`;
+const generateFacetsQueryString = ({ facets }) => `facet=on${facets.prefix && `&facet.prefix=${facets.prefix}`}&facet.sort=${facets.sort || 'count'}&facet.limit=${facets.limit || '-1'}&facet.mincount=${facets.mincount || 1}&facet.field=${facets.fields.join('&facet.field=')}`;
 
 const generateFilterQueryByFilters = ({ filters }) => `fq=${filters.join('&fq=')}`;
 
