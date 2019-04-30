@@ -6,6 +6,8 @@ import Template from '../components/template/Template.jsx';
 import Select from '../components/form/Select.jsx';
 import Input from '../components/form/Input.jsx';
 import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
+import DateRangePicker from '../components/form/DateRangePicker.jsx';
+
 
 import { BROWSE_INDEXES, COLLECTIONS } from '../model/INDEXES';
 
@@ -19,6 +21,7 @@ export default class Browse extends Component {
             browseResults: [],
             browseTerms: {
                 collections: COLLECTIONS.map(element => element.field),
+                dateRange: {}
             },
             loading: false,
             facet: '',
@@ -32,6 +35,12 @@ export default class Browse extends Component {
 
     onPrefixFilterChangeHandler(prefix) {
         this.setState({ prefix });
+    }
+
+    onDateRangeChangeHandelr(dateRange) {
+        const browseTerms = Object.assign({}, this.state.browseTerms, { dateRange });
+
+        this.setState({ browseTerms });
     }
 
     renderLoading() {
@@ -110,7 +119,7 @@ export default class Browse extends Component {
             browseResults: [],
         }, 
         () => Solr
-            .search({ facets, collections: this.state.browseTerms.collections })
+            .search({ facets, ...this.state.browseTerms })
             .then(browseResults => this.setState({ browseResults: browseResults.facet_counts.facet_fields[this.state.facet], loading: false }))
         );
     }
@@ -137,11 +146,18 @@ export default class Browse extends Component {
                         onChangeHandler={collections => this.setState({ browseTerms: Object.assign({}, this.state.browseTerms, { collections })})}
                     />
 
-                    <h4>Filters</h4>
+                    <h4>Index Prefix</h4>
                     <Input 
                         placeholder="prefix" 
                         value={this.state.prefix} 
                         onChangeHandler={this.onPrefixFilterChangeHandler.bind(this)} 
+                    />
+
+                    <h4>Date range</h4>
+                    <DateRangePicker
+                        onChangeHandler={this.onDateRangeChangeHandelr.bind(this)}
+                        minFrom={1826}
+                        maxTo={2016}
                     />
                 </form>
 
