@@ -2,7 +2,7 @@ import RestClient from '../service/RestClient';
 
 const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join(`:${searchKey}*`)}:${searchKey}*`;
 
-const generateFacetsQueryString = ({ facets }) => `facet=on&facet.sort=count&facet.limit=-1&facet.mincount=1&facet.field=${facets.join('&facet.field=')}`;
+const generateFacetsQueryString = ({ facets }) => `facet=on&facet.sort=${facets.sort || 'count'}&facet.limit=${facets.limit || '-1'}&facet.mincount=${facets.mincount || 1}&facet.field=${facets.fields.join('&facet.field=')}`;
 
 const generateFilterQueryByFilters = ({ filters }) => `fq=${filters.join('&fq=')}`;
 
@@ -11,7 +11,7 @@ const generateCollectionsQueryByFilters = ({ collections }) => `fq=collection_s:
 const generateQueryString = ({ facets, filters, collections }) => {
     const params = [];
 
-    if(facets.length > 0) {
+    if(facets.fields && facets.fields.length > 0) {
         params.push(generateFacetsQueryString({ facets }));
     }
 
@@ -103,7 +103,7 @@ const debug = query => {
     return query;
 };
 
-export const search = ({ facets = [], filters = [], collections = [], ...params}) => {
+export const search = ({ facets = {}, filters = [], collections = [], ...params}) => {
     
     const query = debug({
         url: `/solr/onstage/select${generateQueryString({ facets, filters, collections })}`, 
