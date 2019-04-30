@@ -4,7 +4,6 @@ import Solr from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
 
-import Checkbox from '../components/form/Checkbox.jsx';
 import Input from '../components/form/Input.jsx';
 import Select from '../components/form/Select.jsx';
 import DateRangePicker from '../components/form/DateRangePicker.jsx';
@@ -13,6 +12,8 @@ import Diva from '../components/wrappers/Diva.jsx';
 
 import { SEARCH_INDEXES, DEFAULT_FACETS, COLLECTIONS } from '../model/INDEXES';
 
+
+import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
 
 export default class Search extends Component {
 
@@ -23,7 +24,9 @@ export default class Search extends Component {
             searchTerms: {
                 searchKey: '',
                 indexes: [],
-                facets: DEFAULT_FACETS,
+                facets: {
+                    fields: DEFAULT_FACETS
+                },
                 filters: [],
                 collections: COLLECTIONS.map(element => element.field),
                 dateRange: {}
@@ -200,31 +203,6 @@ export default class Search extends Component {
         ));
     }
 
-    renderCollectionsSelector() {
-        return COLLECTIONS.map(element => (
-            <div key={element.field}>
-                <label>
-                    <Checkbox 
-                        onChangeHandler={checked => {
-                            let collections = this.state.searchTerms.collections;
-
-                            if (checked) {
-                                collections = collections.concat(element.field);
-                            } else {
-                                collections = collections.filter(e => e !== element.field);
-                            }
-                            this.setState({ searchTerms: Object.assign({}, this.state.searchTerms, { collections }) });
-                        }}
-                        value={element.field} 
-                        name="collection_s" 
-                        checked={this.state.searchTerms.collections.includes(element.field)}
-                    />
-                    {element.label}
-                </label>
-            </div>
-        ));
-    }
-
     render() {
 
         return (
@@ -250,7 +228,10 @@ export default class Search extends Component {
                     
                     <div>
                         <h4>Collections</h4>
-                        {this.renderCollectionsSelector()}
+                        <CollectionsSelector 
+                            collections={this.state.searchTerms.collections}
+                            onChangeHandler={collections => this.setState({ searchTerms: Object.assign({}, this.state.searchTerms, { collections }) })}
+                        />
                     </div>
 
                     <div>
