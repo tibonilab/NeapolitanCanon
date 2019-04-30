@@ -4,8 +4,9 @@ import Solr from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
 import Select from '../components/form/Select.jsx';
+import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
 
-import { BROWSE_INDEXES } from '../model/INDEXES';
+import { BROWSE_INDEXES, COLLECTIONS } from '../model/INDEXES';
 
 export default class Browse extends Component {
 
@@ -15,23 +16,16 @@ export default class Browse extends Component {
         this.state = {
             searchResults: [],
             browseResults: [],
+            browseTerms: {
+                collections: COLLECTIONS.map(element => element.field),
+            },
             loading: false,
-            index: ''
+            facet: ''
         };
     }
 
-    onSelectChangeHandler(index) {
-        this.setState(
-            () => ({ 
-                searchResults: [], 
-                browseResults: [],
-                loading: true,
-                index
-            }),
-            () => Solr
-                .browse({ index, sort: 'index' })
-                .then(browseResults => this.setState({ browseResults, loading: false }))
-        );
+    onSelectChangeHandler(facet) {
+        this.setState({ facet });
     }
 
     renderLoading() {
@@ -51,7 +45,7 @@ export default class Browse extends Component {
         } else {
             payload = {
                 searchKey,
-                indexes: [this.state.index]
+                indexes: [this.state.facet]
             };
         }
         
@@ -62,8 +56,7 @@ export default class Browse extends Component {
                     searchResults: Object.assign({}, this.state.searchResults, {
                         [searchKey]: solr.response.docs
                     })
-                }), 
-                () => console.log(this.state.searchResults)
+                })
             ));
     }
 
@@ -94,17 +87,49 @@ export default class Browse extends Component {
         return null;
     }
 
+    onFormSubmitHandler(e) {
+        e && e.preventDefault();
+
+        const facets = {
+            fields: [this.state.facet],
+            sort: 'index',
+            limit: -1,
+            mincount: 1
+        };
+
+        this.setState({ 
+            loading: true,
+            searchResults: [], 
+            browseResults: [],
+        }, 
+        () => Solr
+            .search({ facets, collections: this.state.browseTerms.collections })
+            .then(browseResults => this.setState({ browseResults: browseResults.facet_counts.facet_fields[this.state.facet], loading: false }))
+        );
+    }
+
     render() {
         return (
             <Template>
 
                 <h4>Browse</h4>
-                <Select
-                    value={this.state.index}
-                    placeholder="Select index"
-                    options={BROWSE_INDEXES}
-                    onChangeHandler={this.onSelectChangeHandler.bind(this)} 
-                />
+                <form onSubmit={this.onFormSubmitHandler.bind(this)}>
+                    <div style={{display:'flex', jusityContent: 'flext-start'}}>
+                        <Select
+                            value={this.state.facet}
+                            placeholder="Select index"
+                            options={BROWSE_INDEXES}
+                            onChangeHandler={this.onSelectChangeHandler.bind(this)} 
+                        />
+                        <button type="submit" disabled={this.state.facet == ''}>browse</button>
+                    </div>
+
+                    <h4>Collections</h4>
+                    <CollectionsSelector
+                        collections={this.state.browseTerms.collections}
+                        onChangeHandler={collections => this.setState({ browseTerms: Object.assign({}, this.state.browseTerms, { collections })})}
+                    />
+                </form>
 
                 <div style={{padding: '1em 0'}}>
                     {this.renderLoading()}
