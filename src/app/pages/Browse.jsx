@@ -4,6 +4,7 @@ import Solr from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
 import Select from '../components/form/Select.jsx';
+import Input from '../components/form/Input.jsx';
 import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
 
 import { BROWSE_INDEXES, COLLECTIONS } from '../model/INDEXES';
@@ -20,12 +21,17 @@ export default class Browse extends Component {
                 collections: COLLECTIONS.map(element => element.field),
             },
             loading: false,
-            facet: ''
+            facet: '',
+            prefix: ''
         };
     }
 
     onSelectChangeHandler(facet) {
         this.setState({ facet });
+    }
+
+    onPrefixFilterChangeHandler(prefix) {
+        this.setState({ prefix });
     }
 
     renderLoading() {
@@ -94,7 +100,8 @@ export default class Browse extends Component {
             fields: [this.state.facet],
             sort: 'index',
             limit: -1,
-            mincount: 1
+            mincount: 1,
+            ...this.state.prefix != '' && { prefix: this.state.prefix }
         };
 
         this.setState({ 
@@ -128,6 +135,13 @@ export default class Browse extends Component {
                     <CollectionsSelector
                         collections={this.state.browseTerms.collections}
                         onChangeHandler={collections => this.setState({ browseTerms: Object.assign({}, this.state.browseTerms, { collections })})}
+                    />
+
+                    <h4>Filters</h4>
+                    <Input 
+                        placeholder="prefix" 
+                        value={this.state.prefix} 
+                        onChangeHandler={this.onPrefixFilterChangeHandler.bind(this)} 
                     />
                 </form>
 
