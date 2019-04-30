@@ -16,6 +16,10 @@ export default class DateRangePicker extends Component {
         this.onChangeHandler = this.onChangeHandler.bind(this);
     }
 
+    componentDidMount() {
+        this.emitData();
+    }
+
     onChangeHandler(field) {
         return value => {
             this.setState({[field]: value}, this.emitData);
