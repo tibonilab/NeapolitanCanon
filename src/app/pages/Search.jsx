@@ -1,126 +1,41 @@
 import React, { Component } from 'react';
 
-import Solr from '../model/Solr';
+import { normalizeFacetsResults } from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
 
 import Input from '../components/form/Input.jsx';
 import Select from '../components/form/Select.jsx';
 import DateRangePicker from '../components/form/DateRangePicker.jsx';
-
+import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
 import Diva from '../components/wrappers/Diva.jsx';
 
-import { SEARCH_INDEXES, DEFAULT_FACETS, COLLECTIONS } from '../model/INDEXES';
+import { SEARCH_INDEXES } from '../model/INDEXES';
 
+import GlobalContext from '../context/globalContext';
 
-import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
+class Search extends Component {
 
-export default class Search extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            searchTerms: {
-                searchKey: '',
-                indexes: [],
-                facets: {
-                    fields: DEFAULT_FACETS
-                },
-                filters: [],
-                collections: COLLECTIONS.map(element => element.field),
-                dateRange: {}
-            },
-            numFound: null,
-            results: [],
-            facets: [],
-            loading: false,
-            selected: null
-        };
-
-        // TODO: move this logic into autocompleter component
-        // let timeout;
-        // this.debounce = (callback, milliseconds) => {
-        //     return (...args) => {
-        //         timeout && clearTimeout(timeout);
-        //         timeout = setTimeout(() => callback.apply(this, args), milliseconds);
-        //     };
-        // };
-
-        this.onParamChangeHandler = this.onParamChangeHandler.bind(this);
-    }
-
-    onParamChangeHandler(param) {
-        return value => {
-            this.setState({ 
-                // TODO: refactor this switch with a helper or something else..
-                searchTerms: (
-                    () => {
-                        switch(param) {
-                        case 'searchKey': 
-                            return Object.assign({}, this.state.searchTerms, {
-                                [param]: value
-                            });
-                            
-                        case 'indexes': 
-                            return Object.assign({}, this.state.searchTerms, {
-                                [param]: value ? [value] : []
-                            });
-                            
-                        case 'dateRange':
-                            return Object.assign({}, this.state.searchTerms, { 
-                                dateRange: Object.assign({}, this.state.searchTerms.dateRange, value) 
-                            });
-                        }
-                    }
-                )() 
-            });
-        };
-
-        // TODO: move this logic into autocompleter component
-        // () => this.debounce(this.performSearch, 500)()
-    }
-
-    setSolrResponse(solr) {
-        this.setState({ 
-            numFound: solr.response.numFound,
-            results: solr.response.docs,
-            facets: solr.facet_counts ? solr.facet_counts.facet_fields : [],
-            loading: false 
-        });
-    }
-
-    performSearch() {
-        return Solr.search(this.state.searchTerms).then(this.setSolrResponse.bind(this));
-    }
-
-    onSearchButtonClickHandler(e) {
-        e && e.preventDefault();
-
-        this.setState({
-            numFound: 0,
-            results: [], 
-            loading: true 
-        }, this.performSearch);
-    }
+    // init of the context, we can now consume context data and functions into the component's methods via this.context
+    static contextType = GlobalContext;
 
     renderLoading() {
-        return this.state.loading ? 'loading' : null;
+        return this.context.search.loading ? 'loading' : null;
     }
 
     renderSearchResults() {
 
-        return this.state.results.length > 0 ? (
+        return this.context.search.results.length > 0 ? (
             <div style={{display:'flex', jusityContent: 'flext-start'}}>
                 <div style={{padding: '2em 0', width: '300px'}}>
                     <h3>Facets</h3>
                     {this.renderFacets()}
                 </div>
                 <div style={{padding: '2em'}}>
-                    <h3>Found {this.state.numFound} results.</h3>
+                    <h3>Found {this.context.search.numFound} results.</h3>
                     {
-                        this.state.results.map(element => (
-                            <div key={element.id} style={{cursor: 'pointer'}} onClick={() => this.setState({ selected: element })}>
+                        this.context.search.results.map(element => (
+                            <div key={element.id} style={{cursor: 'pointer'}} onClick={() => this.context.setSearchSelected(element)}>
                                 <br />
                                 <h2>{element.title_s}</h2> 
                                 <h3>{element.place_s} - {element.year_i}</h3>
@@ -152,50 +67,25 @@ export default class Search extends Component {
                 </div>
             </div>
         ) : (
-            this.state.numFound != null && <h3>No results found</h3>
+            this.context.search.numFound === 0 && <h3>No results found</h3>
         );
     }
 
     renderDivaWrapper() {
         return (
             <div>
-                <a href="#" onClick={e => { e.preventDefault(); this.setState({ selected: null });}}>close</a>
-                <Diva manifest={this.state.selected.id} />
+                <a href="#" onClick={(e) => {e.preventDefault(); this.context.unsetSearchSelected();}}>close</a>
+                <Diva manifest={this.context.search.selected.id} />
             </div>
         );
     }
 
-
-    setFilter(field, value) {
-        this.setState({
-            searchTerms: Object.assign({}, this.state.searchTerms, {
-                filters: this.state.searchTerms.filters.concat(`${field}:${value}`)
-            })
-        }, this.performSearch);
-    }
-
-    unsetFilter(field, value) {
-        this.setState({
-            searchTerms: Object.assign({}, this.state.searchTerms, {
-                filters: this.state.searchTerms.filters.filter(f => f !== `${field}:${value}`)
-            })
-        }, this.performSearch);
-    }
-
-    toggleFilter(field, value) {
-        if (this.state.searchTerms.filters.includes(`${field}:${value}`)) {
-            this.unsetFilter(field, value);
-        } else {
-            this.setFilter(field, value);
-        }
-    }
-
     renderFacets() {
-        return Object.keys(this.state.facets).map(key => (
+        return Object.keys(this.context.search.facets).map(key => (
             <div key={key}>
                 <br />
                 <h4>{key}</h4>
-                {Solr.normalizeFacetsResults(this.state.facets[key]).map((facet, index) => index < 10 && <div style={{display: 'flex', justifyContent:'space-between',cursor: 'pointer', background: this.state.searchTerms.filters.includes(`${key}:${facet.label}`) ? 'red' : 'transparent'}} key={index} onClick={() => this.toggleFilter(key, facet.label)}>
+                {normalizeFacetsResults(this.context.search.facets[key]).map((facet, index) => index < 10 && <div style={{display: 'flex', justifyContent:'space-between',cursor: 'pointer', background: this.context.search.searchTerms.filters.includes(`${key}:${facet.label}`) ? 'red' : 'transparent'}} key={index} onClick={() => this.context.toggleSearchFilter(key, facet.label)}>
                     <span>{facet.label}</span> 
                     <span>{facet.count}</span>
                 </div>)}
@@ -207,49 +97,58 @@ export default class Search extends Component {
 
         return (
             <Template>
-                <h4>Search</h4>
+                <GlobalContext.Consumer>
+                    {context => (
+                        <React.Fragment>
 
-                <form onSubmit={this.onSearchButtonClickHandler.bind(this)} style={{display:'flex', jusityContent: 'flext-start'}}>
-                    <Input 
-                        onChangeHandler={this.onParamChangeHandler('searchKey')} 
-                    />
-                    <button type="submit">search</button>
-                </form>
+                            <h4>Search</h4>
+
+                            <form onSubmit={context.searchFormSubmitHandler} style={{display:'flex', jusityContent: 'flext-start'}}>
+                                <Input 
+                                    onChangeHandler={context.searchParamChangeHandler('searchKey')} 
+                                />
+                                <button type="submit">search</button>
+                            </form>
 
 
-                <div>
-                    <h4>Advanced</h4>
-                    <Select 
-                        label="Search by index"
-                        placeholder="Select index"
-                        options={[{ label: 'Full-text', value: '' }].concat(SEARCH_INDEXES)}
-                        onChangeHandler={this.onParamChangeHandler('indexes')}
-                    />
+                            <div>
+                                <h4>Advanced</h4>
+                                <Select 
+                                    label="Search by index"
+                                    placeholder="Select index"
+                                    options={[{ label: 'Full-text', value: '' }].concat(SEARCH_INDEXES)}
+                                    onChangeHandler={context.searchParamChangeHandler('indexes')}
+                                />
                     
-                    <div>
-                        <h4>Collections</h4>
-                        <CollectionsSelector 
-                            collections={this.state.searchTerms.collections}
-                            onChangeHandler={collections => this.setState({ searchTerms: Object.assign({}, this.state.searchTerms, { collections }) })}
-                        />
-                    </div>
+                                <div>
+                                    <h4>Collections</h4>
+                                    <CollectionsSelector 
+                                        collections={context.search.searchTerms.collections}
+                                        onChangeHandler={context.changeStateCollectionsSelector}
+                                    />
+                                </div>
 
-                    <div>
-                        <h4>Date range</h4>
-                        <DateRangePicker 
-                            onChangeHandler={this.onParamChangeHandler('dateRange')}
-                            minFrom={1826}
-                            maxTo={2016}
-                        />
-                    </div>
+                                <div>
+                                    <h4>Date range</h4>
+                                    <DateRangePicker 
+                                        onChangeHandler={context.searchParamChangeHandler('dateRange')}
+                                        minFrom={1826}
+                                        maxTo={2016}
+                                    />
+                                </div>
 
-                </div>
+                            </div>
 
-                <div style={{padding: '1em 0'}}>
-                    {this.renderLoading()}
-                    { this.state.selected ? this.renderDivaWrapper() : this.renderSearchResults() }
-                </div>
+                            <div style={{padding: '1em 0'}}>
+                                {this.renderLoading()}
+                                { context.search.selected ? this.renderDivaWrapper() : this.renderSearchResults() }
+                            </div>
+                        </React.Fragment>
+                    )}
+                </GlobalContext.Consumer>
             </Template>
         );
     }
 }
+
+export default Search;
