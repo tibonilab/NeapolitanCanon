@@ -61,7 +61,7 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             DEBUG: !production,
-            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://86.119.38.20/manifest/')
+            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/')
         })
     ]
 };
