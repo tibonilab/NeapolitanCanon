@@ -195,7 +195,7 @@ export default class Search extends Component {
             <div key={key}>
                 <br />
                 <h4>{key}</h4>
-                {Solr.normalizeFacetsResults(this.state.facets[key]).map((facet, index) => index < 10 && <div style={{display: 'flex', justifyContent:'space-between',cursor: 'pointer', background: this.state.searchTerms.filters.includes(`${key}:${facet.label}`) ? 'red' : 'transparent'}} key={index} onClick={e => this.toggleFilter(key, facet.label)}>
+                {Solr.normalizeFacetsResults(this.state.facets[key]).map((facet, index) => index < 10 && <div style={{display: 'flex', justifyContent:'space-between',cursor: 'pointer', background: this.state.searchTerms.filters.includes(`${key}:${facet.label}`) ? 'red' : 'transparent'}} key={index} onClick={() => this.toggleFilter(key, facet.label)}>
                     <span>{facet.label}</span> 
                     <span>{facet.count}</span>
                 </div>)}

@@ -10,7 +10,7 @@ export default class Index extends Component {
         return (
             <Template>
                 <h1>Welcome</h1>
-                <Link to="/search">Seach</Link> or <Link to="/browse">Browse</Link>
+                <Link to="/search">Search</Link> or <Link to="/browse">Browse</Link>
             </Template>
         );
     }
