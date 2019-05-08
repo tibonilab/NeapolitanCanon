@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import '../../../index.scss';
 
-export default class Template extends Component {
+const Template = props => {
 
-    render() {
-        return (
-            <div className="template-root">
-                <div style={{ float: 'right' }}>
-                    <Link to="/search">Search</Link> or <Link to="/browse">Browse</Link>
-                </div>
-                {this.props.children}
+    return (
+        <div className="template-root">
+            <div style={{ float: 'right' }}>
+                <Link to="/search">Search</Link> or <Link to="/browse">Browse</Link>
             </div>
-        );
-    }
+            {props.children}
+        </div>
+    );
 
-}
+};
+
+export default Template;
