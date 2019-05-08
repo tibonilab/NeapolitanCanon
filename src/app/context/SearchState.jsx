@@ -1,0 +1,130 @@
+import React, { useState, useEffect } from 'react';
+
+import SearchContext from './searchContext';
+import { useDidMount } from '../hooks/useDidMount';
+
+import { DEFAULT_FACETS, COLLECTIONS } from '../model/INDEXES';
+import Solr from '../model/Solr';
+
+
+const SearchState = props => {
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const [selectedResource, setSelectedResource] = useState(null);
+
+    const [searchResults, setSearchResults] = useState({
+        numFound: null,
+        results: [],
+        facets: [],
+    });
+
+    const [searchTerms, setSearchTerms] = useState({
+        collections: COLLECTIONS.map(element => element.field),
+        searchKey: '',
+        indexes: [],
+        filters: [],
+        dateRange: {},
+        facets: {
+            fields: DEFAULT_FACETS
+        },
+    });
+
+
+    const searchParamChangeHandler = param => value => {
+        setSearchTerms(
+            (() => {
+                switch (param) {
+                default: return { ...searchTerms, [param]: value };
+                case 'indexes': return { ...searchTerms, [param]: value ? [value] : [] };
+                }
+            })()
+        );
+    };
+
+    const toggleSearchFilter = (field, value) => {
+        if (searchTerms.filters.includes(`${field}:${value}`)) {
+            setSearchTerms({ ...searchTerms, filters: searchTerms.filters.filter(f => f !== `${field}:${value}`) });
+        } else {
+            setSearchTerms({ ...searchTerms, filters: searchTerms.filters.concat(`${field}:${value}`) });
+        }
+    };
+
+    const changeCollectionsSelectorHandler = collections => {
+        setSearchTerms({ ...searchTerms, collections });
+    };
+
+    const setSearchSolrResponse = solr => {
+        setIsLoading(false);
+        setSearchResults({
+            ...searchResults,
+            numFound: solr.response.numFound,
+            results: solr.response.docs,
+            facets: solr.facet_counts ? solr.facet_counts.facet_fields : [],
+        });
+    };
+
+    const setSearchSelected = element => {
+        setSelectedResource(element);
+    };
+
+    const unsetSearchSelected = () => {
+        setSelectedResource(null);
+    };
+
+    const searchFormSubmitHandler = e => {
+        e && e.preventDefault();
+
+        setIsLoading(true);
+        setSearchResults({
+            ...searchResults,
+            numFound: 0,
+            results: [],
+            facets: []
+        });
+
+        performSearch(searchTerms);
+    };
+
+
+    const performSearch = searchTerms => {
+        return Solr
+            .search(searchTerms)
+            .then(setSearchSolrResponse);
+    };
+
+
+    // we use useDidMount Hook to let the component know whether is mounted or not
+    const didMount = useDidMount();
+
+    // we want to perform a search when a filter in searchTerms changes.
+    // The useEffect Hook calls the function as first parameter on mounting 
+    // and when the dependendecies in the second parameter change
+    useEffect(
+        () => {
+            didMount && performSearch(searchTerms);
+        },
+        [searchTerms.filters]
+    );
+
+    return (
+        <SearchContext.Provider
+            value={{
+                searchResults,
+                searchTerms,
+                selectedResource,
+                isLoading,
+                searchParamChangeHandler,
+                changeCollectionsSelectorHandler,
+                toggleSearchFilter,
+                setSearchSelected,
+                unsetSearchSelected,
+                searchFormSubmitHandler,
+            }}
+        >
+            {props.children}
+        </SearchContext.Provider>
+    );
+};
+
+export default SearchState;
