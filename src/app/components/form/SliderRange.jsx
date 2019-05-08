@@ -128,8 +128,16 @@ export default class SliderRange extends Component {
                 window.removeEventListener('mousemove', this.onMouseMoveTo);
                 window.removeEventListener('mouseup', this.disableDrag);
                 window.removeEventListener('dragstart', this.preventDragEvent);
+                this.callOnSliderUpdated();
             }
         );
+    }
+
+    callOnSliderUpdated() {
+        if (this.props.sliderUpdatedHandler && typeof this.props.sliderUpdatedHandler === 'function') {
+            const { from, to } = this.state;
+            this.props.sliderUpdatedHandler({ from, to });
+        }
     }
 
     calculateSelectionTrackWidth() {

@@ -27,6 +27,10 @@ export default class DateRangePicker extends Component {
     }
 
     onSliderChangeHandler({ from, to }) {
+        this.setState({ from, to });
+    }
+
+    onSliderUpdatedHandler({ from, to }) {
         this.setState({ from, to }, this.emitData);
     }
 
@@ -54,6 +58,7 @@ export default class DateRangePicker extends Component {
                 </div>
                 <SliderRange
                     onChangeHandler={this.onSliderChangeHandler.bind(this)}
+                    sliderUpdatedHandler={this.onSliderUpdatedHandler.bind(this)}
                     min={this.props.minFrom}
                     max={this.props.maxTo}
                 />
