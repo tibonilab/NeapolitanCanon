@@ -6,7 +6,7 @@ class Select extends Component {
         super(props);
 
         this.state = {
-            value: ''
+            value: props.value || ''
         };
     }
 
@@ -17,7 +17,7 @@ class Select extends Component {
     }
 
     emit(value) {
-        if(this.props.onChangeHandler && typeof this.props.onChangeHandler === 'function') {
+        if (this.props.onChangeHandler && typeof this.props.onChangeHandler === 'function') {
             this.props.onChangeHandler(value);
         }
     }
@@ -28,7 +28,7 @@ class Select extends Component {
         return (
             <div>
                 {label && <label>{label}</label>}
-                <select 
+                <select
                     value={this.state.value}
                     onChange={this.onChangeHandler.bind(this)}
                 >

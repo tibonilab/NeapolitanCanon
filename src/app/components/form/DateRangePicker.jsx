@@ -1,4 +1,4 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 
 import Input from './Input.jsx';
 import SliderRange from './SliderRange.jsx';
@@ -9,11 +9,21 @@ export default class DateRangePicker extends Component {
         super(props);
 
         this.state = {
-            from: props.minFrom || '',
-            to: props.maxTo || ''
+            from: props.from ? props.from : props.minFrom || '',
+            to: props.to ? props.to : props.maxTo || ''
         };
 
         this.onChangeHandler = this.onChangeHandler.bind(this);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.from !== this.props.from) {
+            this.setState({ from: this.props.from });
+        }
+
+        if (prevProps.to !== this.props.to) {
+            this.setState({ to: this.props.to });
+        }
     }
 
     componentDidMount() {
@@ -22,7 +32,7 @@ export default class DateRangePicker extends Component {
 
     onChangeHandler(field) {
         return value => {
-            this.setState({[field]: value}, this.emitData);
+            this.setState({ [field]: value }, this.emitData);
         };
     }
 
@@ -35,7 +45,7 @@ export default class DateRangePicker extends Component {
     }
 
     emitData() {
-        if(this.props.onChangeHandler && typeof this.props.onChangeHandler === 'function') {
+        if (this.props.onChangeHandler && typeof this.props.onChangeHandler === 'function') {
             this.props.onChangeHandler(this.state);
         }
     }
@@ -44,13 +54,13 @@ export default class DateRangePicker extends Component {
         const { from, to } = this.state;
 
         return (
-            <div style={{width: 350}}>
-                <div style={{display:'flex', justifyContent:'space-between'}}>
-                    <Input 
+            <div style={{ width: 350 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Input
                         value={from}
                         onChangeHandler={this.onChangeHandler('from')}
                     />
-                    <Input 
+                    <Input
                         value={to}
                         onChangeHandler={this.onChangeHandler('to')}
                     />
@@ -59,6 +69,8 @@ export default class DateRangePicker extends Component {
                 <SliderRange
                     onChangeHandler={this.onSliderChangeHandler.bind(this)}
                     sliderUpdatedHandler={this.onSliderUpdatedHandler.bind(this)}
+                    from={this.state.from}
+                    to={this.state.to}
                     min={this.props.minFrom}
                     max={this.props.maxTo}
                 />

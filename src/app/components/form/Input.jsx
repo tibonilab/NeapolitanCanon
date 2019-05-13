@@ -10,15 +10,10 @@ export default class Input extends Component {
         };
     }
 
-    static getDerivedStateFromProps(nextProps) {
-        return { value: nextProps.value };
-    }
-
-    componentDidUpdate(nextProps) {
-        if(nextProps.value !== this.state.value) {
-            this.setState({
-                value: nextProps.value
-            });
+    componentDidUpdate(prevProps) {
+        // set the value if is changed outside the component
+        if (prevProps.value !== this.props.value) {
+            this.setState({ value: this.props.value });
         }
     }
 
@@ -40,7 +35,7 @@ export default class Input extends Component {
     render() {
         return (
             <div>
-                <input 
+                <input
                     value={this.state.value}
                     onChange={this.onChangeHandler.bind(this)}
                     placeholder={this.props.placeholder}
