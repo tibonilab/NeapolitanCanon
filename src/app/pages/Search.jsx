@@ -76,8 +76,8 @@ const SearchPage = () => {
                 </div>
             </div>
         ) : (
-            context.searchResults.numFound === 0 && <h3>No results found</h3>
-        );
+                context.searchResults.numFound === 0 && <h3>No results found</h3>
+            );
     };
 
     const renderDivaWrapper = () => {
@@ -139,6 +139,7 @@ const SearchPage = () => {
                 style={{ display: 'flex', jusityContent: 'flext-start' }}
             >
                 <Input
+                    value={context.searchTerms.searchKey}
                     onChangeHandler={context.searchParamChangeHandler(
                         'searchKey'
                     )}
@@ -149,6 +150,7 @@ const SearchPage = () => {
             <div>
                 <h4>Advanced</h4>
                 <Select
+                    value={context.searchTerms.indexes[0]}
                     label="Search by index"
                     placeholder="Select index"
                     options={[{ label: 'Full-text', value: '' }].concat(
@@ -175,6 +177,8 @@ const SearchPage = () => {
                         onChangeHandler={context.searchParamChangeHandler(
                             'dateRange'
                         )}
+                        from={context.searchTerms.dateRange.from}
+                        to={context.searchTerms.dateRange.to}
                         minFrom={1826}
                         maxTo={2016}
                     />

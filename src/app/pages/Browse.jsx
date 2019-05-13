@@ -73,12 +73,15 @@ const BrowsePage = () => {
 
                 <h4>Index Prefix</h4>
                 <Input
+                    value={context.browseTerms.facets.prefix}
                     placeholder="prefix"
                     onChangeHandler={context.onPrefixFilterChangeHandler}
                 />
 
                 <h4>Date range</h4>
                 <DateRangePicker
+                    from={context.browseTerms.dateRange.from}
+                    to={context.browseTerms.dateRange.to}
                     onChangeHandler={context.onDateRangeChangeHandler}
                     minFrom={1826}
                     maxTo={2016}
