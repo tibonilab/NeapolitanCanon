@@ -25,6 +25,15 @@ const BrowseState = props => {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    const [selectedResource, setSelectedResource] = useState(null);
+
+    const setSearchSelected = element => {
+        setSelectedResource(element);
+    };
+
+    const unsetSearchSelected = () => {
+        setSelectedResource(null);
+    };
 
     const onSelectChangeHandler = index => {
         const updateBrowseTerms = { ...browseTerms, facets: { ...browseTerms.facets, fields: [index] } };
@@ -108,6 +117,9 @@ const BrowseState = props => {
                 currentIndex,
                 browseResults,
                 searchResults,
+                selectedResource,
+                setSearchSelected,
+                unsetSearchSelected,
                 onFormSubmitHandler,
                 onSelectChangeHandler,
                 onPrefixFilterChangeHandler,

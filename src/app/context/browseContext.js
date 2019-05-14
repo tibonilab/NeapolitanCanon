@@ -6,4 +6,5 @@ export default createContext({
     browseTerms: {},
     isLoading: false,
     selectedIndex: '',
+    selectedResource: null
 });
