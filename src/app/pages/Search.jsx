@@ -76,8 +76,8 @@ const SearchPage = () => {
                 </div>
             </div>
         ) : (
-                context.searchResults.numFound === 0 && <h3>No results found</h3>
-            );
+            context.searchResults.numFound === 0 && <h3>No results found</h3>
+        );
     };
 
     const renderDivaWrapper = () => {
