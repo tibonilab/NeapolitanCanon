@@ -7,6 +7,7 @@ import Select from '../components/form/Select.jsx';
 import Input from '../components/form/Input.jsx';
 import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
 import DateRangePicker from '../components/form/DateRangePicker.jsx';
+import Diva from '../components/wrappers/Diva.jsx';
 
 import { BROWSE_INDEXES } from '../model/INDEXES';
 
@@ -33,7 +34,11 @@ const BrowsePage = () => {
                             <div>
                                 {
                                     context.searchResults[term.label].map(element => (
-                                        <div key={element.id}>
+                                        <div
+                                            key={element.id}
+                                            style={{ cursor: 'pointer' }}
+                                            onClick={() => context.setSearchSelected(element)}
+                                        >
                                             <br />
                                             <h2>{element.title_s}</h2>
                                             <h3>{element.place_s} - {element.year_i}</h3>
@@ -48,6 +53,23 @@ const BrowsePage = () => {
         }
 
         return null;
+    };
+
+    const renderDivaWrapper = () => {
+        return (
+            <div>
+                <a
+                    href="#"
+                    onClick={e => {
+                        e.preventDefault();
+                        context.unsetSearchSelected();
+                    }}
+                >
+                    close
+                </a>
+                <Diva manifest={context.selectedResource.id} />
+            </div>
+        );
     };
 
     return (
@@ -90,7 +112,11 @@ const BrowsePage = () => {
 
             <div style={{ padding: '1em 0' }}>
                 {renderLoading()}
-                {renderBrowseResults()}
+                {
+                    context.selectedResource
+                        ? renderDivaWrapper()
+                        : renderBrowseResults()
+                }
             </div>
         </Template>
     );
