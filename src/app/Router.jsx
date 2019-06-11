@@ -7,16 +7,19 @@ import Index from './pages/Index.jsx';
 
 import SearchState from './context/SearchState.jsx';
 import BrowseState from './context/BrowseState.jsx';
+import AnalysisState from './context/AnalysisState.jsx';
 
 const Router = () => (
     <BrowserRouter>
-        <SearchState>
-            <Route path="/search" component={Search} />
-        </SearchState>
-        <BrowseState>
-            <Route path="/browse" component={Browse} />
-        </BrowseState>
-        <Route path="/" exact component={Index} />
+        <AnalysisState>
+            <SearchState>
+                <Route path="/search" component={Search} />
+            </SearchState>
+            <BrowseState>
+                <Route path="/browse" component={Browse} />
+            </BrowseState>
+            <Route path="/" exact component={Index} />
+        </AnalysisState>
     </BrowserRouter>
 );
 
