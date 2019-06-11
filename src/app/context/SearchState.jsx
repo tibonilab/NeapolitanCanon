@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import SearchContext from './searchContext';
 import { useDidMount } from '../hooks/useDidMount';
 
-import { DEFAULT_FACETS, COLLECTIONS } from '../model/INDEXES';
+import { DEFAULT_FACETS } from '../model/INDEXES';
 import Solr from '../model/Solr';
 
+import AnalysisContext from './analysisContext';
 
 const SearchState = props => {
 
@@ -20,15 +21,15 @@ const SearchState = props => {
     });
 
     const [searchTerms, setSearchTerms] = useState({
-        collections: COLLECTIONS.map(element => element.field),
         searchKey: '',
         indexes: [],
         filters: [],
-        dateRange: {},
         facets: {
             fields: DEFAULT_FACETS
         },
     });
+
+    const analysisContext = useContext(AnalysisContext);
 
 
     const searchParamChangeHandler = param => value => {
@@ -48,10 +49,6 @@ const SearchState = props => {
         } else {
             setSearchTerms({ ...searchTerms, filters: searchTerms.filters.concat(`${field}:${value}`) });
         }
-    };
-
-    const changeCollectionsSelectorHandler = collections => {
-        setSearchTerms({ ...searchTerms, collections });
     };
 
     const setSearchSolrResponse = solr => {
@@ -89,7 +86,11 @@ const SearchState = props => {
 
     const performSearch = searchTerms => {
         return Solr
-            .search(searchTerms)
+            .search({
+                ...searchTerms,
+                dateRange: analysisContext.dateRange,
+                collections: analysisContext.collections
+            })
             .then(setSearchSolrResponse);
     };
 
@@ -115,7 +116,6 @@ const SearchState = props => {
                 selectedResource,
                 isLoading,
                 searchParamChangeHandler,
-                changeCollectionsSelectorHandler,
                 toggleSearchFilter,
                 setSearchSelected,
                 unsetSearchSelected,

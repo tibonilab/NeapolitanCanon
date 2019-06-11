@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
-import { COLLECTIONS } from '../model/INDEXES';
 import Solr from '../model/Solr';
 
 import BrowseContext from './browseContext';
+import AnalysisContext from './analysisContext';
 
 const BrowseState = props => {
 
@@ -18,14 +18,14 @@ const BrowseState = props => {
             fields: [],
             prefix: '',
             sort: 'index'
-        },
-        collections: COLLECTIONS.map(element => element.field),
-        dateRange: {}
+        }
     });
 
     const [isLoading, setIsLoading] = useState(false);
 
     const [selectedResource, setSelectedResource] = useState(null);
+
+    const analysisContext = useContext(AnalysisContext);
 
     const setSearchSelected = element => {
         setSelectedResource(element);
@@ -44,14 +44,6 @@ const BrowseState = props => {
     const onPrefixFilterChangeHandler = prefix => {
         const updateBrowseTerms = { ...browseTerms, facets: { ...browseTerms.facets, prefix } };
         setBrowseTerms(updateBrowseTerms);
-    };
-
-    const onDateRangeChangeHandler = dateRange => {
-        setBrowseTerms({ ...browseTerms, dateRange });
-    };
-
-    const changeCollectionsSelectorHandler = collections => {
-        setBrowseTerms({ ...browseTerms, collections });
     };
 
     const fetchIndexElements = searchKey => {
@@ -92,7 +84,11 @@ const BrowseState = props => {
 
     const performBrowse = browseTerms => {
         return Solr
-            .search(browseTerms)
+            .search({
+                ...browseTerms,
+                dateRange: analysisContext.dateRange,
+                collections: analysisContext.collections
+            })
             .then(storeSolrBrowseResults);
     };
 
@@ -123,9 +119,7 @@ const BrowseState = props => {
                 onFormSubmitHandler,
                 onSelectChangeHandler,
                 onPrefixFilterChangeHandler,
-                onDateRangeChangeHandler,
                 fetchIndexElements,
-                changeCollectionsSelectorHandler
             }}
         >
             {props.children}
