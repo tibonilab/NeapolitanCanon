@@ -1,0 +1,128 @@
+.template {
+
+    &-root {
+        padding: 70px 0 0 70px;
+
+        .navbar {
+            &-root {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 70px;
+                border-bottom:2px solid #eee;
+                background: #fff;
+                z-index: 2;
+                padding: 1em;
+                display: flex;
+                align-items: center;
+
+            }
+        }
+
+        .sidebar {
+            &-root {
+                position: fixed;
+                left: 0;
+                top: 70px;
+                width: 70px;
+                bottom: 0;
+                background: #00b5d6;
+                z-index: 2;
+
+                .clearButton {
+                    &-root {
+                        display:flex;
+                        width: 70px;
+                        height: 70px;
+                        align-items: center;
+                        justify-content: center;
+                        // border-bottom: 1px solid #00a4c5;
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+
+                            path {
+                                fill: #fff;
+                            }
+                        }
+                    }
+
+                    &-root:hover, 
+                    &__active {
+                        background: #11c6e7;
+                    }
+                }
+            }
+        }
+
+        .clearButton {
+            &-root {
+                background: none;
+                border: none;
+                cursor: pointer;
+                outline: none;
+            }
+        }
+    
+        .contextBar {
+            &-root {
+                width: 370px;
+                top: 70px;
+                left: -300px;
+                position: fixed;
+                background: #eee;
+                bottom: 0;
+                padding: 2em;
+            
+                transition: left .25s ease-in-out;
+            }
+            
+            &-driver {
+                display: flex;
+                position: absolute;
+                right: -20px;
+                top: 0;
+                width: 20px;
+                height: 30px;
+                background: #eee;
+                justify-content: center;
+                cursor: pointer;
+                border-radius: 0 5px 5px 0;
+
+                &:after {
+                    margin: 0 .5em;
+                    color: #000;
+                    border-left: 4px dashed;
+                    border-top: 4px solid transparent;
+                    border-bottom: 4px solid transparent;
+                    display: inline-block;
+                    content: "";
+                    position: absolute;
+                    top: 10px;
+                    right: 3px;
+                }
+            }
+
+            &__visible {
+                left: 70px;
+
+                .contextBar-driver {
+                    &:after {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &-content {
+        padding: 2em 4em;
+        transition: margin-left .25s ease-in-out;
+
+        &__with-contextBar {
+            margin-left: 370px;
+        }
+    }
+}
