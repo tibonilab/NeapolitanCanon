@@ -54,7 +54,7 @@ export default class DateRangePicker extends Component {
         const { from, to } = this.state;
 
         return (
-            <div style={{ width: 350 }}>
+            <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Input
                         value={from}
