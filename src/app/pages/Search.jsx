@@ -6,8 +6,6 @@ import Template from '../components/template/Template.jsx';
 
 import Input from '../components/form/Input.jsx';
 import Select from '../components/form/Select.jsx';
-import DateRangePicker from '../components/form/DateRangePicker.jsx';
-import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
 import Diva from '../components/wrappers/Diva.jsx';
 
 import { SEARCH_INDEXES } from '../model/INDEXES';
@@ -139,20 +137,16 @@ const SearchPage = () => {
                 style={{ display: 'flex', jusityContent: 'flext-start' }}
             >
                 <Input
+                    placeholder="Full-text search here"
                     value={context.searchTerms.searchKey}
                     onChangeHandler={context.searchParamChangeHandler(
                         'searchKey'
                     )}
                 />
-                <button type="submit">search</button>
-            </form>
-
-            <div>
-                <h4>Advanced</h4>
                 <Select
                     value={context.searchTerms.indexes[0]}
-                    label="Search by index"
-                    placeholder="Select index"
+                    // label="Search by index"
+                    placeholder="Search by index"
                     options={[{ label: 'Full-text', value: '' }].concat(
                         SEARCH_INDEXES
                     )}
@@ -160,30 +154,8 @@ const SearchPage = () => {
                         'indexes'
                     )}
                 />
-
-                <div>
-                    <h4>Collections</h4>
-                    <CollectionsSelector
-                        collections={context.searchTerms.collections}
-                        onChangeHandler={
-                            context.changeCollectionsSelectorHandler
-                        }
-                    />
-                </div>
-
-                <div>
-                    <h4>Date range</h4>
-                    <DateRangePicker
-                        onChangeHandler={context.searchParamChangeHandler(
-                            'dateRange'
-                        )}
-                        from={context.searchTerms.dateRange.from}
-                        to={context.searchTerms.dateRange.to}
-                        minFrom={1826}
-                        maxTo={2016}
-                    />
-                </div>
-            </div>
+                <button type="submit">search</button>
+            </form>
 
             <div style={{ padding: '1em 0' }}>
                 {renderLoading()}

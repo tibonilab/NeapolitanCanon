@@ -4,9 +4,6 @@ import { normalizeFacetsResults } from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
 import Select from '../components/form/Select.jsx';
-import Input from '../components/form/Input.jsx';
-import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
-import DateRangePicker from '../components/form/DateRangePicker.jsx';
 import Diva from '../components/wrappers/Diva.jsx';
 
 import { BROWSE_INDEXES } from '../model/INDEXES';
@@ -86,28 +83,6 @@ const BrowsePage = () => {
                     />
                     <button type="submit" disabled={context.currentIndex == ''}>browse</button>
                 </div>
-
-                <h4>Collections</h4>
-                <CollectionsSelector
-                    collections={context.browseTerms.collections}
-                    onChangeHandler={context.changeCollectionsSelectorHandler}
-                />
-
-                <h4>Index Prefix</h4>
-                <Input
-                    value={context.browseTerms.facets.prefix}
-                    placeholder="prefix"
-                    onChangeHandler={context.onPrefixFilterChangeHandler}
-                />
-
-                <h4>Date range</h4>
-                <DateRangePicker
-                    from={context.browseTerms.dateRange.from}
-                    to={context.browseTerms.dateRange.to}
-                    onChangeHandler={context.onDateRangeChangeHandler}
-                    minFrom={1826}
-                    maxTo={2016}
-                />
             </form>
 
             <div style={{ padding: '1em 0' }}>
