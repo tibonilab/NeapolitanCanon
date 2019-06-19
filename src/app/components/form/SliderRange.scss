@@ -1,3 +1,5 @@
+@import 'src/app/components/template/Palette.scss';
+
 .slider {
     &-root {
         position: relative;
@@ -10,7 +12,7 @@
         position: absolute;
         width: 10px;
         height: 10px;
-        background: rgb(0, 181, 214);
+        background: $action-button-background;
         border-radius: 100%;
         z-index: 2;
         cursor: pointer;
@@ -20,11 +22,11 @@
         position: absolute;
         top: 8px;
         height: 4px;
-        background: #ccc;
+        background: $light-gray-c;
         width: 100%;
 
         &-selection {
-            background: rgb(0, 181, 214);
+            background: $action-button-background;
             z-index: 1;
             left: 0;
             right: 0;
