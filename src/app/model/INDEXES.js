@@ -14,12 +14,20 @@ export const BROWSE_INDEXES = [
 ];
 
 export const DEFAULT_FACETS = [
-    'composer_ss', 
-    'interpreter_ss', 
-    'place_s', 
-    'collection_s', 
+    'composer_ss',
+    'interpreter_ss',
+    'place_s',
+    'collection_s',
     'series_s'
 ];
+
+export const FACETS_LABELS = {
+    composer_ss: 'Composers',
+    interpreter_ss: 'Interpreters',
+    place_s: 'Places',
+    collection_s: 'Collections',
+    series_s: 'Series'
+};
 
 export const COLLECTIONS = [
     { field: 'ch_gc', label: 'Geneve' },
@@ -31,5 +39,6 @@ export default {
     SEARCH_INDEXES,
     BROWSE_INDEXES,
     DEFAULT_FACETS,
+    FACETS_LABELS,
     COLLECTIONS
 };
