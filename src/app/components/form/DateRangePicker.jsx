@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Input from './Input.jsx';
 import SliderRange from './SliderRange.jsx';
 
+import './DateRangePicker.scss';
+
 export default class DateRangePicker extends Component {
 
     constructor(props) {
@@ -54,17 +56,19 @@ export default class DateRangePicker extends Component {
         const { from, to } = this.state;
 
         return (
-            <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div className="dateRangePicker-root">
+                <div className="dateRangePicker-inputs" style={{  }}>
                     <Input
+                        style={{width: '80px'}}
                         value={from}
                         onChangeHandler={this.onChangeHandler('from')}
                     />
+                
                     <Input
+                        style={{width: '80px'}}
                         value={to}
                         onChangeHandler={this.onChangeHandler('to')}
-                    />
-
+                    />    
                 </div>
                 <SliderRange
                     onChangeHandler={this.onSliderChangeHandler.bind(this)}
