@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Diva from 'diva.js/source/js/diva';
 import 'diva.js/build/diva.css';
 
+import './Diva.scss';
+
 export default class DivaReact extends Component {
 
     constructor(props) {
