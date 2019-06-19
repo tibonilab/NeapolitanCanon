@@ -12,13 +12,15 @@ export const ContextBarSelector = props => {
 
     return (
         <ContextBar visible={props.visible} toggleBar={props.toggleBar}>
-            <h4>Collections</h4>
+            <h4 style={{padding: '0 0 1em 0'}}>Collections</h4>
             <CollectionsSelector
                 collections={context.collections}
                 onChangeHandler={context.changeCollectionsSelectorHandler}
             />
 
-            <h4>Date range</h4>
+            <hr style={{marginTop: '2em'}} />
+
+            <h4 style={{padding: '2em 0 1em 0'}}>Date range</h4>
             <DateRangePicker
                 from={context.dateRange.from}
                 to={context.dateRange.to}
