@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './Input.scss';
+
 export default class Input extends Component {
 
     constructor(props) {
@@ -33,14 +35,20 @@ export default class Input extends Component {
     }
 
     render() {
+        const classNames = ['input-root'];
+
+        if (this.props.className) {
+            classNames.push(this.props.className);
+        }
+
         return (
-            <div>
-                <input
-                    value={this.state.value}
-                    onChange={this.onChangeHandler.bind(this)}
-                    placeholder={this.props.placeholder}
-                />
-            </div>
+            <input
+                className={classNames.join(' ')}
+                style={this.props.style}
+                value={this.state.value}
+                onChange={this.onChangeHandler.bind(this)}
+                placeholder={this.props.placeholder}
+            />
         );
     }
 
