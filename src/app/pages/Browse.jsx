@@ -3,6 +3,8 @@ import React, { useContext } from 'react';
 import { normalizeFacetsResults } from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
+import { PrimaryButton } from '../components/template/components/Buttons.jsx';
+
 import Select from '../components/form/Select.jsx';
 import Diva from '../components/wrappers/Diva.jsx';
 
@@ -22,31 +24,67 @@ const BrowsePage = () => {
     };
 
     const renderBrowseResults = () => {
+
         if (context.browseResults) {
-            return normalizeFacetsResults(context.browseResults).map((term, index) => (
-                <div key={index}>
-                    <h4 onClick={() => context.fetchIndexElements(term.label)} style={{ cursor: 'pointer' }}>{term.label}</h4>
+            let firstLetter;
+            const letters = [];
+
+            const results = normalizeFacetsResults(context.browseResults).map((term, index) => {
+
+                let header;
+
+                if (firstLetter != term.label.substring(0, 1)) {
+                    firstLetter = term.label.substring(0, 1);
+                    letters.push(firstLetter);
+
+                    header = (
+                        <div style={{ borderBottom: '1px solid #eee', padding: '0 0 .5em 0', margin: '2em 0 .5em 0' }}>
+                            <a className="anchor" id={firstLetter} />
+                            <h1>{firstLetter}</h1>
+                        </div>
+                    );
+
+                }
+
+                return (
+                    <React.Fragment key={index}>
+
+                        {header}
+
+                        <div>
+                            <h4 onClick={() => context.fetchIndexElements(term.label)} style={{ cursor: 'pointer' }}>{term.label}</h4>
+                            {
+                                context.searchResults[term.label] && (
+                                    <div>
+                                        {
+                                            context.searchResults[term.label].map(element => (
+                                                <div
+                                                    key={element.id}
+                                                    style={{ cursor: 'pointer' }}
+                                                    onClick={() => context.setSearchSelected(element)}
+                                                >
+                                                    <br />
+                                                    <h2>{element.title_s}</h2>
+                                                    <h3>{element.place_s} - {element.year_i}</h3>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </React.Fragment>
+                );
+            });
+
+            return (
+                <React.Fragment>
                     {
-                        context.searchResults[term.label] && (
-                            <div>
-                                {
-                                    context.searchResults[term.label].map(element => (
-                                        <div
-                                            key={element.id}
-                                            style={{ cursor: 'pointer' }}
-                                            onClick={() => context.setSearchSelected(element)}
-                                        >
-                                            <br />
-                                            <h2>{element.title_s}</h2>
-                                            <h3>{element.place_s} - {element.year_i}</h3>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        )
+                        letters.map(letter => <a style={{ padding: '.5em 1em', borderRight: '1px solid #eee', color: '#515151', textDecoration: 'none' }} key={letter} href={`#${letter}`}>{letter}</a>)
                     }
-                </div>
-            ));
+                    {results}
+                </React.Fragment>
+            );
         }
 
         return null;
@@ -72,7 +110,6 @@ const BrowsePage = () => {
     return (
         <Template>
 
-            <h4>Browse</h4>
             <form onSubmit={context.onFormSubmitHandler}>
                 <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
                     <Select
@@ -81,7 +118,7 @@ const BrowsePage = () => {
                         options={BROWSE_INDEXES}
                         onChangeHandler={context.onSelectChangeHandler}
                     />
-                    <button type="submit" disabled={context.currentIndex == ''}>browse</button>
+                    <PrimaryButton type="submit" disabled={context.currentIndex == ''}>browse</PrimaryButton>
                 </div>
             </form>
 
