@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './Select.scss';
+
 class Select extends Component {
 
     constructor(props) {
@@ -26,9 +28,10 @@ class Select extends Component {
         const { options, label } = this.props;
 
         return (
-            <div>
+            <div className="select-root" style={this.props.style}>
                 {label && <label>{label}</label>}
                 <select
+                    className="select-input"
                     value={this.state.value}
                     onChange={this.onChangeHandler.bind(this)}
                 >
