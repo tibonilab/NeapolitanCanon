@@ -8,23 +8,21 @@ const CollectionSelector = ({ onChangeHandler, ...props }) => {
     const { collections } = props;
 
     return COLLECTIONS.map(element => (
-        <div key={element.field}>
-            <label>
-                <Checkbox 
-                    onChangeHandler={checked => {
-                        if (checked) {
-                            onChangeHandler(collections.concat(element.field));
-                        } else {
-                            onChangeHandler(collections.filter(e => e !== element.field));
-                        }
-                    }}
-                    value={element.field} 
-                    name="collection_s" 
-                    checked={collections.includes(element.field)}
-                />
-                {element.label}
-            </label>
-        </div>
+        <React.Fragment key={element.field}>
+            <Checkbox
+                onChangeHandler={checked => {
+                    if (checked) {
+                        onChangeHandler(collections.concat(element.field));
+                    } else {
+                        onChangeHandler(collections.filter(e => e !== element.field));
+                    }
+                }}
+                value={element.field}
+                name="collection_s"
+                checked={collections.includes(element.field)}
+                label={element.label}
+            />
+        </React.Fragment>
     ));
 };
 
