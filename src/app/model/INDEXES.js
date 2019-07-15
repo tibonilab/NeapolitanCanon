@@ -35,6 +35,8 @@ export const COLLECTIONS = [
     { field: 'ch_famb', label: 'Basel' }
 ];
 
+export const renderFacetLabel = key => FACETS_LABELS[key] || key;
+
 export default {
     SEARCH_INDEXES,
     BROWSE_INDEXES,
