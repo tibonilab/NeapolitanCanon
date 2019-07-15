@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Search from './pages/Search.jsx';
+import Source from './pages/Source.jsx';
 import Browse from './pages/Browse.jsx';
 import Index from './pages/Index.jsx';
 
@@ -18,6 +19,7 @@ const Router = () => (
             <BrowseState>
                 <Route path="/browse" component={Browse} />
             </BrowseState>
+            <Route path="/source/:manifest" component={Source} />
             <Route path="/" exact component={Index} />
         </AnalysisState>
     </BrowserRouter>
