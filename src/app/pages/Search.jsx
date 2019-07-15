@@ -12,11 +12,11 @@ import Diva from '../components/wrappers/Diva.jsx';
 import Chip from '../components/template/components/Chip.jsx';
 import ListBox from '../components/template/components/ListBox.jsx';
 
-import { SEARCH_INDEXES, FACETS_LABELS } from '../model/INDEXES';
+import Paginator from '../components/template/components/Paginator.jsx';
+
+import { SEARCH_INDEXES, renderFacetLabel } from '../model/INDEXES';
 
 import SearchContext from '../context/searchContext';
-
-const renderLabel = key => FACETS_LABELS[key] || key;
 
 const SearchPage = () => {
 
@@ -29,10 +29,26 @@ const SearchPage = () => {
         return context.isLoading ? 'loading' : null;
     };
 
+    const renderPagination = () => (
+        <React.Fragment>
+            <h5>Found {context.searchResults.numFound} results, {Math.ceil(context.searchResults.numFound / 100)} pages.</h5>
+            <div style={{ float: 'left' }}>
+                <Paginator
+                    onClickHandler={page => context.selectPage(page - 1)}
+                    page={context.searchTerms.page + 1}
+                    totalPages={Math.ceil(context.searchResults.numFound / 100)}
+                />
+            </div>
+        </React.Fragment>
+    );
+
     const renderSearchResults = () => {
         return context.searchResults.results.length > 0 ? (
             <React.Fragment>
-                <h5>Found {context.searchResults.numFound} results.</h5>
+
+                {renderPagination()}
+
+
                 <div style={{ display: 'flex', jusityContent: 'space-between', width: '100%' }}>
                     <div style={{ padding: '1em 2em 1em 0', width: '100%' }}>
                         {context.searchResults.results.map(element => (
@@ -55,8 +71,8 @@ const SearchPage = () => {
                 </div>
             </React.Fragment>
         ) : (
-            context.searchResults.numFound === 0 && <h3>No results found</h3>
-        );
+                context.searchResults.numFound === 0 && <h3>No results found</h3>
+            );
     };
 
     const renderDivaWrapper = () => {
@@ -131,7 +147,7 @@ const SearchPage = () => {
                     key={key}
                     header={(
                         <React.Fragment>
-                            <span>{renderLabel(key)}</span>
+                            <span>{renderFacetLabel(key)}</span>
                             <span>{normalizedFacets.length}</span>
                         </React.Fragment>
                     )}>
@@ -200,7 +216,7 @@ const SearchPage = () => {
                 context.searchTerms.filters.map(filter => {
                     const filterData = filter.split(':');
                     return (
-                        <Chip removeAction={() => context.toggleSearchFilter(filterData[0], filterData[1])} key={filter}>{`${renderLabel(filterData[0])} > ${filterData[1]}`}</Chip>
+                        <Chip removeAction={() => context.toggleSearchFilter(filterData[0], filterData[1])} key={filter}>{`${renderFacetLabel(filterData[0])} > ${filterData[1]}`}</Chip>
                     );
                 })
             }

@@ -27,6 +27,7 @@ const SearchState = props => {
         facets: {
             fields: DEFAULT_FACETS
         },
+        page: 0
     });
 
     const analysisContext = useContext(AnalysisContext);
@@ -94,6 +95,13 @@ const SearchState = props => {
             .then(setSearchSolrResponse);
     };
 
+    const selectPage = page => {
+        setSearchTerms({
+            ...searchTerms,
+            page
+        });
+    };
+
 
     // we use useDidMount Hook to let the component know whether is mounted or not
     const didMount = useDidMount();
@@ -105,7 +113,7 @@ const SearchState = props => {
         () => {
             didMount && performSearch(searchTerms);
         },
-        [searchTerms.filters]
+        [searchTerms.filters, searchTerms.page]
     );
 
     return (
@@ -120,6 +128,7 @@ const SearchState = props => {
                 setSearchSelected,
                 unsetSearchSelected,
                 searchFormSubmitHandler,
+                selectPage
             }}
         >
             {props.children}

@@ -11,11 +11,11 @@ const generateCollectionsQueryByFilters = ({ collections }) => `fq=collection_s:
 const generateQueryString = ({ facets, filters, collections }) => {
     const params = [];
 
-    if(facets.fields && facets.fields.length > 0) {
+    if (facets.fields && facets.fields.length > 0) {
         params.push(generateFacetsQueryString({ facets }));
     }
 
-    if(filters.length > 0) {
+    if (filters.length > 0) {
         params.push(generateFilterQueryByFilters({ filters }));
     }
 
@@ -28,17 +28,17 @@ const generateQueryString = ({ facets, filters, collections }) => {
 
 const generateSearchQuery = params => {
     const {
-        searchKey, 
+        searchKey,
         indexes = [],
         dateRange = {},
-        rows = 100, 
-        page = 0 
+        rows = 100,
+        page = 0
     } = params;
 
     let query = {
         params: {
             q: indexes.length ? generateSearchQueryByIndexes({ searchKey, indexes }) : searchKey ? `${searchKey}*` : '*:*',
-            start: page,
+            start: page * rows,
             rows,
             wt: 'json'
         }
@@ -54,15 +54,15 @@ const generateSearchQuery = params => {
 };
 
 const generateBrowseQuery = params => {
-    const { index, prefix, sort } = params; 
-    
+    const { index, prefix, sort } = params;
+
     let query = {
         params: {
             'terms.fl': index,
             'terms.limit': -1,
         }
     };
-    
+
     if (prefix) {
         Object.assign(query.params, {
             'terms.regex': `${prefix}.*`,
@@ -86,12 +86,12 @@ export const normalizeFacetsResults = list => {
         if (index % 2 === 0) {
             normalized.push({ label: value });
         } else {
-            Object.assign(normalized[(index-1)/2], {
+            Object.assign(normalized[(index - 1) / 2], {
                 count: value
             });
         }
     });
-    
+
     return normalized;
 };
 
@@ -103,11 +103,11 @@ const debug = query => {
     return query;
 };
 
-export const search = ({ facets = {}, filters = [], collections = [], ...params}) => {
-    
+export const search = ({ facets = {}, filters = [], collections = [], ...params }) => {
+
     const query = debug({
-        url: `/solr/onstage/select${generateQueryString({ facets, filters, collections })}`, 
-        config: generateSearchQuery(params) 
+        url: `/solr/onstage/select${generateQueryString({ facets, filters, collections })}`,
+        config: generateSearchQuery(params)
     });
 
     return RestClient.get(query).then(r => r);
@@ -115,8 +115,8 @@ export const search = ({ facets = {}, filters = [], collections = [], ...params}
 
 export const browse = params => {
 
-    const query = debug({ 
-        url: '/solr/onstage/terms', 
+    const query = debug({
+        url: '/solr/onstage/terms',
         config: generateBrowseQuery(params)
     });
 
