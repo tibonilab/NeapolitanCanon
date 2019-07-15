@@ -8,7 +8,7 @@ import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 import Select from '../components/form/Select.jsx';
 import Diva from '../components/wrappers/Diva.jsx';
 
-import { BROWSE_INDEXES } from '../model/INDEXES';
+import { BROWSE_INDEXES, renderFacetLabel } from '../model/INDEXES';
 
 import BrowseContext from '../context/browseContext';
 
@@ -18,6 +18,8 @@ const BrowsePage = () => {
     // use the data and functions stored into the BrowseState component
     // which provides the BrowseContext.Provider
     const context = useContext(BrowseContext);
+
+    console.log(context);
 
     const renderLoading = () => {
         return context.isLoading ? 'loading' : null;
@@ -30,7 +32,6 @@ const BrowsePage = () => {
             const letters = [];
 
             const results = normalizeFacetsResults(context.browseResults).map((term, index) => {
-
                 let header;
 
                 if (firstLetter != term.label.substring(0, 1)) {
@@ -51,27 +52,8 @@ const BrowsePage = () => {
 
                         {header}
 
-                        <div>
-                            <h4 onClick={() => context.fetchIndexElements(term.label)} style={{ cursor: 'pointer' }}>{term.label}</h4>
-                            {
-                                context.searchResults[term.label] && (
-                                    <div>
-                                        {
-                                            context.searchResults[term.label].map(element => (
-                                                <div
-                                                    key={element.id}
-                                                    style={{ cursor: 'pointer' }}
-                                                    onClick={() => context.setSearchSelected(element)}
-                                                >
-                                                    <br />
-                                                    <h2>{element.title_s}</h2>
-                                                    <h3>{element.place_s} - {element.year_i}</h3>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                )
-                            }
+                        <div onClick={() => context.fetchIndexElements(term.label, index)} style={{ cursor: 'pointer' }}>
+                            <h4>{term.label}</h4>
                         </div>
                     </React.Fragment>
                 );
@@ -90,9 +72,58 @@ const BrowsePage = () => {
         return null;
     };
 
+    const renderIndexResults = () => (
+        <React.Fragment>
+            <a
+                href="#"
+                onClick={e => {
+                    e.preventDefault();
+                    context.unsetSearchResults();
+                }}
+            >
+                back
+            </a>
+
+            <h1>{`${renderFacetLabel(context.currentIndex.index)}: ${context.searchResults.index}`}</h1>
+
+            <button
+                onClick={e => {
+                    e.preventDefault();
+                    context.selectPrevious();
+                }}
+                disabled={context.currentIndex.position < 1}
+            >
+                &laquo; previous
+            </button>
+            <button
+                onClick={e => {
+                    e.preventDefault();
+                    context.selectNext();
+                }}
+                disabled={context.currentIndex.position + 1 == normalizeFacetsResults(context.browseResults).length}
+            >
+                next &raquo;
+            </button>
+
+            {
+                context.searchResults.results.map(element => (
+                    <div
+                        key={element.id}
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => context.setSearchSelected(element)}
+                    >
+                        <br />
+                        <h2>{element.title_s}</h2>
+                        <h3>{element.place_s} - {element.year_i}</h3>
+                    </div>
+                ))
+            }
+        </React.Fragment>
+    );
+
     const renderDivaWrapper = () => {
         return (
-            <div>
+            <React.Fragment>
                 <a
                     href="#"
                     onClick={e => {
@@ -103,33 +134,51 @@ const BrowsePage = () => {
                     close
                 </a>
                 <Diva manifest={context.selectedResource.id} />
-            </div>
+            </React.Fragment>
         );
     };
 
+    const renderForm = () => (
+        <form onSubmit={context.onFormSubmitHandler}>
+            <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
+                <Select
+                    value={context.currentIndex.index}
+                    placeholder="Select index"
+                    options={BROWSE_INDEXES}
+                    onChangeHandler={context.onSelectChangeHandler}
+                />
+                <PrimaryButton type="submit" disabled={!context.currentIndex.index}>browse</PrimaryButton>
+            </div>
+        </form>
+    );
+
+    const renderView = () => {
+
+        let view = (
+            <React.Fragment>
+                {renderForm()}
+                <div style={{ padding: '1em 0' }}>
+                    {renderLoading()}
+                    {renderBrowseResults()}
+                </div>
+            </React.Fragment>
+        );
+
+        if (context.searchResults.index) {
+            view = renderIndexResults();
+        }
+
+        if (context.selectedResource) {
+            view = renderDivaWrapper();
+        }
+
+        return view;
+    };
+
+
     return (
         <Template>
-
-            <form onSubmit={context.onFormSubmitHandler}>
-                <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
-                    <Select
-                        value={context.currentIndex}
-                        placeholder="Select index"
-                        options={BROWSE_INDEXES}
-                        onChangeHandler={context.onSelectChangeHandler}
-                    />
-                    <PrimaryButton type="submit" disabled={context.currentIndex == ''}>browse</PrimaryButton>
-                </div>
-            </form>
-
-            <div style={{ padding: '1em 0' }}>
-                {renderLoading()}
-                {
-                    context.selectedResource
-                        ? renderDivaWrapper()
-                        : renderBrowseResults()
-                }
-            </div>
+            {renderView()}
         </Template>
     );
 };
