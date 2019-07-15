@@ -11,7 +11,7 @@ const BrowseState = props => {
 
     const [searchResults, setSearchResults] = useState({});
 
-    const [currentIndex, setCurrentIndex] = useState('');
+    const [currentIndex, setCurrentIndex] = useState({});
 
     const [browseTerms, setBrowseTerms] = useState({
         facets: {
@@ -38,7 +38,7 @@ const BrowseState = props => {
     const onSelectChangeHandler = index => {
         const updateBrowseTerms = { ...browseTerms, facets: { ...browseTerms.facets, fields: [index] } };
         setBrowseTerms(updateBrowseTerms);
-        setCurrentIndex(index);
+        setCurrentIndex({ index });
     };
 
     const onPrefixFilterChangeHandler = prefix => {
@@ -46,10 +46,10 @@ const BrowseState = props => {
         setBrowseTerms(updateBrowseTerms);
     };
 
-    const fetchIndexElements = searchKey => {
+    const fetchIndexElements = (searchKey, position) => {
         let searchTerms = {};
 
-        if (currentIndex === 'year_i') {
+        if (currentIndex.index === 'year_i') {
             searchTerms = {
                 dateRange: {
                     from: searchKey,
@@ -60,10 +60,14 @@ const BrowseState = props => {
         } else {
             searchTerms = {
                 searchKey,
-                indexes: [currentIndex]
+                indexes: [currentIndex.index]
             };
         }
 
+        setCurrentIndex({
+            ...currentIndex,
+            position
+        });
         performSearch(searchTerms);
     };
 
@@ -79,7 +83,7 @@ const BrowseState = props => {
 
     const storeSolrBrowseResults = solrBrowseResults => {
         setIsLoading(false);
-        setBrowseResults(solrBrowseResults.facet_counts.facet_fields[currentIndex]);
+        setBrowseResults(solrBrowseResults.facet_counts.facet_fields[currentIndex.index]);
     };
 
     const performBrowse = browseTerms => {
@@ -93,16 +97,53 @@ const BrowseState = props => {
     };
 
     const storeSolrSearchResults = searchKey => solrSearchResults => {
+        // setSearchResults({
+        //     ...searchResults,
+        //     [searchKey]: solrSearchResults.response.docs
+        // });
         setSearchResults({
-            ...searchResults,
-            [searchKey]: solrSearchResults.response.docs
+            index: searchKey,
+            results: solrSearchResults.response.docs
         });
     };
+
+    const unsetSearchResults = () => setSearchResults({});
 
     const performSearch = searchTerms => {
         return Solr
             .search(searchTerms)
             .then(storeSolrSearchResults(searchTerms.searchKey));
+    };
+
+    const selectNext = () => {
+        const nextKey = currentIndex.position + 1;
+        const normalizedResults = Solr.normalizeFacetsResults(browseResults);
+
+        if (normalizedResults[nextKey]) {
+            const term = normalizedResults[nextKey];
+
+            fetchIndexElements(term.label, nextKey);
+            setCurrentIndex({
+                ...currentIndex,
+                position: nextKey
+            });
+        }
+    };
+
+
+    const selectPrevious = () => {
+        const prevKey = currentIndex.position - 1;
+        const normalizedResults = Solr.normalizeFacetsResults(browseResults);
+
+        if (normalizedResults[prevKey]) {
+            const term = normalizedResults[prevKey];
+
+            fetchIndexElements(term.label, prevKey);
+            setCurrentIndex({
+                ...currentIndex,
+                position: prevKey
+            });
+        }
     };
 
     return (
@@ -120,6 +161,9 @@ const BrowseState = props => {
                 onSelectChangeHandler,
                 onPrefixFilterChangeHandler,
                 fetchIndexElements,
+                unsetSearchResults,
+                selectNext,
+                selectPrevious
             }}
         >
             {props.children}
