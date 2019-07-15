@@ -16,7 +16,7 @@ const Template = props => {
 
     const { isContextBarVisible, toggleContextBar } = useContext(AnalysisContext);
 
-    if (isContextBarVisible) {
+    if (!props.hiddenContextBar && isContextBarVisible) {
         contentClassNames.push('template-content__with-contextBar');
     }
 
@@ -24,10 +24,14 @@ const Template = props => {
         <div className="template-root">
             <Navbar />
             <Sidebar />
-            <ContextBarSelector
-                visible={isContextBarVisible}
-                toggleBar={toggleContextBar}
-            />
+            {
+                !props.hiddenContextBar && (
+                    <ContextBarSelector
+                        visible={isContextBarVisible}
+                        toggleBar={toggleContextBar}
+                    />
+                )
+            }
             <div className={contentClassNames.join(' ')}>
                 {props.children}
             </div>
