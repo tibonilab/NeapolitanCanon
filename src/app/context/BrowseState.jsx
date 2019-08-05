@@ -1,9 +1,13 @@
 import React, { useState, useContext } from 'react';
 
+import { withRouter } from 'react-router-dom';
+
+import { DEFAULT_FACETS } from '../model/INDEXES';
 import Solr from '../model/Solr';
 
 import BrowseContext from './browseContext';
 import AnalysisContext from './analysisContext';
+import SearchContext from './searchContext';
 
 const BrowseState = props => {
 
@@ -26,6 +30,7 @@ const BrowseState = props => {
     const [selectedResource, setSelectedResource] = useState(null);
 
     const analysisContext = useContext(AnalysisContext);
+    const searchContext = useContext(SearchContext);
 
     const setSearchSelected = element => {
         setSelectedResource(element);
@@ -47,6 +52,15 @@ const BrowseState = props => {
     };
 
     const fetchIndexElements = (searchKey, position) => {
+        setIsLoading(true);
+        setCurrentIndex({
+            ...currentIndex,
+            position
+        });
+        performSearch(generateSearchTermsBySearchKey(searchKey));
+    };
+
+    const generateSearchTermsBySearchKey = searchKey => {
         let searchTerms = {};
 
         if (currentIndex.index === 'year_i') {
@@ -64,11 +78,7 @@ const BrowseState = props => {
             };
         }
 
-        setCurrentIndex({
-            ...currentIndex,
-            position
-        });
-        performSearch(searchTerms);
+        return searchTerms;
     };
 
     const onFormSubmitHandler = (e) => {
@@ -105,11 +115,13 @@ const BrowseState = props => {
             index: searchKey,
             results: solrSearchResults.response.docs
         });
+        setIsLoading(false);
     };
 
     const unsetSearchResults = () => setSearchResults({});
 
     const performSearch = searchTerms => {
+        window.scrollTo(0, 0);
         return Solr
             .search(searchTerms)
             .then(storeSolrSearchResults(searchTerms.searchKey));
@@ -146,6 +158,18 @@ const BrowseState = props => {
         }
     };
 
+    const gotoSearch = searchKey => {
+        searchContext.setSearchTerms({
+            ...generateSearchTermsBySearchKey(searchKey),
+            filters: [],
+            facets: {
+                fields: DEFAULT_FACETS
+            },
+            page: 0
+        });
+        props.history.push('/search');
+    };
+
     return (
         <BrowseContext.Provider
             value={{
@@ -163,7 +187,8 @@ const BrowseState = props => {
                 fetchIndexElements,
                 unsetSearchResults,
                 selectNext,
-                selectPrevious
+                selectPrevious,
+                gotoSearch
             }}
         >
             {props.children}
@@ -171,4 +196,4 @@ const BrowseState = props => {
     );
 };
 
-export default BrowseState;
+export default withRouter(BrowseState);
