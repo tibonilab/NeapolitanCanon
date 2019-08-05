@@ -135,3 +135,10 @@
     top: -200px;
     visibility: hidden;
 }
+
+
+a,
+a:visited,
+a:active {
+    color: $links;
+}
