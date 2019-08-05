@@ -19,10 +19,26 @@ const BrowsePage = () => {
     // which provides the BrowseContext.Provider
     const context = useContext(BrowseContext);
 
-    console.log(context);
-
     const renderLoading = () => {
-        return context.isLoading ? 'loading' : null;
+        return context.isLoading ? <div style={{ marginTop: '2em' }}>{'loading'}</div> : null;
+    };
+
+    const renderBrowseNav = () => {
+        let firstLetter;
+        const letters = [];
+
+        normalizeFacetsResults(context.browseResults).forEach(term => {
+            if (firstLetter != term.label.substring(0, 1)) {
+                firstLetter = term.label.substring(0, 1);
+                letters.push(firstLetter);
+            }
+        });
+
+        return <div style={{ display: 'flex', alignItems: 'center' }}>
+            {
+                letters.map(letter => <a style={{ padding: '.2em .3em', borderRight: '1px solid #eee', color: '#515151', textDecoration: 'none' }} key={letter} href={`#${letter}`}>{letter}</a>)
+            }
+        </div>;
     };
 
     const renderBrowseResults = () => {
@@ -59,14 +75,7 @@ const BrowsePage = () => {
                 );
             });
 
-            return (
-                <React.Fragment>
-                    {
-                        letters.map(letter => <a style={{ padding: '.5em 1em', borderRight: '1px solid #eee', color: '#515151', textDecoration: 'none' }} key={letter} href={`#${letter}`}>{letter}</a>)
-                    }
-                    {results}
-                </React.Fragment>
-            );
+            return results;
         }
 
         return null;
@@ -104,6 +113,14 @@ const BrowsePage = () => {
             >
                 next &raquo;
             </button>
+            <button
+                onClick={e => {
+                    e.preventDefault();
+                    context.gotoSearch(context.searchResults.index);
+                }}>
+                search
+            </button>
+
 
             {
                 context.searchResults.results.map(element => (
@@ -122,6 +139,8 @@ const BrowsePage = () => {
     );
 
     const renderDivaWrapper = () => {
+        const element = context.selectedResource;
+
         return (
             <React.Fragment>
                 <a
@@ -131,23 +150,73 @@ const BrowsePage = () => {
                         context.unsetSearchSelected();
                     }}
                 >
-                    close
+                    Go back
                 </a>
-                <Diva manifest={context.selectedResource.id} />
-            </React.Fragment>
+                <div style={{ display: 'flex' }}>
+                    <div style={{ width: '100%' }}>
+                        <Diva manifest={element.id} />
+                    </div>
+
+                    <div style={{ padding: '2em', minWidth: '300px', width: '30%', height: 'calc(100vh - 70px)', overflowY: 'auto', margin: '-3.1em -4em -4em 2em', borderLeft: '1px solid #eee' }}>
+                        <h2>{element.title_s}</h2>
+                        <h3>
+                            {element.place_s} - {element.year_i}
+                        </h3>
+                        <div style={{ padding: '2em 0' }}>
+                            {element.composer_ss && (
+                                <div>
+                                    <h4>Composers</h4>
+                                    {element.composer_ss.map(
+                                        (composer, index) => (
+                                            <div key={index}>
+                                                {composer}
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            )}
+                            {element.interpreter_ss && (
+                                <div>
+                                    <br />
+                                    <h4>Interpreters</h4>
+                                    {element.interpreter_ss.map(
+                                        (interpreter, index) => (
+                                            <div key={index}>
+                                                {interpreter}
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+
+
+            </React.Fragment >
         );
     };
 
     const renderForm = () => (
-        <form onSubmit={context.onFormSubmitHandler}>
+        <form
+            onSubmit={context.onFormSubmitHandler}
+            style={{
+                position: 'fixed',
+                padding: '2em 4em',
+                margin: '-2em -4em',
+                background: '#fff'
+            }}
+        >
             <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
                 <Select
+                    style={{ width: 'auto' }}
                     value={context.currentIndex.index}
                     placeholder="Select index"
                     options={BROWSE_INDEXES}
                     onChangeHandler={context.onSelectChangeHandler}
                 />
                 <PrimaryButton type="submit" disabled={!context.currentIndex.index}>browse</PrimaryButton>
+                {renderBrowseNav()}
             </div>
         </form>
     );
@@ -157,9 +226,8 @@ const BrowsePage = () => {
         let view = (
             <React.Fragment>
                 {renderForm()}
-                <div style={{ padding: '1em 0' }}>
-                    {renderLoading()}
-                    {renderBrowseResults()}
+                <div style={{ padding: '3em 0 1em 0' }}>
+                    {context.isLoading ? renderLoading() : renderBrowseResults()}
                 </div>
             </React.Fragment>
         );
