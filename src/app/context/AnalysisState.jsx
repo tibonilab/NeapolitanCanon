@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 
+import { useStateWithSession } from '../service/serviceStorage';
+
 import { COLLECTIONS } from '../model/INDEXES';
 
 import AnalysisContext from './analysisContext';
+
+const CONTEX_BAR_VISIBILITY_KEY = 'contexBarVisibility';
+const PINNED_DOCUMENTS_SERVICE_STORAGE_KEY = 'pinnedDocuments';
 
 const AnalysisState = props => {
 
@@ -10,9 +15,9 @@ const AnalysisState = props => {
 
     const [collections, setCollections] = useState(COLLECTIONS.map(element => element.field));
 
-    const [isContextBarVisible, setContextBarVisibility] = useState(true);
+    const [isContextBarVisible, setContextBarVisibility] = useStateWithSession(true, CONTEX_BAR_VISIBILITY_KEY);
 
-    const [pinnedDocuments, setPinnedDocuments] = useState([]);
+    const [pinnedDocuments, setPinnedDocuments] = useStateWithSession([], PINNED_DOCUMENTS_SERVICE_STORAGE_KEY);
 
     const dateRangeChangeHandler = dateRange => setDateRange(dateRange);
 
