@@ -15,10 +15,10 @@ const Router = () => (
         <AnalysisState>
             <SearchState>
                 <Route path="/search" component={Search} />
+                <BrowseState>
+                    <Route path="/browse" component={Browse} />
+                </BrowseState>
             </SearchState>
-            <BrowseState>
-                <Route path="/browse" component={Browse} />
-            </BrowseState>
             <Route path="/source/:manifest" component={Source} />
             <Route path="/" exact component={Index} />
         </AnalysisState>
