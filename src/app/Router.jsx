@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Search from './pages/Search.jsx';
 import Source from './pages/Source.jsx';
 import Browse from './pages/Browse.jsx';
+import Pinned from './pages/Pinned.jsx';
 import Index from './pages/Index.jsx';
 
 import SearchState from './context/SearchState.jsx';
@@ -19,6 +20,7 @@ const Router = () => (
                     <Route path="/browse" component={Browse} />
                 </BrowseState>
             </SearchState>
+            <Route path="/pin" component={Pinned} />
             <Route path="/source/:manifest" component={Source} />
             <Route path="/" exact component={Index} />
         </AnalysisState>
