@@ -76,6 +76,7 @@
                 background: $light-gray-e;
                 bottom: 0;
                 padding: 2em;
+                z-index: 1;
             
                 transition: left .25s ease-in-out;
             }
@@ -126,12 +127,11 @@
             margin-left: 320px;
         }
     }
-
 }
 
 .anchor {
     display: block;
     position: relative;
-    top: -100px;
+    top: -200px;
     visibility: hidden;
 }

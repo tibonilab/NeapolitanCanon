@@ -35,7 +35,7 @@ const Template = props => {
             <div className={contentClassNames.join(' ')}>
                 {props.children}
             </div>
-        </div>
+        </div >
     );
 
 };
