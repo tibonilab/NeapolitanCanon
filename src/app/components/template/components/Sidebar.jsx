@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link, withRouter } from 'react-router-dom';
 
-import { SearchIcon, BrowseIcon } from './Icons.jsx';
+import { SearchIcon, BrowseIcon, PinIcon } from './Icons.jsx';
 import { ClearButton } from './Buttons.jsx';
 
 const SidebarWithRoute = props => {
@@ -20,6 +20,12 @@ const SidebarWithRoute = props => {
             <Link to="/browse">
                 <ClearButton isActive={isActive('browse')}>
                     <BrowseIcon />
+                </ClearButton>
+            </Link>
+
+            <Link to="/pin">
+                <ClearButton isActive={isActive('pin')}>
+                    <PinIcon />
                 </ClearButton>
             </Link>
         </div>
