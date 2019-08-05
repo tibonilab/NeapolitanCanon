@@ -4,4 +4,5 @@ export default createContext({
     collections: [],
     dateRange: {},
     isContextBarVisible: true,
+    pinnedDocuments: []
 });
