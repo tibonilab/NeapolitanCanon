@@ -46,9 +46,17 @@ const SearchState = props => {
 
     const toggleSearchFilter = (field, value) => {
         if (searchTerms.filters.includes(`${field}:${value}`)) {
-            setSearchTerms({ ...searchTerms, filters: searchTerms.filters.filter(f => f !== `${field}:${value}`) });
+            setSearchTerms({
+                ...searchTerms,
+                filters: searchTerms.filters.filter(f => f !== `${field}:${value}`),
+                page: 0
+            });
         } else {
-            setSearchTerms({ ...searchTerms, filters: searchTerms.filters.concat(`${field}:${value}`) });
+            setSearchTerms({
+                ...searchTerms,
+                filters: searchTerms.filters.concat(`${field}:${value}`),
+                page: 0
+            });
         }
     };
 
@@ -81,7 +89,9 @@ const SearchState = props => {
             facets: []
         });
 
-        performSearch(searchTerms);
+        searchTerms.page
+            ? selectPage(0)
+            : performSearch(searchTerms);
     };
 
 
@@ -128,7 +138,8 @@ const SearchState = props => {
                 setSearchSelected,
                 unsetSearchSelected,
                 searchFormSubmitHandler,
-                selectPage
+                selectPage,
+                setSearchTerms
             }}
         >
             {props.children}
