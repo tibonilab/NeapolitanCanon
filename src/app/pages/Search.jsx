@@ -10,9 +10,10 @@ import Select from '../components/form/Select.jsx';
 import Diva from '../components/wrappers/Diva.jsx';
 
 import Chip from '../components/template/components/Chip.jsx';
-import ListBox from '../components/template/components/ListBox.jsx';
 
 import Paginator from '../components/template/components/Paginator.jsx';
+
+import FacetsSelector from '../components/shared/FacetsSelector.jsx';
 
 import { generateSearchIndexes, renderFacetLabel } from '../model/INDEXES';
 
@@ -20,6 +21,7 @@ import SearchContext from '../context/searchContext';
 import AnalysisContext from '../context/analysisContext';
 
 import { t } from '../i18n';
+
 
 const getPrevPage = page => page && page - 1;
 const getNextPage = (page, totalPages) => page + 1 < totalPages ? page + 1 : page;
@@ -29,46 +31,46 @@ const SearchPage = () => {
     // we store the SearchContext into the context const here to be able to
     // use the data and functions stored into the SearchState component
     // which provides the SearchContext.Provider
-    const context = useContext(SearchContext);
+    const searchContext = useContext(SearchContext);
 
     const analysisContext = useContext(AnalysisContext);
 
     const renderLoading = () => {
-        return context.isLoading ? 'loading' : null;
+        return searchContext.isLoading ? 'loading' : null;
     };
 
-    const totalPages = Math.ceil(context.searchResults.numFound / 100);
+    const totalPages = Math.ceil(searchContext.searchResults.numFound / 100);
 
     const renderPaginationHeader = () => (
         <React.Fragment>
             {
-                !context.isLoading && context.searchResults.numFound ? (
+                !searchContext.isLoading && searchContext.searchResults.numFound ? (
                     <div style={{ marginTop: '1em' }}>
-                        {/* <h5>Found {context.searchResults.numFound} results in {totalPages} pages.</h5> */}
+                        {/* <h5>Found {searchContext.searchResults.numFound} results in {totalPages} pages.</h5> */}
                         {
-                            getPrevPage(context.searchTerms.page) === context.searchTerms.page ? (
+                            getPrevPage(searchContext.searchTerms.page) === searchContext.searchTerms.page ? (
                                 <span>{t('search.nav.prev')}</span>
                             ) : (
-                                <a href="#" onClick={(e) => { e.preventDefault(); context.selectPage(getPrevPage(context.searchTerms.page)); }}>{t('search.nav.prev')}</a>
-                            )
+                                    <a href="#" onClick={(e) => { e.preventDefault(); searchContext.selectPage(getPrevPage(searchContext.searchTerms.page)); }}>{t('search.nav.prev')}</a>
+                                )
                         }
                         <span> | </span>
                         <b>
                             {
                                 t('search.nav.count', {
-                                    from: context.searchTerms.page * 100 + 1,
-                                    to: context.searchTerms.page + 1 < totalPages ? (context.searchTerms.page + 1) * 100 : context.searchResults.numFound,
-                                    total: context.searchResults.numFound
+                                    from: searchContext.searchTerms.page * 100 + 1,
+                                    to: searchContext.searchTerms.page + 1 < totalPages ? (searchContext.searchTerms.page + 1) * 100 : searchContext.searchResults.numFound,
+                                    total: searchContext.searchResults.numFound
                                 })
                             }
                         </b>
                         <span> | </span>
                         {
-                            getNextPage(context.searchTerms.page, totalPages) === context.searchTerms.page ? (
+                            getNextPage(searchContext.searchTerms.page, totalPages) === searchContext.searchTerms.page ? (
                                 <span>{t('search.nav.next')}</span>
                             ) : (
-                                <a href="#" onClick={(e) => { e.preventDefault(); context.selectPage(getNextPage(context.searchTerms.page, totalPages)); }}>{t('search.nav.next')}</a>
-                            )
+                                    <a href="#" onClick={(e) => { e.preventDefault(); searchContext.selectPage(getNextPage(searchContext.searchTerms.page, totalPages)); }}>{t('search.nav.next')}</a>
+                                )
                         }
 
                     </div>
@@ -81,8 +83,8 @@ const SearchPage = () => {
         <React.Fragment>
             <div >
                 <Paginator
-                    onClickHandler={page => context.selectPage(page - 1)}
-                    page={context.searchTerms.page + 1}
+                    onClickHandler={page => searchContext.selectPage(page - 1)}
+                    page={searchContext.searchTerms.page + 1}
                     totalPages={totalPages}
                 />
             </div>
@@ -90,19 +92,19 @@ const SearchPage = () => {
     );
 
     const renderSearchResults = () => {
-        return context.searchResults.results.length > 0 ? (
+        return searchContext.searchResults.results.length > 0 ? (
             <React.Fragment>
 
                 <div style={{ display: 'flex', jusityContent: 'space-between', width: '100%' }}>
                     <div style={{ padding: '1em 2em 1em 0', width: '100%' }}>
-                        {context.searchResults.results.map(element => (
+                        {searchContext.searchResults.results.map(element => (
                             <div
                                 key={element.id}
                                 style={{ paddingBottom: '1em', borderBottom: '1px solid #efefef', marginTop: '1em' }}
                             >
                                 <a href="#" onClick={e => {
                                     e.preventDefault();
-                                    context.setSearchSelected(element);
+                                    searchContext.setSearchSelected(element);
                                 }}>{element.title_s}</a>
                                 <p>
                                     {element.place_s} - {element.year_i}
@@ -119,7 +121,7 @@ const SearchPage = () => {
                         ))}
                     </div>
                     <div style={{ padding: '1em 0', minWidth: '318px', maxWidth: '318px' }}>
-                        {renderFacets()}
+                        <FacetsSelector {...searchContext} />
                     </div>
                 </div>
 
@@ -127,12 +129,12 @@ const SearchPage = () => {
 
             </React.Fragment>
         ) : (
-            !context.isLoading && context.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
-        );
+                !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
+            );
     };
 
     const renderDivaWrapper = () => {
-        const element = context.selectedResource;
+        const element = searchContext.selectedResource;
 
         return (
             <React.Fragment>
@@ -140,7 +142,7 @@ const SearchPage = () => {
                     href="#"
                     onClick={e => {
                         e.preventDefault();
-                        context.unsetSearchSelected();
+                        searchContext.unsetSearchSelected();
                     }}
                 >
                     {t('search.actions.back')}
@@ -191,9 +193,9 @@ const SearchPage = () => {
     };
 
     const renderFacets = () => {
-        return Object.keys(context.searchResults.facets).map(key => {
+        return Object.keys(searchContext.searchResults.facets).map(key => {
 
-            const normalizedFacets = normalizeFacetsResults(context.searchResults.facets[key]);
+            const normalizedFacets = normalizeFacetsResults(searchContext.searchResults.facets[key]);
 
             if (normalizedFacets.length == 0) {
                 return null;
@@ -216,7 +218,7 @@ const SearchPage = () => {
                                         display: 'flex',
                                         justifyContent: 'space-between',
                                         cursor: 'pointer',
-                                        background: context.searchTerms.filters.includes(
+                                        background: searchContext.searchTerms.filters.includes(
                                             `${key}:${facet.label}`
                                         )
                                             ? '#eee'
@@ -224,7 +226,7 @@ const SearchPage = () => {
                                     }}
                                     key={index}
                                     onClick={() =>
-                                        context.toggleSearchFilter(key, facet.label)
+                                        searchContext.toggleSearchFilter(key, facet.label)
                                     }
                                 >
                                     <span>{facet.label}</span>
@@ -246,7 +248,7 @@ const SearchPage = () => {
 
     const renderForm = () => (
         <div
-            onSubmit={context.searchFormSubmitHandler}
+            onSubmit={searchContext.searchFormSubmitHandler}
             style={{
                 position: 'fixed',
                 margin: '-2em -4em',
@@ -265,15 +267,15 @@ const SearchPage = () => {
                     style={{ width: '100%' }}
                     className="input__search"
                     placeholder={t('search.form.search_placeholder')}
-                    value={context.searchTerms.searchKey}
-                    onChangeHandler={context.searchParamChangeHandler('searchKey')}
+                    value={searchContext.searchTerms.searchKey}
+                    onChangeHandler={searchContext.searchParamChangeHandler('searchKey')}
                 />
                 <Select
                     style={{ flex: 1, minWidth: '211px' }}
-                    value={context.searchTerms.indexes[0]}
+                    value={searchContext.searchTerms.indexes[0]}
                     placeholder={t('search.form.select_placeholder')}
                     options={[{ label: 'Full-text', value: '' }].concat(generateSearchIndexes())}
-                    onChangeHandler={context.searchParamChangeHandler('indexes')}
+                    onChangeHandler={searchContext.searchParamChangeHandler('indexes')}
                 />
                 <PrimaryButton type="submit">{t('search.form.submit')}</PrimaryButton>
 
@@ -286,13 +288,13 @@ const SearchPage = () => {
     const renderChips = () => (
         <React.Fragment>
             {
-                context.searchTerms.filters.length > 0 ? (
+                searchContext.searchTerms.filters.length > 0 ? (
                     <div style={{ padding: '.5em 0' }}>
                         {
-                            context.searchTerms.filters.map(filter => {
+                            searchContext.searchTerms.filters.map(filter => {
                                 const filterData = filter.split(':');
                                 return (
-                                    <Chip removeAction={() => context.toggleSearchFilter(filterData[0], filterData[1])} key={filter}>{`${renderFacetLabel(filterData[0])} > ${filterData[1]}`}</Chip>
+                                    <Chip removeAction={() => searchContext.toggleSearchFilter(filterData[0], filterData[1])} key={filter}>{`${renderFacetLabel(filterData[0])} > ${filterData[1]}`}</Chip>
                                 );
                             })
                         }
@@ -306,12 +308,12 @@ const SearchPage = () => {
     return (
         <Template>
             {
-                context.selectedResource
+                searchContext.selectedResource
                     ? renderDivaWrapper()
                     : (
                         <React.Fragment>
                             {renderForm()}
-                            <div style={{ marginTop: context.searchTerms.filters.length > 0 ? '9.5em' : '6.5em' }}>
+                            <div style={{ marginTop: searchContext.searchTerms.filters.length > 0 ? '9.5em' : '6.5em' }}>
                                 {renderLoading()}
                                 {renderSearchResults()}
                             </div>
