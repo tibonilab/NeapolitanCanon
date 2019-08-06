@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { withRouter } from 'react-router-dom';
 
 import { useStateWithSession } from '../service/serviceStorage';
+import { useDidMount } from '../hooks/useDidMount';
 
 import { DEFAULT_FACETS } from '../model/INDEXES';
 import Solr from '../model/Solr';
@@ -18,6 +19,8 @@ const BrowseState = props => {
     const [browseResults, setBrowseResults] = useStateWithSession([], 'browseResults', SESSION_PREFIX);
 
     const [searchResults, setSearchResults] = useStateWithSession({}, 'searchResults', SESSION_PREFIX);
+
+    const [searchTerms, setSearchTerms] = useStateWithSession({}, 'searchTerms', SESSION_PREFIX);
 
     const [currentIndex, setCurrentIndex] = useStateWithSession({}, 'currentIndex', SESSION_PREFIX);
 
@@ -73,14 +76,18 @@ const BrowseState = props => {
                     from: searchKey,
                     to: searchKey
                 },
-                searchKey
+                searchKey,
+                page: 0
             };
         } else {
             searchTerms = {
                 searchKey,
-                indexes: [currentIndex.index]
+                indexes: [currentIndex.index],
+                page: 0
             };
         }
+
+        setSearchTerms(searchTerms);
 
         return searchTerms;
     };
@@ -111,13 +118,10 @@ const BrowseState = props => {
     };
 
     const storeSolrSearchResults = searchKey => solrSearchResults => {
-        // setSearchResults({
-        //     ...searchResults,
-        //     [searchKey]: solrSearchResults.response.docs
-        // });
         setSearchResults({
             index: searchKey,
-            results: solrSearchResults.response.docs
+            results: solrSearchResults.response.docs,
+            numFound: solrSearchResults.response.numFound
         });
         setIsLoading(false);
     };
@@ -174,6 +178,23 @@ const BrowseState = props => {
         props.history.push('/search');
     };
 
+    const selectPage = page => {
+        setSearchTerms({
+            ...searchTerms,
+            page
+        });
+    };
+
+    // we use useDidMount Hook to let the component know whether is mounted or not
+    const didMount = useDidMount();
+
+    useEffect(
+        () => {
+            didMount && performSearch(searchTerms);
+        },
+        [searchTerms.page]
+    );
+
     return (
         <BrowseContext.Provider
             value={{
@@ -182,6 +203,8 @@ const BrowseState = props => {
                 currentIndex,
                 browseResults,
                 searchResults,
+                searchTerms,
+                selectPage,
                 selectedResource,
                 setSearchSelected,
                 unsetSearchSelected,
