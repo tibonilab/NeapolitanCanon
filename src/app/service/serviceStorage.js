@@ -10,6 +10,7 @@ const KEY_SUFFIX = '-service-storage';
  *
  * @param {*} initialValue 
  * @param {String} key 
+ * @param {String} keyPrefix
  */
 export const useStateWithSession = (initialValue, key, keyPrefix) => {
 
