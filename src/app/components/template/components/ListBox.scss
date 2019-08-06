@@ -22,7 +22,7 @@
         height: auto;
         padding: 0em 1em;
         transition: max-height .2s ease-in-out, padding .2s ease-in-out;
-        overflow: hidden;
+        overflow-y: hidden;
 
         > div {
             padding: .25rem;
@@ -39,10 +39,17 @@
 
         .listBox {
             &-body {
-                max-height: 600px;
+                max-height: 500px;
                 padding: 2em 1em;
             }
         }
 
+        &-finished {
+            .listBox {
+                &-body {
+                    overflow-y: auto;
+                }
+            }   
+        }
     }
 }
