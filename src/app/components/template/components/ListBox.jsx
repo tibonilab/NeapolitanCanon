@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 
 import './ListBox.scss';
 
+const BASE_CLASS_NAMES = ['listBox-root'];
 
 const ListBox = props => {
 
     const [collapsed, setCollapsed] = useState(false);
 
-    const [classNames, setClassNames] = useState(['listBox-root']);
+    const [classNames, setClassNames] = useState(BASE_CLASS_NAMES);
 
     let animationTimer;
 
     const toggleCollapsed = () => {
-        console.log('toggleCollapsed');
         if (!collapsed) {
             setCollapsed(true);
             setClassNames([
@@ -28,7 +28,7 @@ const ListBox = props => {
             }, 200);
         } else {
             setCollapsed(false);
-            setClassNames(['listBox-root']);
+            setClassNames(BASE_CLASS_NAMES);
             clearTimeout(animationTimer);
         }
     };
