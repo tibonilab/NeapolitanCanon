@@ -14,10 +14,12 @@ import ListBox from '../components/template/components/ListBox.jsx';
 
 import Paginator from '../components/template/components/Paginator.jsx';
 
-import { SEARCH_INDEXES, renderFacetLabel } from '../model/INDEXES';
+import { generateSearchIndexes, renderFacetLabel } from '../model/INDEXES';
 
 import SearchContext from '../context/searchContext';
 import AnalysisContext from '../context/analysisContext';
+
+import { t } from '../i18n';
 
 const getPrevPage = page => page && page - 1;
 const getNextPage = (page, totalPages) => page + 1 < totalPages ? page + 1 : page;
@@ -40,27 +42,37 @@ const SearchPage = () => {
     const renderPaginationHeader = () => (
         <React.Fragment>
             {
-                !context.isLoading && context.searchResults.numFound && (
+                !context.isLoading && context.searchResults.numFound ? (
                     <div style={{ marginTop: '1em' }}>
                         {/* <h5>Found {context.searchResults.numFound} results in {totalPages} pages.</h5> */}
                         {
                             getPrevPage(context.searchTerms.page) === context.searchTerms.page ? (
-                                <span>&laquo; Previous page</span>
+                                <span>{t('search.nav.prev')}</span>
                             ) : (
-                                <a href="#" onClick={(e) => { e.preventDefault(); context.selectPage(getPrevPage(context.searchTerms.page)); }}>&laquo; Previous page </a>
+                                <a href="#" onClick={(e) => { e.preventDefault(); context.selectPage(getPrevPage(context.searchTerms.page)); }}>{t('search.nav.prev')}</a>
                             )
                         }
-                        &nbsp; | <b>{context.searchTerms.page * 100 + 1} - {context.searchTerms.page + 1 < totalPages ? (context.searchTerms.page + 1) * 100 : context.searchResults.numFound} of {context.searchResults.numFound}</b> | &nbsp;
+                        <span> | </span>
+                        <b>
+                            {
+                                t('search.nav.count', {
+                                    from: context.searchTerms.page * 100 + 1,
+                                    to: context.searchTerms.page + 1 < totalPages ? (context.searchTerms.page + 1) * 100 : context.searchResults.numFound,
+                                    total: context.searchResults.numFound
+                                })
+                            }
+                        </b>
+                        <span> | </span>
                         {
                             getNextPage(context.searchTerms.page, totalPages) === context.searchTerms.page ? (
-                                <span>Next page &raquo;</span>
+                                <span>{t('search.nav.next')}</span>
                             ) : (
-                                <a href="#" onClick={(e) => { e.preventDefault(); context.selectPage(getNextPage(context.searchTerms.page, totalPages)); }}>Next page &raquo;</a>
+                                <a href="#" onClick={(e) => { e.preventDefault(); context.selectPage(getNextPage(context.searchTerms.page, totalPages)); }}>{t('search.nav.next')}</a>
                             )
                         }
 
                     </div>
-                )
+                ) : null
             }
         </React.Fragment>
     );
@@ -101,7 +113,7 @@ const SearchPage = () => {
                                         analysisContext.togglePinnedDocument(element);
                                     }}
                                 >
-                                    {analysisContext.isPinned(element) ? 'Remove from pinned' : 'Pin this document'}
+                                    {analysisContext.isPinned(element) ? t('search.actions.unpin') : t('search.actions.pin')}
                                 </button>
                             </div>
                         ))}
@@ -115,7 +127,7 @@ const SearchPage = () => {
 
             </React.Fragment>
         ) : (
-            !context.isLoading && context.searchResults.numFound === 0 && <h3>No results found</h3>
+            !context.isLoading && context.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
         );
     };
 
@@ -131,7 +143,7 @@ const SearchPage = () => {
                         context.unsetSearchSelected();
                     }}
                 >
-                    Go back
+                    {t('search.actions.back')}
                 </a>
                 <div style={{ display: 'flex' }}>
                     <div style={{ width: '100%' }}>
@@ -222,9 +234,9 @@ const SearchPage = () => {
                     )}
                     {
                         normalizedFacets.length > 10 && (
-                            <div>
-                                <a href="#">{'Altro'}</a>
-                            </div>
+
+                            <a href="#" style={{ margin: '10px 0 0 5px', display: 'block' }}>{t('search.facets.more')}</a>
+
                         )
                     }
                 </ListBox>
@@ -252,25 +264,18 @@ const SearchPage = () => {
                 <Input
                     style={{ width: '100%' }}
                     className="input__search"
-                    placeholder="Input your search terms here..."
+                    placeholder={t('search.form.search_placeholder')}
                     value={context.searchTerms.searchKey}
-                    onChangeHandler={context.searchParamChangeHandler(
-                        'searchKey'
-                    )}
+                    onChangeHandler={context.searchParamChangeHandler('searchKey')}
                 />
                 <Select
                     style={{ flex: 1, minWidth: '211px' }}
                     value={context.searchTerms.indexes[0]}
-                    // label="Search by index"
-                    placeholder="Search by index"
-                    options={[{ label: 'Full-text', value: '' }].concat(
-                        SEARCH_INDEXES
-                    )}
-                    onChangeHandler={context.searchParamChangeHandler(
-                        'indexes'
-                    )}
+                    placeholder={t('search.form.select_placeholder')}
+                    options={[{ label: 'Full-text', value: '' }].concat(generateSearchIndexes())}
+                    onChangeHandler={context.searchParamChangeHandler('indexes')}
                 />
-                <PrimaryButton type="submit">search</PrimaryButton>
+                <PrimaryButton type="submit">{t('search.form.submit')}</PrimaryButton>
 
             </form>
             {renderChips()}

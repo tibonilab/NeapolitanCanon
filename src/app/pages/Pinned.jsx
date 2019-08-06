@@ -6,13 +6,15 @@ import Template from '../components/template/Template.jsx';
 
 import AnalysisContext from '../context/analysisContext';
 
-const PinnedPage = props => {
+import { t } from '../i18n';
+
+const PinnedPage = () => {
 
     const { pinnedDocuments, togglePinnedDocument } = useContext(AnalysisContext);
 
     return (
         <Template>
-            <h3>You have pinned {pinnedDocuments.length} documents</h3>
+            <h3>{t('pinned.header', { count: pinnedDocuments.length })}</h3>
             {pinnedDocuments.map(element => (
                 <div
                     key={element.id}
@@ -30,7 +32,7 @@ const PinnedPage = props => {
                         e.preventDefault();
                         togglePinnedDocument(element);
                     }}>
-                        Remove from pinned
+                        {t('search.actions.unpin')}
                     </button>
                 </div>
             ))}

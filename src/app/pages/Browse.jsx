@@ -8,9 +8,11 @@ import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 import Select from '../components/form/Select.jsx';
 import Diva from '../components/wrappers/Diva.jsx';
 
-import { BROWSE_INDEXES, renderFacetLabel } from '../model/INDEXES';
+import { generateBrowseIndexes, renderFacetLabel } from '../model/INDEXES';
 
 import BrowseContext from '../context/browseContext';
+
+import { t } from '../i18n';
 
 const BrowsePage = () => {
 
@@ -90,7 +92,7 @@ const BrowsePage = () => {
                     context.unsetSearchResults();
                 }}
             >
-                back
+                {t('browse.back')}
             </a>
 
             <h1>{`${renderFacetLabel(context.currentIndex.index)}: ${context.searchResults.index}`}</h1>
@@ -102,7 +104,7 @@ const BrowsePage = () => {
                 }}
                 disabled={context.currentIndex.position < 1}
             >
-                &laquo; previous
+                {t('browse.prev')}
             </button>
             <button
                 onClick={e => {
@@ -111,14 +113,14 @@ const BrowsePage = () => {
                 }}
                 disabled={context.currentIndex.position + 1 == normalizeFacetsResults(context.browseResults).length}
             >
-                next &raquo;
+                {t('browse.next')}
             </button>
             <button
                 onClick={e => {
                     e.preventDefault();
                     context.gotoSearch(context.searchResults.index);
                 }}>
-                search
+                {t('browse.search')}
             </button>
 
 
@@ -150,7 +152,7 @@ const BrowsePage = () => {
                         context.unsetSearchSelected();
                     }}
                 >
-                    Go back
+                    {t('browse.back')}
                 </a>
                 <div style={{ display: 'flex' }}>
                     <div style={{ width: '100%' }}>
@@ -211,11 +213,11 @@ const BrowsePage = () => {
                 <Select
                     style={{ width: 'auto' }}
                     value={context.currentIndex.index}
-                    placeholder="Select index"
-                    options={BROWSE_INDEXES}
+                    placeholder={t('browse.form.select_placeholder')}
+                    options={generateBrowseIndexes()}
                     onChangeHandler={context.onSelectChangeHandler}
                 />
-                <PrimaryButton type="submit" disabled={!context.currentIndex.index}>browse</PrimaryButton>
+                <PrimaryButton type="submit" disabled={!context.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
                 {renderBrowseNav()}
             </div>
         </form>

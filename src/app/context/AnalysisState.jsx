@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useStateWithSession } from '../service/serviceStorage';
 
-import { COLLECTIONS } from '../model/INDEXES';
+import { generateCollections } from '../model/INDEXES';
 
 import AnalysisContext from './analysisContext';
 
@@ -12,7 +12,7 @@ const AnalysisState = props => {
 
     const [dateRange, setDateRange] = useStateWithSession({}, 'dateRange', SESSION_PREFIX);
 
-    const [collections, setCollections] = useStateWithSession(COLLECTIONS.map(element => element.field), 'collections', SESSION_PREFIX);
+    const [collections, setCollections] = useStateWithSession(generateCollections().map(element => element.field), 'collections', SESSION_PREFIX);
 
     const [isContextBarVisible, setContextBarVisibility] = useStateWithSession(true, 'isContextBarVisible', SESSION_PREFIX);
 

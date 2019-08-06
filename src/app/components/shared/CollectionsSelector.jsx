@@ -2,12 +2,12 @@ import React from 'react';
 
 import Checkbox from '../form/Checkbox.jsx';
 
-import { COLLECTIONS } from '../../model/INDEXES';
+import { generateCollections } from '../../model/INDEXES';
 
 const CollectionSelector = ({ onChangeHandler, ...props }) => {
     const { collections } = props;
 
-    return COLLECTIONS.map(element => (
+    return generateCollections().map(element => (
         <React.Fragment key={element.field}>
             <Checkbox
                 onChangeHandler={checked => {
