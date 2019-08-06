@@ -12,6 +12,8 @@ import Chip from '../components/template/components/Chip.jsx';
 import Paginator from '../components/template/components/Paginator.jsx';
 
 import FacetsSelector from '../components/shared/FacetsSelector/FacetsSelector.jsx';
+import SearchResults from '../components/shared/SearchResults.jsx';
+import PaginationHeader from '../components/shared/PaginationHeader.jsx';
 
 import { generateSearchIndexes, renderFacetLabel } from '../model/INDEXES';
 
@@ -20,74 +22,19 @@ import AnalysisContext from '../context/analysisContext';
 
 import { t } from '../i18n';
 
-
-const getPrevPage = page => page && page - 1;
-const getNextPage = (page, totalPages) => page + 1 < totalPages ? page + 1 : page;
-
 const SearchPage = () => {
 
     // we store the SearchContext into the context const here to be able to
     // use the data and functions stored into the SearchState component
     // which provides the SearchContext.Provider
     const searchContext = useContext(SearchContext);
-
     const analysisContext = useContext(AnalysisContext);
+
+    const totalPages = Math.ceil(searchContext.searchResults.numFound / 100);
 
     const renderLoading = () => {
         return searchContext.isLoading ? 'loading' : null;
     };
-
-    const totalPages = Math.ceil(searchContext.searchResults.numFound / 100);
-
-    const renderPaginationHeader = () => (
-        <React.Fragment>
-            {
-                !searchContext.isLoading && searchContext.searchResults.numFound ? (
-                    <div style={{ marginTop: '1em' }}>
-                        {/* <h5>Found {searchContext.searchResults.numFound} results in {totalPages} pages.</h5> */}
-                        {
-                            getPrevPage(searchContext.searchTerms.page) === searchContext.searchTerms.page ? (
-                                <span>{t('search.nav.prev')}</span>
-                            ) : (
-                                <a href="#" onClick={(e) => { e.preventDefault(); searchContext.selectPage(getPrevPage(searchContext.searchTerms.page)); }}>{t('search.nav.prev')}</a>
-                            )
-                        }
-                        <span> | </span>
-                        <b>
-                            {
-                                t('search.nav.count', {
-                                    from: searchContext.searchTerms.page * 100 + 1,
-                                    to: searchContext.searchTerms.page + 1 < totalPages ? (searchContext.searchTerms.page + 1) * 100 : searchContext.searchResults.numFound,
-                                    total: searchContext.searchResults.numFound
-                                })
-                            }
-                        </b>
-                        <span> | </span>
-                        {
-                            getNextPage(searchContext.searchTerms.page, totalPages) === searchContext.searchTerms.page ? (
-                                <span>{t('search.nav.next')}</span>
-                            ) : (
-                                <a href="#" onClick={(e) => { e.preventDefault(); searchContext.selectPage(getNextPage(searchContext.searchTerms.page, totalPages)); }}>{t('search.nav.next')}</a>
-                            )
-                        }
-
-                    </div>
-                ) : null
-            }
-        </React.Fragment>
-    );
-
-    const renderPaginationFooter = () => (
-        <React.Fragment>
-            <div >
-                <Paginator
-                    onClickHandler={page => searchContext.selectPage(page - 1)}
-                    page={searchContext.searchTerms.page + 1}
-                    totalPages={totalPages}
-                />
-            </div>
-        </React.Fragment>
-    );
 
     const renderSearchResults = () => {
         return searchContext.searchResults.results.length > 0 ? (
@@ -95,35 +42,17 @@ const SearchPage = () => {
 
                 <div style={{ display: 'flex', jusityContent: 'space-between', width: '100%' }}>
                     <div style={{ padding: '1em 2em 1em 0', width: '100%' }}>
-                        {searchContext.searchResults.results.map(element => (
-                            <div
-                                key={element.id}
-                                style={{ paddingBottom: '1em', borderBottom: '1px solid #efefef', marginTop: '1em' }}
-                            >
-                                <a href="#" onClick={e => {
-                                    e.preventDefault();
-                                    searchContext.setSearchSelected(element);
-                                }}>{element.title_s}</a>
-                                <p>
-                                    {element.place_s} - {element.year_i}
-                                </p>
-                                <button
-                                    onClick={e => {
-                                        e.preventDefault();
-                                        analysisContext.togglePinnedDocument(element);
-                                    }}
-                                >
-                                    {analysisContext.isPinned(element) ? t('search.actions.unpin') : t('search.actions.pin')}
-                                </button>
-                            </div>
-                        ))}
+                        <SearchResults {...searchContext} {...analysisContext} />
                     </div>
                     <div style={{ padding: '1em 0', minWidth: '318px', maxWidth: '318px' }}>
                         <FacetsSelector {...searchContext} />
                     </div>
                 </div>
-
-                {renderPaginationFooter()}
+                <Paginator
+                    onClickHandler={page => searchContext.selectPage(page - 1)}
+                    page={searchContext.searchTerms.page + 1}
+                    totalPages={totalPages}
+                />
 
             </React.Fragment>
         ) : (
@@ -225,7 +154,7 @@ const SearchPage = () => {
 
             </form>
             {renderChips()}
-            {renderPaginationHeader()}
+            <PaginationHeader {...searchContext} />
         </div>
     );
 

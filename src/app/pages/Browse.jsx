@@ -4,13 +4,17 @@ import { normalizeFacetsResults } from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
 import { PrimaryButton } from '../components/template/components/Buttons.jsx';
+import Paginator from '../components/template/components/Paginator.jsx';
 
 import Select from '../components/form/Select.jsx';
 import Diva from '../components/wrappers/Diva.jsx';
+import SearchResults from '../components/shared/SearchResults.jsx';
+import PaginationHeader from '../components/shared/PaginationHeader.jsx';
 
 import { generateBrowseIndexes, renderFacetLabel } from '../model/INDEXES';
 
 import BrowseContext from '../context/browseContext';
+import AnalysisContext from '../context/analysisContext';
 
 import { t } from '../i18n';
 
@@ -19,17 +23,20 @@ const BrowsePage = () => {
     // we store the BrowseContext into the context const here to be able to
     // use the data and functions stored into the BrowseState component
     // which provides the BrowseContext.Provider
-    const context = useContext(BrowseContext);
+    const browseContext = useContext(BrowseContext);
+    const analysisContext = useContext(AnalysisContext);
+
+    const totalPages = Math.ceil(browseContext.searchResults.numFound / 100);
 
     const renderLoading = () => {
-        return context.isLoading ? <div style={{ marginTop: '2em' }}>{'loading'}</div> : null;
+        return browseContext.isLoading ? <div style={{ marginTop: '2em' }}>{'loading'}</div> : null;
     };
 
     const renderBrowseNav = () => {
         let firstLetter;
         const letters = [];
 
-        normalizeFacetsResults(context.browseResults).forEach(term => {
+        normalizeFacetsResults(browseContext.browseResults).forEach(term => {
             if (firstLetter != term.label.substring(0, 1)) {
                 firstLetter = term.label.substring(0, 1);
                 letters.push(firstLetter);
@@ -45,11 +52,11 @@ const BrowsePage = () => {
 
     const renderBrowseResults = () => {
 
-        if (context.browseResults) {
+        if (browseContext.browseResults) {
             let firstLetter;
             const letters = [];
 
-            const results = normalizeFacetsResults(context.browseResults).map((term, index) => {
+            const results = normalizeFacetsResults(browseContext.browseResults).map((term, index) => {
                 let header;
 
                 if (firstLetter != term.label.substring(0, 1)) {
@@ -70,7 +77,7 @@ const BrowsePage = () => {
 
                         {header}
 
-                        <div onClick={() => context.fetchIndexElements(term.label, index)} style={{ cursor: 'pointer' }}>
+                        <div onClick={() => browseContext.fetchIndexElements(term.label, index)} style={{ cursor: 'pointer' }}>
                             <h4>{term.label}</h4>
                         </div>
                     </React.Fragment>
@@ -89,59 +96,55 @@ const BrowsePage = () => {
                 href="#"
                 onClick={e => {
                     e.preventDefault();
-                    context.unsetSearchResults();
+                    browseContext.unsetSearchResults();
                 }}
             >
                 {t('browse.back')}
             </a>
 
-            <h1>{`${renderFacetLabel(context.currentIndex.index)}: ${context.searchResults.index}`}</h1>
+            <h1>{`${renderFacetLabel(browseContext.currentIndex.index)}: ${browseContext.searchResults.index}`}</h1>
 
             <button
                 onClick={e => {
                     e.preventDefault();
-                    context.selectPrevious();
+                    browseContext.selectPrevious();
                 }}
-                disabled={context.currentIndex.position < 1}
+                disabled={browseContext.currentIndex.position < 1}
             >
                 {t('browse.prev')}
             </button>
             <button
                 onClick={e => {
                     e.preventDefault();
-                    context.selectNext();
+                    browseContext.selectNext();
                 }}
-                disabled={context.currentIndex.position + 1 == normalizeFacetsResults(context.browseResults).length}
+                disabled={browseContext.currentIndex.position + 1 == normalizeFacetsResults(browseContext.browseResults).length}
             >
                 {t('browse.next')}
             </button>
             <button
                 onClick={e => {
                     e.preventDefault();
-                    context.gotoSearch(context.searchResults.index);
+                    browseContext.gotoSearch(browseContext.searchResults.index);
                 }}>
                 {t('browse.search')}
             </button>
 
+            <PaginationHeader {...browseContext} />
 
-            {
-                context.searchResults.results.map(element => (
-                    <div
-                        key={element.id}
-                        style={{ cursor: 'pointer' }}
-                        onClick={() => context.setSearchSelected(element)}
-                    >
-                        <br />
-                        <h2>{element.title_s}</h2>
-                        <h3>{element.place_s} - {element.year_i}</h3>
-                    </div>
-                ))
-            }
+            <SearchResults {...browseContext} {...analysisContext} />
+
+            <Paginator
+                onClickHandler={page => browseContext.selectPage(page - 1)}
+                page={browseContext.searchTerms.page + 1}
+                totalPages={totalPages}
+            />
+
         </React.Fragment>
     );
 
     const renderDivaWrapper = () => {
-        const element = context.selectedResource;
+        const element = browseContext.selectedResource;
 
         return (
             <React.Fragment>
@@ -149,7 +152,7 @@ const BrowsePage = () => {
                     href="#"
                     onClick={e => {
                         e.preventDefault();
-                        context.unsetSearchSelected();
+                        browseContext.unsetSearchSelected();
                     }}
                 >
                     {t('browse.back')}
@@ -201,7 +204,7 @@ const BrowsePage = () => {
 
     const renderForm = () => (
         <form
-            onSubmit={context.onFormSubmitHandler}
+            onSubmit={browseContext.onFormSubmitHandler}
             style={{
                 position: 'fixed',
                 padding: '2em 4em',
@@ -212,12 +215,12 @@ const BrowsePage = () => {
             <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
                 <Select
                     style={{ width: 'auto' }}
-                    value={context.currentIndex.index}
+                    value={browseContext.currentIndex.index}
                     placeholder={t('browse.form.select_placeholder')}
                     options={generateBrowseIndexes()}
-                    onChangeHandler={context.onSelectChangeHandler}
+                    onChangeHandler={browseContext.onSelectChangeHandler}
                 />
-                <PrimaryButton type="submit" disabled={!context.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
+                <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
                 {renderBrowseNav()}
             </div>
         </form>
@@ -229,16 +232,16 @@ const BrowsePage = () => {
             <React.Fragment>
                 {renderForm()}
                 <div style={{ padding: '3em 0 1em 0' }}>
-                    {context.isLoading ? renderLoading() : renderBrowseResults()}
+                    {browseContext.isLoading ? renderLoading() : renderBrowseResults()}
                 </div>
             </React.Fragment>
         );
 
-        if (context.searchResults.index) {
+        if (browseContext.searchResults.index) {
             view = renderIndexResults();
         }
 
-        if (context.selectedResource) {
+        if (browseContext.selectedResource) {
             view = renderDivaWrapper();
         }
 
