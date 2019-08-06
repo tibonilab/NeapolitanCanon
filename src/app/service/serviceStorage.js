@@ -11,10 +11,10 @@ const KEY_SUFFIX = '-service-storage';
  * @param {*} initialValue 
  * @param {String} key 
  */
-export const useStateWithSession = (initialValue, key) => {
+export const useStateWithSession = (initialValue, key, keyPrefix) => {
 
     const storage = window.sessionStorage;
-    const storageKey = key + KEY_SUFFIX;
+    const storageKey = `${keyPrefix ? `${keyPrefix}-` : ''}${key}${KEY_SUFFIX}`;
 
     const readDataFromSession = () => {
         return storage.getItem(storageKey) && JSON.parse(storage.getItem(storageKey));

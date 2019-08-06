@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useStateWithSession } from '../service/serviceStorage';
 
@@ -6,18 +6,17 @@ import { COLLECTIONS } from '../model/INDEXES';
 
 import AnalysisContext from './analysisContext';
 
-const CONTEX_BAR_VISIBILITY_KEY = 'contexBarVisibility';
-const PINNED_DOCUMENTS_SERVICE_STORAGE_KEY = 'pinnedDocuments';
+const SESSION_PREFIX = 'AnalysisState';
 
 const AnalysisState = props => {
 
-    const [dateRange, setDateRange] = useState({});
+    const [dateRange, setDateRange] = useStateWithSession({}, 'dateRange', SESSION_PREFIX);
 
-    const [collections, setCollections] = useState(COLLECTIONS.map(element => element.field));
+    const [collections, setCollections] = useStateWithSession(COLLECTIONS.map(element => element.field), 'collections', SESSION_PREFIX);
 
-    const [isContextBarVisible, setContextBarVisibility] = useStateWithSession(true, CONTEX_BAR_VISIBILITY_KEY);
+    const [isContextBarVisible, setContextBarVisibility] = useStateWithSession(true, 'isContextBarVisible', SESSION_PREFIX);
 
-    const [pinnedDocuments, setPinnedDocuments] = useStateWithSession([], PINNED_DOCUMENTS_SERVICE_STORAGE_KEY);
+    const [pinnedDocuments, setPinnedDocuments] = useStateWithSession([], 'pinnedDocuments', SESSION_PREFIX);
 
     const dateRangeChangeHandler = dateRange => setDateRange(dateRange);
 

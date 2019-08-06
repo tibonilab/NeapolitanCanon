@@ -1,6 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { withRouter } from 'react-router-dom';
+
+import { useStateWithSession } from '../service/serviceStorage';
 
 import { DEFAULT_FACETS } from '../model/INDEXES';
 import Solr from '../model/Solr';
@@ -9,25 +11,27 @@ import BrowseContext from './browseContext';
 import AnalysisContext from './analysisContext';
 import SearchContext from './searchContext';
 
+const SESSION_PREFIX = 'BrowseState';
+
 const BrowseState = props => {
 
-    const [browseResults, setBrowseResults] = useState([]);
+    const [browseResults, setBrowseResults] = useStateWithSession([], 'browseResults', SESSION_PREFIX);
 
-    const [searchResults, setSearchResults] = useState({});
+    const [searchResults, setSearchResults] = useStateWithSession({}, 'searchResults', SESSION_PREFIX);
 
-    const [currentIndex, setCurrentIndex] = useState({});
+    const [currentIndex, setCurrentIndex] = useStateWithSession({}, 'currentIndex', SESSION_PREFIX);
 
-    const [browseTerms, setBrowseTerms] = useState({
+    const [browseTerms, setBrowseTerms] = useStateWithSession({
         facets: {
             fields: [],
             prefix: '',
             sort: 'index'
         }
-    });
+    }, 'browseTerms', SESSION_PREFIX);
 
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useStateWithSession(false, 'isLoading', SESSION_PREFIX);
 
-    const [selectedResource, setSelectedResource] = useState(null);
+    const [selectedResource, setSelectedResource] = useStateWithSession(null, 'selectedResource', SESSION_PREFIX);
 
     const analysisContext = useContext(AnalysisContext);
     const searchContext = useContext(SearchContext);

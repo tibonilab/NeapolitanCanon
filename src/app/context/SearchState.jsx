@@ -1,26 +1,30 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
+
+import { useStateWithSession } from '../service/serviceStorage';
 
 import SearchContext from './searchContext';
+import AnalysisContext from './analysisContext';
+
 import { useDidMount } from '../hooks/useDidMount';
 
 import { DEFAULT_FACETS } from '../model/INDEXES';
 import Solr from '../model/Solr';
 
-import AnalysisContext from './analysisContext';
+const SESSION_PREFIX = 'SearchState';
 
 const SearchState = props => {
 
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useStateWithSession(false, 'isLoading', SESSION_PREFIX);
 
-    const [selectedResource, setSelectedResource] = useState(null);
+    const [selectedResource, setSelectedResource] = useStateWithSession(null, 'selectedResource', SESSION_PREFIX);
 
-    const [searchResults, setSearchResults] = useState({
+    const [searchResults, setSearchResults] = useStateWithSession({
         numFound: null,
         results: [],
         facets: [],
-    });
+    }, 'searchResults', SESSION_PREFIX);
 
-    const [searchTerms, setSearchTerms] = useState({
+    const [searchTerms, setSearchTerms] = useStateWithSession({
         searchKey: '',
         indexes: [],
         filters: [],
@@ -28,7 +32,7 @@ const SearchState = props => {
             fields: DEFAULT_FACETS
         },
         page: 0
-    });
+    }, 'searchTerms', SESSION_PREFIX);
 
     const analysisContext = useContext(AnalysisContext);
 
