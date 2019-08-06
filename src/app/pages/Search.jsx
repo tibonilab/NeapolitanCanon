@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 
-import { normalizeFacetsResults } from '../model/Solr';
-
 import Template from '../components/template/Template.jsx';
 import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 
@@ -190,60 +188,6 @@ const SearchPage = () => {
 
             </React.Fragment >
         );
-    };
-
-    const renderFacets = () => {
-        return Object.keys(searchContext.searchResults.facets).map(key => {
-
-            const normalizedFacets = normalizeFacetsResults(searchContext.searchResults.facets[key]);
-
-            if (normalizedFacets.length == 0) {
-                return null;
-            }
-
-            return (
-                <ListBox
-                    key={key}
-                    header={(
-                        <React.Fragment>
-                            <span>{renderFacetLabel(key)}</span>
-                            <span>{normalizedFacets.length}</span>
-                        </React.Fragment>
-                    )}>
-                    {normalizedFacets.map(
-                        (facet, index) =>
-                            index < 10 && (
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        cursor: 'pointer',
-                                        background: searchContext.searchTerms.filters.includes(
-                                            `${key}:${facet.label}`
-                                        )
-                                            ? '#eee'
-                                            : 'transparent'
-                                    }}
-                                    key={index}
-                                    onClick={() =>
-                                        searchContext.toggleSearchFilter(key, facet.label)
-                                    }
-                                >
-                                    <span>{facet.label}</span>
-                                    <span style={{ fontSize: '90%', fontWeight: 'bold' }}>{facet.count}</span>
-                                </div>
-                            )
-                    )}
-                    {
-                        normalizedFacets.length > 10 && (
-
-                            <a href="#" style={{ margin: '10px 0 0 5px', display: 'block' }}>{t('search.facets.more')}</a>
-
-                        )
-                    }
-                </ListBox>
-            );
-        });
     };
 
     const renderForm = () => (
