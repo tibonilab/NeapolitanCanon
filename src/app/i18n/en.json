@@ -34,7 +34,8 @@
             "back": "Go back"
         },
         "facets": {
-            "more": "More"
+            "more": "Show more",
+            "less": "Show less"
         },
         "noResults": "No results found"
     },

@@ -34,7 +34,8 @@
             "back": "Torna indietro"
         },
         "facets": {
-            "more": "Altro"
+            "more": "Mostra altro",
+            "less": "Mostra meno"
         },
         "noResults": "Nessun documento trovato"
     },
