@@ -7,7 +7,7 @@ const getNextPage = (page, totalPages) => page + 1 < totalPages ? page + 1 : pag
 
 const PaginationHeader = ({ isLoading, searchResults, searchTerms, selectPage }) => {
 
-    console.log(isLoading, searchResults)
+    console.log(isLoading, searchResults);
 
     const switchPage = page => e => {
         e.preventDefault();
@@ -33,10 +33,10 @@ const PaginationHeader = ({ isLoading, searchResults, searchTerms, selectPage })
                                 getPrevPage(searchTerms.page) === searchTerms.page ? (
                                     <span>{t('search.nav.prev')}</span>
                                 ) : (
-                                        <a href="#" onClick={switchPage(getPrevPage(searchTerms.page))}>
-                                            {t('search.nav.prev')}
-                                        </a>
-                                    )
+                                    <a href="#" onClick={switchPage(getPrevPage(searchTerms.page))}>
+                                        {t('search.nav.prev')}
+                                    </a>
+                                )
                             }
                             <span> | </span>
                             <b>{t('search.nav.count', counts)}</b>
@@ -45,10 +45,10 @@ const PaginationHeader = ({ isLoading, searchResults, searchTerms, selectPage })
                                 getNextPage(searchTerms.page, totalPages) === searchTerms.page ? (
                                     <span>{t('search.nav.next')}</span>
                                 ) : (
-                                        <a href="#" onClick={switchPage(getNextPage(searchTerms.page, totalPages))}>
-                                            {t('search.nav.next')}
-                                        </a>
-                                    )
+                                    <a href="#" onClick={switchPage(getNextPage(searchTerms.page, totalPages))}>
+                                        {t('search.nav.next')}
+                                    </a>
+                                )
                             }
 
                         </div>
