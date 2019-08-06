@@ -8,11 +8,12 @@ import { ClearButton } from './Buttons.jsx';
 const SidebarWithRoute = props => {
 
     const isActive = (path) => props.location.pathname.includes(path);
+    const isRoot = () => props.location.pathname === '/';
 
     return (
         <div className="sidebar-root">
             <Link to="/search">
-                <ClearButton isActive={isActive('search')}>
+                <ClearButton isActive={isRoot() || isActive('search')}>
                     <SearchIcon />
                 </ClearButton>
             </Link>
