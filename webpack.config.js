@@ -6,9 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const production = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    entry: path.join(__dirname,'src','index.js'),
+    entry: path.join(__dirname, 'src', 'index.js'),
     output: {
-        path: path.join(__dirname,'build'),
+        path: path.join(__dirname, 'build'),
         filename: 'index.bundle.js',
         publicPath: '/'
     },
@@ -18,10 +18,10 @@ module.exports = {
         modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
     devServer: {
-        contentBase: path.join(__dirname,'src'),
+        contentBase: path.join(__dirname, 'src'),
         historyApiFallback: true,
         proxy: {
-            '/solr' : {
+            '/solr': {
                 // it requires onstage-backend local installation, see https://github.com/rism-ch/onstage-backend
                 // if you can access a remote endpoint with CORS enabled set the target below
                 target: 'http://localhost:8983/',
@@ -52,12 +52,21 @@ module.exports = {
             {
                 test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
                 loaders: ['file-loader']
+            },
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        attrs: [':data-src']
+                    }
+                }
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname,'src','index.html')
+            template: path.join(__dirname, 'src', 'index.html')
         }),
         new webpack.DefinePlugin({
             DEBUG: !production,
