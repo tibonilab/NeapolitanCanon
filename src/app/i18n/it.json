@@ -1,0 +1,55 @@
+{
+    "common": {
+        "indexes": {
+            "composer_ss": "Compositori",
+            "interpreter_ss": "Interpreti",
+            "place_s": "Luoghi",
+            "collection_s": "Collezioni",
+            "series_s": "Serie"
+        },
+        "collections": {
+            "ch_gc": "Ginevra",
+            "ch_lac": "Losanna",
+            "ch_famb": "Basilea"
+        }
+    },
+    "contextBar": {
+        "collections": "Collezioni",
+        "dateRange": "Periodo"
+    },
+    "search": {
+        "nav": {
+            "prev": "« Pagina precedente",
+            "next": "Pagina successiva »",
+            "count": "{{from}} - {{to}} di {{total}}"
+        },
+        "form": {
+            "search_placeholder": "Inserisci qui i tuoi termini di ricerca...",
+            "select_placeholder": "Cerca per indice",
+            "submit": "Ricerca"
+        },
+        "actions": {
+            "pin": "Aggiungi agli appunti",
+            "unpin": "Rimuovi dagli appunti",
+            "back": "Torna indietro"
+        },
+        "facets": {
+            "more": "Altro"
+        },
+        "noResults": "Nessun documento trovato"
+    },
+    "browse": {
+        "form": {
+            "select_placeholder": "Seleziona l'indice",
+            "submit": "Sfoglia"
+        },
+        "prev": "« Precedente",
+        "next": "Successivo »",
+        "search": "Ricerca",
+        "back": "Torna indietro"
+    },
+    "pinned": {
+        "header": "Hai salvato {{count}} documento negli appunti",
+        "header_plural": "Hai salvato {{count}} documenti negli appunti"
+    }
+}

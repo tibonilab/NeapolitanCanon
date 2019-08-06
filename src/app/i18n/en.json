@@ -1,0 +1,55 @@
+{
+    "common": {
+        "indexes": {
+            "composer_ss": "Composers",
+            "interpreter_ss": "Interpreters",
+            "place_s": "Places",
+            "collection_s": "Collections",
+            "series_s": "Serie"
+        },
+        "collections": {
+            "ch_gc": "Geneve",
+            "ch_lac": "Losanne",
+            "ch_famb": "Basel"
+        }
+    },
+    "contextBar": {
+        "collections": "Collections",
+        "dateRange": "Date Range"
+    },
+    "search": {
+        "nav": {
+            "prev": "« Previous page",
+            "next": "Next page »",
+            "count": "{{from}} - {{to}} of {{total}}"
+        },
+        "form": {
+            "search_placeholder": "Input your search terms here...",
+            "select_placeholder": "Search by index",
+            "submit": "Search"
+        },
+        "actions": {
+            "pin": "Pin this document",
+            "unpin": "Remove from pinned",
+            "back": "Go back"
+        },
+        "facets": {
+            "more": "More"
+        },
+        "noResults": "No results found"
+    },
+    "browse": {
+        "form": {
+            "select_placeholder": "Select index",
+            "submit": "Browse"
+        },
+        "prev": "« Previous",
+        "next": "Next »",
+        "search": "Search",
+        "bach": "Go back"
+    },
+    "pinned": {
+        "header": "You have pinned {{count}} document",
+        "header_plural": "You have pinned {{count}} documents"
+    }
+}
