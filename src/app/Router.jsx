@@ -5,6 +5,7 @@ import Search from './pages/Search.jsx';
 import Source from './pages/Source.jsx';
 import Browse from './pages/Browse.jsx';
 import Pinned from './pages/Pinned.jsx';
+import StaticHtml from './pages/StaticHtml.jsx';
 import Index from './pages/Index.jsx';
 
 import SearchState from './context/SearchState.jsx';
@@ -22,6 +23,7 @@ const Router = () => (
             </SearchState>
             <Route path="/pin" component={Pinned} />
             <Route path="/source/:manifest" component={Source} />
+            <Route path="/page/:filename" component={StaticHtml} />
             <Route path="/" exact component={Index} />
         </AnalysisState>
     </BrowserRouter>
