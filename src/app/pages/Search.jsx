@@ -13,7 +13,7 @@ import Chip from '../components/template/components/Chip.jsx';
 
 import Paginator from '../components/template/components/Paginator.jsx';
 
-import FacetsSelector from '../components/shared/FacetsSelector.jsx';
+import FacetsSelector from '../components/shared/FacetsSelector/FacetsSelector.jsx';
 
 import { generateSearchIndexes, renderFacetLabel } from '../model/INDEXES';
 
@@ -51,8 +51,8 @@ const SearchPage = () => {
                             getPrevPage(searchContext.searchTerms.page) === searchContext.searchTerms.page ? (
                                 <span>{t('search.nav.prev')}</span>
                             ) : (
-                                    <a href="#" onClick={(e) => { e.preventDefault(); searchContext.selectPage(getPrevPage(searchContext.searchTerms.page)); }}>{t('search.nav.prev')}</a>
-                                )
+                                <a href="#" onClick={(e) => { e.preventDefault(); searchContext.selectPage(getPrevPage(searchContext.searchTerms.page)); }}>{t('search.nav.prev')}</a>
+                            )
                         }
                         <span> | </span>
                         <b>
@@ -69,8 +69,8 @@ const SearchPage = () => {
                             getNextPage(searchContext.searchTerms.page, totalPages) === searchContext.searchTerms.page ? (
                                 <span>{t('search.nav.next')}</span>
                             ) : (
-                                    <a href="#" onClick={(e) => { e.preventDefault(); searchContext.selectPage(getNextPage(searchContext.searchTerms.page, totalPages)); }}>{t('search.nav.next')}</a>
-                                )
+                                <a href="#" onClick={(e) => { e.preventDefault(); searchContext.selectPage(getNextPage(searchContext.searchTerms.page, totalPages)); }}>{t('search.nav.next')}</a>
+                            )
                         }
 
                     </div>
@@ -129,8 +129,8 @@ const SearchPage = () => {
 
             </React.Fragment>
         ) : (
-                !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
-            );
+            !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
+        );
     };
 
     const renderDivaWrapper = () => {
