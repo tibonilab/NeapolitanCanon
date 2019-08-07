@@ -25,7 +25,7 @@ const FacetListBody = ({ normalizedFacets, facetKey, searchTerms, toggleSearchFi
                     margin: '-1em 0 1.2em 0',
                     padding: '.2em'
                 }}
-                placeholder="Filta"
+                placeholder={t('search.facets.filter')}
                 value={filter}
                 onChangeHandler={value => setFilter(value)}
             />
