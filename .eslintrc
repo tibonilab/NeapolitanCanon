@@ -47,6 +47,8 @@
         "navigator": false,
         "window": false,
         "DIVA_BASE_MANIFEST_SERVER": false,
+        "SOLR_BASE_SERVER": false,
+        "PRODUCTION": false,
         "DEBUG": false
     }
 }

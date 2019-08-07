@@ -103,10 +103,12 @@ const debug = query => {
     return query;
 };
 
+const SOLR_URL_PRFIX = PRODUCTION ? SOLR_BASE_SERVER : '';
+
 export const search = ({ facets = {}, filters = [], collections = [], ...params }) => {
 
     const query = debug({
-        url: `/solr/onstage/select${generateQueryString({ facets, filters, collections })}`,
+        url: `${SOLR_URL_PRFIX}/solr/onstage/select${generateQueryString({ facets, filters, collections })}`,
         config: generateSearchQuery(params)
     });
 
@@ -116,7 +118,7 @@ export const search = ({ facets = {}, filters = [], collections = [], ...params 
 export const browse = params => {
 
     const query = debug({
-        url: '/solr/onstage/terms',
+        url: `${SOLR_URL_PRFIX}/solr/onstage/terms`,
         config: generateBrowseQuery(params)
     });
 

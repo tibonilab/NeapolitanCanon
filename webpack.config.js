@@ -69,8 +69,10 @@ module.exports = {
             template: path.join(__dirname, 'src', 'index.html')
         }),
         new webpack.DefinePlugin({
+            PRODUCTION: production,
             DEBUG: !production,
-            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/')
+            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/'),
+            SOLR_BASE_SERVER: JSON.stringify('http://onstage-beta.rism-ch.org:8984')
         })
     ]
 };
