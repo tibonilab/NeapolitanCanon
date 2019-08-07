@@ -2,27 +2,19 @@ import React from 'react';
 
 import { t } from '../../i18n';
 
+import SearchResultsItem from '../template/components/SearchResultsItem.jsx';
+
+import ActionLink from '../template/components/ActionLink.jsx';
+import ActionButton from '../template/components/ActionButton.jsx';
+
 const SearchResults = ({ searchResults, setSearchSelected, togglePinnedDocument, isPinned }) => searchResults.results.map(element => (
-    <div
-        key={element.id}
-        style={{ paddingBottom: '1em', borderBottom: '1px solid #efefef', marginTop: '1em' }}
-    >
-        <a href="#" onClick={e => {
-            e.preventDefault();
-            setSearchSelected(element);
-        }}>{element.title_s}</a>
-        <p>
-            {element.place_s} - {element.year_i}
-        </p>
-        <button
-            onClick={e => {
-                e.preventDefault();
-                togglePinnedDocument(element);
-            }}
-        >
+    <SearchResultsItem key={element.id}>
+        <ActionLink action={() => setSearchSelected(element)}>{element.title_s}</ActionLink>
+        <p>{element.place_s} - {element.year_i}</p>
+        <ActionButton action={() => togglePinnedDocument(element)}>
             {isPinned(element) ? t('search.actions.unpin') : t('search.actions.pin')}
-        </button>
-    </div>
+        </ActionButton>
+    </SearchResultsItem >
 ));
 
 export default SearchResults;

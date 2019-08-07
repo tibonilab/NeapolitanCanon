@@ -5,9 +5,12 @@ import { normalizeFacetsResults } from '../model/Solr';
 import Template from '../components/template/Template.jsx';
 import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 import Paginator from '../components/template/components/Paginator.jsx';
+import FixedHeader from '../components/template/components/FixedHeader.jsx';
+import ActionLink from '../components/template/components/ActionLink.jsx';
+import ActionButton from '../components/template/components/ActionButton.jsx';
 
 import Select from '../components/form/Select.jsx';
-import Diva from '../components/wrappers/Diva.jsx';
+import DocumentDetail from '../components/shared/DocumentDetail.jsx';
 import SearchResults from '../components/shared/SearchResults.jsx';
 import PaginationHeader from '../components/shared/PaginationHeader.jsx';
 
@@ -26,8 +29,6 @@ const BrowsePage = () => {
     const browseContext = useContext(BrowseContext);
     const analysisContext = useContext(AnalysisContext);
 
-    const totalPages = Math.ceil(browseContext.searchResults.numFound / 100);
-
     const renderLoading = () => {
         return browseContext.isLoading ? <div style={{ marginTop: '2em' }}>{'loading'}</div> : null;
     };
@@ -43,7 +44,8 @@ const BrowsePage = () => {
             }
         });
 
-        return <div style={{ display: 'flex', alignItems: 'center' }}>
+        return <div style={{ display: 'flex', alignItems: 'center', marginLeft: '2em' }}>
+            <b>Fast nav: </b>
             {
                 letters.map(letter => <a style={{ padding: '.2em .3em', borderRight: '1px solid #eee', color: '#515151', textDecoration: 'none' }} key={letter} href={`#${letter}`}>{letter}</a>)
             }
@@ -92,138 +94,65 @@ const BrowsePage = () => {
 
     const renderIndexResults = () => (
         <React.Fragment>
-            <a
-                href="#"
-                onClick={e => {
-                    e.preventDefault();
-                    browseContext.unsetSearchResults();
-                }}
-            >
-                {t('browse.back')}
-            </a>
+            <FixedHeader>
+                <ActionLink action={browseContext.unsetSearchResults}>
+                    {t('browse.back')}
+                </ActionLink>
 
-            <h1>{`${renderFacetLabel(browseContext.currentIndex.index)}: ${browseContext.searchResults.index}`}</h1>
+                <h1>{`${renderFacetLabel(browseContext.currentIndex.index)}: ${browseContext.searchResults.index}`}</h1>
 
-            <button
-                onClick={e => {
-                    e.preventDefault();
-                    browseContext.selectPrevious();
-                }}
-                disabled={browseContext.currentIndex.position < 1}
-            >
-                {t('browse.prev')}
-            </button>
-            <button
-                onClick={e => {
-                    e.preventDefault();
-                    browseContext.selectNext();
-                }}
-                disabled={browseContext.currentIndex.position + 1 == normalizeFacetsResults(browseContext.browseResults).length}
-            >
-                {t('browse.next')}
-            </button>
-            <button
-                onClick={e => {
-                    e.preventDefault();
-                    browseContext.gotoSearch(browseContext.searchResults.index);
-                }}>
-                {t('browse.search')}
-            </button>
+                <ActionButton action={browseContext.selectPrevious} disabled={browseContext.currentIndex.position < 1}>
+                    {t('browse.prev')}
+                </ActionButton>
+                <ActionButton action={browseContext.selectNext} disabled={browseContext.currentIndex.position + 1 == normalizeFacetsResults(browseContext.browseResults).length}>
+                    {t('browse.next')}
+                </ActionButton>
+                <ActionButton action={() => browseContext.gotoSearch(browseContext.searchResults.index)}>
+                    {t('browse.search')}
+                </ActionButton>
 
-            <PaginationHeader {...browseContext} />
+                <PaginationHeader {...browseContext} />
+            </FixedHeader>
 
-            <SearchResults {...browseContext} {...analysisContext} />
+            <div style={{ paddingTop: '7.5em' }}>
+                {
+                    browseContext.isLoading
+                        ? (
+                            <span>Loading</span>
+                        )
+                        : (
+                            <React.Fragment>
+                                <SearchResults {...browseContext} {...analysisContext} />
 
-            <Paginator
-                onClickHandler={page => browseContext.selectPage(page - 1)}
-                page={browseContext.searchTerms.page + 1}
-                totalPages={totalPages}
-            />
+                                <Paginator
+                                    onClickHandler={page => browseContext.selectPage(page - 1)}
+                                    page={browseContext.searchTerms.page + 1}
+                                    totalPages={Math.ceil(browseContext.searchResults.numFound / 100)}
+                                />
+                            </React.Fragment>
+                        )
+                }
+            </div>
 
         </React.Fragment>
     );
 
-    const renderDivaWrapper = () => {
-        const element = browseContext.selectedResource;
-
-        return (
-            <React.Fragment>
-                <a
-                    href="#"
-                    onClick={e => {
-                        e.preventDefault();
-                        browseContext.unsetSearchSelected();
-                    }}
-                >
-                    {t('browse.back')}
-                </a>
-                <div style={{ display: 'flex' }}>
-                    <div style={{ width: '100%' }}>
-                        <Diva manifest={element.id} />
-                    </div>
-
-                    <div style={{ padding: '2em', minWidth: '300px', width: '30%', height: 'calc(100vh - 70px)', overflowY: 'auto', margin: '-3.1em -4em -4em 2em', borderLeft: '1px solid #eee' }}>
-                        <h2>{element.title_s}</h2>
-                        <h3>
-                            {element.place_s} - {element.year_i}
-                        </h3>
-                        <div style={{ padding: '2em 0' }}>
-                            {element.composer_ss && (
-                                <div>
-                                    <h4>Composers</h4>
-                                    {element.composer_ss.map(
-                                        (composer, index) => (
-                                            <div key={index}>
-                                                {composer}
-                                            </div>
-                                        )
-                                    )}
-                                </div>
-                            )}
-                            {element.interpreter_ss && (
-                                <div>
-                                    <br />
-                                    <h4>Interpreters</h4>
-                                    {element.interpreter_ss.map(
-                                        (interpreter, index) => (
-                                            <div key={index}>
-                                                {interpreter}
-                                            </div>
-                                        )
-                                    )}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-
-
-            </React.Fragment >
-        );
-    };
-
     const renderForm = () => (
-        <form
-            onSubmit={browseContext.onFormSubmitHandler}
-            style={{
-                position: 'fixed',
-                padding: '2em 4em',
-                margin: '-2em -4em',
-                background: '#fff'
-            }}
-        >
-            <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
-                <Select
-                    style={{ width: 'auto' }}
-                    value={browseContext.currentIndex.index}
-                    placeholder={t('browse.form.select_placeholder')}
-                    options={generateBrowseIndexes()}
-                    onChangeHandler={browseContext.onSelectChangeHandler}
-                />
-                <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
-                {renderBrowseNav()}
-            </div>
-        </form>
+        <FixedHeader>
+            <form onSubmit={browseContext.onFormSubmitHandler}>
+                <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
+                    <Select
+                        style={{ width: 'auto' }}
+                        value={browseContext.currentIndex.index}
+                        placeholder={t('browse.form.select_placeholder')}
+                        options={generateBrowseIndexes()}
+                        onChangeHandler={browseContext.onSelectChangeHandler}
+                    />
+                    <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
+                    {renderBrowseNav()}
+                </div>
+            </form>
+        </FixedHeader>
     );
 
     const renderView = () => {
@@ -242,7 +171,7 @@ const BrowsePage = () => {
         }
 
         if (browseContext.selectedResource) {
-            view = renderDivaWrapper();
+            view = <DocumentDetail {...browseContext} />;
         }
 
         return view;

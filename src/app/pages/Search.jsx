@@ -5,12 +5,12 @@ import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 
 import Input from '../components/form/Input.jsx';
 import Select from '../components/form/Select.jsx';
-import Diva from '../components/wrappers/Diva.jsx';
 
 import Chip from '../components/template/components/Chip.jsx';
 
 import Paginator from '../components/template/components/Paginator.jsx';
 
+import DocumentDetail from '../components/shared/DocumentDetail.jsx';
 import FacetsSelector from '../components/shared/FacetsSelector/FacetsSelector.jsx';
 import SearchResults from '../components/shared/SearchResults.jsx';
 import PaginationHeader from '../components/shared/PaginationHeader.jsx';
@@ -39,7 +39,6 @@ const SearchPage = () => {
     const renderSearchResults = () => {
         return searchContext.searchResults.results.length > 0 ? (
             <React.Fragment>
-
                 <div style={{ display: 'flex', jusityContent: 'space-between', width: '100%' }}>
                     <div style={{ padding: '1em 2em 1em 0', width: '100%' }}>
                         <SearchResults {...searchContext} {...analysisContext} />
@@ -57,65 +56,6 @@ const SearchPage = () => {
             </React.Fragment>
         ) : (
             !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
-        );
-    };
-
-    const renderDivaWrapper = () => {
-        const element = searchContext.selectedResource;
-
-        return (
-            <React.Fragment>
-                <a
-                    href="#"
-                    onClick={e => {
-                        e.preventDefault();
-                        searchContext.unsetSearchSelected();
-                    }}
-                >
-                    {t('search.actions.back')}
-                </a>
-                <div style={{ display: 'flex' }}>
-                    <div style={{ width: '100%' }}>
-                        <Diva manifest={element.id} />
-                    </div>
-
-                    <div style={{ padding: '2em', minWidth: '300px', width: '30%', height: 'calc(100vh - 70px)', overflowY: 'auto', margin: '-3.1em -4em -4em 2em', borderLeft: '1px solid #eee' }}>
-                        <h2>{element.title_s}</h2>
-                        <h3>
-                            {element.place_s} - {element.year_i}
-                        </h3>
-                        <div style={{ padding: '2em 0' }}>
-                            {element.composer_ss && (
-                                <div>
-                                    <h4>Composers</h4>
-                                    {element.composer_ss.map(
-                                        (composer, index) => (
-                                            <div key={index}>
-                                                {composer}
-                                            </div>
-                                        )
-                                    )}
-                                </div>
-                            )}
-                            {element.interpreter_ss && (
-                                <div>
-                                    <br />
-                                    <h4>Interpreters</h4>
-                                    {element.interpreter_ss.map(
-                                        (interpreter, index) => (
-                                            <div key={index}>
-                                                {interpreter}
-                                            </div>
-                                        )
-                                    )}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-
-
-            </React.Fragment >
         );
     };
 
@@ -182,7 +122,7 @@ const SearchPage = () => {
         <Template>
             {
                 searchContext.selectedResource
-                    ? renderDivaWrapper()
+                    ? <DocumentDetail {...searchContext} />
                     : (
                         <React.Fragment>
                             {renderForm()}
