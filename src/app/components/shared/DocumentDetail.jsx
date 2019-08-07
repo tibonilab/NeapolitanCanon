@@ -12,9 +12,13 @@ const DocumentDetail = ({ selectedResource, unsetSearchSelected }) => {
 
     return (
         <div className="documentDetail-root">
-            <ActionLink action={unsetSearchSelected}>
-                {t('browse.back')}
-            </ActionLink>
+            {
+                unsetSearchSelected && (
+                    <ActionLink action={unsetSearchSelected}>
+                        {t('browse.back')}
+                    </ActionLink>
+                )
+            }
 
             <div className="documentDetail-wrapper">
                 <div className="documentDetail-divaWrapper">
