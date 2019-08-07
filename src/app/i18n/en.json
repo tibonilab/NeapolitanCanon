@@ -35,7 +35,8 @@
         },
         "facets": {
             "more": "Show more",
-            "less": "Show less"
+            "less": "Show less",
+            "filter": "Filter"
         },
         "noResults": "No results found"
     },
@@ -47,7 +48,7 @@
         "prev": "« Previous",
         "next": "Next »",
         "search": "Search",
-        "bach": "Go back"
+        "back": "Go back"
     },
     "pinned": {
         "header": "You have pinned {{count}} document",

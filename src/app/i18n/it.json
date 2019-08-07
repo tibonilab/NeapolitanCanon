@@ -35,7 +35,8 @@
         },
         "facets": {
             "more": "Mostra altro",
-            "less": "Mostra meno"
+            "less": "Mostra meno",
+            "filter": "Filtra"
         },
         "noResults": "Nessun documento trovato"
     },
