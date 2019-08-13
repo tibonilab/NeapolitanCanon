@@ -19,18 +19,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'src'),
-        historyApiFallback: true,
-        proxy: {
-            '/api': {
-                // it requires onstage-backend local installation, see https://github.com/rism-ch/onstage-backend
-                // if you can access a remote endpoint with CORS enabled set the target below
-                target: 'http://localhost:5000',
-                // target: 'http://onstage-search.rism-ch.org'
-            },
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        }
+        historyApiFallback: true
     },
     module: {
         rules: [

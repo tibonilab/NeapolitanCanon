@@ -1,7 +1,5 @@
 import RestClient from '../service/RestClient';
 
-const SOLR_URL_PREFIX = PRODUCTION ? SOLR_BASE_SERVER : '';
-
 export const normalizeFacetsResults = list => {
     let normalized = [];
 
@@ -29,7 +27,7 @@ const debug = query => {
 export const search = ({ facets = {}, filters = [], collections = [], ...params }) => {
 
     const query = debug({
-        url: `${SOLR_URL_PREFIX}/api/search`,
+        url: `${SOLR_BASE_SERVER}/api/search`,
         config: {
             params: {
                 ...params,
@@ -46,7 +44,7 @@ export const search = ({ facets = {}, filters = [], collections = [], ...params 
 export const browse = params => {
 
     const query = debug({
-        url: `${SOLR_URL_PREFIX}/api/browse`,
+        url: `${SOLR_BASE_SERVER}/api/browse`,
         config: { params }
     });
 
