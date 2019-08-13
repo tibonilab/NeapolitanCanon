@@ -72,7 +72,8 @@ module.exports = {
         new webpack.DefinePlugin({
             PRODUCTION: production,
             DEBUG: !production,
-            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/')
+            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/'),
+            SOLR_BASE_SERVER: JSON.stringify('http://onstage-search.rism-ch.org'),
         })
     ]
 };
