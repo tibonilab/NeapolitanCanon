@@ -21,10 +21,11 @@ module.exports = {
         contentBase: path.join(__dirname, 'src'),
         historyApiFallback: true,
         proxy: {
-            '/solr': {
+            '/api': {
                 // it requires onstage-backend local installation, see https://github.com/rism-ch/onstage-backend
                 // if you can access a remote endpoint with CORS enabled set the target below
-                target: 'http://localhost:8983/',
+                target: 'http://localhost:5000',
+                // target: 'http://onstage-search.rism-ch.org'
             },
             headers: {
                 'Access-Control-Allow-Origin': '*'
@@ -71,8 +72,7 @@ module.exports = {
         new webpack.DefinePlugin({
             PRODUCTION: production,
             DEBUG: !production,
-            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/'),
-            SOLR_BASE_SERVER: JSON.stringify('http://onstage-beta.rism-ch.org:8984')
+            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/')
         })
     ]
 };
