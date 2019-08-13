@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 
@@ -7,13 +7,13 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Enable CORS for everybody
-app.use(cors())
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-SOLR_URL_PRFIX = "http://localhost:8983"
+const SOLR_URL_PRFIX = 'http://localhost:8983';
 
 
 const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join(`:${searchKey}*`)}:${searchKey}*`;
@@ -26,125 +26,114 @@ const generateCollectionsQueryByFilters = ({ collections }) => `fq=collection_s:
 
 
 const generateQueryString = ({ facets, filters, collections }) => {
-  const params = [];
+    const params = [];
 
-  if (facets.fields && facets.fields.length > 0) {
-      params.push(generateFacetsQueryString({ facets }));
-  }
+    if (facets.fields && facets.fields.length > 0) {
+        params.push(generateFacetsQueryString({ facets }));
+    }
 
-  if (filters.length > 0) {
-      params.push(generateFilterQueryByFilters({ filters }));
-  }
+    if (filters.length > 0) {
+        params.push(generateFilterQueryByFilters({ filters }));
+    }
 
-  if (collections.length > 0) {
-      params.push(generateCollectionsQueryByFilters({ collections }));
-  }
+    if (collections.length > 0) {
+        params.push(generateCollectionsQueryByFilters({ collections }));
+    }
 
-  return params.length > 0 ? `?${params.join('&')}` : '';
+    return params.length > 0 ? `?${params.join('&')}` : '';
 };
 
 const generateSearchQuery = params => {
-  const {
-      searchKey,
-      indexes = [],
-      dateRange = {},
-      rows = 100,
-      page = 0
-  } = params;
+    const {
+        searchKey,
+        indexes = [],
+        dateRange = {},
+        rows = 100,
+        page = 0
+    } = params;
 
-  let query = {
-      params: {
-          q: indexes.length ? generateSearchQueryByIndexes({ searchKey, indexes }) : searchKey ? `${searchKey}*` : '*:*',
-          start: page * rows,
-          rows,
-          wt: 'json'
-      }
-  };
+    let query = {
+        params: {
+            q: indexes.length ? generateSearchQueryByIndexes({ searchKey, indexes }) : searchKey ? `${searchKey}*` : '*:*',
+            start: page * rows,
+            rows,
+            wt: 'json'
+        }
+    };
 
-  if (dateRange.from || dateRange.to) {
-      Object.assign(query.params, {
-          fq: `year_i:[${dateRange.from || '*'} TO ${dateRange.to || '*'}]`
-      });
-  }
+    if (dateRange.from || dateRange.to) {
+        Object.assign(query.params, {
+            fq: `year_i:[${dateRange.from || '*'} TO ${dateRange.to || '*'}]`
+        });
+    }
 
-  return query;
+    return query;
 };
 
 const generateBrowseQuery = params => {
-  const { index, prefix, sort } = params;
+    const { index, prefix, sort } = params;
 
-  let query = {
-      params: {
-          'terms.fl': index,
-          'terms.limit': -1,
-      }
-  };
+    let query = {
+        params: {
+            'terms.fl': index,
+            'terms.limit': -1,
+        }
+    };
 
-  if (prefix) {
-      Object.assign(query.params, {
-          'terms.regex': `${prefix}.*`,
-          'terms.regex.flag': 'case_insensitive'
-      });
-  }
+    if (prefix) {
+        Object.assign(query.params, {
+            'terms.regex': `${prefix}.*`,
+            'terms.regex.flag': 'case_insensitive'
+        });
+    }
 
-  if (['count', 'index'].includes(sort)) {
-      Object.assign(query.params, {
-          'terms.sort': sort
-      });
-  }
+    if (['count', 'index'].includes(sort)) {
+        Object.assign(query.params, {
+            'terms.sort': sort
+        });
+    }
 
-  return query;
+    return query;
 };
-
-const browse = params => {
-
-  const query = debug({
-      url: `${SOLR_URL_PRFIX}/solr/onstage/terms`,
-      config: generateBrowseQuery(params)
-  });
-
-  return RestClient.get(query).then(r => r.terms && r.terms[params.index]);
-};
-
 
 
 app.get('/api/search', (req, res) => {
-  
-  const facets = req.query.facets;
-  const filters = req.query.filters;
-  const collections = req.query.collections;
+
+    const facets = JSON.parse(req.query.facets) || {};
+    const filters = req.query.filters || [];
+    const collections = req.query.collections || [];
 
 
-  const params = generateSearchQuery({
-    searchKey: req.query.searchKey,
-    indexes: req.query.indexes,
-    dateRange: req.query.dateRange,
-    rows: req.query.rows,
-    page: req.query.page
-  });
-
-  axios.get(`${SOLR_URL_PRFIX}/solr/onstage/select${generateQueryString({ facets, filters, collections })}`, params)
-    .then(function(response) {
-      //console.log(response);
-      resp = response.data;
-      res.send(resp);
+    const params = generateSearchQuery({
+        searchKey: req.query.searchKey,
+        indexes: req.query.indexes,
+        dateRange: req.query.dateRange,
+        rows: req.query.rows,
+        page: req.query.page
     });
+
+    axios.get(`${SOLR_URL_PRFIX}/solr/onstage/select${generateQueryString({ facets, filters, collections })}`, params)
+        .then(function (response) {
+            //console.log(response);
+            const resp = response.data;
+            res.send(resp);
+        });
 });
 
 app.get('/api/browse', (req, res) => {
 
-  const params = generateBrowseQuery({
-    index: req.query.index, 
-    prefix: req.query.prefix, 
-    sort: req.query.sort
-  });
-
-  axios.get(SOLR_URL_PRFIX + "/solr/onstage/terms", params)
-    .then(function(response) {
-      //console.log(response);
-      resp = response.data;
-      res.send(resp);
+    const params = generateBrowseQuery({
+        index: req.query.index,
+        prefix: req.query.prefix,
+        sort: req.query.sort
     });
+
+    axios.get(SOLR_URL_PRFIX + '/solr/onstage/terms', params)
+        .then(function (response) {
+            //console.log(response);
+            const resp = response.data;
+            res.send(resp);
+        });
 
 });
 
