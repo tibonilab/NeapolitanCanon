@@ -102,12 +102,13 @@ app.get('/api/search', (req, res) => {
     const facets = JSON.parse(req.query.facets) || {};
     const filters = req.query.filters || [];
     const collections = req.query.collections || [];
+    const dateRange = JSON.parse(req.query.dateRange) || {};
 
 
     const params = generateSearchQuery({
         searchKey: req.query.searchKey,
         indexes: req.query.indexes,
-        dateRange: req.query.dateRange,
+        dateRange,
         rows: req.query.rows,
         page: req.query.page
     });
