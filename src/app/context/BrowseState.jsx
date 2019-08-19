@@ -83,6 +83,7 @@ const BrowseState = props => {
             searchTerms = {
                 searchKey,
                 indexes: [currentIndex.index],
+                dateRange: analysisContext.dateRange,
                 page: 0
             };
         }
@@ -188,11 +189,27 @@ const BrowseState = props => {
     // we use useDidMount Hook to let the component know whether is mounted or not
     const didMount = useDidMount();
 
+    // The useEffect Hook calls the function as first parameter on mounting 
+    // and when the dependendecies in the second parameter change
     useEffect(
         () => {
-            didMount && performSearch(searchTerms);
+            if (didMount) {
+
+                // we want to update index search results only if a browse result record is selected
+                currentIndex.position != null && performSearch({
+                    ...searchTerms,
+                    ...analysisContext
+                });
+
+                // we want to update browse results only after index browse selection
+                currentIndex.index && performBrowse(browseTerms);
+            }
         },
-        [searchTerms.page]
+        [
+            searchTerms.page,
+            analysisContext.dateRange,
+            analysisContext.collections
+        ]
     );
 
     return (

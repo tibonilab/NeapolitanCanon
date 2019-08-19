@@ -44,12 +44,16 @@ const BrowsePage = () => {
             }
         });
 
-        return <div style={{ display: 'flex', alignItems: 'center', marginLeft: '2em' }}>
-            <b>Fast nav: </b>
-            {
-                letters.map(letter => <a style={{ padding: '.2em .3em', borderRight: '1px solid #eee', color: '#515151', textDecoration: 'none' }} key={letter} href={`#${letter}`}>{letter}</a>)
-            }
-        </div>;
+        return browseContext.browseResults.length > 0
+            ? (
+                <div style={{ display: 'flex', alignItems: 'center', marginLeft: '2em' }}>
+                    <b>Fast nav: </b>
+                    {
+                        letters.map(letter => <a style={{ padding: '.2em .3em', borderRight: '1px solid #eee', color: '#515151', textDecoration: 'none' }} key={letter} href={`#${letter}`}>{letter}</a>)
+                    }
+                </div>
+            )
+            : null;
     };
 
     const renderBrowseResults = () => {

@@ -120,14 +120,24 @@ const SearchState = props => {
     // we use useDidMount Hook to let the component know whether is mounted or not
     const didMount = useDidMount();
 
-    // we want to perform a search when a filter in searchTerms changes.
     // The useEffect Hook calls the function as first parameter on mounting 
     // and when the dependendecies in the second parameter change
     useEffect(
         () => {
-            didMount && performSearch(searchTerms);
+            if (didMount) {
+                // we want to update search results only after the first search
+                searchResults.numFound != null && performSearch({
+                    ...searchTerms,
+                    ...analysisContext
+                });
+            }
         },
-        [searchTerms.filters, searchTerms.page]
+        [
+            searchTerms.filters,
+            searchTerms.page,
+            analysisContext.dateRange,
+            analysisContext.collections
+        ]
     );
 
     return (
