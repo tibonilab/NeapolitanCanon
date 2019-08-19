@@ -29,6 +29,7 @@
         ],
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
+        "react/jsx-key": 0,
         "getter-return": "error",
         "for-direction": "error",
         "react/prop-types": 0
