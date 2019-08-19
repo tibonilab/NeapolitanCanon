@@ -8,6 +8,7 @@ import Paginator from '../components/template/components/Paginator.jsx';
 import FixedHeader from '../components/template/components/FixedHeader.jsx';
 import ActionLink from '../components/template/components/ActionLink.jsx';
 import ActionButton from '../components/template/components/ActionButton.jsx';
+import Breadcrumbs from '../components/template/components/Breadcrumbs.jsx';
 
 import Select from '../components/form/Select.jsx';
 import DocumentDetail from '../components/shared/DocumentDetail.jsx';
@@ -97,11 +98,13 @@ const BrowsePage = () => {
     const renderIndexResults = () => (
         <React.Fragment>
             <FixedHeader>
-                <ActionLink action={browseContext.unsetSearchResults}>
-                    {t('browse.back')}
-                </ActionLink>
-
-                <h1>{`${renderFacetLabel(browseContext.currentIndex.index)}: ${browseContext.searchResults.index}`}</h1>
+                <Breadcrumbs
+                    elements={[
+                        <ActionLink action={browseContext.unsetSearchResults}>Browse</ActionLink>,
+                        <span>{renderFacetLabel(browseContext.currentIndex.index)}</span>
+                    ]}
+                />
+                <h1>{browseContext.searchResults.index}</h1>
 
                 <ActionButton action={browseContext.selectPrevious} disabled={browseContext.currentIndex.position < 1}>
                     {t('browse.prev')}
@@ -175,7 +178,18 @@ const BrowsePage = () => {
         }
 
         if (browseContext.selectedResource) {
-            view = <DocumentDetail {...browseContext} />;
+            view = (
+                <React.Fragment>
+                    <Breadcrumbs
+                        elements={[
+                            <ActionLink action={browseContext.unsetSearchResults}>Browse</ActionLink>,
+                            <ActionLink action={browseContext.unsetSearchSelected}>{renderFacetLabel(browseContext.currentIndex.index)}</ActionLink>,
+                            <span>{browseContext.searchResults.index}</span>
+                        ]}
+                    />
+                    <DocumentDetail {...browseContext} goBackHidden />
+                </React.Fragment>
+            );
         }
 
         return view;

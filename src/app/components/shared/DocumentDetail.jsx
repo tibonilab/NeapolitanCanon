@@ -7,13 +7,13 @@ import ActionLink from '../template/components/ActionLink.jsx';
 
 import './DocumentDetail.scss';
 
-const DocumentDetail = ({ selectedResource, unsetSearchSelected }) => {
+const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden }) => {
     const element = selectedResource;
 
     return (
         <div className="documentDetail-root">
             {
-                unsetSearchSelected && (
+                unsetSearchSelected && goBackHidden == undefined && (
                     <ActionLink action={unsetSearchSelected}>
                         {t('browse.back')}
                     </ActionLink>
