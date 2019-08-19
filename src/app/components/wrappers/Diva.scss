@@ -1,5 +1,12 @@
 #diva-wrapper {
-    .diva-wrapper {
-        min-height: calc(100vh - 180px);
+    .diva {
+        &-wrapper {
+            min-height: calc(100vh - 160px);
+            margin-top: 1em
+        }
     }
+}
+
+.diva-title {
+    display: none !important;
 }
