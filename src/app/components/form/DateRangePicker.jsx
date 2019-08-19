@@ -76,16 +76,27 @@ export default class DateRangePicker extends Component {
     }
 
     onSliderChangeHandler({ from, to }) {
-        this.setState({ from, to });
+        this.setState({
+            from,
+            to,
+            input_from: from,
+            input_to: to
+        });
     }
 
     onSliderUpdatedHandler({ from, to }) {
-        this.setState({ from, to }, this.emitData);
+        this.setState({
+            from,
+            to,
+            input_from: from,
+            input_to: to
+        }, this.emitData);
     }
 
     emitData() {
         if (this.props.onChangeHandler && typeof this.props.onChangeHandler === 'function') {
-            this.props.onChangeHandler(this.state);
+            const { from, to } = this.state;
+            this.props.onChangeHandler({ from, to });
         }
     }
 
