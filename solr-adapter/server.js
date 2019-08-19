@@ -99,10 +99,10 @@ const generateBrowseQuery = params => {
 
 app.get('/api/search', (req, res) => {
 
-    const facets = JSON.parse(req.query.facets) || {};
+    const facets = req.query.facets && JSON.parse(req.query.facets) || {};
+    const dateRange = req.query.dateRange && JSON.parse(req.query.dateRange) || {};
     const filters = req.query.filters || [];
     const collections = req.query.collections || [];
-    const dateRange = JSON.parse(req.query.dateRange) || {};
 
 
     const params = generateSearchQuery({
