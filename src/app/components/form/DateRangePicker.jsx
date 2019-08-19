@@ -11,6 +11,8 @@ export default class DateRangePicker extends Component {
         super(props);
 
         this.state = {
+            input_from: props.from ? props.from : props.minFrom || '',
+            input_to: props.to ? props.to : props.maxTo || '',
             from: props.from ? props.from : props.minFrom || '',
             to: props.to ? props.to : props.maxTo || ''
         };
@@ -34,7 +36,42 @@ export default class DateRangePicker extends Component {
 
     onChangeHandler(field) {
         return value => {
-            this.setState({ [field]: value }, this.emitData);
+            this.setState({ [`input_${field}`]: value }, this.emitData);
+        };
+    }
+
+    onBlurHandler(field) {
+        return value => {
+            const { minFrom = 0, maxTo } = this.props;
+            const { from, to } = this.state;
+            switch (field) {
+            case 'from': {
+                if (value < minFrom) {
+                    value = minFrom;
+                }
+
+                if (value > to) {
+                    value = to;
+                }
+
+                break;
+            }
+            case 'to': {
+                if (maxTo && value > maxTo) {
+                    value = maxTo;
+                }
+
+                if (value < from) {
+                    value = from;
+                }
+
+                break;
+            }
+            }
+            this.setState({
+                [field]: value,
+                [`input_${field}`]: value
+            }, this.emitData);
         };
     }
 
@@ -53,28 +90,30 @@ export default class DateRangePicker extends Component {
     }
 
     render() {
-        const { from, to } = this.state;
+        const { from, to, input_from, input_to } = this.state;
 
         return (
             <div className="dateRangePicker-root">
-                <div className="dateRangePicker-inputs" style={{  }}>
+                <div className="dateRangePicker-inputs" style={{}}>
                     <Input
-                        style={{width: '80px'}}
-                        value={from}
+                        style={{ width: '80px' }}
+                        value={input_from}
                         onChangeHandler={this.onChangeHandler('from')}
+                        onBlurHandler={this.onBlurHandler('from')}
                     />
-                
+
                     <Input
-                        style={{width: '80px'}}
-                        value={to}
+                        style={{ width: '80px' }}
+                        value={input_to}
                         onChangeHandler={this.onChangeHandler('to')}
-                    />    
+                        onBlurHandler={this.onBlurHandler('to')}
+                    />
                 </div>
                 <SliderRange
                     onChangeHandler={this.onSliderChangeHandler.bind(this)}
                     sliderUpdatedHandler={this.onSliderUpdatedHandler.bind(this)}
-                    from={this.state.from}
-                    to={this.state.to}
+                    from={from}
+                    to={to}
                     min={this.props.minFrom}
                     max={this.props.maxTo}
                 />
