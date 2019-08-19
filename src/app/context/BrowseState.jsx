@@ -127,7 +127,13 @@ const BrowseState = props => {
         setIsLoading(false);
     };
 
-    const unsetSearchResults = () => setSearchResults({});
+    const unsetSearchResults = () => {
+        setSearchResults({});
+        setCurrentIndex({
+            ...currentIndex,
+            position: null
+        });
+    };
 
     const performSearch = searchTerms => {
         window.scrollTo(0, 0);

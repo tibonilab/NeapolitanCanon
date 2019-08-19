@@ -58,42 +58,40 @@ const BrowsePage = () => {
 
     const renderBrowseResults = () => {
 
-        if (browseContext.browseResults) {
-            let firstLetter;
-            const letters = [];
+        let firstLetter;
+        const letters = [];
 
-            const results = normalizeFacetsResults(browseContext.browseResults).map((term, index) => {
-                let header;
+        const results = normalizeFacetsResults(browseContext.browseResults).map((term, index) => {
+            let header;
 
-                if (firstLetter != term.label.substring(0, 1)) {
-                    firstLetter = term.label.substring(0, 1);
-                    letters.push(firstLetter);
+            if (firstLetter != term.label.substring(0, 1)) {
+                firstLetter = term.label.substring(0, 1);
+                letters.push(firstLetter);
 
-                    header = (
-                        <div style={{ borderBottom: '1px solid #eee', padding: '0 0 .5em 0', margin: '2em 0 .5em 0' }}>
-                            <a className="anchor" id={firstLetter} />
-                            <h1>{firstLetter}</h1>
-                        </div>
-                    );
-
-                }
-
-                return (
-                    <React.Fragment key={index}>
-
-                        {header}
-
-                        <div onClick={() => browseContext.fetchIndexElements(term.label, index)} style={{ cursor: 'pointer' }}>
-                            <h4>{term.label}</h4>
-                        </div>
-                    </React.Fragment>
+                header = (
+                    <div style={{ borderBottom: '1px solid #eee', padding: '0 0 .5em 0', margin: '2em 0 .5em 0' }}>
+                        <a className="anchor" id={firstLetter} />
+                        <h1>{firstLetter}</h1>
+                    </div>
                 );
-            });
 
-            return results;
-        }
+            }
 
-        return null;
+            return (
+                <React.Fragment key={index}>
+
+                    {header}
+
+                    <div onClick={() => browseContext.fetchIndexElements(term.label, index)} style={{ cursor: 'pointer' }}>
+                        <h4>{term.label}</h4>
+                    </div>
+                </React.Fragment>
+            );
+        });
+
+        return results.length > 0
+            ? results
+            : <h3 style={{ marginTop: '3em' }}>{t('browse.noResults')}</h3>;
     };
 
     const renderIndexResults = () => (
@@ -126,7 +124,9 @@ const BrowsePage = () => {
                         )
                         : (
                             <React.Fragment>
-                                <SearchResults {...browseContext} {...analysisContext} />
+                                {browseContext.searchResults.results.length > 0
+                                    ? <SearchResults {...browseContext} {...analysisContext} />
+                                    : t('browse.noSearchResults')}
 
                                 <Paginator
                                     onClickHandler={page => browseContext.selectPage(page - 1)}
@@ -181,6 +181,9 @@ const BrowsePage = () => {
         return view;
     };
 
+
+    console.log(browseContext.currentIndex);
+    console.log(browseContext.searchResults);
 
     return (
         <Template>
