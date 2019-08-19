@@ -48,7 +48,9 @@
         "prev": "« Precedente",
         "next": "Successivo »",
         "search": "Ricerca",
-        "back": "Torna indietro"
+        "back": "Torna indietro",
+        "noResults": "Nessun indice disponibile",
+        "noSearchResults": "Questo indice non è disponibile con i parametri di analisi correnti"
     },
     "pinned": {
         "header": "Hai salvato {{count}} documento negli appunti",
