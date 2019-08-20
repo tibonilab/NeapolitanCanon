@@ -1,6 +1,6 @@
 # onStage client
 
-onStage client for the onStage project: a powerfull and easy-to-use analysis application interacting with Solr search engine. onStage is built on top of <a href="https://github.com/facebook/react/" target="_blank">React</a> library integrating <a href="https://github.com/ddmal/diva.js" target="_blank">DivaJS</a> for resources rendering.
+onStage client for the onStage project: a powerful and easy-to-use analysis application interacting with Solr search engine. onStage is built on top of <a href="https://github.com/facebook/react/" target="_blank">React</a> library integrating <a href="https://github.com/ddmal/diva.js" target="_blank">DivaJS</a> for resources rendering.
 
 This README provides simple instructions to run the application on your local machine.
 
