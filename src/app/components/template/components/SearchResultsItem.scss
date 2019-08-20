@@ -1,5 +1,32 @@
 .searchResultsItem {
-    padding-bottom: 1em;
+    padding: 1em;
     border-bottom: 1px solid #efefef;
-    margin-top: 1em;
+    align-items: center;
+
+    h4 {
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    button {
+        display: none;
+    }
+
+    &:hover {
+        background: #f6f6f6;
+        
+        button {
+            display: block;
+        }
+        .icon {
+            display: none
+        }
+    }
 }
