@@ -54,6 +54,7 @@
     },
     "pinned": {
         "header": "Hai salvato {{count}} documento negli appunti",
-        "header_plural": "Hai salvato {{count}} documenti negli appunti"
+        "header_plural": "Hai salvato {{count}} documenti negli appunti",
+        "noPins": "Nessun documento negli appunti"
     }
 }

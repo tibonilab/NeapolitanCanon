@@ -54,6 +54,7 @@
     },
     "pinned": {
         "header": "You have pinned {{count}} document",
-        "header_plural": "You have pinned {{count}} documents"
+        "header_plural": "You have pinned {{count}} documents",
+        "noPins": "No documents pinned yet"
     }
 }
