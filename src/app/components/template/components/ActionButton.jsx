@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ActionButton = ({ children, action, disabled = false }) => {
+const ActionButton = ({ children, action, disabled = false, ...props }) => {
 
     const performAction = e => {
         e.preventDefault();
@@ -9,7 +9,12 @@ const ActionButton = ({ children, action, disabled = false }) => {
     };
 
     return (
-        <button onClick={performAction} disabled={disabled}>
+        <button
+            className={props.className}
+            style={props.style}
+            onClick={performAction}
+            disabled={disabled}
+        >
             {children}
         </button>
     );

@@ -10,6 +10,7 @@
         color: $white;
         text-transform: uppercase;
         border-radius: .25rem;
+        outline: none;
 
         &:hover,
         &:active {
@@ -22,5 +23,10 @@
         }
 
     }   
+
+    &-small {
+        padding: .5em 1.1em;
+        font-size: .8rem;
+    }
 
 }
