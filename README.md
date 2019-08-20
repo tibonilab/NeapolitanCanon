@@ -22,10 +22,10 @@ Development
 ---
 If you want to run a local server, plesae visit <a href="https://github.com/rism-ch/onstage-backend">rism-ch/onstage-backend</a> repository to find out how to install and run Solr on your local machine.
 
-After `onstage-backend` installation change the `useRemoteServer` const to `true` on top of your `webpack.config.js` file.
+After `onstage-backend` installation change the `useRemoteServer` const to `false` on top of your `webpack.config.js` file.
 
 ```js
-const useRemoteServer = true;
+const useRemoteServer = false;
 ```
 
 Then start the `solr-adaptor` server running ```node solr-adaptor/server.js```

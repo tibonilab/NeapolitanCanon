@@ -9,7 +9,7 @@ const production = process.env.NODE_ENV === 'production';
 // in that case the system will use the devServer proxy configuration belove, 
 // so please be sure you have onstage-backend installed and running (see https://github.com/rism-ch/onstage-backend) 
 // and the solr-adaptor/server.js is running as well in your local machine in order to let it work.
-const useRemoteServer = false;
+const useRemoteServer = true;
 
 module.exports = {
     entry: path.join(__dirname, 'src', 'index.js'),
