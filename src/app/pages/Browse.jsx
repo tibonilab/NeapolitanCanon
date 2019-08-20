@@ -3,11 +3,11 @@ import React, { useContext } from 'react';
 import { normalizeFacetsResults } from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
-import { PrimaryButton } from '../components/template/components/Buttons.jsx';
+import { PrimaryButton, PrimaryButtonSmall } from '../components/template/components/Buttons.jsx';
 import Paginator from '../components/template/components/Paginator.jsx';
 import FixedHeader from '../components/template/components/FixedHeader.jsx';
 import ActionLink from '../components/template/components/ActionLink.jsx';
-import ActionButton from '../components/template/components/ActionButton.jsx';
+import ButtonGroup from '../components/template/components/ButtonGroup.jsx';
 import Breadcrumbs from '../components/template/components/Breadcrumbs.jsx';
 
 import Select from '../components/form/Select.jsx';
@@ -98,24 +98,28 @@ const BrowsePage = () => {
     const renderIndexResults = () => (
         <React.Fragment>
             <FixedHeader>
-                <Breadcrumbs
-                    elements={[
-                        <ActionLink action={browseContext.unsetSearchResults}>Browse</ActionLink>,
-                        <span>{renderFacetLabel(browseContext.currentIndex.index)}</span>
-                    ]}
-                />
-                <h1>{browseContext.searchResults.index}</h1>
-
-                <ActionButton action={browseContext.selectPrevious} disabled={browseContext.currentIndex.position < 1}>
-                    {t('browse.prev')}
-                </ActionButton>
-                <ActionButton action={browseContext.selectNext} disabled={browseContext.currentIndex.position + 1 == normalizeFacetsResults(browseContext.browseResults).length}>
-                    {t('browse.next')}
-                </ActionButton>
-                <ActionButton action={() => browseContext.gotoSearch(browseContext.searchResults.index)}>
-                    {t('browse.search')}
-                </ActionButton>
-
+                <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                    <Breadcrumbs
+                        elements={[
+                            <ActionLink action={browseContext.unsetSearchResults}>Browse</ActionLink>,
+                            <span>{renderFacetLabel(browseContext.currentIndex.index)}</span>
+                        ]}
+                    />
+                    <div style={{ display: 'flex' }}>
+                        <ButtonGroup>
+                            <PrimaryButtonSmall action={browseContext.selectPrevious} disabled={browseContext.currentIndex.position < 1}>
+                                {t('browse.prev')}
+                            </PrimaryButtonSmall>
+                            <PrimaryButtonSmall style={{ marginRight: '.5em' }} action={browseContext.selectNext} disabled={browseContext.currentIndex.position + 1 == normalizeFacetsResults(browseContext.browseResults).length}>
+                                {t('browse.next')}
+                            </PrimaryButtonSmall>
+                        </ButtonGroup>
+                        <PrimaryButtonSmall action={() => browseContext.gotoSearch(browseContext.searchResults.index)}>
+                            {t('browse.search')}
+                        </PrimaryButtonSmall>
+                    </div>
+                </div>
+                <h2 style={{ marginTop: '.5em' }}>{browseContext.searchResults.index}</h2>
                 <PaginationHeader {...browseContext} />
             </FixedHeader>
 
