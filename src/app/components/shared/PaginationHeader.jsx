@@ -22,7 +22,7 @@ const PaginationHeader = ({ isLoading, searchResults, searchTerms, selectPage })
             {
                 !isLoading && searchResults.numFound
                     ? (
-                        <div style={{ marginTop: '1em' }}>
+                        <div className="small" style={{ margin: '1.5em 0 1.5em 0' }}>
                             <ActionLink
                                 action={() => selectPage(getPrevPage(searchTerms.page))}
                                 disabled={getPrevPage(searchTerms.page) === searchTerms.page}

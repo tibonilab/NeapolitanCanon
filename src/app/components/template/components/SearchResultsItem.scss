@@ -3,12 +3,16 @@
     border-bottom: 1px solid #efefef;
     align-items: center;
 
-    h4 {
+    
+    a {
+        padding: .25rem 0;
+        font-weight: 600;
         white-space: nowrap; 
         overflow: hidden;
         text-overflow: ellipsis;
         display: block;
     }
+
 
     .icon {
         width: 20px;

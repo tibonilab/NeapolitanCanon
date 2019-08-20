@@ -204,7 +204,9 @@ const SearchState = props => {
                 setSearchTerms,
                 purgeSearchHistory,
                 goToPreviousSearch,
-                goToNextSearch
+                goToNextSearch,
+                searchHistory,
+                currentSearchHistoryIndex
             }}
         >
             {props.children}

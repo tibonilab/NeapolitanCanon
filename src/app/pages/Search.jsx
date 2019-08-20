@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import Template from '../components/template/Template.jsx';
-import { PrimaryButton } from '../components/template/components/Buttons.jsx';
+import { PrimaryButton, PrimaryButtonSmall } from '../components/template/components/Buttons.jsx';
 
 import Input from '../components/form/Input.jsx';
 import Select from '../components/form/Select.jsx';
@@ -11,6 +11,8 @@ import ActionLink from '../components/template/components/ActionLink.jsx';
 import Chip from '../components/template/components/Chip.jsx';
 import Paginator from '../components/template/components/Paginator.jsx';
 import Breadcrumbs from '../components/template/components/Breadcrumbs.jsx';
+import ButtonGroup from '../components/template/components/ButtonGroup.jsx';
+import FlexWrapper from '../components/template/components/FlexWrapper.jsx';
 
 import DocumentDetail from '../components/shared/DocumentDetail.jsx';
 import FacetsSelector from '../components/shared/FacetsSelector/FacetsSelector.jsx';
@@ -23,8 +25,6 @@ import SearchContext from '../context/searchContext';
 import AnalysisContext from '../context/analysisContext';
 
 import { t } from '../i18n';
-import ActionButton from '../components/template/components/ActionButton.jsx';
-import { search } from '../model/Solr.js';
 
 const SearchPage = () => {
 
@@ -44,7 +44,7 @@ const SearchPage = () => {
         return searchContext.searchResults.results.length > 0 ? (
             <React.Fragment>
                 <div style={{ display: 'flex', jusityContent: 'space-between', width: '100%' }}>
-                    <div style={{ padding: '1em 2em 1em 0', width: '100%' }}>
+                    <div style={{ padding: '1em 2em 1em 0', width: 'calc(100% - 318px)' }}>
                         <SearchResults {...searchContext} {...analysisContext} />
                     </div>
                     <div style={{ padding: '1em 0', minWidth: '318px', maxWidth: '318px' }}>
@@ -67,7 +67,7 @@ const SearchPage = () => {
         <FixedHeader>
             <Breadcrumbs
                 elements={[
-                    <span>Search</span>
+                    <span>{t('search.path')}</span>
                 ]}
             />
             <form
@@ -97,21 +97,29 @@ const SearchPage = () => {
             </form>
             {renderChips()}
 
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <FlexWrapper justifyContent="space-between" alignItems="center">
                 <PaginationHeader {...searchContext} />
-                <div>
-                    <ActionButton action={searchContext.goToPreviousSearch}>
-                        {'<<'}
-                    </ActionButton>
-                    <ActionButton action={searchContext.goToNextSearch}>
-                        {'>>'}
-                    </ActionButton>
-                    <ActionButton action={() => confirm('Are you sure?') && searchContext.purgeSearchHistory()}>
-                        {'reset'}
-                    </ActionButton>
-                </div>
-
-            </div>
+                {
+                    searchContext.searchHistory.length > 1
+                        ? (
+                            <FlexWrapper style={{ width: '318px' }} justifyContent="flex-end" alignItems="center">
+                                <span className="small">Search History Nav</span>
+                                <ButtonGroup style={{ margin: '0 .5em' }}>
+                                    <PrimaryButtonSmall disabled={searchContext.currentSearchHistoryIndex == 0} action={searchContext.goToPreviousSearch}>
+                                        {'<<'}
+                                    </PrimaryButtonSmall>
+                                    <PrimaryButtonSmall disabled={searchContext.currentSearchHistoryIndex == searchContext.searchHistory.length - 1} action={searchContext.goToNextSearch}>
+                                        {'>>'}
+                                    </PrimaryButtonSmall>
+                                </ButtonGroup>
+                                <PrimaryButtonSmall action={() => confirm('Are you sure?') && searchContext.purgeSearchHistory()}>
+                                    {'reset'}
+                                </PrimaryButtonSmall>
+                            </FlexWrapper>
+                        )
+                        : null
+                }
+            </FlexWrapper>
 
         </FixedHeader>
     );
@@ -144,7 +152,7 @@ const SearchPage = () => {
                         <React.Fragment>
                             <Breadcrumbs
                                 elements={[
-                                    <ActionLink action={searchContext.unsetSearchSelected}>Search</ActionLink>,
+                                    <ActionLink action={searchContext.unsetSearchSelected}>{t('search.path')}</ActionLink>,
                                     <span>{searchContext.searchTerms.searchKey}</span>
                                 ]}
                             />
