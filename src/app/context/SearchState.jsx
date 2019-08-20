@@ -128,7 +128,8 @@ const SearchState = props => {
                 // we want to update search results only after the first search
                 searchResults.numFound != null && performSearch({
                     ...searchTerms,
-                    ...analysisContext
+                    dateRange: analysisContext.dateRange,
+                    collection: analysisContext.collections
                 });
             }
         },
