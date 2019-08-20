@@ -65,63 +65,50 @@ const SearchPage = () => {
 
     const renderForm = () => (
         <FixedHeader>
-            <Breadcrumbs
-                elements={[
-                    <span>{t('search.path')}</span>
-                ]}
-            />
-            <form
-                style={{
-                    display: 'flex',
-                    jusityContent: 'flext-start',
-                }}
-                onSubmit={searchContext.searchFormSubmitHandler}
-            >
-
-                <Input
-                    style={{ width: '100%' }}
-                    className="input__search"
-                    placeholder={t('search.form.search_placeholder')}
-                    value={searchContext.searchTerms.searchKey}
-                    onChangeHandler={searchContext.searchParamChangeHandler('searchKey')}
+            <FlexWrapper justifyContent="space-between">
+                <Breadcrumbs
+                    elements={[
+                        <span>{t('search.path')}</span>
+                    ]}
                 />
-                <Select
-                    style={{ flex: 1, minWidth: '211px' }}
-                    value={searchContext.searchTerms.indexes[0]}
-                    placeholder={t('search.form.select_placeholder')}
-                    options={[{ label: 'Full-text', value: '' }].concat(generateSearchIndexes())}
-                    onChangeHandler={searchContext.searchParamChangeHandler('indexes')}
-                />
-                <PrimaryButton type="submit">{t('search.form.submit')}</PrimaryButton>
 
+                <FlexWrapper justifyContent="flex-end" alignItems="center">
+                    <ButtonGroup style={{ margin: '0 .5em' }}>
+                        <PrimaryButtonSmall disabled={searchContext.searchHistory.length == 0 || searchContext.currentSearchHistoryIndex == 0} action={searchContext.goToPreviousSearch}>
+                            {'<<'}
+                        </PrimaryButtonSmall>
+                        <PrimaryButtonSmall disabled={searchContext.searchHistory.length == 0 || searchContext.currentSearchHistoryIndex == searchContext.searchHistory.length - 1} action={searchContext.goToNextSearch}>
+                            {'>>'}
+                        </PrimaryButtonSmall>
+                    </ButtonGroup>
+                    <PrimaryButtonSmall disabled={searchContext.searchHistory.length == 0} action={() => confirm('Are you sure?') && searchContext.purgeSearchHistory()}>
+                        {'reset'}
+                    </PrimaryButtonSmall>
+                </FlexWrapper>
+
+            </FlexWrapper>
+            <form style={{ marginTop: '.5em' }} onSubmit={searchContext.searchFormSubmitHandler} >
+                <FlexWrapper justifyContent="flex-start">
+                    <Input
+                        style={{ width: '100%' }}
+                        className="input__search"
+                        placeholder={t('search.form.search_placeholder')}
+                        value={searchContext.searchTerms.searchKey}
+                        onChangeHandler={searchContext.searchParamChangeHandler('searchKey')}
+                    />
+                    <Select
+                        style={{ flex: 1, minWidth: '211px' }}
+                        value={searchContext.searchTerms.indexes[0]}
+                        placeholder={t('search.form.select_placeholder')}
+                        options={[{ label: 'Full-text', value: '' }].concat(generateSearchIndexes())}
+                        onChangeHandler={searchContext.searchParamChangeHandler('indexes')}
+                    />
+                    <PrimaryButton type="submit">{t('search.form.submit')}</PrimaryButton>
+                </FlexWrapper>
             </form>
             {renderChips()}
-
-            <FlexWrapper justifyContent="space-between" alignItems="center">
-                <PaginationHeader {...searchContext} />
-                {
-                    searchContext.searchHistory.length > 1
-                        ? (
-                            <FlexWrapper style={{ width: '318px' }} justifyContent="flex-end" alignItems="center">
-                                <span className="small">Search History Nav</span>
-                                <ButtonGroup style={{ margin: '0 .5em' }}>
-                                    <PrimaryButtonSmall disabled={searchContext.currentSearchHistoryIndex == 0} action={searchContext.goToPreviousSearch}>
-                                        {'<<'}
-                                    </PrimaryButtonSmall>
-                                    <PrimaryButtonSmall disabled={searchContext.currentSearchHistoryIndex == searchContext.searchHistory.length - 1} action={searchContext.goToNextSearch}>
-                                        {'>>'}
-                                    </PrimaryButtonSmall>
-                                </ButtonGroup>
-                                <PrimaryButtonSmall action={() => confirm('Are you sure?') && searchContext.purgeSearchHistory()}>
-                                    {'reset'}
-                                </PrimaryButtonSmall>
-                            </FlexWrapper>
-                        )
-                        : null
-                }
-            </FlexWrapper>
-
-        </FixedHeader>
+            <PaginationHeader {...searchContext} />
+        </FixedHeader >
     );
 
     const renderChips = () => (
@@ -162,7 +149,7 @@ const SearchPage = () => {
                     : (
                         <React.Fragment>
                             {renderForm()}
-                            <div style={{ marginTop: searchContext.searchTerms.filters.length > 0 ? '10.5em' : '7.5em' }}>
+                            <div style={{ marginTop: searchContext.searchTerms.filters.length > 0 ? '11.5em' : '8.5em' }}>
                                 {renderLoading()}
                                 {renderSearchResults()}
                             </div>

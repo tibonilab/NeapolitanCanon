@@ -26,10 +26,10 @@ const PinnedPage = () => {
             <FixedHeader>
                 <FlexWrapper alignItems="center" justifyContent="space-between">
                     <Breadcrumbs elements={[
-                        <span>Pinned documents</span>
+                        <span>{t('pinned.path')}</span>
                     ]} />
 
-                    {pinnedDocuments.length > 0 && <PrimaryButtonSmall action={removeAll}>Remove all</PrimaryButtonSmall>}
+                    <PrimaryButtonSmall disabled={pinnedDocuments.length == 0} action={removeAll}>{t('pinned.purge')}</PrimaryButtonSmall>
                 </FlexWrapper>
                 <h3>
                     {
@@ -42,8 +42,8 @@ const PinnedPage = () => {
             <div style={{ paddingTop: '5em' }}>
                 {pinnedDocuments.map(element => (
                     <SearchResultsItem key={element.id}>
-                        <FlexWrapper justifyContent="space-between">
-                            <FlexWrapper>
+                        <FlexWrapper justifyContent="space-between" alignItems="center">
+                            <FlexWrapper style={{ width: '70%' }}>
                                 <img src={`http://d-lib.rism-ch.org/cgi-bin/iipsrv.fcgi?FIF=/usr/local/images/lausanne/${element.images_ss[0]}&WID=40&CVT=JPG`} />
                                 <div style={{ marginLeft: '1.5em' }}>
                                     <h4 style={{ padding: '.25rem 0' }}>
