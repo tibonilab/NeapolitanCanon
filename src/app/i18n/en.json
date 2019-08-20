@@ -18,6 +18,7 @@
         "dateRange": "Date Range"
     },
     "search": {
+        "path": "Search",
         "nav": {
             "prev": "« Previous page",
             "next": "Next page »",
@@ -41,6 +42,7 @@
         "noResults": "No results found"
     },
     "browse": {
+        "path": "Browse",
         "form": {
             "select_placeholder": "Select index",
             "submit": "Browse"
@@ -53,8 +55,10 @@
         "noSearchResults": "This index is no longer available within current analysis parameters"
     },
     "pinned": {
+        "path": "Pinned documents",
         "header": "You have pinned {{count}} document",
         "header_plural": "You have pinned {{count}} documents",
-        "noPins": "No documents pinned yet"
+        "noPins": "No documents pinned yet",
+        "purge": "Remove all"
     }
 }
