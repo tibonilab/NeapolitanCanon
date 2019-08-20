@@ -6,9 +6,11 @@ import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 import Input from '../components/form/Input.jsx';
 import Select from '../components/form/Select.jsx';
 
+import FixedHeader from '../components/template/components/FixedHeader.jsx';
+import ActionLink from '../components/template/components/ActionLink.jsx';
 import Chip from '../components/template/components/Chip.jsx';
-
 import Paginator from '../components/template/components/Paginator.jsx';
+import Breadcrumbs from '../components/template/components/Breadcrumbs.jsx';
 
 import DocumentDetail from '../components/shared/DocumentDetail.jsx';
 import FacetsSelector from '../components/shared/FacetsSelector/FacetsSelector.jsx';
@@ -60,21 +62,19 @@ const SearchPage = () => {
     };
 
     const renderForm = () => (
-        <div
-            onSubmit={searchContext.searchFormSubmitHandler}
-            style={{
-                position: 'fixed',
-                margin: '-2em -4em',
-                width: `calc(100% - ${analysisContext.isContextBarVisible ? '390' : '70'}px)`,
-                background: 'linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 85%,rgba(255,255,255,0) 100%)',
-                padding: '2em 4em',
-                transition: 'width .25s ease-in-out'
-            }}
-        >
-            <form style={{
-                display: 'flex',
-                jusityContent: 'flext-start',
-            }}>
+        <FixedHeader>
+            <Breadcrumbs
+                elements={[
+                    <span>Search</span>
+                ]}
+            />
+            <form
+                style={{
+                    display: 'flex',
+                    jusityContent: 'flext-start',
+                }}
+                onSubmit={searchContext.searchFormSubmitHandler}
+            >
 
                 <Input
                     style={{ width: '100%' }}
@@ -95,7 +95,7 @@ const SearchPage = () => {
             </form>
             {renderChips()}
             <PaginationHeader {...searchContext} />
-        </div>
+        </FixedHeader>
     );
 
     const renderChips = () => (
@@ -122,11 +122,21 @@ const SearchPage = () => {
         <Template>
             {
                 searchContext.selectedResource
-                    ? <DocumentDetail {...searchContext} />
+                    ? (
+                        <React.Fragment>
+                            <Breadcrumbs
+                                elements={[
+                                    <ActionLink action={searchContext.unsetSearchSelected}>Search</ActionLink>,
+                                    <span>{searchContext.searchTerms.searchKey}</span>
+                                ]}
+                            />
+                            <DocumentDetail {...searchContext} goBackHidden />
+                        </React.Fragment>
+                    )
                     : (
                         <React.Fragment>
                             {renderForm()}
-                            <div style={{ marginTop: searchContext.searchTerms.filters.length > 0 ? '9.5em' : '6.5em' }}>
+                            <div style={{ marginTop: searchContext.searchTerms.filters.length > 0 ? '10.5em' : '7.5em' }}>
                                 {renderLoading()}
                                 {renderSearchResults()}
                             </div>

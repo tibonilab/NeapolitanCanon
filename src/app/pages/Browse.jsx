@@ -146,6 +146,11 @@ const BrowsePage = () => {
 
     const renderForm = () => (
         <FixedHeader>
+            <Breadcrumbs
+                elements={[
+                    <span>Browse</span>
+                ]}
+            />
             <form onSubmit={browseContext.onFormSubmitHandler}>
                 <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
                     <Select
@@ -194,10 +199,6 @@ const BrowsePage = () => {
 
         return view;
     };
-
-
-    console.log(browseContext.currentIndex);
-    console.log(browseContext.searchResults);
 
     return (
         <Template>
