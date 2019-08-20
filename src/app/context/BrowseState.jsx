@@ -64,10 +64,13 @@ const BrowseState = props => {
     };
 
     const generateSearchTermsBySearchKey = searchKey => {
-        let searchTerms = {};
+        let searchTerms = {
+            collections: analysisContext.collections
+        };
 
         if (currentIndex.index === 'year_i') {
             searchTerms = {
+                ...searchTerms,
                 dateRange: {
                     from: searchKey,
                     to: searchKey
@@ -77,6 +80,7 @@ const BrowseState = props => {
             };
         } else {
             searchTerms = {
+                ...searchTerms,
                 searchKey,
                 indexes: [currentIndex.index],
                 dateRange: analysisContext.dateRange,
@@ -201,7 +205,7 @@ const BrowseState = props => {
                 // we want to update index search results only if a browse result record is selected
                 currentIndex.position != null && performSearch({
                     ...searchTerms,
-                    dateRange: analysisContext.date,
+                    dateRange: analysisContext.dateRange,
                     collections: analysisContext.collections
                 });
 

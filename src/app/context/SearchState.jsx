@@ -144,13 +144,13 @@ const SearchState = props => {
         setSearchTerms(updatedSearchTerms);
         performSearch(updatedSearchTerms);
         analysisContext.setDateRange(updatedSearchTerms.dateRange);
-        analysisContext.setCollections(updatedSearchTerms.collection);
+        analysisContext.setCollections(updatedSearchTerms.collections);
     };
 
     const generateSearchTerms = searchTerms => ({
         ...searchTerms,
         dateRange: analysisContext.dateRange,
-        collection: analysisContext.collections
+        collections: analysisContext.collections
     });
 
     // we use useDidMount Hook to let the component know whether is mounted or not
