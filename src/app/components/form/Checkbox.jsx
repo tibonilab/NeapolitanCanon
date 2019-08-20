@@ -13,6 +13,12 @@ export default class Checkbox extends Component {
         };
     }
 
+    componentDidUpdate(props) {
+        if (this.state.checked !== props.checked) {
+            this.setState({ checked: props.checked });
+        }
+    }
+
     onChangeHandler() {
         this.setState({ checked: !this.state.checked }, this.emitChecked());
     }

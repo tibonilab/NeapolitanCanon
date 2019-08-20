@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useStateWithSession } from '../service/serviceStorage';
+
+import { useDidMount } from '../hooks/useDidMount';
 
 import { generateCollections } from '../model/INDEXES';
 
 import AnalysisContext from './analysisContext';
 
 const SESSION_PREFIX = 'AnalysisState';
+
+const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 const AnalysisState = props => {
 
@@ -17,10 +21,25 @@ const AnalysisState = props => {
     const [isContextBarVisible, setContextBarVisibility] = useStateWithSession(true, 'isContextBarVisible', SESSION_PREFIX);
 
     const [pinnedDocuments, setPinnedDocuments] = useStateWithSession([], 'pinnedDocuments', SESSION_PREFIX);
+    const [shouldUpdateSearchHistory, setShouldUpdateSearchHistory] = useState(false);
 
-    const dateRangeChangeHandler = dateRange => setDateRange(dateRange);
+    const didMount = useDidMount();
 
-    const changeCollectionsSelectorHandler = collections => setCollections(collections);
+    const dateRangeChangeHandler = updatedDateRange => {
+        setDateRange(updatedDateRange);
+
+        if (didMount && !isEqual(dateRange, updatedDateRange)) {
+            setShouldUpdateSearchHistory(true);
+        }
+    };
+
+    const changeCollectionsSelectorHandler = updatedCollections => {
+        setCollections(updatedCollections);
+
+        if (didMount && !isEqual(collections, updatedCollections)) {
+            setShouldUpdateSearchHistory(true);
+        }
+    };
 
     const toggleContextBar = () => setContextBarVisibility(!isContextBarVisible);
 
@@ -48,7 +67,11 @@ const AnalysisState = props => {
                 pinnedDocuments,
                 togglePinnedDocument,
                 isPinned,
-                removeAllPinnedDocuments
+                removeAllPinnedDocuments,
+                setDateRange,
+                setCollections,
+                shouldUpdateSearchHistory,
+                setShouldUpdateSearchHistory
             }}
         >
             {props.children}

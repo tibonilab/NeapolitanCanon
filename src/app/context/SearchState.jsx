@@ -12,30 +12,32 @@ import Solr from '../model/Solr';
 
 const SESSION_PREFIX = 'SearchState';
 
+const INITIAL_SEARCH_TERMS = {
+    searchKey: '',
+    indexes: [],
+    filters: [],
+    facets: {
+        fields: DEFAULT_FACETS
+    },
+    page: 0
+};
+
+const INITIAL_SEARCH_RESULTS = {
+    numFound: null,
+    results: [],
+    facets: [],
+};
+
 const SearchState = props => {
 
     const [isLoading, setIsLoading] = useStateWithSession(false, 'isLoading', SESSION_PREFIX);
-
     const [selectedResource, setSelectedResource] = useStateWithSession(null, 'selectedResource', SESSION_PREFIX);
-
-    const [searchResults, setSearchResults] = useStateWithSession({
-        numFound: null,
-        results: [],
-        facets: [],
-    }, 'searchResults', SESSION_PREFIX);
-
-    const [searchTerms, setSearchTerms] = useStateWithSession({
-        searchKey: '',
-        indexes: [],
-        filters: [],
-        facets: {
-            fields: DEFAULT_FACETS
-        },
-        page: 0
-    }, 'searchTerms', SESSION_PREFIX);
+    const [searchResults, setSearchResults] = useStateWithSession(INITIAL_SEARCH_RESULTS, 'searchResults', SESSION_PREFIX);
+    const [searchTerms, setSearchTerms] = useStateWithSession(INITIAL_SEARCH_TERMS, 'searchTerms', SESSION_PREFIX);
+    const [searchHistory, setSearchHistory] = useStateWithSession([], 'searchHistory', SESSION_PREFIX);
+    const [currentSearchHistoryIndex, setCurrentSearchHistoryIndex] = useStateWithSession(0, 'currentSearchHistoryIndex', SESSION_PREFIX);
 
     const analysisContext = useContext(AnalysisContext);
-
 
     const searchParamChangeHandler = param => value => {
         setSearchTerms(
@@ -62,6 +64,7 @@ const SearchState = props => {
                 page: 0
             });
         }
+        analysisContext.setShouldUpdateSearchHistory(true);
     };
 
     const setSearchSolrResponse = solr => {
@@ -93,6 +96,8 @@ const SearchState = props => {
             facets: []
         });
 
+        analysisContext.setShouldUpdateSearchHistory(true);
+
         searchTerms.page
             ? selectPage(0)
             : performSearch(searchTerms);
@@ -101,11 +106,7 @@ const SearchState = props => {
 
     const performSearch = searchTerms => {
         return Solr
-            .search({
-                ...searchTerms,
-                dateRange: analysisContext.dateRange,
-                collections: analysisContext.collections
-            })
+            .search(generateSearchTerms(searchTerms))
             .then(setSearchSolrResponse);
     };
 
@@ -116,21 +117,54 @@ const SearchState = props => {
         });
     };
 
+    const purgeSearchHistory = () => {
+        setCurrentSearchHistoryIndex(0);
+        setSearchHistory([]);
+    };
+
+    const goToPreviousSearch = () => {
+        const index = currentSearchHistoryIndex - 1 > 0
+            ? currentSearchHistoryIndex - 1
+            : 0;
+
+        setCurrentSearchHistoryIndex(index);
+        performSearchHistoryNavigation(searchHistory[index]);
+    };
+
+    const goToNextSearch = () => {
+        const index = currentSearchHistoryIndex + 1 >= searchHistory.length
+            ? searchHistory.length - 1
+            : currentSearchHistoryIndex + 1;
+
+        setCurrentSearchHistoryIndex(index);
+        performSearchHistoryNavigation(searchHistory[index]);
+    };
+
+    const performSearchHistoryNavigation = updatedSearchTerms => {
+        setSearchTerms(updatedSearchTerms);
+        performSearch(updatedSearchTerms);
+        analysisContext.setDateRange(updatedSearchTerms.dateRange);
+        analysisContext.setCollections(updatedSearchTerms.collection);
+    };
+
+    const generateSearchTerms = searchTerms => ({
+        ...searchTerms,
+        dateRange: analysisContext.dateRange,
+        collection: analysisContext.collections
+    });
 
     // we use useDidMount Hook to let the component know whether is mounted or not
     const didMount = useDidMount();
 
     // The useEffect Hook calls the function as first parameter on mounting 
     // and when the dependendecies in the second parameter change
+
+    // Search Results management useEffect
     useEffect(
         () => {
-            if (didMount) {
-                // we want to update search results only after the first search
-                searchResults.numFound != null && performSearch({
-                    ...searchTerms,
-                    dateRange: analysisContext.dateRange,
-                    collection: analysisContext.collections
-                });
+            // we want to update search results only after the first search...
+            if (didMount && searchResults.numFound != null) {
+                performSearch(generateSearchTerms(searchTerms));
             }
         },
         [
@@ -139,6 +173,19 @@ const SearchState = props => {
             analysisContext.dateRange,
             analysisContext.collections
         ]
+    );
+
+    // Search History management useEffect
+    useEffect(
+        () => {
+            // we want to append search terms into search history only when is required
+            if (didMount && analysisContext.shouldUpdateSearchHistory) {
+                setCurrentSearchHistoryIndex(searchHistory.length);
+                setSearchHistory(searchHistory.concat(generateSearchTerms(searchTerms)));
+                analysisContext.setShouldUpdateSearchHistory(false);
+            }
+        },
+        [analysisContext.shouldUpdateSearchHistory]
     );
 
     return (
@@ -154,7 +201,10 @@ const SearchState = props => {
                 unsetSearchSelected,
                 searchFormSubmitHandler,
                 selectPage,
-                setSearchTerms
+                setSearchTerms,
+                purgeSearchHistory,
+                goToPreviousSearch,
+                goToNextSearch
             }}
         >
             {props.children}

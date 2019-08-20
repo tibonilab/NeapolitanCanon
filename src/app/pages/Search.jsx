@@ -23,6 +23,8 @@ import SearchContext from '../context/searchContext';
 import AnalysisContext from '../context/analysisContext';
 
 import { t } from '../i18n';
+import ActionButton from '../components/template/components/ActionButton.jsx';
+import { search } from '../model/Solr.js';
 
 const SearchPage = () => {
 
@@ -94,7 +96,23 @@ const SearchPage = () => {
 
             </form>
             {renderChips()}
-            <PaginationHeader {...searchContext} />
+
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <PaginationHeader {...searchContext} />
+                <div>
+                    <ActionButton action={searchContext.goToPreviousSearch}>
+                        {'<<'}
+                    </ActionButton>
+                    <ActionButton action={searchContext.goToNextSearch}>
+                        {'>>'}
+                    </ActionButton>
+                    <ActionButton action={() => confirm('Are you sure?') && searchContext.purgeSearchHistory()}>
+                        {'reset'}
+                    </ActionButton>
+                </div>
+
+            </div>
+
         </FixedHeader>
     );
 

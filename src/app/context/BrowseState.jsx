@@ -14,26 +14,22 @@ import SearchContext from './searchContext';
 
 const SESSION_PREFIX = 'BrowseState';
 
+const INITAL_BROWSE_TERMS = {
+    facets: {
+        fields: [],
+        prefix: '',
+        sort: 'index'
+    }
+};
+
 const BrowseState = props => {
 
     const [browseResults, setBrowseResults] = useStateWithSession([], 'browseResults', SESSION_PREFIX);
-
+    const [browseTerms, setBrowseTerms] = useStateWithSession(INITAL_BROWSE_TERMS, 'browseTerms', SESSION_PREFIX);
     const [searchResults, setSearchResults] = useStateWithSession({}, 'searchResults', SESSION_PREFIX);
-
     const [searchTerms, setSearchTerms] = useStateWithSession({}, 'searchTerms', SESSION_PREFIX);
-
     const [currentIndex, setCurrentIndex] = useStateWithSession({}, 'currentIndex', SESSION_PREFIX);
-
-    const [browseTerms, setBrowseTerms] = useStateWithSession({
-        facets: {
-            fields: [],
-            prefix: '',
-            sort: 'index'
-        }
-    }, 'browseTerms', SESSION_PREFIX);
-
     const [isLoading, setIsLoading] = useStateWithSession(false, 'isLoading', SESSION_PREFIX);
-
     const [selectedResource, setSelectedResource] = useStateWithSession(null, 'selectedResource', SESSION_PREFIX);
 
     const analysisContext = useContext(AnalysisContext);
@@ -182,6 +178,7 @@ const BrowseState = props => {
             },
             page: 0
         });
+        analysisContext.setShouldUpdateSearchHistory(true);
         props.history.push('/search');
     };
 
@@ -204,7 +201,8 @@ const BrowseState = props => {
                 // we want to update index search results only if a browse result record is selected
                 currentIndex.position != null && performSearch({
                     ...searchTerms,
-                    ...analysisContext
+                    dateRange: analysisContext.date,
+                    collections: analysisContext.collections
                 });
 
                 // we want to update browse results only after index browse selection
