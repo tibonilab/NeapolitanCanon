@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import Template from '../components/template/Template.jsx';
+import ActionButton from '../components/template/components/ActionButton.jsx';
 
 import AnalysisContext from '../context/analysisContext';
 
@@ -10,30 +11,36 @@ import { t } from '../i18n';
 
 const PinnedPage = () => {
 
-    const { pinnedDocuments, togglePinnedDocument } = useContext(AnalysisContext);
+    const { pinnedDocuments, togglePinnedDocument, removeAllPinnedDocuments } = useContext(AnalysisContext);
+
+    const removeAll = () => {
+        confirm('Are you sure?') && removeAllPinnedDocuments();
+    };
 
     return (
         <Template>
-            <h3>{t('pinned.header', { count: pinnedDocuments.length })}</h3>
+            <h3>
+                {
+                    pinnedDocuments.length > 0
+                        ? t('pinned.header', { count: pinnedDocuments.length })
+                        : t('pinned.noPins')
+                }
+            </h3>
+            {pinnedDocuments.length > 0 && <ActionButton action={removeAll}>Remove all</ActionButton>}
             {pinnedDocuments.map(element => (
                 <div
                     key={element.id}
-                    style={{ cursor: 'pointer', paddingBottom: '1em', borderBottom: '1px solid #efefef', marginTop: '1em' }}
-                // onClick={() => context.setSearchSelected(element)}
+                    style={{ paddingBottom: '1em', borderBottom: '1px solid #efefef', marginTop: '1em' }}
                 >
                     <Link to={`/source/${element.id.replace('.xml', '')}`}>
-
                         <b>{element.title_s}</b>
                     </Link>
                     <p>
                         {element.place_s} - {element.year_i}
                     </p>
-                    <button onClick={e => {
-                        e.preventDefault();
-                        togglePinnedDocument(element);
-                    }}>
+                    <ActionButton action={() => togglePinnedDocument(element)}>
                         {t('search.actions.unpin')}
-                    </button>
+                    </ActionButton>
                 </div>
             ))}
         </Template>
