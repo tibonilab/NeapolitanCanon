@@ -34,6 +34,8 @@ const AnalysisState = props => {
 
     const isPinned = document => pinnedDocuments.some(d => d.id == document.id);
 
+    const removeAllPinnedDocuments = () => setPinnedDocuments([]);
+
     return (
         <AnalysisContext.Provider
             value={{
@@ -45,7 +47,8 @@ const AnalysisState = props => {
                 toggleContextBar,
                 pinnedDocuments,
                 togglePinnedDocument,
-                isPinned
+                isPinned,
+                removeAllPinnedDocuments
             }}
         >
             {props.children}
