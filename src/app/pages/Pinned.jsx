@@ -3,7 +3,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import Template from '../components/template/Template.jsx';
-import ActionButton from '../components/template/components/ActionButton.jsx';
+import SearchResultsItem from '../components/template/components/SearchResultsItem.jsx';
+import Breadcrumbs from '../components/template/components/Breadcrumbs.jsx';
+import { PrimaryButtonSmall } from '../components/template/components/Buttons.jsx';
+import FlexWrapper from '../components/template/components/FlexWrapper.jsx';
+import FixedHeader from '../components/template/components/FixedHeader.jsx';
 
 import AnalysisContext from '../context/analysisContext';
 
@@ -19,30 +23,46 @@ const PinnedPage = () => {
 
     return (
         <Template>
-            <h3>
-                {
-                    pinnedDocuments.length > 0
-                        ? t('pinned.header', { count: pinnedDocuments.length })
-                        : t('pinned.noPins')
-                }
-            </h3>
-            {pinnedDocuments.length > 0 && <ActionButton action={removeAll}>Remove all</ActionButton>}
-            {pinnedDocuments.map(element => (
-                <div
-                    key={element.id}
-                    style={{ paddingBottom: '1em', borderBottom: '1px solid #efefef', marginTop: '1em' }}
-                >
-                    <Link to={`/source/${element.id.replace('.xml', '')}`}>
-                        <b>{element.title_s}</b>
-                    </Link>
-                    <p>
-                        {element.place_s} - {element.year_i}
-                    </p>
-                    <ActionButton action={() => togglePinnedDocument(element)}>
-                        {t('search.actions.unpin')}
-                    </ActionButton>
-                </div>
-            ))}
+            <FixedHeader>
+                <FlexWrapper alignItems="center" justifyContent="space-between">
+                    <Breadcrumbs elements={[
+                        <span>Pinned documents</span>
+                    ]} />
+
+                    {pinnedDocuments.length > 0 && <PrimaryButtonSmall action={removeAll}>Remove all</PrimaryButtonSmall>}
+                </FlexWrapper>
+                <h3>
+                    {
+                        pinnedDocuments.length > 0
+                            ? t('pinned.header', { count: pinnedDocuments.length })
+                            : t('pinned.noPins')
+                    }
+                </h3>
+            </FixedHeader>
+            <div style={{ paddingTop: '5em' }}>
+                {pinnedDocuments.map(element => (
+                    <SearchResultsItem key={element.id}>
+                        <FlexWrapper justifyContent="space-between">
+                            <FlexWrapper>
+                                <img src={`http://d-lib.rism-ch.org/cgi-bin/iipsrv.fcgi?FIF=/usr/local/images/lausanne/${element.images_ss[0]}&WID=40&CVT=JPG`} />
+                                <div style={{ marginLeft: '1.5em' }}>
+                                    <h4 style={{ padding: '.25rem 0' }}>
+                                        <Link to={`/source/${element.id.replace('.xml', '')}`}>
+                                            <b>{element.title_s}</b>
+                                        </Link>
+                                    </h4>
+                                    {element.place_s}
+                                    <br />
+                                    <span className="small">{element.year_i}</span>
+                                </div>
+                            </FlexWrapper>
+                            <PrimaryButtonSmall action={() => togglePinnedDocument(element)}>
+                                {t('search.actions.unpin')}
+                            </PrimaryButtonSmall>
+                        </FlexWrapper>
+                    </SearchResultsItem>
+                ))}
+            </div>
         </Template>
     );
 
