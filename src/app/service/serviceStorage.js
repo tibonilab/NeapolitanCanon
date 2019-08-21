@@ -26,15 +26,11 @@ export const useStateWithSession = (initialValue, key, keyPrefix) => {
     };
 
     const readDataOrUseInitialValue = () => {
-        let value = initialValue;
-
         const sessionValue = readDataFromSession();
 
-        if (sessionValue != null) {
-            return sessionValue;
-        }
-
-        return value;
+        return sessionValue != null
+            ? sessionValue
+            : initialValue;
     };
 
     const [data, setData] = useState(readDataOrUseInitialValue());
