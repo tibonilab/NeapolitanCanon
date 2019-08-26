@@ -55,7 +55,7 @@
         "noSearchResults": "This index is no longer available within current analysis parameters"
     },
     "pinned": {
-        "path": "Pinned documents",
+        "path": "Archive",
         "header": "You have pinned {{count}} document",
         "header_plural": "You have pinned {{count}} documents",
         "noPins": "No documents pinned yet",

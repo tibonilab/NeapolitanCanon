@@ -42,7 +42,7 @@
         "noResults": "Nessun documento trovato"
     },
     "browse": {
-        "path": "Consulta indice",
+        "path": "Consulta",
         "form": {
             "select_placeholder": "Seleziona l'indice",
             "submit": "Sfoglia"
@@ -55,7 +55,7 @@
         "noSearchResults": "Questo indice non è disponibile con i parametri di analisi correnti"
     },
     "pinned": {
-        "path": "Archivio appunti",
+        "path": "Archivio",
         "header": "Hai salvato {{count}} documento negli appunti",
         "header_plural": "Hai salvato {{count}} documenti negli appunti",
         "noPins": "Nessun documento negli appunti",
