@@ -76,7 +76,6 @@ const BrowsePage = () => {
                         <h1>{firstLetter}</h1>
                     </div>
                 );
-
             }
 
             return (
@@ -93,7 +92,9 @@ const BrowsePage = () => {
 
         return results.length > 0
             ? results
-            : <h3 style={{ marginTop: '3em' }}>{t('browse.noResults')}</h3>;
+            : browseContext.currentIndex.index
+                ? <h3 style={{ marginTop: '3em' }}>{t('browse.noResults')}</h3>
+                : null;
     };
 
     const renderIndexResults = () => (
@@ -102,7 +103,7 @@ const BrowsePage = () => {
                 <FlexWrapper justifyContent="space-between">
                     <Breadcrumbs
                         elements={[
-                            <ActionLink action={browseContext.unsetSearchResults}>Browse</ActionLink>,
+                            <ActionLink action={browseContext.unsetSearchResults}>{t('browse.path')}</ActionLink>,
                             <span>{renderFacetLabel(browseContext.currentIndex.index)}</span>
                         ]}
                     />
@@ -153,7 +154,7 @@ const BrowsePage = () => {
         <FixedHeader>
             <Breadcrumbs
                 elements={[
-                    <span>Browse</span>
+                    <span>{t('browse.path')}</span>
                 ]}
             />
             <form onSubmit={browseContext.onFormSubmitHandler}>
@@ -192,7 +193,7 @@ const BrowsePage = () => {
                 <React.Fragment>
                     <Breadcrumbs
                         elements={[
-                            <ActionLink action={browseContext.unsetSearchResults}>Browse</ActionLink>,
+                            <ActionLink action={() => { browseContext.unsetSearchResults(); browseContext.unsetSearchSelected(); }}>{t('browse.path')}</ActionLink>,
                             <ActionLink action={browseContext.unsetSearchSelected}>{renderFacetLabel(browseContext.currentIndex.index)}</ActionLink>,
                             <span>{browseContext.searchResults.index}</span>
                         ]}
