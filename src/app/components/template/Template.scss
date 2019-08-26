@@ -96,6 +96,7 @@
                 bottom: 0;
                 padding: 2em;
                 z-index: 1;
+                border-right: 1px solid #ccc;
             
                 transition: left .25s ease-in-out;
             }
@@ -142,8 +143,15 @@
         padding: 2em 4em;
         transition: margin-left .25s ease-in-out;
 
-        &__with-contextBar {
-            margin-left: 320px;
+        &__with{
+            
+            &-contextBar {
+                margin-left: 320px;
+
+                @media screen and (max-width: 1400px) {
+                    margin-left: 0;
+                }
+            }
         }
     }
 }

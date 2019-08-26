@@ -7,8 +7,15 @@ const FixedHeader = ({ children, style }) => {
 
     const { isContextBarVisible } = useContext(AnalysisContext);
 
+    const classNames = ['fixedHeader'];
+
+    if (isContextBarVisible) {
+        classNames.push('fixedHeader__with-contextBar');
+    }
+
+
     return (
-        <div className="fixedHeader" style={{ ...style, width: `calc(100% - ${isContextBarVisible ? '390' : '70'}px)`, }}>
+        <div className={classNames.join(' ')} {...style}>
             {children}
         </div>
     );
