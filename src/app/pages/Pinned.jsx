@@ -24,12 +24,14 @@ const PinnedPage = () => {
     return (
         <Template>
             <FixedHeader>
-                <FlexWrapper alignItems="center" justifyContent="space-between">
+                <FlexWrapper justifyContent="space-between">
                     <Breadcrumbs elements={[
                         <span>{t('pinned.path')}</span>
                     ]} />
 
-                    <PrimaryButtonSmall disabled={pinnedDocuments.length == 0} action={removeAll}>{t('pinned.purge')}</PrimaryButtonSmall>
+                    <FlexWrapper justifyContent="flex-end" alignItems="center">
+                        <PrimaryButtonSmall disabled={pinnedDocuments.length == 0} action={removeAll}>{t('pinned.purge')}</PrimaryButtonSmall>
+                    </FlexWrapper>
                 </FlexWrapper>
                 <h3>
                     {
