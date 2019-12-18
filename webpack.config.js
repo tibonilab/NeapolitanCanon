@@ -3,23 +3,23 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const production = process.env.NODE_ENV === 'production';
+// const production = process.env.NODE_ENV === 'production';
 
 // If you want to use a local server set the useRemoteServer const to false,
 // in that case the system will use the devServer proxy configuration belove, 
 // so please be sure you have onstage-backend installed and running (see https://github.com/rism-ch/onstage-backend) 
 // and the solr-adaptor/server.js is running as well in your local machine in order to let it work.
-const useRemoteServer = true;
+const useRemoteServer = false;
 
-module.exports = {
+module.exports = environment => ({
     entry: path.join(__dirname, 'src', 'index.js'),
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'index.bundle.js',
         publicPath: '/'
     },
-    mode: process.env.NODE_ENV || 'development',
-    devtool: production ? false : 'source-map',
+    mode: environment.production ? 'production' : 'development',
+    devtool: environment.production ? false : 'source-map',
     resolve: {
         modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
@@ -37,7 +37,8 @@ module.exports = {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
-        }
+        },
+        open: true
     },
     module: {
         rules: [
@@ -69,6 +70,20 @@ module.exports = {
                         attrs: [':data-src']
                     }
                 }
+            },
+            {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: 'html-loader'
+                    },
+                    {
+                        loader: 'markdown-loader',
+                        options: {
+                            /* your options here */
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -77,17 +92,17 @@ module.exports = {
             template: path.join(__dirname, 'src', 'index.html')
         }),
         new webpack.DefinePlugin({
-            PRODUCTION: production,
-            DEBUG: !production, // if true it will show the query parameters into console
+            PRODUCTION: environment.production,
+            DEBUG: !environment.production, // if true it will show the query parameters into console
 
             // here it is the endpoint for Diva JS manifest server
             DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/'),
 
             // here it is the endpoint for remote onstage search server 
             // used only if useRemoteServer is setted as true, as explained above
-            SOLR_BASE_SERVER: useRemoteServer
+            SOLR_BASE_SERVER: environment.production || useRemoteServer
                 ? JSON.stringify('http://onstage-search.rism-ch.org')
                 : JSON.stringify(''),
         })
     ]
-};
+});
