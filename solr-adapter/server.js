@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const SOLR_URL_PRFIX = 'http://localhost:8983';
+const SOLR_URL_PRFIX = 'http://localhost:8984';
 
 
 const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join(`:${searchKey}*`)}:${searchKey}*`;
@@ -118,6 +118,8 @@ app.get('/api/search', (req, res) => {
             //console.log(response);
             const resp = response.data;
             res.send(resp);
+        }).catch(function (error) {
+            console.log(error);
         });
 });
 
