@@ -12,6 +12,13 @@ class Select extends Component {
         };
     }
 
+    componentDidUpdate(prevProps) {
+        // set the value if is changed outside the component
+        if (prevProps.value !== this.props.value) {
+            this.setState({ value: this.props.value });
+        }
+    }
+
     onChangeHandler(e) {
         const value = e.target.value;
 
@@ -38,9 +45,10 @@ class Select extends Component {
                     {
                         this.props.placeholder ? (
                             <option value="" disabled hidden>{this.props.placeholder}</option>
-                        ) : (
-                            <option value="" />
-                        )
+                        ) : null
+                        // (
+                        //         <option value="" />
+                        //     )
                     }
                     {
                         options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)
