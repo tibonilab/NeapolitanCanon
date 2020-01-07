@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import GlobalContext from '../../../context/globalContext';
 
@@ -13,9 +14,19 @@ export const Navbar = () => {
 
     return (
         <div className="navbar-root">
-            <img src="http://d-lib.rism-ch.org/onstage/images/logo_trans-75-b.png" style={{ maxHeight: '38px' }} />
+            <Link to="/">
+                <img src="http://d-lib.rism-ch.org/onstage/images/logo_trans-75-b.png" style={{ maxHeight: '38px' }} />
+            </Link>
             <div>
                 {
+                    language === 'fr'
+                        ? <span>français</span>
+                        : <a href="#" onClick={changeLanguage('fr')}>français</a>
+                } | {
+                    language === 'de'
+                        ? <span>deutsch</span>
+                        : <a href="#" onClick={changeLanguage('de')}>deutsch</a>
+                } | {
                     language === 'en'
                         ? <span>english</span>
                         : <a href="#" onClick={changeLanguage('en')}>english</a>

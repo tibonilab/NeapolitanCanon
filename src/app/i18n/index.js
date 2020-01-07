@@ -1,9 +1,13 @@
 const english = require('./en.json');
 const italian = require('./it.json');
+const francais = require('./fr.json');
+const deutsch = require('./de.json');
 
 const resources = {
     en: english,
-    it: italian
+    it: italian,
+    fr: francais,
+    de: deutsch
 };
 
 const FALLBACK_LANGUAGE = 'en';
