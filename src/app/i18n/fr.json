@@ -1,11 +1,11 @@
 {
     "common": {
         "indexes": {
-            "composer_ss": "Composers",
-            "interpreter_ss": "Interpreters",
-            "place_s": "Places",
+            "composer_ss": "Compositeurs",
+            "interpreter_ss": "Interprètes",
+            "place_s": "Lieux",
             "collection_s": "Collections",
-            "series_s": "Serie"
+            "series_s": "Série"
         },
         "collections": {
             "ch_gc": "Geneve",
@@ -15,50 +15,50 @@
     },
     "contextBar": {
         "collections": "Collections",
-        "dateRange": "Date Range"
+        "dateRange": "Période"
     },
     "search": {
-        "path": "Search",
+        "path": "Recherche",
         "nav": {
-            "prev": "« Previous page",
-            "next": "Next page »",
-            "count": "{{from}} - {{to}} of {{total}}"
+            "prev": "« Page précédente",
+            "next": "Page suivante »",
+            "count": "{{from}} - {{to}} de {{total}}"
         },
         "form": {
-            "search_placeholder": "Input your search terms here...",
-            "select_placeholder": "Search by index",
+            "search_placeholder": "Saisissez ici vos termes de recherche...",
+            "select_placeholder": "Recherche par index",
             "submit": "Search"
         },
         "actions": {
-            "pin": "Pin this document",
-            "unpin": "Remove from pinned",
-            "back": "Go back"
+            "pin": "Épinglez ce document",
+            "unpin": "Retirer de l'épingle",
+            "back": "Retournez"
         },
         "facets": {
-            "more": "Show more",
-            "less": "Show less",
-            "filter": "Filter"
+            "more": "Afficher plus",
+            "less": "Afficher moins",
+            "filter": "Filtrez"
         },
-        "noResults": "No results found"
+        "noResults": "Aucun résultat trouvé"
     },
     "browse": {
-        "path": "Browse",
+        "path": "Naviguer",
         "form": {
-            "select_placeholder": "Select index",
-            "submit": "Browse"
+            "select_placeholder": "Sélectionner l'index",
+            "submit": "Naviguer"
         },
-        "prev": "« Previous",
-        "next": "Next »",
-        "search": "Search",
-        "back": "Go back",
-        "noResults": "No index available",
-        "noSearchResults": "This index is no longer available within current analysis parameters"
+        "prev": "« Précédent",
+        "next": "Suivant »",
+        "search": "Recherche",
+        "back": "Retournez",
+        "noResults": "Aucun indice disponible",
+        "noSearchResults": "Cet indice n'est plus disponible dans les paramètres d'analyse actuels"
     },
     "pinned": {
-        "path": "Archive",
-        "header": "You have pinned {{count}} document",
-        "header_plural": "You have pinned {{count}} documents",
-        "noPins": "No documents pinned yet",
-        "purge": "Remove all"
+        "path": "Archives",
+        "header": "Vous avez épinglé {{count}} document",
+        "header_plural": "Vous avez épinglé {{count}} documents",
+        "noPins": "Pas encore de documents épinglés",
+        "purge": "Supprimer tout"
     }
 }
