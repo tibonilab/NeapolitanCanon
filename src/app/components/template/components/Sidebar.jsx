@@ -9,14 +9,13 @@ import AnalysisContext from '../../../context/analysisContext';
 const SidebarWithRoute = props => {
 
     const isActive = (path) => props.location.pathname.includes(path);
-    const isRoot = () => props.location.pathname === '/';
 
     const { pinnedDocuments } = useContext(AnalysisContext);
 
     return (
         <div className="sidebar-root">
             <Link to="/search">
-                <ClearButton isActive={isRoot() || isActive('search')}>
+                <ClearButton isActive={isActive('search')}>
                     <SearchIcon />
                 </ClearButton>
             </Link>
