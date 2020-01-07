@@ -5,6 +5,8 @@ import { useStateWithSession } from '../service/serviceStorage';
 import SearchContext from './searchContext';
 import AnalysisContext from './analysisContext';
 
+import { withRouter } from 'react-router-dom';
+
 import { useDidMount } from '../hooks/useDidMount';
 
 import { DEFAULT_FACETS } from '../model/INDEXES';
@@ -163,7 +165,7 @@ const SearchState = props => {
     useEffect(
         () => {
             // we want to update search results only after the first search...
-            if (didMount && searchResults.numFound != null) {
+            if (didMount && searchResults.numFound != null && props.location.pathname.includes('/search')) {
                 performSearch(generateSearchTerms(searchTerms));
             }
         },
@@ -214,4 +216,4 @@ const SearchState = props => {
     );
 };
 
-export default SearchState;
+export default withRouter(SearchState);

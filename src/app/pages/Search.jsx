@@ -59,9 +59,11 @@ const SearchPage = () => {
 
             </React.Fragment>
         ) : (
-            !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
-        );
+                !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
+            );
     };
+
+    console.log(searchContext.searchTerms);
 
     const renderForm = () => (
         <FixedHeader>
@@ -99,8 +101,8 @@ const SearchPage = () => {
                     <Select
                         style={{ flex: 1, minWidth: '211px' }}
                         value={searchContext.searchTerms.indexes[0]}
-                        placeholder={t('search.form.select_placeholder')}
-                        options={[{ label: 'Full-text', value: '' }].concat(generateSearchIndexes())}
+                        // placeholder={t('search.form.select_placeholder')}
+                        options={[{ label: 'Full-text', value: null }].concat(generateSearchIndexes())}
                         onChangeHandler={searchContext.searchParamChangeHandler('indexes')}
                     />
                     <PrimaryButton type="submit">{t('search.form.submit')}</PrimaryButton>
