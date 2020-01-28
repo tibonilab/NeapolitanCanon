@@ -2,6 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import GlobalContext from '../../../context/globalContext';
+import DropdownMenu from './DropdownMenu.jsx';
+
+import { t } from '../../../i18n';
+
+
 
 export const Navbar = () => {
     const { language, setLanguage } = useContext(GlobalContext);
@@ -17,32 +22,33 @@ export const Navbar = () => {
             <Link to="/">
                 <img src="http://d-lib.rism-ch.org/onstage/images/logo_trans-75-b.png" style={{ maxHeight: '38px' }} />
             </Link>
-            <div>
-                <span><a href="/">Home</a></span>&nbsp;|&nbsp;
-                <span><a href="/page/about">About</a></span>&nbsp;|&nbsp;
-                <span><a href="/page/lausanne">Fonds Lausanne</a></span>&nbsp;|&nbsp;
-                <span><a href="/page/geneve">Fonds Genève</a></span>&nbsp;|&nbsp;
-                <span><a href="/page/basel">Sammlung Basel</a></span>&nbsp;|&nbsp;
-                <span><a href="/page/help">Help</a></span>
-            </div>
-            <div>
-                {
+            <div className="navbar-menu">
+                <DropdownMenu label={t('common.topMenu.pages.label')} items={[
+                    <Link to="/">{t('common.topMenu.pages.items.home')}</Link>,
+                    <Link to="/page/about">{t('common.topMenu.pages.items.about')}</Link>,
+                    <Link to="/page/lausanne">{t('common.topMenu.pages.items.fundsLosanne')}</Link>,
+                    <Link to="/page/geneve">{t('common.topMenu.pages.items.fundsGeneve')}</Link>,
+                    <Link to="/page/basel">{t('common.topMenu.pages.items.collectionsBasel')}</Link>,
+                    <Link to="/page/help">{t('common.topMenu.pages.items.help')}</Link>,
+                ]} />
+
+                <DropdownMenu label={t('common.topMenu.languages.label')} items={[
                     language === 'fr'
-                        ? <span>français</span>
-                        : <a href="#" onClick={changeLanguage('fr')}>français</a>
-                } | {
+                        ? <span>Français</span>
+                        : <a href="#" onClick={changeLanguage('fr')}>Français</a>
+                    ,
                     language === 'de'
-                        ? <span>deutsch</span>
-                        : <a href="#" onClick={changeLanguage('de')}>deutsch</a>
-                } | {
+                        ? <span>Deutsch</span>
+                        : <a href="#" onClick={changeLanguage('de')}>Deutsch</a>
+                    ,
                     language === 'en'
-                        ? <span>english</span>
-                        : <a href="#" onClick={changeLanguage('en')}>english</a>
-                } | {
+                        ? <span>English</span>
+                        : <a href="#" onClick={changeLanguage('en')}>English</a>
+                    ,
                     language === 'it'
-                        ? <span>italiano</span>
-                        : <a href="#" onClick={changeLanguage('it')}>italiano</a>
-                }
+                        ? <span>Italiano</span>
+                        : <a href="#" onClick={changeLanguage('it')}>Italiano</a>
+                ]} />
             </div>
         </div>
     );
