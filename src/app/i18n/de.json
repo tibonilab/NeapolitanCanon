@@ -11,6 +11,22 @@
             "ch_gc": "Genf",
             "ch_lac": "Lausanne",
             "ch_famb": "Basel"
+        },
+        "topMenu": {
+            "pages": {
+                "label": "Pages",
+                "items": {
+                    "home": "Home",
+                    "about": "About",
+                    "fundsLosanne": "Funds Losanne",
+                    "fundsGeneve": "Funds Geneve",
+                    "collectionsBasel": "Collections Basel",
+                    "help": "Help"
+                }
+            },
+            "languages": {
+                "label": "Languages"
+            }
         }
     },
     "contextBar": {

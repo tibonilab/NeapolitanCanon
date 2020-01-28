@@ -11,6 +11,22 @@
             "ch_gc": "Ginevra",
             "ch_lac": "Losanna",
             "ch_famb": "Basilea"
+        },
+        "topMenu": {
+            "pages": {
+                "label": "Pagine",
+                "items": {
+                    "home": "Home",
+                    "about": "About",
+                    "fundsLosanne": "Funds Losanne",
+                    "fundsGeneve": "Funds Geneve",
+                    "collectionsBasel": "Collections Basel",
+                    "help": "Help"
+                }
+            },
+            "languages": {
+                "label": "Lingua"
+            }
         }
     },
     "contextBar": {
