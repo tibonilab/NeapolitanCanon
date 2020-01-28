@@ -18,6 +18,14 @@ export const Navbar = () => {
                 <img src="http://d-lib.rism-ch.org/onstage/images/logo_trans-75-b.png" style={{ maxHeight: '38px' }} />
             </Link>
             <div>
+                <span><a href="/">Home</a></span>&nbsp;|&nbsp;
+                <span><a href="/page/about">About</a></span>&nbsp;|&nbsp;
+                <span><a href="/page/lausanne">Fonds Lausanne</a></span>&nbsp;|&nbsp;
+                <span><a href="/page/geneve">Fonds Genève</a></span>&nbsp;|&nbsp;
+                <span><a href="/page/basel">Sammlung Basel</a></span>&nbsp;|&nbsp;
+                <span><a href="/page/help">Help</a></span>
+            </div>
+            <div>
                 {
                     language === 'fr'
                         ? <span>français</span>
