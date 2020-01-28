@@ -16,12 +16,12 @@
             "pages": {
                 "label": "Pagine",
                 "items": {
-                    "home": "Home",
-                    "about": "About",
-                    "fundsLosanne": "Funds Losanne",
-                    "fundsGeneve": "Funds Geneve",
-                    "collectionsBasel": "Collections Basel",
-                    "help": "Help"
+                    "home": "Pagina iniziale",
+                    "about": "A proposito",
+                    "fundsLosanne": "Fondo Losanna",
+                    "fundsGeneve": "Fondo Ginevra",
+                    "collectionsBasel": "Collezione Basilea",
+                    "help": "Aiuto"
                 }
             },
             "languages": {
