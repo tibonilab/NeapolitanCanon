@@ -47,7 +47,7 @@ This will create `build/index.bundle.js` and `build/index.html` which can be cop
 
 #### Run in development
 
-To run locally, it is necessary to change the connector server. Install `onstage-backend` and then set the `useRemoteServer` const to `false` on top of your `webpack.config.js` file.
+To run locally, it is necessary to change the connector server. Install `onstage-backend` and then set the `useRemoteServer` const to `false` on top of your `webpack.config.js` file. Remember to start solr with a complete index!
 
 ```js
 const useRemoteServer = false;
