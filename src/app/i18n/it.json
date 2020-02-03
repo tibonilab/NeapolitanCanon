@@ -1,0 +1,80 @@
+{
+    "common": {
+        "indexes": {
+            "composer_ss": "Compositori",
+            "interpreter_ss": "Interpreti",
+            "place_s": "Luoghi",
+            "collection_s": "Collezioni",
+            "series_s": "Serie"
+        },
+        "collections": {
+            "ch_gc": "Ginevra",
+            "ch_lac": "Losanna",
+            "ch_famb": "Basilea"
+        },
+        "topMenu": {
+            "pages": {
+                "label": "Pagine",
+                "items": {
+                    "home": "Pagina iniziale",
+                    "about": "A proposito",
+                    "fundsLosanne": "Fondo Losanna",
+                    "fundsGeneve": "Fondo Ginevra",
+                    "collectionsBasel": "Collezione Basilea",
+                    "help": "Aiuto"
+                }
+            },
+            "languages": {
+                "label": "Lingua"
+            }
+        }
+    },
+    "contextBar": {
+        "collections": "Collezioni",
+        "dateRange": "Periodo"
+    },
+    "search": {
+        "path": "Ricerca",
+        "nav": {
+            "prev": "« Pagina precedente",
+            "next": "Pagina successiva »",
+            "count": "{{from}} - {{to}} di {{total}}"
+        },
+        "form": {
+            "search_placeholder": "Inserisci qui i tuoi termini di ricerca...",
+            "select_placeholder": "Cerca per indice",
+            "submit": "Ricerca"
+        },
+        "actions": {
+            "pin": "Aggiungi agli appunti",
+            "unpin": "Rimuovi dagli appunti",
+            "back": "Torna indietro"
+        },
+        "facets": {
+            "more": "Mostra altro",
+            "less": "Mostra meno",
+            "filter": "Filtra"
+        },
+        "noResults": "Nessun documento trovato"
+    },
+    "browse": {
+        "path": "Consulta",
+        "form": {
+            "select_placeholder": "Seleziona l'indice",
+            "submit": "Sfoglia"
+        },
+        "prev": "« Precedente",
+        "next": "Successivo »",
+        "search": "Ricerca",
+        "back": "Torna indietro",
+        "noResults": "Nessun indice disponibile",
+        "noSearchResults": "Questo indice non è disponibile con i parametri di analisi correnti"
+    },
+    "pinned": {
+        "path": "Archivio",
+        "header": "Hai salvato {{count}} documento negli appunti",
+        "header_plural": "Hai salvato {{count}} documenti negli appunti",
+        "noPins": "Nessun documento negli appunti",
+        "purge": "Rimuovi tutti"
+    }
+}

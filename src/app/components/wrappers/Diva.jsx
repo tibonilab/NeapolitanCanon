@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Diva from 'diva.js/source/js/diva';
 import 'diva.js/build/diva.css';
 
+import './Diva.scss';
+
 export default class DivaReact extends Component {
 
     constructor(props) {
@@ -25,14 +27,14 @@ export default class DivaReact extends Component {
     }
 
     initDiva() {
-        if(this.props.manifest) {
+        if (this.props.manifest) {
             this.diva = new Diva(this.divaWrapper.id, {
                 objectData: `${DIVA_BASE_MANIFEST_SERVER}${this.props.manifest}`
             });
         }
     }
 
-    render() { 
+    render() {
         return (
             <div id="diva-wrapper" ref={c => this.divaWrapper = c}></div>
         );

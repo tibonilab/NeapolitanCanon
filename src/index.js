@@ -3,9 +3,20 @@ import ReactDOM from 'react-dom';
 
 import Router from './app/Router.jsx';
 
-const App = () => <Router />;
+import GlobalState from './app/context/GlobalState.jsx';
+import { initI18N } from './app/i18n/index.js';
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
+const App = () => (
+    <GlobalState>
+        <Router />
+    </GlobalState>
 );
+
+export const renderApp = () => {
+    ReactDOM.render(
+        <App />,
+        document.getElementById('root')
+    );
+};
+
+initI18N().then(renderApp());

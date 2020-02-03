@@ -1,172 +1,216 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 
-import Solr from '../model/Solr';
+import { normalizeFacetsResults } from '../model/Solr';
 
 import Template from '../components/template/Template.jsx';
+import { PrimaryButton, PrimaryButtonSmall } from '../components/template/components/Buttons.jsx';
+import Paginator from '../components/template/components/Paginator.jsx';
+import FixedHeader from '../components/template/components/FixedHeader.jsx';
+import FlexWrapper from '../components/template/components/FlexWrapper.jsx';
+import ActionLink from '../components/template/components/ActionLink.jsx';
+import ButtonGroup from '../components/template/components/ButtonGroup.jsx';
+import Breadcrumbs from '../components/template/components/Breadcrumbs.jsx';
+
 import Select from '../components/form/Select.jsx';
-import Input from '../components/form/Input.jsx';
-import CollectionsSelector from '../components/shared/CollectionsSelector.jsx';
-import DateRangePicker from '../components/form/DateRangePicker.jsx';
+import DocumentDetail from '../components/shared/DocumentDetail.jsx';
+import SearchResults from '../components/shared/SearchResults.jsx';
+import PaginationHeader from '../components/shared/PaginationHeader.jsx';
 
-import { BROWSE_INDEXES, COLLECTIONS } from '../model/INDEXES';
+import { generateBrowseIndexes, renderFacetLabel } from '../model/INDEXES';
 
-export default class Browse extends Component {
+import BrowseContext from '../context/browseContext';
+import AnalysisContext from '../context/analysisContext';
 
-    constructor(props) {
-        super(props);
+import { t } from '../i18n';
 
-        this.state = {
-            searchResults: [],
-            browseResults: [],
-            browseTerms: {
-                facets: {
-                    fields: [],
-                    prefix: '',
-                    sort: 'index'
-                },
-                collections: COLLECTIONS.map(element => element.field),
-                dateRange: {}
-            },
-            loading: false,
-            index: ''
-        };
-    }
+const BrowsePage = () => {
 
-    onSelectChangeHandler(index) {
-        const facets = Object.assign({}, this.state.browseTerms.facets, { fields: [index] });
+    // we store the BrowseContext into the context const here to be able to
+    // use the data and functions stored into the BrowseState component
+    // which provides the BrowseContext.Provider
+    const browseContext = useContext(BrowseContext);
+    const analysisContext = useContext(AnalysisContext);
 
-        this.setState({ index }, this.setBrowseTerms({ facets }));
-    }
+    const renderLoading = () => {
+        return browseContext.isLoading ? <div style={{ marginTop: '2em' }}>{'loading'}</div> : null;
+    };
 
-    onPrefixFilterChangeHandler(prefix) {
-        const facets = Object.assign({}, this.state.browseTerms.facets, { prefix });
+    const renderBrowseNav = () => {
+        let firstLetter;
+        const letters = [];
 
-        this.setBrowseTerms({ facets });
-    }
+        normalizeFacetsResults(browseContext.browseResults).forEach(term => {
+            if (firstLetter != term.label.substring(0, 1)) {
+                firstLetter = term.label.substring(0, 1);
+                letters.push(firstLetter);
+            }
+        });
 
-    onDateRangeChangeHandelr(dateRange) {
-        this.setBrowseTerms({ dateRange });
-    }
-
-    setBrowseTerms(props) {
-        this.setState({ browseTerms: Object.assign({}, this.state.browseTerms, props)});
-    }
-
-    renderLoading() {
-        return this.state.loading ? 'loading' : null;
-    }
-
-    fetchIndexElements(searchKey) {
-        let payload = {};
-
-        if(this.state.index === 'year_i') {
-            payload = {
-                dateRange: {
-                    from: searchKey,
-                    to: searchKey
-                }
-            };
-        } else {
-            payload = {
-                searchKey,
-                indexes: [this.state.index]
-            };
-        }
-        
-        Solr
-            .search(payload)
-            .then(solr => this.setState(
-                () => ({ 
-                    searchResults: Object.assign({}, this.state.searchResults, {
-                        [searchKey]: solr.response.docs
-                    })
-                })
-            ));
-    }
-
-    renderBrowseResults() {
-        if(this.state.browseResults) {
-            return Solr.normalizeFacetsResults(this.state.browseResults).map((term, index) => (
-                <div key={index}>
-                    <h4 onClick={() => this.fetchIndexElements(term.label)} style={{cursor:'pointer'}}>{term.label}</h4>
+        return browseContext.browseResults.length > 0
+            ? (
+                <div style={{ display: 'flex', alignItems: 'center', marginLeft: '2em' }}>
+                    <b>Fast nav: </b>
                     {
-                        this.state.searchResults[term.label] && (
-                            <div>
-                                {
-                                    this.state.searchResults[term.label].map(element => (
-                                        <div key={element.id}>
-                                            <br />
-                                            <h2>{element.title_s}</h2> 
-                                            <h3>{element.place_s} - {element.year_i}</h3>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        )
+                        letters.map(letter => <a style={{ padding: '.2em .3em', borderRight: '1px solid #eee', color: '#515151', textDecoration: 'none' }} key={letter} href={`#${letter}`}>{letter}</a>)
                     }
                 </div>
-            ));
+            )
+            : null;
+    };
+
+    const renderBrowseResults = () => {
+
+        let firstLetter;
+        const letters = [];
+
+        const results = normalizeFacetsResults(browseContext.browseResults).map((term, index) => {
+            let header;
+
+            if (firstLetter != term.label.substring(0, 1)) {
+                firstLetter = term.label.substring(0, 1);
+                letters.push(firstLetter);
+
+                header = (
+                    <div style={{ borderBottom: '1px solid #eee', padding: '0 0 .5em 0', margin: '2em 0 .5em 0' }}>
+                        <a className="anchor" id={firstLetter} />
+                        <h1>{firstLetter}</h1>
+                    </div>
+                );
+            }
+
+            return (
+                <React.Fragment key={index}>
+
+                    {header}
+
+                    <div onClick={() => browseContext.fetchIndexElements(term.label, index)} style={{ cursor: 'pointer' }}>
+                        <h4>{term.label}</h4>
+                    </div>
+                </React.Fragment>
+            );
+        });
+
+        return results.length > 0
+            ? results
+            : browseContext.currentIndex.index
+                ? <h3 style={{ marginTop: '3em' }}>{t('browse.noResults')}</h3>
+                : null;
+    };
+
+    const renderIndexResults = () => (
+        <React.Fragment>
+            <FixedHeader>
+                <FlexWrapper justifyContent="space-between">
+                    <Breadcrumbs
+                        elements={[
+                            <ActionLink action={browseContext.unsetSearchResults}>{t('browse.path')}</ActionLink>,
+                            <span>{renderFacetLabel(browseContext.currentIndex.index)}</span>
+                        ]}
+                    />
+                    <FlexWrapper justifyContent="flex-end" alignItems="center">
+                        <ButtonGroup style={{ margin: '0 .5em' }}>
+                            <PrimaryButtonSmall action={browseContext.selectPrevious} disabled={browseContext.currentIndex.position < 1}>
+                                {'<<'}
+                            </PrimaryButtonSmall>
+                            <PrimaryButtonSmall action={browseContext.selectNext} disabled={browseContext.currentIndex.position + 1 == normalizeFacetsResults(browseContext.browseResults).length}>
+                                {'>>'}
+                            </PrimaryButtonSmall>
+                        </ButtonGroup>
+                        <PrimaryButtonSmall action={() => browseContext.gotoSearch(browseContext.searchResults.index)}>
+                            {t('browse.search')}
+                        </PrimaryButtonSmall>
+                    </FlexWrapper>
+                </FlexWrapper>
+                <h2 style={{ marginTop: '.5em' }}>{browseContext.searchResults.index}</h2>
+                <PaginationHeader {...browseContext} />
+            </FixedHeader>
+
+            <div style={{ paddingTop: '7.5em' }}>
+                {
+                    browseContext.isLoading
+                        ? (
+                            <span>Loading</span>
+                        )
+                        : (
+                            <React.Fragment>
+                                {browseContext.searchResults.results.length > 0
+                                    ? <SearchResults {...browseContext} {...analysisContext} />
+                                    : t('browse.noSearchResults')}
+
+                                <Paginator
+                                    onClickHandler={page => browseContext.selectPage(page - 1)}
+                                    page={browseContext.searchTerms.page + 1}
+                                    totalPages={Math.ceil(browseContext.searchResults.numFound / 100)}
+                                />
+                            </React.Fragment>
+                        )
+                }
+            </div>
+
+        </React.Fragment>
+    );
+
+    const renderForm = () => (
+        <FixedHeader>
+            <Breadcrumbs
+                elements={[
+                    <span>{t('browse.path')}</span>
+                ]}
+            />
+            <form onSubmit={browseContext.onFormSubmitHandler}>
+                <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
+                    <Select
+                        style={{ width: 'auto' }}
+                        value={browseContext.currentIndex.index}
+                        placeholder={t('browse.form.select_placeholder')}
+                        options={generateBrowseIndexes()}
+                        onChangeHandler={browseContext.onSelectChangeHandler}
+                    />
+                    <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
+                    {renderBrowseNav()}
+                </div>
+            </form>
+        </FixedHeader>
+    );
+
+    const renderView = () => {
+
+        let view = (
+            <React.Fragment>
+                {renderForm()}
+                <div style={{ padding: '3em 0 1em 0' }}>
+                    {browseContext.isLoading ? renderLoading() : renderBrowseResults()}
+                </div>
+            </React.Fragment>
+        );
+
+        if (browseContext.searchResults.index) {
+            view = renderIndexResults();
         }
 
-        return null;
-    }
-
-    onFormSubmitHandler(e) {
-        e && e.preventDefault();
-
-        this.setState({ 
-            loading: true,
-            searchResults: [], 
-            browseResults: [],
-        }, 
-        () => Solr
-            .search(this.state.browseTerms)
-            .then(browseResults => this.setState({ browseResults: browseResults.facet_counts.facet_fields[this.state.index], loading: false }))
-        );
-    }
-
-    render() {
-
-        return (
-            <Template>
-
-                <h4>Browse</h4>
-                <form onSubmit={this.onFormSubmitHandler.bind(this)}>
-                    <div style={{display:'flex', jusityContent: 'flext-start'}}>
-                        <Select
-                            value={this.state.index}
-                            placeholder="Select index"
-                            options={BROWSE_INDEXES}
-                            onChangeHandler={this.onSelectChangeHandler.bind(this)} 
-                        />
-                        <button type="submit" disabled={this.state.index == ''}>browse</button>
-                    </div>
-
-                    <h4>Collections</h4>
-                    <CollectionsSelector
-                        collections={this.state.browseTerms.collections}
-                        onChangeHandler={collections => this.setState({ browseTerms: Object.assign({}, this.state.browseTerms, { collections })})}
+        if (browseContext.selectedResource) {
+            view = (
+                <React.Fragment>
+                    <Breadcrumbs
+                        elements={[
+                            <ActionLink action={() => { browseContext.unsetSearchResults(); browseContext.unsetSearchSelected(); }}>{t('browse.path')}</ActionLink>,
+                            <ActionLink action={browseContext.unsetSearchSelected}>{renderFacetLabel(browseContext.currentIndex.index)}</ActionLink>,
+                            <span>{browseContext.searchResults.index}</span>
+                        ]}
                     />
+                    <DocumentDetail {...browseContext} goBackHidden />
+                </React.Fragment>
+            );
+        }
 
-                    <h4>Index Prefix</h4>
-                    <Input 
-                        placeholder="prefix"
-                        onChangeHandler={this.onPrefixFilterChangeHandler.bind(this)} 
-                    />
+        return view;
+    };
 
-                    <h4>Date range</h4>
-                    <DateRangePicker
-                        onChangeHandler={this.onDateRangeChangeHandelr.bind(this)}
-                        minFrom={1826}
-                        maxTo={2016}
-                    />
-                </form>
+    return (
+        <Template>
+            {renderView()}
+        </Template>
+    );
+};
 
-                <div style={{padding: '1em 0'}}>
-                    {this.renderLoading()}
-                    {this.renderBrowseResults()}
-                </div>
-            </Template>
-        );
-    }
-}
+export default BrowsePage;

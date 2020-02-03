@@ -1,0 +1,80 @@
+{
+    "common": {
+        "indexes": {
+            "composer_ss": "Compositeurs",
+            "interpreter_ss": "Interprètes",
+            "place_s": "Lieux",
+            "collection_s": "Collections",
+            "series_s": "Série"
+        },
+        "collections": {
+            "ch_gc": "Geneve",
+            "ch_lac": "Losanne",
+            "ch_famb": "Basel"
+        },
+        "topMenu": {
+            "pages": {
+                "label": "Pages",
+                "items": {
+                    "home": "Home",
+                    "about": "About",
+                    "fundsLosanne": "Funds Losanne",
+                    "fundsGeneve": "Funds Geneve",
+                    "collectionsBasel": "Collections Basel",
+                    "help": "Help"
+                }
+            },
+            "languages": {
+                "label": "Languages"
+            }
+        }
+    },
+    "contextBar": {
+        "collections": "Collections",
+        "dateRange": "Période"
+    },
+    "search": {
+        "path": "Recherche",
+        "nav": {
+            "prev": "« Page précédente",
+            "next": "Page suivante »",
+            "count": "{{from}} - {{to}} de {{total}}"
+        },
+        "form": {
+            "search_placeholder": "Saisissez ici vos termes de recherche...",
+            "select_placeholder": "Recherche par index",
+            "submit": "Search"
+        },
+        "actions": {
+            "pin": "Épinglez ce document",
+            "unpin": "Retirer de l'épingle",
+            "back": "Retournez"
+        },
+        "facets": {
+            "more": "Afficher plus",
+            "less": "Afficher moins",
+            "filter": "Filtrez"
+        },
+        "noResults": "Aucun résultat trouvé"
+    },
+    "browse": {
+        "path": "Naviguer",
+        "form": {
+            "select_placeholder": "Sélectionner l'index",
+            "submit": "Naviguer"
+        },
+        "prev": "« Précédent",
+        "next": "Suivant »",
+        "search": "Recherche",
+        "back": "Retournez",
+        "noResults": "Aucun indice disponible",
+        "noSearchResults": "Cet indice n'est plus disponible dans les paramètres d'analyse actuels"
+    },
+    "pinned": {
+        "path": "Archives",
+        "header": "Vous avez épinglé {{count}} document",
+        "header_plural": "Vous avez épinglé {{count}} documents",
+        "noPins": "Pas encore de documents épinglés",
+        "purge": "Supprimer tout"
+    }
+}

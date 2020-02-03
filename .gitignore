@@ -1,2 +1,5 @@
 /node_modules/
 /build/
+/static/*
+/solr-adapter/node_modules/
+gulp.config.js

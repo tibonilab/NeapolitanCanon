@@ -3,33 +3,42 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const production = process.env.NODE_ENV === 'production';
+// const production = process.env.NODE_ENV === 'production';
 
-module.exports = {
-    entry: path.join(__dirname,'src','index.js'),
+// If you want to use a local server set the useRemoteServer const to false,
+// in that case the system will use the devServer proxy configuration belove, 
+// so please be sure you have onstage-backend installed and running (see https://github.com/rism-ch/onstage-backend) 
+// and the solr-adaptor/server.js is running as well in your local machine in order to let it work.
+const useRemoteServer = false;
+
+module.exports = environment => ({
+    entry: path.join(__dirname, 'src', 'index.js'),
     output: {
-        path: path.join(__dirname,'build'),
+        path: path.join(__dirname, 'build'),
         filename: 'index.bundle.js',
         publicPath: '/'
     },
-    mode: process.env.NODE_ENV || 'development',
-    devtool: production ? false : 'source-map',
+    mode: environment.production ? 'production' : 'development',
+    devtool: environment.production ? false : 'source-map',
     resolve: {
         modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
     devServer: {
-        contentBase: path.join(__dirname,'src'),
+        contentBase: path.join(__dirname, 'src'),
         historyApiFallback: true,
+
+        // here it is the local server configuration
         proxy: {
-            '/solr' : {
-                // it requires onstage-backend local installation, see https://github.com/rism-ch/onstage-backend
-                // if you can access a remote endpoint with CORS enabled set the target below
-                target: 'http://localhost:8983/',
+            '/api/**': {
+                target: 'http://localhost:5000',
+                changeOrigin: true,
+                secure: false,
             },
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
-        }
+        },
+        open: true
     },
     module: {
         rules: [
@@ -52,16 +61,48 @@ module.exports = {
             {
                 test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
                 loaders: ['file-loader']
+            },
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        attrs: [':data-src']
+                    }
+                }
+            },
+            {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: 'html-loader'
+                    },
+                    {
+                        loader: 'markdown-loader',
+                        options: {
+                            /* your options here */
+                        }
+                    }
+                ]
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname,'src','index.html')
+            template: path.join(__dirname, 'src', 'index.html')
         }),
         new webpack.DefinePlugin({
-            DEBUG: !production,
-            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/')
+            PRODUCTION: environment.production,
+            DEBUG: !environment.production, // if true it will show the query parameters into console
+
+            // here it is the endpoint for Diva JS manifest server
+            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/'),
+
+            // here it is the endpoint for remote onstage search server 
+            // used only if useRemoteServer is setted as true, as explained above
+            SOLR_BASE_SERVER: environment.production || useRemoteServer
+                ? JSON.stringify('http://onstage-search.rism-ch.org')
+                : JSON.stringify(''),
         })
     ]
-};
+});

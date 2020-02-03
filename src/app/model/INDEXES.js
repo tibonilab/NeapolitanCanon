@@ -1,35 +1,40 @@
-export const SEARCH_INDEXES = [
-    { label: 'Composers', value: 'composer_ss' },
-    { label: 'Intepreters', value: 'interpreter_ss' },
-    { label: 'Places', value: 'place_s' },
-    { label: 'Series', value: 'series_s' },
+import { t } from '../i18n';
+
+export const renderFacetLabel = key => t(`common.indexes.${key}`) || key;
+export const renderCollectionLabel = key => t(`common.collections.${key}`) || key;
+
+export const generateSearchIndexes = () => [
+    { label: renderFacetLabel('composer_ss'), value: 'composer_ss' },
+    { label: renderFacetLabel('interpreter_ss'), value: 'interpreter_ss' },
+    { label: renderFacetLabel('place_s'), value: 'place_s' },
+    { label: renderFacetLabel('series_s'), value: 'series_s' },
 ];
 
-export const BROWSE_INDEXES = [
-    { label: 'Composers', value: 'composer_ss' },
-    { label: 'Intepreters', value: 'interpreter_ss' },
-    { label: 'Dates', value: 'year_i' },
-    { label: 'Places', value: 'place_s' },
-    { label: 'Series', value: 'series_s' },
+export const generateBrowseIndexes = () => [
+    { label: renderFacetLabel('composer_ss'), value: 'composer_ss' },
+    { label: renderFacetLabel('interpreter_ss'), value: 'interpreter_ss' },
+    { label: renderFacetLabel('place_s'), value: 'place_s' },
+    { label: renderFacetLabel('series_s'), value: 'series_s' },
 ];
 
 export const DEFAULT_FACETS = [
-    'composer_ss', 
-    'interpreter_ss', 
-    'place_s', 
-    'collection_s', 
+    'composer_ss',
+    'interpreter_ss',
+    'place_s',
+    'collection_s',
     'series_s'
 ];
 
-export const COLLECTIONS = [
-    { field: 'ch_gc', label: 'Geneve' },
-    { field: 'ch_lac', label: 'Losanne' },
-    { field: 'ch_famb', label: 'Basel' }
+export const generateCollections = () => [
+    { field: 'ch_gc', label: renderCollectionLabel('ch_gc') },
+    { field: 'ch_lac', label: renderCollectionLabel('ch_lac') },
+    { field: 'ch_famb', label: renderCollectionLabel('ch_famb') }
 ];
 
+
 export default {
-    SEARCH_INDEXES,
-    BROWSE_INDEXES,
+    generateSearchIndexes,
+    generateBrowseIndexes,
     DEFAULT_FACETS,
-    COLLECTIONS
+    generateCollections
 };

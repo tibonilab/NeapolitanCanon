@@ -4,14 +4,14 @@
         "es6": true
     },
     "extends": [
-        "eslint:recommended", 
+        "eslint:recommended",
         "plugin:react/recommended"
     ],
     "parser": "babel-eslint",
     "parserOptions": {
         "allowImportExportEverywhere": true
     },
-    "plugins": [        
+    "plugins": [
         "react"
     ],
     "rules": {
@@ -29,6 +29,7 @@
         ],
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
+        "react/jsx-key": 0,
         "getter-return": "error",
         "for-direction": "error",
         "react/prop-types": 0
@@ -47,6 +48,8 @@
         "navigator": false,
         "window": false,
         "DIVA_BASE_MANIFEST_SERVER": false,
+        "SOLR_BASE_SERVER": false,
+        "PRODUCTION": false,
         "DEBUG": false
     }
 }

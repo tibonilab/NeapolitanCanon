@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 
+import './Select.scss';
+
 class Select extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            value: ''
+            value: props.value || ''
         };
+    }
+
+    componentDidUpdate(prevProps) {
+        // set the value if is changed outside the component
+        if (prevProps.value !== this.props.value) {
+            this.setState({ value: this.props.value });
+        }
     }
 
     onChangeHandler(e) {
@@ -17,7 +26,7 @@ class Select extends Component {
     }
 
     emit(value) {
-        if(this.props.onChangeHandler && typeof this.props.onChangeHandler === 'function') {
+        if (this.props.onChangeHandler && typeof this.props.onChangeHandler === 'function') {
             this.props.onChangeHandler(value);
         }
     }
@@ -26,18 +35,20 @@ class Select extends Component {
         const { options, label } = this.props;
 
         return (
-            <div>
+            <div className="select-root" style={this.props.style}>
                 {label && <label>{label}</label>}
-                <select 
+                <select
+                    className="select-input"
                     value={this.state.value}
                     onChange={this.onChangeHandler.bind(this)}
                 >
                     {
                         this.props.placeholder ? (
                             <option value="" disabled hidden>{this.props.placeholder}</option>
-                        ) : (
-                            <option value="" />
-                        )
+                        ) : null
+                        // (
+                        //         <option value="" />
+                        //     )
                     }
                     {
                         options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)
