@@ -46,6 +46,16 @@ This will create `build/index.bundle.js` and `build/index.html` which can be cop
 
 #### Run in development
 
+To run locally, it is necessary to change the connector server. Install `onstage-backend` and then set the `useRemoteServer` const to `false` on top of your `webpack.config.js` file.
+
+```js
+const useRemoteServer = false;
+```
+
+Then start the `solr-adaptor` server running ```node solr-adaptor/server.js```
+
+And finally ```npm start```
+
 `npm start`
 
 #### Deployment
@@ -78,4 +88,56 @@ Once gulp is configured, it should be possible to deploy to the target machine:
 
 ```bash
 npm run deploy
+```
+
+### Application configuration
+
+Since the TEI documents are all retrived from Solr, it is only necessary to configure the SOLR adaptor connector and the Manifest server in `webpack.config.js`
+
+```js
+DIVA_BASE_MANIFEST_SERVER: JSON.stringify('yourserver/manifest-path'),
+
+SOLR_BASE_SERVER: environment.production || useRemoteServer
+                ? JSON.stringify('your-search-adapter-url')
+                : JSON.stringify(''),
+```
+
+### Apache configuration on server
+
+Apache requires no special configuration, excepy for a Rewrite to make the paths availabe in react
+
+```apache
+VirtualHost ip:80>
+    ServerName my-host.com
+
+    # Tell Apache and Passenger where your app's code directory is
+    DocumentRoot /var/www/onstage-frontend
+
+    # Relax Apache security settings
+    <Directory /var/www/onstage-frontend>
+      Allow from all
+      Options -MultiViews
+      # Uncomment this if you're on Apache >= 2.4:
+      #Require all granted
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Serve Client Application
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} ^(.).
+    RewriteRule ^(.*)$ index.html [L]
+</IfModule>
+
+    </Directory>
+
+    Header set Access-Control-Allow-Origin "*"
+
+
+</VirtualHost>
 ```
