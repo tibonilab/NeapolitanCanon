@@ -141,3 +141,11 @@ VirtualHost ip:80>
 
 </VirtualHost>
 ```
+
+### Clean up installation
+Sometimes it is necessary to clean the installed modules, for example when updating:
+
+```bash
+rm -rf node_modules
+npm install
+```
