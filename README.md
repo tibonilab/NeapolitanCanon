@@ -26,7 +26,7 @@ cd onstage-frontend
 npm install
 ```
 
-The static pages can be in `static/` in the `onstage-frontend` root directory. These will be static pages that are accessible in onstage-host/page/xxx (for example, a page called about.en.md in `static/` will be accessibe at `example.com/page/abaout`). Note that the pages are localized, so the name is in the format `name.code.md`, such as `about.en.md` or `about.de.md`. Missing language translations will show a "missing page" error.
+The static pages can be in `static/` in the `onstage-frontend` root directory. These will be static pages that are accessible in onstage-host/page/xxx (for example, a page called about.en.md in `static/` will be accessibe at `example.com/page/about`). Note that the pages are localized, so the name is in the format `name.code.md`, such as `about.en.md` or `about.de.md`. Missing language translations will show a "missing page" error.
 The static pages can be on a different repo, for example
 
 ```bash
