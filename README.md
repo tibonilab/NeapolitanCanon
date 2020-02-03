@@ -26,7 +26,7 @@ cd onstage-frontend
 npm install
 ```
 
-The static pages can be in `static/` in the `onstage-frontend` root directory. These will be static pages that are accessible in onstage-host/page/xxx (for example, a page called about.en.md in `static/` will be accessibe at `example.com/page/abaout`). Note that the pages are localized, so the name is in the format `name.code.md`, such as `about.en.md` or `about.de.md`. Missing language translations will show a "missing page" error.
+The static pages can be in `static/` in the `onstage-frontend` root directory. These will be static pages that are accessible in onstage-host/page/xxx (for example, a page called about.en.md in `static/` will be accessibe at `example.com/page/about`). Note that the pages are localized, so the name is in the format `name.code.md`, such as `about.en.md` or `about.de.md`. Missing language translations will show a "missing page" error.
 The static pages can be on a different repo, for example
 
 ```bash
@@ -47,7 +47,7 @@ This will create `build/index.bundle.js` and `build/index.html` which can be cop
 
 #### Run in development
 
-To run locally, it is necessary to change the connector server. Install `onstage-backend` and then set the `useRemoteServer` const to `false` on top of your `webpack.config.js` file.
+To run locally, it is necessary to change the connector server. Install `onstage-backend` and then set the `useRemoteServer` const to `false` on top of your `webpack.config.js` file. Remember to start solr with a complete index!
 
 ```js
 const useRemoteServer = false;
@@ -89,6 +89,14 @@ Once gulp is configured, it should be possible to deploy to the target machine:
 
 ```bash
 npm run deploy
+```
+
+The various components can be deployed separately:
+
+```bash
+npm run deploy # deploy all
+npm run deploy:adapter # guess it, only adapter
+npm run deploy:frontend # only frontend
 ```
 
 ### Application configuration
@@ -152,18 +160,21 @@ npm install
 ```
 
 ## Solr Adapter
-In order *_not_* to expose solr directly on the internet, a small adapter that filters the onstage queries and translates them to solr requests was created. The `solr-adapter` application is a small application that runs on the same machine as solr and connects to it throgh localhost (*note*: solr should always be bound to localhost and _never_ exposed to the internet!). The `solr-adapter` listens for incoming API calls and proxies them to solr. Solr adapter is included into the source code of `onstage-frontend` but must be installed manually on the target machine. Copy only the `solr-adapter` to your preferred deployment directory. It will run as an apache wirtual host.
+In order *_not_* to expose solr directly on the internet, a small adapter that filters the onstage queries and translates them to solr requests was created. The `solr-adapter` application is a small application that runs on the same machine as solr and connects to it throgh localhost (*note*: solr should always be bound to localhost and _never_ exposed to the internet!). The `solr-adapter` listens for incoming API calls and proxies them to solr. It will run as an apache wirtual host.
 `solr-adapter` is deployed using `passenger`, which is handy if there are also rails applications.
 
 ```bash
 # Install passenger if not there already
 sudo apt-get install libapache2-mod-passenger passenger
-
-# Copy the app
-cp -r solr-adapter /var/www
-cd /var/www/solr-adapter
-npm install
 ```
+From your host:
+
+```bash
+npm run deploy:adapter
+```
+
+it will copy the adapter to the configured directory in `gulp.config.js` (defaults to `/var/www/solr-adapter`)
+
 
 Create a virtual host for apache:
 
