@@ -5,7 +5,7 @@ This is a react.js application that connects to the solr backend of onstage, to 
 * IIIF image server serving the images
 * TEI files formatted with metagata for each program and pointers to the images and OCR data
 * Solr Installation (see https://github.com/rism-ch/onstage-backend)
-* Sold adapter (see this document)
+* Solr _aadapter_ ([see this paragraph](#solr-adapter))
 * Manifest server (https://github.com/rism-ch/onstage-backend) to retreive IIIF documents from the TEI documents
 * Optional static pages
 
