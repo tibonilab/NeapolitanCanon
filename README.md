@@ -91,6 +91,14 @@ Once gulp is configured, it should be possible to deploy to the target machine:
 npm run deploy
 ```
 
+The various components can be deployed separately:
+
+```bash
+npm run deploy # deploy all
+npm run deploy:adapter # guess it, only adapter
+npm run deploy:frontend # only frontend
+```
+
 ### Application configuration
 
 Since the TEI documents are all retrived from Solr, it is only necessary to configure the SOLR adaptor connector and the Manifest server in `webpack.config.js`
@@ -152,18 +160,21 @@ npm install
 ```
 
 ## Solr Adapter
-In order *_not_* to expose solr directly on the internet, a small adapter that filters the onstage queries and translates them to solr requests was created. The `solr-adapter` application is a small application that runs on the same machine as solr and connects to it throgh localhost (*note*: solr should always be bound to localhost and _never_ exposed to the internet!). The `solr-adapter` listens for incoming API calls and proxies them to solr. Solr adapter is included into the source code of `onstage-frontend` but must be installed manually on the target machine. Copy only the `solr-adapter` to your preferred deployment directory. It will run as an apache wirtual host.
+In order *_not_* to expose solr directly on the internet, a small adapter that filters the onstage queries and translates them to solr requests was created. The `solr-adapter` application is a small application that runs on the same machine as solr and connects to it throgh localhost (*note*: solr should always be bound to localhost and _never_ exposed to the internet!). The `solr-adapter` listens for incoming API calls and proxies them to solr. It will run as an apache wirtual host.
 `solr-adapter` is deployed using `passenger`, which is handy if there are also rails applications.
 
 ```bash
 # Install passenger if not there already
 sudo apt-get install libapache2-mod-passenger passenger
-
-# Copy the app
-cp -r solr-adapter /var/www
-cd /var/www/solr-adapter
-npm install
 ```
+From your host:
+
+```bash
+npm run deploy:adapter
+```
+
+it will copy the adapter to the configured directory in `gulp.config.js` (defaults to `/var/www/solr-adapter`)
+
 
 Create a virtual host for apache:
 
