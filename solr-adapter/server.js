@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const SOLR_URL_PRFIX = 'http://localhost:8984';
 
 
-const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join(`:${searchKey}*`)}:${searchKey}*`;
+const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join(`:${searchKey}`)}:${searchKey}`;
 
 const generateFacetsQueryString = ({ facets }) => `facet=on${facets.prefix ? `&facet.prefix=${facets.prefix}` : ''}&facet.sort=${facets.sort || 'count'}&facet.limit=${facets.limit || '-1'}&facet.mincount=${facets.mincount || 1}&facet.field=${facets.fields.join('&facet.field=')}`;
 
@@ -54,7 +54,7 @@ const generateSearchQuery = params => {
 
     let query = {
         params: {
-            q: indexes.length ? generateSearchQueryByIndexes({ searchKey, indexes }) : searchKey ? `${searchKey}*` : '*:*',
+            q: indexes.length ? generateSearchQueryByIndexes({ searchKey, indexes }) : searchKey ? `${searchKey}` : '*:*',
             start: page * rows,
             rows,
             wt: 'json'
