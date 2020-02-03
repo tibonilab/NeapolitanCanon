@@ -41,3 +41,41 @@ Simply run in the onstage-frontend root:
 ```bash
 npm run build
 ```
+
+This will create `build/index.bundle.js` and `build/index.html` which can be copied to the server. It is best to deploy as described later.
+
+#### Run in development
+
+`npm start`
+
+#### Deployment
+
+Deployment requires configuring the gulpfile to connect to the server. The server must be already setup and installed (see later) and configured to have access from the host machine via ssh with key authentication. First copy the example file to the real one:
+
+```bash
+cp DUMMYgulp.config.js gulp.config.js
+```
+
+Next, customize it to the settings used. Since the ssh key password is inserted in clreartext, it is desirable to have a dedicated ssh key.
+
+Some items to configure:
+
+```
+WEB_SERVER_BASE_PATH -> Installation top level path, /var/www
+host -> target host
+username -> user to log in as
+passphrase -> ssh key passphrase
+privateKey -> your local private key (unlocked by the passphrase), complete path!
+```
+
+The key must be in PEM format or it will not work.
+
+```bash
+ssh-keygen -m PEM -t rsa -b 4096 ...
+````
+
+Once gulp is configured, it should be possible to deploy to the target machine:
+
+```bash
+npm run deploy
+```
