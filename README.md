@@ -5,6 +5,7 @@ This is a react.js application that connects to the solr backend of onstage, to 
 * IIIF image server serving the images
 * TEI files formatted with metagata for each program and pointers to the images and OCR data
 * Solr Installation (see https://github.com/rism-ch/onstage-backend)
+* Sold adapter (see this document)
 * Manifest server (https://github.com/rism-ch/onstage-backend) to retreive IIIF documents from the TEI documents
 * Optional static pages
 
@@ -149,3 +150,51 @@ Sometimes it is necessary to clean the installed modules, for example when updat
 rm -rf node_modules
 npm install
 ```
+
+## Solr Adapter
+In order *_not_* to expose solr directly on the internet, a small adapter that filters the onstage queries and translates them to solr requests was created. The `solr-adapter` application is a small application that runs on the same machine as solr and connects to it throgh localhost (*note*: solr should always be bound to localhost and _never_ exposed to the internet!). The `solr-adapter` listens for incoming API calls and proxies them to solr. Solr adapter is included into the source code of `onstage-frontend` but must be installed manually on the target machine. Copy only the `solr-adapter` to your preferred deployment directory. It will run as an apache wirtual host.
+`solr-adapter` is deployed using `passenger`, which is handy if there are also rails applications.
+
+```bash
+# Install passenger if not there already
+sudo apt-get install libapache2-mod-passenger passenger
+
+# Copy the app
+cp -r solr-adapter /var/www
+cd /var/www/solr-adapter
+npm install
+```
+
+Create a virtual host for apache:
+
+```apache
+<VirtualHost ip:80>
+    ServerName search-server-url
+
+    # Tell Apache and Passenger where your app's code directory is
+    DocumentRoot /var/www/solr-adapter/
+    PassengerAppRoot /var/www/solr-adapter
+
+    # Tell Passenger that your app is a Node.js app
+    PassengerAppType node
+    PassengerStartupFile server.js
+
+    # Relax Apache security settings
+    <Directory /var/www/solr-adapter>
+      Allow from all
+      Options -MultiViews
+      # Uncomment this if you're on Apache >= 2.4:
+      #Require all granted
+    </Directory>
+
+</VirtualHost>
+```
+
+No configuration is really necessary, but make sure `server.js` point to the correct solr installation:
+
+```js
+const SOLR_URL_PRFIX = 'http://localhost:8984';
+```
+
+
+
