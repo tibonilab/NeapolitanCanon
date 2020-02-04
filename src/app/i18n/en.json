@@ -5,11 +5,11 @@
             "interpreter_ss": "Interpreters",
             "place_s": "Places",
             "collection_s": "Collections",
-            "series_s": "Serie"
+            "series_s": "Series"
         },
         "collections": {
-            "ch_gc": "Geneve",
-            "ch_lac": "Losanne",
+            "ch_gc": "Geneva",
+            "ch_lac": "Lausanne",
             "ch_famb": "Basel"
         },
         "topMenu": {
@@ -18,9 +18,9 @@
                 "items": {
                     "home": "Home",
                     "about": "About",
-                    "fundsLosanne": "Funds Losanne",
-                    "fundsGeneve": "Funds Geneve",
-                    "collectionsBasel": "Collections Basel",
+                    "fundsLosanne": "Lausanne Collection",
+                    "fundsGeneve": "Geneva Collection",
+                    "collectionsBasel": "Basel Collections",
                     "help": "Help"
                 }
             },
