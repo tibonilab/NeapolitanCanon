@@ -14,18 +14,18 @@
         },
         "topMenu": {
             "pages": {
-                "label": "Pages",
+                "label": "Seiten",
                 "items": {
-                    "home": "Home",
-                    "about": "About",
-                    "fundsLosanne": "Funds Losanne",
-                    "fundsGeneve": "Funds Geneve",
-                    "collectionsBasel": "Collections Basel",
-                    "help": "Help"
+                    "home": "Hauptseite",
+                    "about": "Über uns",
+                    "fundsLosanne": "Sammlung Lausanne",
+                    "fundsGeneve": "Sammlung Genf",
+                    "collectionsBasel": "Sammlung Basel",
+                    "help": "Hilfe"
                 }
             },
             "languages": {
-                "label": "Languages"
+                "label": "Sprachen"
             }
         }
     },
@@ -68,7 +68,7 @@
         "search": "Suchen",
         "back": "Zurück",
         "noResults": "Kein Index verfügbar",
-        "noSearchResults": "Dieser Index ist nicht mehr verfügbar unter den aktuellen Analyse-Parametern"
+        "noSearchResults": "Dieser Index ist unter den aktuellen Analyse-Parametern nicht mehr verfügbar"
     },
     "pinned": {
         "path": "Archiv",

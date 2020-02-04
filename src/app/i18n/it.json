@@ -20,7 +20,7 @@
                     "about": "A proposito",
                     "fundsLosanne": "Fondo Losanna",
                     "fundsGeneve": "Fondo Ginevra",
-                    "collectionsBasel": "Collezione Basilea",
+                    "collectionsBasel": "Fondo Basilea",
                     "help": "Aiuto"
                 }
             },
@@ -71,7 +71,7 @@
         "noSearchResults": "Questo indice non è disponibile con i parametri di analisi correnti"
     },
     "pinned": {
-        "path": "Archivio",
+        "path": "Archivio appunti",
         "header": "Hai salvato {{count}} documento negli appunti",
         "header_plural": "Hai salvato {{count}} documenti negli appunti",
         "noPins": "Nessun documento negli appunti",
