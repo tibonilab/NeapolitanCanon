@@ -120,8 +120,6 @@ app.get('/api/search', (req, res) => {
         page: req.query.page
     });
 
-    console.log(params);
-
     axios.get(`${SOLR_URL_PRFIX}/solr/onstage/select${generateQueryString({ facets, filters, collections })}`, params)
         .then(function (response) {
             //console.log(response);
