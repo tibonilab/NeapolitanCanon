@@ -16,7 +16,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const SOLR_URL_PRFIX = 'http://localhost:8984';
 
 
-const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join(`:${searchKey}`)}:${searchKey}`;
+//const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join(`:${searchKey}`)}:${searchKey}`;
+
+const generateSearchQueryByIndexes = ({ searchKey, indexes }) => {
+    var output = "";
+    indexes.forEach(function(item, index) {
+        if (item.includes("_s"))
+            output += `${item}:"${searchKey}"`
+        else
+        output += `${item}:${searchKey}`
+    });
+    return output;
+};
+
 
 const generateFacetsQueryString = ({ facets }) => `facet=on${facets.prefix ? `&facet.prefix=${facets.prefix}` : ''}&facet.sort=${facets.sort || 'count'}&facet.limit=${facets.limit || '-1'}&facet.mincount=${facets.mincount || 1}&facet.field=${facets.fields.join('&facet.field=')}`;
 
