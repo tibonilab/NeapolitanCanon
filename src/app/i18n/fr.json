@@ -5,27 +5,27 @@
             "interpreter_ss": "Interprètes",
             "place_s": "Lieux",
             "collection_s": "Collections",
-            "series_s": "Série"
+            "series_s": "Séries"
         },
         "collections": {
-            "ch_gc": "Geneve",
-            "ch_lac": "Losanne",
-            "ch_famb": "Basel"
+            "ch_gc": "Genève",
+            "ch_lac": "Lausanne",
+            "ch_famb": "Bâle"
         },
         "topMenu": {
             "pages": {
                 "label": "Pages",
                 "items": {
-                    "home": "Home",
-                    "about": "About",
-                    "fundsLosanne": "Funds Losanne",
-                    "fundsGeneve": "Funds Geneve",
-                    "collectionsBasel": "Collections Basel",
-                    "help": "Help"
+                    "home": "Accueil",
+                    "about": "À propos",
+                    "fundsLosanne": "Collection Lausanne",
+                    "fundsGeneve": "Collection Genève",
+                    "collectionsBasel": "Collection Bâle",
+                    "help": "Aide"
                 }
             },
             "languages": {
-                "label": "Languages"
+                "label": "Langages"
             }
         }
     },
@@ -67,11 +67,11 @@
         "next": "Suivant »",
         "search": "Recherche",
         "back": "Retournez",
-        "noResults": "Aucun indice disponible",
-        "noSearchResults": "Cet indice n'est plus disponible dans les paramètres d'analyse actuels"
+        "noResults": "Aucun index disponible",
+        "noSearchResults": "Cet index n'est plus disponible dans les paramètres d'analyse actuels"
     },
     "pinned": {
-        "path": "Archives",
+        "path": "Documents épinglés",
         "header": "Vous avez épinglé {{count}} document",
         "header_plural": "Vous avez épinglé {{count}} documents",
         "noPins": "Pas encore de documents épinglés",
