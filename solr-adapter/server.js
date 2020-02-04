@@ -111,7 +111,7 @@ app.get('/api/search', (req, res) => {
     }, filters);
 
     const params = generateSearchQuery({
-        searchKey: `"${req.query.searchKey}"`,
+        searchKey: req.query.searchKey,
         indexes: req.query.indexes,
         dateRange,
         rows: req.query.rows,
