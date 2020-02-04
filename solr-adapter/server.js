@@ -96,19 +96,17 @@ const generateBrowseQuery = params => {
     return query;
 };
 
+const sanitizeFilter = filter => {
+    const toks = filter.split(':');
+    return `${toks[0]}:"${toks[1]}"`;
+};
 
 app.get('/api/search', (req, res) => {
 
     const facets = req.query.facets && JSON.parse(req.query.facets) || {};
     const dateRange = req.query.dateRange && JSON.parse(req.query.dateRange) || {};
-    const filters = req.query.filters || [];
+    const filters = req.query.filters && req.query.filters.map(sanitizeFilter) || [];
     const collections = req.query.collections || [];
-
-    // Escape the filters
-    filters.forEach(function(item, index) {
-        toks = item.split(":");
-        this[index] = `${toks[0]}:"${toks[1]}"`;
-    }, filters);
 
     const params = generateSearchQuery({
         searchKey: req.query.searchKey,
