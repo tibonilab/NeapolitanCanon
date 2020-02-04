@@ -10,6 +10,12 @@ import './DocumentDetail.scss';
 const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden }) => {
     const element = selectedResource;
 
+    if (!element) {
+        return <div>
+            <h3>Resource not found</h3>
+        </div>;
+    }
+
     return (
         <div className="documentDetail-root">
             {
