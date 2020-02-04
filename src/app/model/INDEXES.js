@@ -4,10 +4,10 @@ export const renderFacetLabel = key => t(`common.indexes.${key}`) || key;
 export const renderCollectionLabel = key => t(`common.collections.${key}`) || key;
 
 export const generateSearchIndexes = () => [
-    { label: renderFacetLabel('composer_ss'), value: 'composer_ss' },
-    { label: renderFacetLabel('interpreter_ss'), value: 'interpreter_ss' },
-    { label: renderFacetLabel('place_s'), value: 'place_s' },
-    { label: renderFacetLabel('series_s'), value: 'series_s' },
+    { label: renderFacetLabel('composer_ss'), value: 'composer_txt' },
+    { label: renderFacetLabel('interpreter_ss'), value: 'interpreter_txt' },
+    { label: renderFacetLabel('place_s'), value: 'place_txt' },
+    { label: renderFacetLabel('series_s'), value: 'series_txt' },
 ];
 
 export const generateBrowseIndexes = () => [
