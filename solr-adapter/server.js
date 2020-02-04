@@ -16,19 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const SOLR_URL_PRFIX = 'http://localhost:8984';
 
 
-//const generateSearchQueryByIndexes = ({ searchKey, indexes }) => `${indexes.join(`:${searchKey}`)}:${searchKey}`;
+const sanitizeIndex = (index, searchKey) => index.includes('_s') ? `${index}:"${searchKey}"` : `${index}:${searchKey}`;
 
-const generateSearchQueryByIndexes = ({ searchKey, indexes }) => {
-    var output = "";
-    indexes.forEach(function(item, index) {
-        if (item.includes("_s"))
-            output += `${item}:"${searchKey}"`
-        else
-        output += `${item}:${searchKey}`
-    });
-    return output;
-};
-
+const generateSearchQueryByIndexes = ({ searchKey, indexes }) => indexes.map(index => sanitizeIndex(index, searchKey)).join();
 
 const generateFacetsQueryString = ({ facets }) => `facet=on${facets.prefix ? `&facet.prefix=${facets.prefix}` : ''}&facet.sort=${facets.sort || 'count'}&facet.limit=${facets.limit || '-1'}&facet.mincount=${facets.mincount || 1}&facet.field=${facets.fields.join('&facet.field=')}`;
 
@@ -120,6 +110,8 @@ app.get('/api/search', (req, res) => {
     const filters = req.query.filters && req.query.filters.map(sanitizeFilter) || [];
     const collections = req.query.collections || [];
 
+
+
     const params = generateSearchQuery({
         searchKey: req.query.searchKey,
         indexes: req.query.indexes,
@@ -127,6 +119,8 @@ app.get('/api/search', (req, res) => {
         rows: req.query.rows,
         page: req.query.page
     });
+
+    console.log(params);
 
     axios.get(`${SOLR_URL_PRFIX}/solr/onstage/select${generateQueryString({ facets, filters, collections })}`, params)
         .then(function (response) {
