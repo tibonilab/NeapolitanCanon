@@ -13,7 +13,7 @@ const DropdownMenu = ({ label, items = [], ...props }) => {
         <div className={`dropdownMenu-root ${visible ? 'dropdownMenu-root__visible' : ''}`}>
             <a href="#" onClick={toggleVisibility}>{label}</a>
             <ul className={`dropdownMenu-submenu ${visible ? 'dropdownMenu-submenu__visible' : ''}`}>
-                {items.map(item => <li>{item}</li>)}
+                {items.map((item, k) => <li key={k}>{item}</li>)}
             </ul>
             <div className={`dropdownMenu-closeMask ${visible ? 'dropdownMenu-closeMask__visible' : ''}`} onClick={toggleVisibility} />
         </div>
