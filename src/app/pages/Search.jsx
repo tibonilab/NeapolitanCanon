@@ -63,8 +63,6 @@ const SearchPage = () => {
             );
     };
 
-    console.log(searchContext.searchTerms);
-
     const renderForm = () => (
         <FixedHeader>
             <FlexWrapper justifyContent="space-between">
@@ -152,8 +150,7 @@ const SearchPage = () => {
                         <React.Fragment>
                             {renderForm()}
                             <div style={{ marginTop: searchContext.searchTerms.filters.length > 0 ? '11.5em' : '8.5em' }}>
-                                {renderLoading()}
-                                {renderSearchResults()}
+                                {searchContext.isLoading ? renderLoading() : renderSearchResults()}
                             </div>
                         </React.Fragment>
                     )

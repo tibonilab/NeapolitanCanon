@@ -45,8 +45,8 @@ const SearchState = props => {
         setSearchTerms(
             (() => {
                 switch (param) {
-                default: return { ...searchTerms, [param]: value };
-                case 'indexes': return { ...searchTerms, [param]: value ? [value] : [] };
+                    default: return { ...searchTerms, [param]: value };
+                    case 'indexes': return { ...searchTerms, [param]: value ? [value] : [] };
                 }
             })()
         );
@@ -107,6 +107,8 @@ const SearchState = props => {
 
 
     const performSearch = searchTerms => {
+        setIsLoading(true);
+
         return Solr
             .search(generateSearchTerms(searchTerms))
             .then(setSearchSolrResponse);
