@@ -29,7 +29,8 @@ export default class DivaReact extends Component {
     initDiva() {
         if (this.props.manifest) {
             this.diva = new Diva(this.divaWrapper.id, {
-                objectData: `${DIVA_BASE_MANIFEST_SERVER}${this.props.manifest}`
+                objectData: `${DIVA_BASE_MANIFEST_SERVER}${this.props.manifest}`,
+                enableGotoPage: false
             });
         }
     }

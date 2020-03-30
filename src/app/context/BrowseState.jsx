@@ -14,21 +14,27 @@ import SearchContext from './searchContext';
 
 const SESSION_PREFIX = 'BrowseState';
 
-const INITAL_BROWSE_TERMS = {
+const DEFAULT_INDEX_NAME = "composer_ss"
+
+const INITIAL_BROWSE_TERMS = {
     facets: {
-        fields: [],
+        fields: [DEFAULT_INDEX_NAME],
         prefix: '',
         sort: 'index'
     }
 };
 
+const INITIAL_INDEX = {
+    index: DEFAULT_INDEX_NAME,
+};
+
 const BrowseState = props => {
 
     const [browseResults, setBrowseResults] = useStateWithSession([], 'browseResults', SESSION_PREFIX);
-    const [browseTerms, setBrowseTerms] = useStateWithSession(INITAL_BROWSE_TERMS, 'browseTerms', SESSION_PREFIX);
+    const [browseTerms, setBrowseTerms] = useStateWithSession(INITIAL_BROWSE_TERMS, 'browseTerms', SESSION_PREFIX);
     const [searchResults, setSearchResults] = useStateWithSession({}, 'searchResults', SESSION_PREFIX);
     const [searchTerms, setSearchTerms] = useStateWithSession({}, 'searchTerms', SESSION_PREFIX);
-    const [currentIndex, setCurrentIndex] = useStateWithSession({}, 'currentIndex', SESSION_PREFIX);
+    const [currentIndex, setCurrentIndex] = useStateWithSession(INITIAL_INDEX, 'currentIndex', SESSION_PREFIX);
     const [isLoading, setIsLoading] = useStateWithSession(false, 'isLoading', SESSION_PREFIX);
     const [selectedResource, setSelectedResource] = useStateWithSession(null, 'selectedResource', SESSION_PREFIX);
 
@@ -45,8 +51,8 @@ const BrowseState = props => {
 
     const onSelectChangeHandler = index => {
         const updateBrowseTerms = { ...browseTerms, facets: { ...browseTerms.facets, fields: [index] } };
-        setBrowseTerms(updateBrowseTerms);
         setCurrentIndex({ index });
+        setBrowseTerms(updateBrowseTerms);
     };
 
     const onPrefixFilterChangeHandler = prefix => {
@@ -201,7 +207,7 @@ const BrowseState = props => {
     useEffect(
         () => {
             if (didMount) {
-
+                
                 // we want to update index search results only if a browse result record is selected
                 currentIndex.position != null && performSearch({
                     ...searchTerms,
@@ -216,7 +222,8 @@ const BrowseState = props => {
         [
             searchTerms.page,
             analysisContext.dateRange,
-            analysisContext.collections
+            analysisContext.collections,
+            browseTerms
         ]
     );
 

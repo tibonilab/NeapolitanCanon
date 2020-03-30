@@ -162,16 +162,16 @@ const BrowsePage = () => {
                     <Select
                         style={{ width: 'auto' }}
                         value={browseContext.currentIndex.index}
-                        placeholder={t('browse.form.select_placeholder')}
+                        //placeholder={t('browse.form.select_placeholder')}
                         options={generateBrowseIndexes()}
                         onChangeHandler={browseContext.onSelectChangeHandler}
                     />
-                    <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
                     {renderBrowseNav()}
                 </div>
             </form>
         </FixedHeader>
     );
+//                    <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
 
     const renderView = () => {
 
