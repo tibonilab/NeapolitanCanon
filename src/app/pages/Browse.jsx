@@ -73,7 +73,7 @@ const BrowsePage = () => {
                 header = (
                     <div style={{ borderBottom: '1px solid #eee', padding: '0 0 .5em 0', margin: '2em 0 .5em 0' }}>
                         <a className="anchor" id={firstLetter} />
-                        <h1>{firstLetter}</h1>
+                        <h2>{firstLetter}</h2>
                     </div>
                 );
             }
