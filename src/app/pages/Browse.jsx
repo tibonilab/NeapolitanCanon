@@ -166,8 +166,8 @@ const BrowsePage = () => {
                         options={generateBrowseIndexes()}
                         onChangeHandler={browseContext.onSelectChangeHandler}
                     />
-                    {renderBrowseNav()}
                 </div>
+                {renderBrowseNav()}
             </form>
         </FixedHeader>
     );

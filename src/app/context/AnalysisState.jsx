@@ -20,7 +20,7 @@ const AnalysisState = props => {
 
     const [collections, setCollections] = useStateWithSession(generateCollections().map(element => element.field), 'collections', SESSION_PREFIX);
 
-    const [isContextBarVisible, setContextBarVisibility] = useStateWithSession(true, 'isContextBarVisible', SESSION_PREFIX);
+    const [isContextBarVisible, setContextBarVisibility] = useStateWithSession(false, 'isContextBarVisible', SESSION_PREFIX);
 
     const [pinnedDocuments, setPinnedDocuments] = useStateWithSession([], 'pinnedDocuments', SESSION_PREFIX);
     const [shouldUpdateSearchHistory, setShouldUpdateSearchHistory] = useState(false);

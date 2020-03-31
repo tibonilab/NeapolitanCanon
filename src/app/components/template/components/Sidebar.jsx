@@ -6,21 +6,26 @@ import { SearchIcon, BrowseIcon, PinIcon } from './Icons.jsx';
 import { ClearButton } from './Buttons.jsx';
 import AnalysisContext from '../../../context/analysisContext';
 
+import BrowseContext from '../../../context/browseContext';
+import SearchContext from '../../../context/searchContext';
+
 const SidebarWithRoute = props => {
 
     const isActive = (path) => props.location.pathname.includes(path);
 
     const { pinnedDocuments } = useContext(AnalysisContext);
+    const browseContext = useContext(BrowseContext);
+    const searchContext = useContext(SearchContext);
 
     return (
         <div className="sidebar-root">
-            <Link to="/search">
+            <Link onClick={() => {searchContext.unsetSearchSelected();}} to="/search">
                 <ClearButton isActive={isActive('search')}>
                     <SearchIcon />
                 </ClearButton>
             </Link>
 
-            <Link to="/browse">
+            <Link onClick={() => {browseContext.unsetSearchResults(); browseContext.unsetSearchSelected();}} to="/browse">
                 <ClearButton isActive={isActive('browse')}>
                     <BrowseIcon />
                 </ClearButton>
