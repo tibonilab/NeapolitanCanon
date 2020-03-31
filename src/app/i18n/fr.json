@@ -1,5 +1,9 @@
 {
     "common": {
+        "viewer": {
+            "copy_link": "Copier les lien permanent",
+            "copied": "Le lien permanent a été copié"
+        },
         "indexes": {
             "composer_ss": "Compositeurs",
             "interpreter_ss": "Interprètes",

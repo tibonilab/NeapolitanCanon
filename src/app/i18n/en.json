@@ -1,5 +1,9 @@
 {
     "common": {
+        "viewer": {
+            "copy_link": "Copy permalink",
+            "copied": "Permalink copied in the clipboard"
+        },
         "indexes": {
             "composer_ss": "Composers",
             "interpreter_ss": "Interpreters",

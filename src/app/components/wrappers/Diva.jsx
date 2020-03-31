@@ -4,8 +4,10 @@ import Diva from 'diva.js/source/js/diva';
 import 'diva.js/build/diva.css';
 
 import './permalink.js'
+import './snackbar.css'
 
 import './Diva.scss';
+
 
 export default class DivaReact extends Component {
 

@@ -1,3 +1,5 @@
+import { t } from '../../i18n/';
+
 export default class PermalinkPlugin
 {
     constructor (core)
@@ -40,13 +42,20 @@ export default class PermalinkPlugin
       
         document.body.removeChild(textArea);
 
+        var x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
     }
 
     createIcon ()
     {
         const toolbarIcon = document.createElement('div');
         toolbarIcon.classList.add('diva-permalink-icon', 'diva-button');
-        toolbarIcon.setAttribute('title', "Copy permalink");
+        toolbarIcon.setAttribute('title', t("common.viewer.copy_link"));
 
         let root = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         root.setAttribute("viewBox", "-6 -6 570 570");
@@ -85,6 +94,11 @@ export default class PermalinkPlugin
         root.appendChild(g);
 
         toolbarIcon.appendChild(root);
+
+        let snackbar = document.createElement('div');
+        snackbar.setAttribute('id', "snackbar");
+        snackbar.textContent = t('common.viewer.copied')
+        toolbarIcon.appendChild(snackbar);
 
         return toolbarIcon;
     }
