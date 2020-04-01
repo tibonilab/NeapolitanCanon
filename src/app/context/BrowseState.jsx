@@ -99,8 +99,8 @@ const BrowseState = props => {
         return searchTerms;
     };
 
-    const onFormSubmitHandler = (e) => {
-        e && e.preventDefault();
+    const doNewBrowse = browseTerms => {
+        //e && e.preventDefault();
 
         setIsLoading(true);
         setSearchResults([]);
@@ -240,7 +240,7 @@ const BrowseState = props => {
                 selectedResource,
                 setSearchSelected,
                 unsetSearchSelected,
-                onFormSubmitHandler,
+                //onFormSubmitHandler,
                 onSelectChangeHandler,
                 onPrefixFilterChangeHandler,
                 fetchIndexElements,

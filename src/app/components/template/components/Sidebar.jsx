@@ -19,13 +19,13 @@ const SidebarWithRoute = props => {
 
     return (
         <div className="sidebar-root">
-            <Link onClick={() => {searchContext.unsetSearchSelected();}} to="/search">
+            <Link onClick={() => {searchContext.unsetSearchSelected ? searchContext.unsetSearchSelected() : false;}} to="/search">
                 <ClearButton isActive={isActive('search')}>
                     <SearchIcon />
                 </ClearButton>
             </Link>
 
-            <Link onClick={() => {browseContext.unsetSearchResults(); browseContext.unsetSearchSelected();}} to="/browse">
+            <Link onClick={() => {browseContext.unsetSearchResults ? browseContext.unsetSearchResults(): false; browseContext.unsetSearchSelected ? browseContext.unsetSearchSelected() : false;}} to="/browse">
                 <ClearButton isActive={isActive('browse')}>
                     <BrowseIcon />
                 </ClearButton>
