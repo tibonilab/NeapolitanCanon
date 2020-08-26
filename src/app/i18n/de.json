@@ -12,7 +12,8 @@
             "series_s": "Serien"
         },
         "collections": {
-            "ch_gc": "Genf",
+            "ch_gc": "Genf Conservatoire",
+            "ch_gm": "Genf La Musicale",
             "ch_lac": "Lausanne",
             "ch_famb": "Basel"
         },

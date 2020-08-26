@@ -27,8 +27,10 @@ export const DEFAULT_FACETS = [
 
 export const generateCollections = () => [
     { field: 'ch_gc', label: renderCollectionLabel('ch_gc') },
+    { field: 'ch_gm', label: renderCollectionLabel('ch_gm') },
     { field: 'ch_lac', label: renderCollectionLabel('ch_lac') },
     { field: 'ch_famb', label: renderCollectionLabel('ch_famb') }
+
 ];
 
 
