@@ -42,7 +42,7 @@ const generateQueryString = ({ facets, filters, collections }) => {
         params.push(generateCollectionsQueryByFilters({ collections }));
     }
 
-    return params.length > 0 ? `?${params.join('&')}` : '';
+    return params.length > 0 ? encodeURI(`?${params.join('&')}`) : '';
 };
 
 const generateSearchQuery = params => {
