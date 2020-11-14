@@ -3,13 +3,12 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const sftp = require('gulp-sftp');
-const gssh = require('gulp-ssh');
 const del = require('del');
 const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 const getWebpackConfig = require('./webpack.config');
 
-const { webApps, sshConfig } = require('./gulp.config');
+const { webApps } = require('./gulp.config');
 
 gulp.task('clean', () => {
     return del('./build');
@@ -37,32 +36,18 @@ gulp.task('deploy-frontend', gulp.series('build', () => {
 }));
 
 
-gulp.task('pre-deploy-adapter', () => {
+gulp.task('deploy-dataset', () => {
     const opts = {
-        ...webApps.adapter,
+        ...webApps.dataset,
         log: gutil.log
     };
 
     return gulp
-        .src('./solr-adapter/*.js*', { base: './solr-adapter', buffer: false })
+        .src('./public/**', { base: './public', buffer: false })
         .pipe(sftp(opts));
 });
 
-gulp.task('deploy-adapter', gulp.series('pre-deploy-adapter', () => {
-    const ssh = new gssh({ sshConfig });
-
-    return ssh
-        .shell(
-            [
-                'cd /var/www/solr-adapter',
-                'npm install',
-                'sudo service apache2 reload'
-            ],
-            { filePath: 'shell.log' }
-        );
-}));
-
-gulp.task('deploy', gulp.parallel('deploy-adapter', 'deploy-frontend'));
+gulp.task('deploy', gulp.parallel('deploy-dataset', 'deploy-frontend'));
 
 gulp.task('webpack-dev-server', () => {
     const config = getWebpackConfig({ production: false });
