@@ -47,8 +47,6 @@ const Consulta = ({ match }) => {
                             onScrollHandler={setCurrentPage}
                             initialPage={page}
                             currentPage={currentPage}
-                            enableLinkIcon
-                            enablePlugins
                         />
                     </div>
                     <div style={{ width: '40%' }}>
