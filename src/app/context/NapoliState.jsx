@@ -71,28 +71,37 @@ const getUniqueElementsByIndex = (dataStore, selectedIndex) => {
 
 const NapoliState = props => {
 
-    const [dataStore, setDataStore] = useStateWithSession({}, 'dataStore', SESSION_PREFIX);
-    const [searchResults, setSearchResults] = useState({}, 'searchResults', SESSION_PREFIX);
+    const [dataStore, setDataStore] = useStateWithSession(false, 'dataStore', SESSION_PREFIX);
+    const [searchResults, setSearchResults] = useState({});
     const [browseIndex, setBrowseIndex] = useState({});
 
     const [booted, setBooted] = useState(false);
     const [indexGenerated, setIndexGenerated] = useState(false);
 
+    const generateIndexFromDataStore = dataStore => {
+
+        const browseIndex = {};
+
+        indexes.forEach(selectedIndex => {
+            browseIndex[selectedIndex.value] = getUniqueElementsByIndex(dataStore, selectedIndex.value);
+        });
+        setBrowseIndex(browseIndex);
+        setIndexGenerated(true);
+        setBooted(true);
+    };
+
     const fetchDataStore = () => {
-        RestClient
-            .get({ url: '/public/inventari-di-napoli.json' })
-            .then(dataStore => {
-                setDataStore(dataStore);
-                setBooted(true);
-
-                const browseIndex = {};
-
-                indexes.forEach(selectedIndex => {
-                    browseIndex[selectedIndex.value] = getUniqueElementsByIndex(dataStore, selectedIndex.value);
+        if (!dataStore) {
+            RestClient
+                .get({ url: '/public/inventari-di-napoli.json' })
+                .then(dataStore => {
+                    setDataStore(dataStore);
+                    generateIndexFromDataStore(dataStore);
                 });
-                setBrowseIndex(browseIndex);
-                setIndexGenerated(true);
-            });
+        } else {
+            generateIndexFromDataStore(dataStore);
+        }
+
     };
 
     const fullTextSearch = (term) => {
