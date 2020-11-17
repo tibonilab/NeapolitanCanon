@@ -1,4 +1,3 @@
-import { resolve } from 'path';
 import React, { useEffect, useState } from 'react';
 
 import RestClient from '../service/RestClient';
@@ -39,11 +38,15 @@ const getRelated = (dataStore, selectedIndex, value) => {
     const related = [];
 
     Object.keys(dataStore).forEach(key => {
-        dataStore[key][selectedIndex] && dataStore[key][selectedIndex].includes(value) && related.push({ ...dataStore[key], key });
+        if (['inventory', 'original_call_no', 'call_no'].includes(selectedIndex)) {
+            dataStore[key][selectedIndex] && dataStore[key][selectedIndex] == value && related.push({ ...dataStore[key], key });
+        } else {
+            dataStore[key][selectedIndex] && dataStore[key][selectedIndex].includes(value) && related.push({ ...dataStore[key], key });
+        }
     });
 
     const t1 = performance.now();
-    // DEBUG && console.log(`getRelated() performed in ${Math.round(t1 - t0)} milliseconds`);
+    DEBUG && console.log(`getRelated() performed in ${Math.round(t1 - t0)} milliseconds`);
 
     return related;
 };
