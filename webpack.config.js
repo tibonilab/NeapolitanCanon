@@ -72,19 +72,9 @@ module.exports = environment => ({
                 }
             },
             {
-                test: /\.md$/,
-                use: [
-                    {
-                        loader: 'html-loader'
-                    },
-                    {
-                        loader: 'markdown-loader',
-                        options: {
-                            /* your options here */
-                        }
-                    }
-                ]
-            }
+                test: /\.md$/i,
+                use: 'raw-loader'
+            },
         ]
     },
     plugins: [
