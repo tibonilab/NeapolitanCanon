@@ -34,7 +34,7 @@ const Router = () => (
                 <Route path="/" exact component={Index} />
                 <Route path="/inventari" exact component={Inventari} />
                 <Route path="/inventario/:id" exact component={Inventario} />
-                <Route path="/consulta" exact component={Consulta} />
+                {/* <Route path="/consulta" exact component={Consulta} /> */}
                 <Route path="/consulta/:inventory" exact component={Consulta} />
                 <Route path="/consulta/:inventory/:page" exact component={Consulta} />
                 <Route path="/browse" exact component={InventariBrowse} />
