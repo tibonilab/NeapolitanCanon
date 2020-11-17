@@ -25,7 +25,7 @@ const printByKey = (string, key) => {
 
 const Inventario = ({ match }) => {
 
-    const { dataStore } = useContext(NapoliContext);
+    const { dataStore, booted } = useContext(NapoliContext);
 
     const { id } = match.params;
 
@@ -33,23 +33,25 @@ const Inventario = ({ match }) => {
 
     return (
         <Template>
-            <div>
-                <div style={{ display: 'flex', width: '100%' }}>
-                    <div style={{ width: '60%', marginRight: '2em' }}>
-                        <Diva manifest={`pyr_${element.inventory}_pyr_${element.inventory}-${parseInt(element.page, 10) < 10 ? `0${element.page}` : element.page}.tif.json`} />
-                    </div>
-                    <div style={{ width: '40%' }}>
-                        {
-                            Object.keys(element).map(key => element[key] && (
-                                <div key={key} style={{ paddingBottom: '.5em' }}>
-                                    <h5 style={{ padding: '.3em 0' }}>{`${key}`}</h5>
-                                    <div>{printByKey(element[key], key)}</div>
-                                </div>
-                            ))
-                        }
+            {booted && (
+                <div>
+                    <div style={{ display: 'flex', width: '100%' }}>
+                        <div style={{ width: '60%', marginRight: '2em' }}>
+                            <Diva manifest={`pyr_${element.inventory}_pyr_${element.inventory}-${parseInt(element.page, 10) < 10 ? `0${element.page}` : element.page}.tif.json`} />
+                        </div>
+                        <div style={{ width: '40%' }}>
+                            {
+                                Object.keys(element).map(key => element[key] && (
+                                    <div key={key} style={{ paddingBottom: '.5em' }}>
+                                        <h5 style={{ padding: '.3em 0' }}>{`${key}`}</h5>
+                                        <div>{printByKey(element[key], key)}</div>
+                                    </div>
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </Template>
     );
 };
