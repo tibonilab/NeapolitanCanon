@@ -2,7 +2,7 @@
 
 Attraverso i collegamenti qui di seguito è possibile consultare gli inventari pagina per pagina.
 
-- Catalogo a stampa dell'archivio del Conservatorio della Pietà dei Turchini, 1801 (esemplare in A-Wn 48030-C):  
+- Catalogo a stampa dell'archivio del Conservatorio della Pietà dei Turchini, 1801 (esemplare in A-Wn 48030-C):
     [consulta l'inventario del 1801](/consulta/1801)<br/><br/>
 
 
