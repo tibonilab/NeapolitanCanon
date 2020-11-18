@@ -13,6 +13,7 @@ import ActionLink from '../components/template/components/ActionLink.jsx';
 import { PrimaryButtonSmall } from '../components/template/components/Buttons.jsx';
 
 import Diva from '../components/wrappers/Diva.jsx';
+import { t } from '../i18n/index.js';
 
 const Consulta = ({ match }) => {
 
@@ -52,11 +53,13 @@ const Consulta = ({ match }) => {
                     <div style={{ width: '40%' }}>
                         <div style={{ marginBottom: '1em' }}>
                             <h3>
-                                Inventory {inventory}
+                                {t('consult.head.inventory', { inventory })}
                                 <span style={{ fontSize: '80%', float: 'right', color: '#666' }}>
                                     <PrimaryButtonSmall disabled={currentPage == 0} action={() => setCurrentPage(currentPage - 1)}>{'<<'}</PrimaryButtonSmall>
-                                    <span style={{ fontSize: '80%', margin: '0 3px', borderRadius: '.25rem', padding: '.5em 1em', color: '#fff', fontWeight: 900, background: '#00b5d6' }}>{`Page ${currentPage + 1}/${pagesCount + 1}`}</span>
-                                    <PrimaryButtonSmall disabled={currentPage == pagesCount} action={() => setCurrentPage(currentPage ? currentPage + 1 : 1)}>{'>>'}</PrimaryButtonSmall>
+                                    <span style={{ fontFamily: 'Lato', fontSize: '80%', margin: '0 3px', borderRadius: '.25rem', padding: '.5em 1em', color: '#fff', fontWeight: 900, background: '#00b5d6' }}>
+                                        {t('consult.head.page', { currentPage: currentPage + 1, pagesCount: pagesCount + 1 })}
+                                    </span>
+                                    <PrimaryButtonSmall disabled={currentPage >= pagesCount} action={() => setCurrentPage(currentPage ? currentPage + 1 : 1)}>{'>>'}</PrimaryButtonSmall>
                                 </span>
                             </h3>
                         </div>
@@ -66,10 +69,10 @@ const Consulta = ({ match }) => {
                                     <div>
                                         <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '1em' }}>
                                             <div style={{ marginRight: '2em' }}>
-                                                <h5>Item</h5>
+                                                <h5>{t('consult.results.item')}</h5>
                                             </div>
                                             <div style={{ marginRight: '1em' }}>
-                                                <h5>Transcription</h5>
+                                                <h5>{t('consult.results.transcription')}</h5>
                                             </div>
                                         </div>
                                         {
@@ -79,16 +82,16 @@ const Consulta = ({ match }) => {
                                                         <div style={{ marginRight: '2em' }}><h5>{`${e.id}`}</h5></div>
                                                         <div style={{ marginRight: '1em' }}>{e.transcription}</div>
                                                     </div>
-                                                    <Link to={`/inventario/${e.inventory}-${e.id}`}>Go</Link>
+                                                    <Link to={`/inventario/${e.inventory}-${e.id}`}>{t('consult.actions.go')}</Link>
                                                 </div>
                                             ))
                                         }
                                     </div>)
-                                : (<div><h5>No transcriptions found</h5></div>)
+                                : (<div><h5>{t('consult.results.no_records')}</h5></div>)
                         }
                     </div>
                 </div>
-            </div>
+            </div >
         );
     } else {
         currentPage && setCurrentPage(null);

@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react';
+import { useStateWithSession } from '../service/serviceStorage';
+
 import { Link } from 'react-router-dom';
 
 import Template from '../components/template/Template.jsx';
@@ -13,27 +15,27 @@ import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 
 import { t } from '../i18n';
 
-const indexes = [
-    { value: 'inventory', label: 'Inventory' },
-    { value: 'composer_names', label: 'Composers names' },
-    { value: 'other_names', label: 'Other names' },
-    { value: 'original_call_no', label: 'Original call number' },
-    { value: 'call_no', label: 'Call number' },
+const indexes = () => [
+    { value: 'inventory', label: t('common.indexes.inventory') },
+    { value: 'composer_names', label: t('common.indexes.composer_names') },
+    { value: 'other_names', label: t('common.indexes.other_names') },
+    { value: 'original_call_no', label: t('common.indexes.original_call_no') },
+    { value: 'call_no', label: t('common.indexes.call_no') },
 ];
 
 const InventariBrowse = () => {
 
     const { browseIndex } = useContext(NapoliContext);
 
-    const [selectedIndex, setSelectedIndex] = useState('inventory');
-    const [results, setResults] = useState([]);
-    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [selectedIndex, setSelectedIndex] = useStateWithSession('', 'selectedIndex', 'NapoliState');
+    const [results, setResults] = useStateWithSession([], 'results', 'NapoliState');
+    const [isButtonDisabled, setIsButtonDisabled] = useState(!/\S/.test(selectedIndex), 'isButtonDisabled', 'NapoliState');
     const [buttonLabel, setButtonLabel] = useState(t('browse.form.submit'));
     const [related, setRelated] = useState({});
 
     const perform = () => {
         setIsButtonDisabled(true);
-        setButtonLabel('Caricamento..');
+        setButtonLabel(t('browse.form.submit'));
 
         const t0 = performance.now();
 
@@ -43,8 +45,13 @@ const InventariBrowse = () => {
             setButtonLabel(t('browse.form.submit'));
             const t1 = performance.now();
             DEBUG && console.log(`perform() performed in ${Math.round(t1 - t0)} milliseconds`);
-        }, 10);
+        }, 500);
+    };
 
+    const selectChangeHandler = value => {
+        const testValue = /\S/.test(value);
+        setIsButtonDisabled(!testValue);
+        testValue && setSelectedIndex(value);
     };
 
     return (
@@ -53,8 +60,9 @@ const InventariBrowse = () => {
                 <FlexWrapper>
                     <Select
                         value={selectedIndex}
-                        onChangeHandler={setSelectedIndex}
-                        options={indexes}
+                        placeholder={t('browse.form.select_placeholder')}
+                        onChangeHandler={selectChangeHandler}
+                        options={indexes()}
                     />
                     <PrimaryButton disabled={isButtonDisabled} type="submit">{buttonLabel}</PrimaryButton>
                 </FlexWrapper>
@@ -62,9 +70,9 @@ const InventariBrowse = () => {
             {
                 results && results.map((element, index) => (
                     <Collapsible key={`${index}_${element.value}`} header={(
-                        <h3 style={{ borderBottom: '1px solid #e8e8e8', display: 'block', width: '100%', paddingBottom: '.5em' }}>
+                        <h3 className="collapsible-header-caption" style={{ borderBottom: '1px solid #e8e8e8', display: 'block', width: '100%', paddingBottom: '.5em' }}>
                             {`${element.value.replace(/ *\{[^}]*\} */g, '')}`}
-                            <span style={{ float: 'right' }}>{element.related.length}</span>
+                            <span style={{ float: 'right', color: '#666' }}>{element.related.length}</span>
                         </h3>
                     )} onClickHandler={(collapsed) => {
                         // we use this trick here for rendering performance issues
@@ -85,7 +93,7 @@ const InventariBrowse = () => {
                                             {item.transcription}
                                         </div>
                                     </div>
-                                    <Link to={`/inventario/${item.key}`}>Go</Link>
+                                    <Link to={`/inventario/${item.key}`}>{t('browse.actions.go')}</Link>
                                 </div>
                             ))
                         }

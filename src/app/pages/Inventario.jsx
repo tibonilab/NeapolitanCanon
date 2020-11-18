@@ -1,14 +1,17 @@
 import React, { useContext/* , useState */ } from 'react';
+import { Link } from 'react-router-dom';
+
 import Template from '../components/template/Template.jsx';
 
 import NapoliContext from '../context/napoliContext';
+import { PrimaryClearButtonSmall } from '../components/template/components/Buttons.jsx';
 
 // import Input from '../components/form/Input.jsx';
 // import FlexWrapper from '../components/template/components/FlexWrapper.jsx';
 
 // import { PrimaryButton } from '../components/template/components/Buttons.jsx';
 
-// import { t } from '../i18n';
+import { t } from '../i18n';
 
 import Diva from '../components/wrappers/Diva.jsx';
 
@@ -40,10 +43,17 @@ const Inventario = ({ match }) => {
                             <Diva manifest={`pyr_${element.inventory}_pyr_${element.inventory}-${parseInt(element.page, 10) < 10 ? `0${element.page}` : element.page}.tif.json`} />
                         </div>
                         <div style={{ width: '40%' }}>
+                            <div style={{ float: 'right' }}>
+                                <Link to={`/consulta/${element.inventory}/${element.page}`}>
+                                    <span style={{ fontFamily: 'Lato', fontSize: '80%', margin: '0 3px', borderRadius: '.25rem', padding: '.5em 1em', color: '#fff', fontWeight: 900, background: '#00b5d6' }}>
+                                        {t('inventory.actions.consult')}
+                                    </span>
+                                </Link>
+                            </div>
                             {
                                 Object.keys(element).map(key => element[key] && (
-                                    <div key={key} style={{ paddingBottom: '.5em' }}>
-                                        <h5 style={{ padding: '.3em 0' }}>{`${key}`}</h5>
+                                    <div key={key} style={{ paddingBottom: '.5em', marginTop: '1em' }}>
+                                        <h5 style={{ padding: '.3em 0' }}>{t(`inventory.definitions.${key}`)}</h5>
                                         <div>{printByKey(element[key], key)}</div>
                                     </div>
                                 ))

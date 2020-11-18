@@ -38,6 +38,7 @@ const getRelated = (dataStore, selectedIndex, value) => {
     const related = [];
 
     Object.keys(dataStore).forEach(key => {
+        // push only perfetc matches for inventory, original_call_no and call_no indexes
         if (['inventory', 'original_call_no', 'call_no'].includes(selectedIndex)) {
             dataStore[key][selectedIndex] && dataStore[key][selectedIndex] == value && related.push({ ...dataStore[key], key });
         } else {
@@ -75,7 +76,7 @@ const getUniqueElementsByIndex = (dataStore, selectedIndex) => {
 const NapoliState = props => {
 
     const [dataStore, setDataStore] = useStateWithSession(false, 'dataStore', SESSION_PREFIX);
-    const [searchResults, setSearchResults] = useState({});
+    const [searchResults, setSearchResults] = useStateWithSession({}, 'searchResults', SESSION_PREFIX);
     const [browseIndex, setBrowseIndex] = useState({});
 
     const [booted, setBooted] = useState(false);
@@ -98,8 +99,19 @@ const NapoliState = props => {
             RestClient
                 .get({ url: '/public/inventari-di-napoli.json' })
                 .then(dataStore => {
-                    setDataStore(dataStore);
-                    generateIndexFromDataStore(dataStore);
+
+                    let filteredDataStore = {};
+
+                    Object.keys(dataStore).forEach(key => {
+                        const inventory = key.split('-')[0];
+
+                        if (inventory != '1827') {
+                            filteredDataStore[key] = dataStore[key];
+                        }
+                    });
+
+                    setDataStore(filteredDataStore);
+                    generateIndexFromDataStore(filteredDataStore);
                 });
         } else {
             generateIndexFromDataStore(dataStore);

@@ -8,7 +8,9 @@ const StaticHtmlPage = ({ match }) => {
 
     return (
         <Template>
-            <MarkdownRenderer filename={filename} />
+            <div className="markdown">
+                <MarkdownRenderer filename={filename} />
+            </div>
         </Template>
     );
 

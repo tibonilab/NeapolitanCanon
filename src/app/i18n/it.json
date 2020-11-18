@@ -1,85 +1,74 @@
 {
     "common": {
-        "viewer": {
-            "copy_link": "Copia link permanente",
-            "copied": "Link copiato negli appunti"
-        },
         "indexes": {
-            "composer_ss": "Compositori",
-            "interpreter_ss": "Interpreti",
-            "place_s": "Luoghi",
-            "collection_s": "Collezioni",
-            "series_s": "Serie"
-        },
-        "collections": {
-            "ch_gc": "Ginevra Conservatorio",
-            "ch_gm": "Ginevra La Musicale",
-            "ch_lac": "Losanna",
-            "ch_famb": "Basilea"
+            "inventory": "Inventario",
+            "composer_names": "Nomi dei compositori",
+            "other_names": "Altri nomi",
+            "original_call_no": "Segnatura originale",
+            "call_no": "Segnatura"
         },
         "topMenu": {
             "pages": {
-                "label": "Pagine",
                 "items": {
                     "home": "Pagina iniziale",
                     "about": "A proposito",
-                    "fundsLosanne": "Fondo Losanna",
-                    "fundsGeneve": "Fondo Ginevra",
-                    "collectionsBasel": "Fondo Basilea",
                     "help": "Aiuto"
                 }
-            },
-            "languages": {
-                "label": "Lingua"
             }
         }
     },
-    "contextBar": {
-        "collections": "Collezioni",
-        "dateRange": "Periodo"
-    },
     "search": {
-        "path": "Ricerca",
         "nav": {
-            "prev": "« Pagina precedente",
-            "next": "Pagina successiva »",
-            "count": "{{from}} - {{to}} di {{total}}"
+            "count": "Trovati {{count}} risultati"
         },
         "form": {
             "search_placeholder": "Inserisci qui i tuoi termini di ricerca...",
-            "select_placeholder": "Cerca per indice",
             "submit": "Ricerca"
         },
         "actions": {
-            "pin": "Aggiungi agli appunti",
-            "unpin": "Rimuovi dagli appunti",
-            "back": "Torna indietro"
-        },
-        "facets": {
-            "more": "Mostra altro",
-            "less": "Mostra meno",
-            "filter": "Filtra"
-        },
-        "noResults": "Nessun documento trovato"
+            "go": "GO"
+        }
     },
     "browse": {
-        "path": "Consulta",
         "form": {
-            "select_placeholder": "Seleziona l'indice",
-            "submit": "Sfoglia"
+            "select_placeholder": "Seleziona l'indice da consultare",
+            "submit": "Sfoglia",
+            "loading": "Un momento.."
         },
-        "prev": "« Precedente",
-        "next": "Successivo »",
-        "search": "Ricerca",
-        "back": "Torna indietro",
-        "noResults": "Nessun indice disponibile",
-        "noSearchResults": "Questo indice non è disponibile con i parametri di analisi correnti"
+        "actions": {
+            "go": "GO"
+        }
     },
-    "pinned": {
-        "path": "Archivio appunti",
-        "header": "Hai salvato {{count}} documento negli appunti",
-        "header_plural": "Hai salvato {{count}} documenti negli appunti",
-        "noPins": "Nessun documento negli appunti",
-        "purge": "Rimuovi tutti"
+    "consult": {
+        "head": {
+            "inventory": "Inventario {{inventory}}",
+            "page": "Pagina {{currentPage}}/{{pagesCount}}"
+        },
+        "results": {
+            "item": "Voce",
+            "transcription": "Trascrizione",
+            "no_records": "Nessuna trascrizione presente in questa pagina"
+        },
+        "actions": {
+            "go": "GO"
+        }
+    },
+    "inventory": {
+        "definitions": {
+            "inventory": "Inventario",
+            "page": "Pagina",
+            "id": "Identificativo",
+            "transcription": "Trascrizione",
+            "composer_names": "Nomi dei compositori",
+            "other_names": "Altri nomi",
+            "holding": "Proprietario",
+            "links": "Collegamenti esterni",
+            "origianl_call_no": "Segnatura originale",
+            "call_no": "Segnatura",
+            "notes": "Note"
+        },
+        "actions": {
+            "consult": "Consulta inventario"
+        }
     }
 }

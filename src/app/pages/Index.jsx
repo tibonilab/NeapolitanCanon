@@ -51,7 +51,9 @@ const Index = () => {
 
     return (
         <Template>
-            {indexMarkdown ? <ReactMarkdown source={indexMarkdown} escapeHtml={false} /> : defaultView}
+            <div className="markdown">
+                {indexMarkdown ? <ReactMarkdown source={indexMarkdown} escapeHtml={false} /> : defaultView}
+            </div>
         </Template>
     );
 };

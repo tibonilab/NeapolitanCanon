@@ -44,30 +44,32 @@ const Inventari = () => {
                         value={searchTerm}
                         onChangeHandler={setSearchTerm}
                     />
-                    <PrimaryButton type="submit">{t('search.form.submit')}</PrimaryButton>
+                    <PrimaryButton type="submit" disabled={!/\S/.test(searchTerm)}>{t('search.form.submit')}</PrimaryButton>
                 </FlexWrapper>
             </form>
             <div style={{ marginBottom: '2em' }}>
-                <h5>Trovati {`${Object.keys(searchResults).length || 0}`} risultati</h5>
+                <h5>{t('search.nav.count', { count: Object.keys(searchResults).length || 0 })} </h5>
             </div>
-            {searchResults && Object.keys(searchResults).map(key => (
+            {
+                searchResults && Object.keys(searchResults).map(key => (
 
 
-                <div key={key} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '.5em' }}>
-                    <div style={{ display: 'flex', justifyContent: 'flex-start', width: 'calc(100% - 100px)' }}>
-                        <div style={{ width: '100px', paddingRight: '1em' }}>
-                            <h5>{key}</h5>
+                    <div key={key} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '.5em' }}>
+                        <div style={{ display: 'flex', justifyContent: 'flex-start', width: 'calc(100% - 100px)' }}>
+                            <div style={{ width: '100px', paddingRight: '1em' }}>
+                                <h5>{key}</h5>
+                            </div>
+                            <div style={{ width: 'calc(100% - 200px)' }}>
+                                {getHighlightedText(searchResults[key].transcription, highlightTerm)}
+                            </div>
                         </div>
-                        <div style={{ width: 'calc(100% - 200px)' }}>
-                            {getHighlightedText(searchResults[key].transcription, highlightTerm)}
-                        </div>
+                        <Link to={`/inventario/${key}`}>{t('search.actions.go')}</Link>
                     </div>
-                    <Link to={`/inventario/${key}`}>Go</Link>
-                </div>
 
 
-            ))}
-        </Template>
+                ))
+            }
+        </Template >
     );
 };
 
