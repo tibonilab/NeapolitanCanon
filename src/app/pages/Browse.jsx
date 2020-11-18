@@ -171,7 +171,7 @@ const BrowsePage = () => {
             </form>
         </FixedHeader>
     );
-//                    <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
+    //                    <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
 
     const renderView = () => {
 

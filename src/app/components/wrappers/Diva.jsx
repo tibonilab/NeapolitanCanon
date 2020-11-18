@@ -48,21 +48,25 @@ export default class DivaReact extends Component {
         if (this.props.manifest) {
 
             fetch(`${DIVA_BASE_MANIFEST_SERVER}${this.props.manifest}`)
-                .then(() => {
-                    this.diva = new Diva(this.divaWrapper.id, {
-                        objectData: `${DIVA_BASE_MANIFEST_SERVER}${this.props.manifest}`,
-                        enableGotoPage: this.props.enableGotoPage != undefined,
-                        enableGridIcon: this.props.enableGridIcon != undefined,
-                        enableLinkIcon: this.props.enableLinkIcon != undefined,
-                        ...this.props.enablePlugins != undefined && { plugins: [Diva.PermalinkPlugin] }
-                    });
+                .then((r) => {
+                    if (!r.ok) {
+                        this.divaWrapper.innerHTML = '<div class="no-content"><h5>No image found</h5></div>';
+                    } else {
+                        this.diva = new Diva(this.divaWrapper.id, {
+                            objectData: `${DIVA_BASE_MANIFEST_SERVER}${this.props.manifest}`,
+                            enableGotoPage: this.props.enableGotoPage != undefined,
+                            enableGridIcon: this.props.enableGridIcon != undefined,
+                            enableLinkIcon: this.props.enableLinkIcon != undefined,
+                            ...this.props.enablePlugins != undefined && { plugins: [Diva.PermalinkPlugin] }
+                        });
 
-                    if (this.props.onScrollHandler) {
-                        Diva.Events.subscribe('ViewerDidScroll', () => this.debounce(() => this.props.onScrollHandler(this.diva.getActivePageIndex()), 500));
-                    }
+                        if (this.props.onScrollHandler) {
+                            Diva.Events.subscribe('ViewerDidScroll', () => this.debounce(() => this.props.onScrollHandler(this.diva.getActivePageIndex()), 500));
+                        }
 
-                    if (this.props.initialPage) {
-                        Diva.Events.subscribe('ViewerDidLoad', () => this.diva.gotoPageByIndex(this.props.initialPage));
+                        if (this.props.initialPage) {
+                            Diva.Events.subscribe('ViewerDidLoad', () => this.diva.gotoPageByIndex(this.props.initialPage));
+                        }
                     }
                 })
                 .catch(() => this.divaWrapper.innerHTML = '<div class="no-content"><h5>No image found</h5></div>');

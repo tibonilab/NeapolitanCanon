@@ -31,8 +31,8 @@ const SidebarWithRoute = props => {
                 </ClearButton>
             </Link>
 
-            <Link to="/consulta">
-                <ClearButton isActive={isActive('consult')}>
+            <Link to="/page/consulta">
+                <ClearButton isActive={isActive('consulta')}>
                     <BookIcon />
                 </ClearButton>
             </Link>
