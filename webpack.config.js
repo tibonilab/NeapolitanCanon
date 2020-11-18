@@ -83,12 +83,12 @@ module.exports = environment => ({
         }),
         new webpack.DefinePlugin({
             PRODUCTION: environment.production,
-            DEBUG: !environment.production, // if true it will show the query parameters into console
+            DEBUG: false, //!environment.production, // if true it will show the query parameters into console
 
             // here it is the endpoint for Diva JS manifest server
             DIVA_BASE_MANIFEST_SERVER: environment.production
                 ? JSON.stringify('https://hkb-idn.altibo.club/public/')
-                : JSON.stringify('http://localhost/HKB/inventari-di-napoli/public/'),
+                : JSON.stringify('/public/'),
 
             // here it is the endpoint for remote onstage search server 
             // used only if useRemoteServer is setted as true, as explained above
