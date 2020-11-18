@@ -12,6 +12,20 @@
         justify-content: space-between;
         margin-top: 1em;
         margin-bottom: .5em;
+
+        &-caption::before {
+            content: '';
+            display: inline-block;
+            position: relative;
+            transform: rotate(135deg);
+            border-top: 3px solid #323232;
+            border-right: 3px solid #323232;
+            width: 6px;
+            height: 6px;
+            margin-right: 10px;
+            margin-top: -3px;
+            margin-bottom: 3px;
+        }
     }
 
     &-body {
@@ -34,6 +48,23 @@
     &__collapsed {
 
         .collapsible {
+
+            &-header {
+                &-caption::before {
+                    content: '';
+                    display: inline-block;
+                    position: relative;
+                    transform: rotate(90deg);
+                    border-top: 0;
+                    border-right: 3px solid #323232;
+                    width: 7px;
+                    height: 10px;
+                    margin-right: 9px;
+                    margin-top: -6px;
+                    margin-bottom: 5px;
+                }
+            }
+
             &-body {
                 max-height: 500px;
             }

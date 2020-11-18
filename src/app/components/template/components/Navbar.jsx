@@ -20,12 +20,12 @@ export const Navbar = () => {
     return (
         <div className="navbar-root">
             <Link to="/" style={{ color: '#323232', textDecoration: 'none', fontWeight: 800 }}>
-                Inventari di Napoli
+                NeapolitanCanon
                 {/* <img src="http://d-lib.rism-ch.org/onstage/images/logo_trans-75-b.png" style={{ maxHeight: '38px' }} /> */}
             </Link>
             <div className="navbar-menu">
-                {/* <Link to="/">{t('common.topMenu.pages.items.home')}</Link> |&nbsp; */}
-                <Link to="/page/about">{t('common.topMenu.pages.items.about')}</Link> |&nbsp;
+                <Link to="/">{t('common.topMenu.pages.items.home')}</Link>
+                <Link to="/page/about">{t('common.topMenu.pages.items.about')}</Link>
                 {/* // <Link to="/page/lausanne">{t('common.topMenu.pages.items.fundsLosanne')}</Link>,
                 // <Link to="/page/geneve">{t('common.topMenu.pages.items.fundsGeneve')}</Link>,
                 // <Link to="/page/basel">{t('common.topMenu.pages.items.collectionsBasel')}</Link>, */}
