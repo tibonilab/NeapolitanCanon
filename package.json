@@ -7,7 +7,7 @@
     "build": "gulp build",
     "start": "gulp webpack-dev-server",
     "deploy": "gulp deploy",
-    "deploy:adapter": "gulp deploy-adapter",
+    "deploy:dataset": "gulp deploy-dataset",
     "deploy:frontend": "gulp deploy-frontend"
   },
   "repository": {
