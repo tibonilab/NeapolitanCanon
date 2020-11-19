@@ -9,7 +9,7 @@ const SESSION_PREFIX = 'GlobalState';
 
 const GlobalState = props => {
 
-    const [language, setLanguage] = useStateWithSession(fetchLanguageFromBrowser(), 'language', SESSION_PREFIX);
+    const [language, setLanguage] = useStateWithSession('it', 'language', SESSION_PREFIX);
 
     useEffect(() => initLanguage(language), [language]);
 
