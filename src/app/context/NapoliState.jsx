@@ -38,11 +38,19 @@ const getRelated = (dataStore, selectedIndex, value) => {
     const related = [];
 
     Object.keys(dataStore).forEach(key => {
-        // push only perfetc matches for inventory, original_call_no and call_no indexes
-        if (['inventory', 'original_call_no', 'call_no'].includes(selectedIndex)) {
+        // push only perfect matches for "inventory" index
+        if (selectedIndex === 'inventory') {
             dataStore[key][selectedIndex] && dataStore[key][selectedIndex] == value && related.push({ ...dataStore[key], key });
-        } else {
-            dataStore[key][selectedIndex] && dataStore[key][selectedIndex].includes(value) && related.push({ ...dataStore[key], key });
+        }
+        else {
+            // check if current index has multiple values (separated by ";)... 
+            if (dataStore[key][selectedIndex] && dataStore[key][selectedIndex].includes(';')) {
+                // ...in this case we want to push value if it's included...
+                dataStore[key][selectedIndex] && dataStore[key][selectedIndex].includes(value) && related.push({ ...dataStore[key], key });
+            } else {
+                // ... otherwise we pash perfect matches only
+                dataStore[key][selectedIndex] && dataStore[key][selectedIndex] == value && related.push({ ...dataStore[key], key });
+            }
         }
     });
 
