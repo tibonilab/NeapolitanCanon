@@ -63,7 +63,8 @@
             "other_names": "Altri nomi",
             "holding": "Proprietario",
             "links": "Collegamenti esterni",
-            "origianl_call_no": "Segnatura originale",
+            "original_call_no": "Segnatura originale",
+            "references": "Riferimenti",
             "call_no": "Segnatura",
             "notes": "Note"
         },
