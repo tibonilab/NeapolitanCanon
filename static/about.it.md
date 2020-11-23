@@ -4,7 +4,7 @@ La pubblicazione degli inventari storici napoletani è stata realizzata da Claud
 
 La realizzazione tecnica è a cura di Rodolfo Zitellini e Alberto Tiboni. Si ringraziano i responsabili dell’ufficio svizzero del RISM per la disponibilità a sfruttare le sinergie nello sviluppo dell’infrastruttura informatica. 
 
-Le riproduzioni dell’inventario del 1801 provengono dalla Biblioteca nazionale austriaca a Vienna, che le mette generosamente a disposizione gratuita per scopi scientifici (sul portale [ÖNB Digital](https://onb.digital/) / Österreichische Nationalbibliothek). Il permesso di riprodurre le immagini dell’inventario del 1819 è stato gentilmente concesso dal Conservatorio «San Pietro a Majella» di Napoli. Teniamo a ringraziare in particolare la referente dell’Archivio storico, Masina Boccia, per l’inestimabile aiuto e il cordiale sostegno durante le ricerche.
+Le riproduzioni dell’inventario del 1801 provengono dalla Biblioteca nazionale austriaca a Vienna, che le mette generosamente a disposizione gratuita per scopi scientifici (sul portale [ÖNB Digital](https://onb.digital/) / Österreichische Nationalbibliothek). Il permesso di riprodurre le immagini dell’inventario del 1819 è stato gentilmente concesso dal Conservatorio «San Pietro a Majella» di Napoli. Teniamo a ringraziare in particolare la referente dell’Archivio storico, Tommasina Boccia, per l’inestimabile aiuto e il cordiale sostegno durante le ricerche.
 
 Per qualsiasi feedback o informazione si prega di contattare:
 
@@ -17,7 +17,7 @@ Tutti i collegamenti al [Servizio Bibliografico Nazionale](https://opac.sbn.it/)
 
 Tra i riferimenti bibliografici essenziali sull’argomento si segnalano i seguenti titoli, ampiamente consultati durante le ricerche per la presente edizione.
 
-MAURO AMATO, La biblioteca del conservatorio “San Pietro a Majella” di Napoli: dal nucleo originale alle donazioni di fondi privati ottocenteschi, in Francesco Florimo e l’Ottocento musicale. Atti del convegno (Morcone, 19-21 aprile 1990), a cura di Rosa Cafiero e Marina Marino, 2 voll., Reggio Calabria, Jason, 1999, pp. 645-669.
+MAURO AMATO, La biblioteca del conservatorio “San Pietro a Majella” di Napoli: dal nucleo originale alle donazioni di fondi privati ottocenteschi, in Francesco Florimo e l’Ottocento musicale. Atti del convegno (Morcone, 19-21 aprile 1990), a cura di Rosa Cafiero e Marina Marino, 2 voll., Reggio Calabria, Jason, 1999, vol. 2, pp. 645-669.
 
 CLAUDIO BACCIAGALUPPI, Costruire la memoria. Sul repertorio di alcuni inventari di collezioni napoletane, 1801-1827, in Il Conservatorio di musica di Palermo: 400 anni di storia. Atti del Convegno di studi (Palermo, 26-28 ottobre 2017), in preparazione.
 
@@ -29,5 +29,5 @@ GIULIA GIOVANI, Tra Napoli e Parigi. Storie di una migrazione libraria, Lucca, L
 
 EAD., I cataloghi della biblioteca musicale del Conservatorio della Pietà dei Turchini e del Collegio di San Sebastiano di Napoli ai tempi del loro primo bibliotecario (1794-1826), in Scripta sonant. Contributi sul patrimonio musicale italiano, a cura di Annalisa Bini, Tiziana Grande, Federica Riva, Milano, IAML Italia, 2018, pp. 169-178.
 
-GIUSEPPE SIGISMONDO, Apoteosi della musica del Regno di Napoli, a cura di Claudio Bacciagaluppi, Giulia Giovani e Raffaele Mellace, con un saggio introduttivo di Rosa Cafiero, Roma, SEdM, 2016 (“Saggi”, 2).
+GIUSEPPE SIGISMONDO, Apoteosi della musica del Regno di Napoli, a cura di Claudio Bacciagaluppi, Giulia Giovani e Raffaele Mellace, con un saggio introduttivo di Rosa Cafiero, Roma, SEdM, 2016 (“Saggi”, 2). [Collegamento Open Access](https://www.hkb-interpretation.ch/fileadmin/user_upload/documents/Publikationen/Sigismondo_Apoteosi.pdf)
 
