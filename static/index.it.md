@@ -11,10 +11,10 @@ Dalla presente edizione si esclude quest’ultimo, postumo inventario dell’epo
 
 <div>
 	<table border="0" cellspacing="35px" style="margin: 0 auto;text-align:center"><tbody><tr><td align="center">
-			<a href="https://www.hkb.bfh.ch/en/" target="_blank"><img src="https://github.com/tibonilab/inventari-di-napoli/blob/development/static/HKB_logo_new.png?raw=true" width="150px" border="0"></a>
+			<a href="https://www.hkb.bfh.ch/en/" target="_blank"><img src="//raw.githubusercontent.com/tibonilab/inventari-di-napoli/development/static/HKB_logo_new.png" width="150px" border="0"></a>
 		</td><td align="center">
-			<a href="http://www.rism-ch.org" target="_blank"><img src="https://github.com/tibonilab/inventari-di-napoli/blob/development/static/logo-RISM-large-ch.png?raw=true" width="80px" border="0"></a>
+			<a href="http://www.rism-ch.org" target="_blank"><img src="//raw.githubusercontent.com/tibonilab/inventari-di-napoli/development/static/logo-RISM-large-ch.png" width="80px" border="0"></a>
 		</td><td align="center">
-			<a href="http://www.snf.ch/it" target="_blank"><img src="https://github.com/tibonilab/inventari-di-napoli/blob/development/static/SNF_RGB_I_POS.png?raw=true" width="200px" border="0"></a>
+			<a href="http://www.snf.ch/it" target="_blank"><img src="//raw.githubusercontent.com/tibonilab/inventari-di-napoli/development/static/SNF_RGB_I_POS.png" width="200px" border="0"></a>
 		</td></tr></tbody></table>
 </div>
