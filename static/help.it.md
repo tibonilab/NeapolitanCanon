@@ -17,7 +17,7 @@ Qui si trovano le trascrizioni e (dove presenti) le immagini degli inventari da 
 
 # Caratteristiche tecniche
 Il software utilizzato per la pubblicazione degli inventari storici napoletani è stato sviluppato a partire da quello impiegato per il progetto [RISM Digital Library](http://rism-ch.org/d-lib.html) dell’ufficio svizzero del RISM. Le principali caratteristiche tecniche sono:
-- metadati TEI
+- motore di ricerca Solr
+- visualizzazione delle immagini Diva.js
 - nomi normalizzati secondo gli indici RISM/VIAF
 - licenza libera per il software e per i dati, conservati su GitHub
-
