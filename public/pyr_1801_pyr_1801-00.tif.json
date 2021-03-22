@@ -20,14 +20,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1801/pyr_1801-00.tif",
               "resource": {
-                "@id": "http://d-lib.rism-ch.org/cgi-bin/iipsrv.fcgi?IIIF=/usr/local/images/raw/naples/pyr_1801/pyr_1801-00.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1801/pyr_1801-00.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2480,
                 "height": 3507,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "http://d-lib.rism-ch.org/cgi-bin/iipsrv.fcgi?IIIF=/usr/local/images/raw/naples/pyr_1801/pyr_1801-00.tif",
+                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1801/pyr_1801-00.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
