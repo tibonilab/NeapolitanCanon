@@ -2,3 +2,4 @@
 /build/
 /solr-adapter/node_modules/
 gulp.config.js
+gulp.*
