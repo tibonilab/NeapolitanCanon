@@ -87,7 +87,7 @@ module.exports = environment => ({
 
             // here it is the endpoint for Diva JS manifest server
             DIVA_BASE_MANIFEST_SERVER: environment.production
-                ? JSON.stringify('https://hkb-idn.altibo.club/public/')
+                ? JSON.stringify('http://neapolitancanon.hkb.bfh.ch/public/')
                 : JSON.stringify('/public/'),
 
             // here it is the endpoint for remote onstage search server 
