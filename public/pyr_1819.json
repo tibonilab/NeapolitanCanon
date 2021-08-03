@@ -20,14 +20,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-00.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-00.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-00.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-00.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-00.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -46,14 +46,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-01.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-01.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-01.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-01.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-01.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -72,14 +72,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-02.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-02.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-02.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-02.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-02.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -98,14 +98,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-03.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-03.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-03.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-03.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-03.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -124,14 +124,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-04.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-04.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-04.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-04.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-04.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -150,14 +150,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-05.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-05.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-05.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-05.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-05.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -176,14 +176,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-06.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-06.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-06.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-06.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-06.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -202,14 +202,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-07.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-07.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-07.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-07.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-07.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -228,14 +228,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-08.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-08.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-08.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-08.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-08.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -254,14 +254,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-09.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-09.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-09.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-09.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-09.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -280,14 +280,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-10.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-10.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-10.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-10.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-10.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -306,14 +306,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-11.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-11.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-11.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-11.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-11.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -332,14 +332,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-12.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-12.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-12.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-12.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-12.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -358,14 +358,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-13.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-13.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-13.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-13.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-13.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -384,14 +384,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-14.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-14.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-14.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-14.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-14.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -410,14 +410,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-15.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-15.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-15.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-15.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-15.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -436,14 +436,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-16.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-16.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-16.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-16.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-16.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -462,14 +462,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-17.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-17.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-17.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-17.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-17.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -488,14 +488,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-18.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-18.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-18.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2798,
                 "height": 3797,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-18.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-18.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -514,14 +514,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-19.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-19.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-19.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-19.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-19.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -540,14 +540,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-20.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-20.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-20.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-20.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-20.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -566,14 +566,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-21.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-21.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-21.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-21.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-21.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -592,14 +592,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-22.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-22.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-22.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-22.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-22.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -618,14 +618,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-23.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-23.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-23.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-23.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-23.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -644,14 +644,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-24.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-24.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-24.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-24.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-24.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -670,14 +670,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-25.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-25.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-25.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-25.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-25.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -696,14 +696,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-26.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-26.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-26.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-26.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-26.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -722,14 +722,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-27.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-27.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-27.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-27.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-27.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -748,14 +748,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-28.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-28.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-28.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-28.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-28.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -774,14 +774,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-29.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-29.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-29.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-29.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-29.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -800,14 +800,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-30.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-30.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-30.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-30.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-30.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -826,14 +826,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-31.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-31.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-31.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-31.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-31.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -852,14 +852,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-32.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-32.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-32.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-32.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-32.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -878,14 +878,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-33.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-33.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-33.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-33.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-33.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -904,14 +904,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-34.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-34.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-34.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-34.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-34.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -930,14 +930,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-35.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-35.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-35.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-35.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-35.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -956,14 +956,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-36.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-36.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-36.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-36.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-36.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -982,14 +982,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-37.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-37.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-37.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-37.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-37.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -1008,14 +1008,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-38.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-38.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-38.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-38.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-38.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
@@ -1034,14 +1034,14 @@
               "motivation": "sc:painting",
               "on": "pyr_1819/pyr_1819-39.tif",
               "resource": {
-                "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-39.tif/full/!200,200/0/default.jpg",
+                "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-39.tif/full/!200,200/0/default.jpg",
                 "@type": "dcterms:Image",
                 "format": "image/jpeg",
                 "width": 2800,
                 "height": 3800,
                 "service": {
                   "@context": "http://iiif.io/api/image/2/context.json",
-                  "@id": "https://iiif.rism-ch.org/images/raw/naples/pyr_1819/pyr_1819-39.tif",
+                  "@id": "https://iiif.rism.digital/image/naples/pyr_1819/pyr_1819-39.tif",
                   "profile": "http://iiif.io/api/image/2/level1.json"
                 }
               }
