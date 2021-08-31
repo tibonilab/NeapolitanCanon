@@ -8,7 +8,7 @@ const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 const getWebpackConfig = require('./webpack.config');
 
-const { webApps } = require('./gulp.config');
+const { webApps } = require('./gulp.kapellmeisterbuch.production.config');
 
 gulp.task('clean', () => {
     return del('./build');
