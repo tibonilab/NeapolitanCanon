@@ -9073,7 +9073,7 @@
     },
     "1819-001": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "001",
         "transcription": "Abbos / Girolamo /  Lieto a morir m’invio.",
         "composer_names": "Abos, Girolamo {RISM:438}",
@@ -9087,7 +9087,7 @@
     },
     "1819-002": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "002",
         "transcription": "Che legge tiranna! Che barbara sorte!",
         "composer_names": "Abos, Girolamo {RISM:438}",
@@ -9101,7 +9101,7 @@
     },
     "1819-003": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "003",
         "transcription": "So, che più amor non senti.",
         "composer_names": "Abos, Girolamo {RISM:438}",
@@ -9115,7 +9115,7 @@
     },
     "1819-004": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "004",
         "transcription": "Pensa ben mio chi sei.",
         "composer_names": "Abos, Girolamo {RISM:438}",
@@ -9129,7 +9129,7 @@
     },
     "1819-005": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "005",
         "transcription": "Dille, che a lei fedele Sempre il mio cor serbai.",
         "composer_names": "Abos, Girolamo {RISM:438}",
@@ -9143,7 +9143,7 @@
     },
     "1819-006": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "006",
         "transcription": "Lasciami in pace almeno In questo amaro giorno.",
         "composer_names": "Abos, Girolamo {RISM:438}",
@@ -9157,7 +9157,7 @@
     },
     "1819-007": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "007",
         "transcription": "Finchè armato di valore.",
         "composer_names": "Abos, Girolamo {RISM:438}",
@@ -9171,7 +9171,7 @@
     },
     "1819-008": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "008",
         "transcription": "d’Albertis / Domenico Toccate per cembalo.",
         "composer_names": "Alberti, Domenico {RISM:30000058}",
@@ -9185,7 +9185,7 @@
     },
     "1819-009": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "009",
         "transcription": "Idem.",
         "composer_names": "Alberti, Domenico {RISM:30000058}",
@@ -9199,7 +9199,7 @@
     },
     "1819-010": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "010",
         "transcription": "Almeida /  Già nei lumi il fosco e pallido – Cantata con recitativo.",
         "composer_names": "Almeida {RISM:unspecified}",
@@ -9213,7 +9213,7 @@
     },
     "1819-011": {
         "inventory": "1819",
-        "page": "2",
+        "page": "3",
         "id": "011",
         "transcription": "Altrovandini / Giuseppe / Farfalletta innammorata – Cantata con Recitativo.",
         "composer_names": "Aldrovandini, Giuseppe Antonio Vincenzo {RISM:30000067}",
@@ -9227,7 +9227,7 @@
     },
     "1819-012": {
         "inventory": "1819",
-        "page": "2",
+        "page": "4",
         "id": "012",
         "transcription": "Andreozzi / Gaetano /  Se dal Ciel pietosi numi – Aria con Recitativo.",
         "composer_names": "Andreozzi, Gaetano {RISM:31254}",
@@ -9241,7 +9241,7 @@
     },
     "1819-013": {
         "inventory": "1819",
-        "page": "2",
+        "page": "4",
         "id": "013",
         "transcription": "Anfossi / Pasquale / Sono in mar, non veggo sponde.",
         "composer_names": "Anfossi, Pasquale {RISM:1368}",
@@ -9255,7 +9255,7 @@
     },
     "1819-014": {
         "inventory": "1819",
-        "page": "2",
+        "page": "4",
         "id": "014",
         "transcription": "Frena quel pianto amaro.",
         "composer_names": "Anfossi, Pasquale {RISM:1368}",
@@ -9269,7 +9269,7 @@
     },
     "1819-015": {
         "inventory": "1819",
-        "page": "2",
+        "page": "4",
         "id": "015",
         "transcription": "Se d’amor se di contento.",
         "composer_names": "Anfossi, Pasquale {RISM:1368}",
@@ -9283,7 +9283,7 @@
     },
     "1819-016": {
         "inventory": "1819",
-        "page": "2",
+        "page": "4",
         "id": "016",
         "transcription": "Angrisani / Carlo / Sei notturni a tre voci stampati in Vienna.",
         "composer_names": "Angrisani, Carlo {RISM:30009962}",
@@ -9297,7 +9297,7 @@
     },
     "1819-017": {
         "inventory": "1819",
-        "page": "2; 3",
+        "page": "4; 5",
         "id": "017",
         "transcription": "Altri sei notturni a tre voci, similmente stampati in Vienna. Or che in placido silenzio. Già la notte si avvicina.  Ah! perchè non son Cupido. Fra la notte così oscura. Vorrei almen per gioco. Bel godere alla marina. Fra l’orror di notte oscura. |  Quel venticello grato. Mi giuri che m’ami. Dormi o cara. Quando turba in ciel sereno. Da quel sembiante appresi.",
         "composer_names": "Angrisani, Carlo {RISM:30009962}",
@@ -9311,7 +9311,7 @@
     },
     "1819-018": {
         "inventory": "1819",
-        "page": "3",
+        "page": "5",
         "id": "018",
         "transcription": "Aprile / Giuseppe /  Duetti numero undici. Deh! se l’affanno mio. Chi mai di questo core. Pur nel sonno almen talora. Aure amiche ah! non spirate. Ogni fior che si colora. Io fra romite sponde. Io rivedrò sovente. Ecco, dirò, quel fonte. Chi mai di questo core. T’intendo sì mio cor. Non han luogo tra’ bicchieri.",
         "composer_names": "Aprile, Giuseppe {RISM:30000133}",
@@ -9325,7 +9325,7 @@
     },
     "1819-019": {
         "inventory": "1819",
-        "page": "4",
+        "page": "6",
         "id": "019",
         "transcription": "Bach / Giovanni / Confusa, smarrita.",
         "composer_names": "Bach, Johann Christian {RISM:2530}",
@@ -9339,7 +9339,7 @@
     },
     "1819-020": {
         "inventory": "1819",
-        "page": "4",
+        "page": "6",
         "id": "020",
         "transcription": "Se il ciel mi divide.",
         "composer_names": "Bach, Johann Christian {RISM:2530}",
@@ -9353,7 +9353,7 @@
     },
     "1819-021": {
         "inventory": "1819",
-        "page": "4",
+        "page": "6",
         "id": "021",
         "transcription": "Morte vieni, in te sol spero.",
         "composer_names": "Bach, Johann Christian {RISM:2530}",
@@ -9367,7 +9367,7 @@
     },
     "1819-022": {
         "inventory": "1819",
-        "page": "4",
+        "page": "6",
         "id": "022",
         "transcription": "Parto, addio, io vado a morte.",
         "composer_names": "Bach, Johann Christian {RISM:2530}",
@@ -9381,7 +9381,7 @@
     },
     "1819-023": {
         "inventory": "1819",
-        "page": "4",
+        "page": "6",
         "id": "023",
         "transcription": "Bencini  Cantate due. Or che contento e lieto. Sopra carro di rose.",
         "composer_names": "Bencini, Pietro Paolo {RISM:30000285}",
@@ -9395,7 +9395,7 @@
     },
     "1819-024": {
         "inventory": "1819",
-        "page": "4",
+        "page": "6",
         "id": "024",
         "transcription": "Bertoni / Ferdinando / Non so, se più t’accendi.",
         "composer_names": "Bertoni, Ferdinando {RISM:30000328}",
@@ -9409,7 +9409,7 @@
     },
     "1819-025": {
         "inventory": "1819",
-        "page": "4",
+        "page": "6",
         "id": "025",
         "transcription": "Bevilacqua / Matteo / Quattro cavatine stampate in Vienna. Se vedi che germoglia. In tutt’i modi Nina me piase. Pupillette lusinghiere. La pace ho perduta.",
         "composer_names": "Bevilacqua, Matteo {RISM:30000337}",
@@ -9423,7 +9423,7 @@
     },
     "1819-026": {
         "inventory": "1819",
-        "page": "4",
+        "page": "6",
         "id": "026",
         "transcription": "Bigaglia / P. D. Diogenio / Erano ancora immote: Cantata con recitativo.",
         "composer_names": "Bigaglia, Diogenio {RISM:30000361}",
@@ -9437,7 +9437,7 @@
     },
     "1819-027": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "027",
         "transcription": "Borghi Ah! mi si gela il core: Aria con recitativo.",
         "composer_names": "Borghi, Giovanni Battista {RISM:30000432}",
@@ -9451,7 +9451,7 @@
     },
     "1819-028": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "028",
         "transcription": "Cafaro / Pasquale / Stabat mater. Volume in foglio stampato.",
         "composer_names": "Cafaro, Pasquale {RISM:30000544}",
@@ -9465,7 +9465,7 @@
     },
     "1819-029": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "029",
         "transcription": "A chi soffre un mar d’affanni.",
         "composer_names": "Cafaro, Pasquale {RISM:30000544}",
@@ -9479,7 +9479,7 @@
     },
     "1819-030": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "030",
         "transcription": "Perché taci e non rispondi.",
         "composer_names": "Cafaro, Pasquale {RISM:30000544}",
@@ -9493,7 +9493,7 @@
     },
     "1819-031": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "031",
         "transcription": "Del soglio allo splendore.",
         "composer_names": "Cafaro, Pasquale {RISM:30000544}",
@@ -9507,7 +9507,7 @@
     },
     "1819-032": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "032",
         "transcription": "Se cerca, se dice.",
         "composer_names": "Cafaro, Pasquale {RISM:30000544}",
@@ -9521,7 +9521,7 @@
     },
     "1819-033": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "033",
         "transcription": "Capecelatro / Giuseppe / Vuoi ch’io non parta; oh Dio!",
         "composer_names": "Capecelatro, Giuseppe {RISM:unspecified}",
@@ -9535,7 +9535,7 @@
     },
     "1819-034": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "034",
         "transcription": "Ciampi / Vincenzo / Sento nel cor l’affanno.",
         "composer_names": "Ciampi, Vincenzo Legrenzio {RISM:30000674}",
@@ -9549,7 +9549,7 @@
     },
     "1819-035": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "035",
         "transcription": "Cianelli / Pietro Paolo / Dille, che si consoli.",
         "composer_names": "Cianelli, Pietro Paolo {RISM:30006814}",
@@ -9563,7 +9563,7 @@
     },
     "1819-036": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "036",
         "transcription": "Cimarosa / Domenico / Deh! ti conforta o cara. Duetto.",
         "composer_names": "Cimarosa, Domenico {RISM:52222}",
@@ -9577,7 +9577,7 @@
     },
     "1819-037": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "037",
         "transcription": "Se cerca, se dice. Col recitativo precedente.",
         "composer_names": "Cimarosa, Domenico {RISM:52222}",
@@ -9591,7 +9591,7 @@
     },
     "1819-038": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "038",
         "transcription": "Quelle pupille tenere. Con recitativo precedente.",
         "composer_names": "Cimarosa, Domenico {RISM:52222}",
@@ -9605,7 +9605,7 @@
     },
     "1819-039": {
         "inventory": "1819",
-        "page": "5",
+        "page": "7",
         "id": "039",
         "transcription": "Le belle mie speranze.",
         "composer_names": "Cimarosa, Domenico {RISM:52222}",
@@ -9619,7 +9619,7 @@
     },
     "1819-040": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "040",
         "transcription": "Cocchi / Gioacchino / Pria di salir sul trono.",
         "composer_names": "Cocchi, Gioacchino {RISM:30000691}",
@@ -9633,7 +9633,7 @@
     },
     "1819-041": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "041",
         "transcription": "Conti / Nicola / Se l’ardire degli amanti.",
         "composer_names": "Conti, Nicola {RISM:30000723}",
@@ -9647,7 +9647,7 @@
     },
     "1819-042": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "042",
         "transcription": "Se il tuo verace ardore.",
         "composer_names": "Conti, Nicola {RISM:30000723}",
@@ -9661,7 +9661,7 @@
     },
     "1819-043": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "043",
         "transcription": "Conforto / Niccola / Berenice che fai? Recitativo con Cavatina. Altro recitativo con Aria, Perché se tanti siete.",
         "composer_names": "Conforto, Nicola {RISM:30000716}",
@@ -9675,7 +9675,7 @@
     },
     "1819-044": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "044",
         "transcription": "Dal labbro che t’accende.",
         "composer_names": "Conforto, Nicola {RISM:30000716}",
@@ -9689,7 +9689,7 @@
     },
     "1819-045": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "045",
         "transcription": "Prigioniera abbandonata.",
         "composer_names": "Conforto, Nicola {RISM:30000716}",
@@ -9703,7 +9703,7 @@
     },
     "1819-046": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "046",
         "transcription": "Corbisiero / Antonio / Lei mi faccia un po l’occhietto.",
         "composer_names": "Corbisiero, Antonio {RISM:30006820}",
@@ -9717,7 +9717,7 @@
     },
     "1819-047": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "047",
         "transcription": "Io t’offro il proprio figlio.",
         "composer_names": "Corbisiero, Antonio {RISM:30006820}",
@@ -9731,7 +9731,7 @@
     },
     "1819-048": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "048",
         "transcription": "Crescentini / Girolamo / Dodici ariette italiane, stampate in Vienna.",
         "composer_names": "Crescentini, Girolamo {RISM:73192}",
@@ -9745,7 +9745,7 @@
     },
     "1819-049": {
         "inventory": "1819",
-        "page": "6",
+        "page": "8",
         "id": "049",
         "transcription": "Altre dodici ariette similmente stampate in Vienna, ma con diversa musica.",
         "composer_names": "Crescentini, Girolamo {RISM:73192}",
@@ -9759,7 +9759,7 @@
     },
     "1819-050": {
         "inventory": "1819",
-        "page": "6; 7",
+        "page": "8; 9",
         "id": "050",
         "transcription": "Una seconda copia di queste stesse. Tu mi chiedi, o mio tesoro. Dove rivolgo, oh Dio! Languir d’amore, crudel mi vedi. O teneri piaceri. Ecco quel fiero istante. Dal dì ch’io ti mirai. Clori la pastorella. Numi, se giusti siete. Non v’è più barbaro Di chi non sente. Ch’io mai vi possa lasciar d’amare. Per valli, per boschi Cercando di Nice. Se spiegar potessi, oh Dio!",
         "composer_names": "Crescentini, Girolamo {RISM:73192}",
@@ -9773,7 +9773,7 @@
     },
     "1819-051": {
         "inventory": "1819",
-        "page": "7",
+        "page": "9",
         "id": "051",
         "transcription": "Drago / Andrea / Fille tra mille erbette. Cantata a voce sola.",
         "composer_names": "Drago, Andrea {RISM:unspecified}",
@@ -9787,7 +9787,7 @@
     },
     "1819-052": {
         "inventory": "1819",
-        "page": "7",
+        "page": "9",
         "id": "052",
         "transcription": "Duni / Egidio / Minacci quell’altera.",
         "composer_names": "Duni, Egidio Romualdo {RISM:30000905}",
@@ -9801,7 +9801,7 @@
     },
     "1819-053": {
         "inventory": "1819",
-        "page": "7",
+        "page": "9",
         "id": "053",
         "transcription": "Chi un dolce amor condanna.",
         "composer_names": "Duni, Egidio Romualdo {RISM:30000905}",
@@ -9815,7 +9815,7 @@
     },
     "1819-054": {
         "inventory": "1819",
-        "page": "7",
+        "page": "9",
         "id": "054",
         "transcription": "Dal suo voler dipende.",
         "composer_names": "Duni, Egidio Romualdo {RISM:30000905}",
@@ -9829,7 +9829,7 @@
     },
     "1819-055": {
         "inventory": "1819",
-        "page": "7",
+        "page": "9",
         "id": "055",
         "transcription": "È follia se nascondete.",
         "composer_names": "Duni, Egidio Romualdo {RISM:30000905}",
@@ -9843,7 +9843,7 @@
     },
     "1819-056": {
         "inventory": "1819",
-        "page": "7",
+        "page": "9",
         "id": "056",
         "transcription": "Durante / Francesco / Duetti Andate o miei sospiri",
         "composer_names": "Durante, Francesco {RISM:20000440}",
@@ -9857,7 +9857,7 @@
     },
     "1819-057": {
         "inventory": "1819",
-        "page": "7",
+        "page": "9",
         "id": "057",
         "transcription": "Son io barbara donna",
         "composer_names": "Durante, Francesco {RISM:20000440}",
@@ -9871,7 +9871,7 @@
     },
     "1819-058": {
         "inventory": "1819",
-        "page": "7",
+        "page": "9",
         "id": "058",
         "transcription": "Fiodo / Vincenzo / Voi se pietà provate. Con recitatativo [sic] precedente.",
         "composer_names": "Fiodo, Vincenzo {RISM:30017641}",
@@ -9885,7 +9885,7 @@
     },
     "1819-059": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "059",
         "transcription": "Francone / Michele / Va tra le selve ircane.",
         "composer_names": "Francone, Michele {RISM:unspecified}",
@@ -9899,7 +9899,7 @@
     },
     "1819-060": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "060",
         "transcription": "Fruttaldi / Niccola Fabio / Va più non dirmi infida.",
         "composer_names": "Fruttaldi, Giovanni Nicola Fabio {VIAF:49489100}",
@@ -9913,7 +9913,7 @@
     },
     "1819-061": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "061",
         "transcription": "Gabellone / Gaspero / Se il tenero mio core. Con recitativo precedente.",
         "composer_names": "Gabellone, Gaspare {RISM:30004453}",
@@ -9927,7 +9927,7 @@
     },
     "1819-062": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "062",
         "transcription": "Galluppi / Baldasarre, d.o Buranello / Sonata per cembalo.",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -9941,7 +9941,7 @@
     },
     "1819-063": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "063",
         "transcription": "Sinfonia.",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -9955,7 +9955,7 @@
     },
     "1819-064": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "064",
         "transcription": "Tu di saper procura.",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -9969,7 +9969,7 @@
     },
     "1819-065": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "065",
         "transcription": "Se cerca, se dice.",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -9983,7 +9983,7 @@
     },
     "1819-066": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "066",
         "transcription": "Superbo di me stesso.",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -9997,7 +9997,7 @@
     },
     "1819-067": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "067",
         "transcription": "Vedrai con tuo periglio.",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -10011,7 +10011,7 @@
     },
     "1819-068": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "068",
         "transcription": "Scorgerai in me l’amante.",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -10025,7 +10025,7 @@
     },
     "1819-069": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "069",
         "transcription": "Il ciel mi vuole oppresso.",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -10039,7 +10039,7 @@
     },
     "1819-070": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "070",
         "transcription": "Vorrei spiegar l’affanno.",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -10053,7 +10053,7 @@
     },
     "1819-071": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "071",
         "transcription": "Fra dubbj affetti miei",
         "composer_names": "Galuppi, Baldassare {RISM:41444}",
@@ -10067,7 +10067,7 @@
     },
     "1819-072": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "072",
         "transcription": "Gasparrini / Francesco / Chiuso il balcon celeste. Cantata a voce sola.",
         "composer_names": "Gasparini, Francesco {RISM:30001237}",
@@ -10081,7 +10081,7 @@
     },
     "1819-073": {
         "inventory": "1819",
-        "page": "7",
+        "page": "10",
         "id": "073",
         "transcription": "Giacomelli. Bella, tel dica Amore.",
         "composer_names": "Giacomelli, Geminiano {RISM:30001285}",
@@ -10095,7 +10095,7 @@
     },
     "1819-074": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "074",
         "transcription": "Giannini / Simone / Barbaro è il mio destino. Cantata a voce sola.",
         "composer_names": "Giannini, Simone {RISM:30021604}",
@@ -10109,7 +10109,7 @@
     },
     "1819-075": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "075",
         "transcription": "De profundis clamavi ad te Domine.",
         "composer_names": "Giannini, Simone {RISM:30021604}",
@@ -10123,7 +10123,7 @@
     },
     "1819-076": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "076",
         "transcription": "Se dopo lunga fiera procella. Con recitat.o preced.e",
         "composer_names": "Giannini, Simone {RISM:30021604}",
@@ -10137,7 +10137,7 @@
     },
     "1819-077": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "077",
         "transcription": "Gyrowetz Otto Ariette italiane stampate in Vienna. Un amante che t'adora. Contento mel credi. Ogni cosa vince Amore. Fiori vaghi, erbette liete. Le donne non son schiave. Son nave abbandonata. Sento che amor furbetto. O voi, che amor seguite.",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -10151,7 +10151,7 @@
     },
     "1819-078": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "078",
         "transcription": "Gluck / Cristofano / Sinfonia.",
         "composer_names": "Gluck, Christoph Willibald {RISM:67338}",
@@ -10165,7 +10165,7 @@
     },
     "1819-079": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "079",
         "transcription": "Se mai senti spirarti sul volto.",
         "composer_names": "Gluck, Christoph Willibald {RISM:67338}",
@@ -10179,7 +10179,7 @@
     },
     "1819-080": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "080",
         "transcription": "Che farò senza Euridice?",
         "composer_names": "Gluck, Christoph Willibald {RISM:67338}",
@@ -10193,7 +10193,7 @@
     },
     "1819-081": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "081",
         "transcription": "Opprimete i contumaci.",
         "composer_names": "Gluck, Christoph Willibald {RISM:67338}",
@@ -10207,7 +10207,7 @@
     },
     "1819-082": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "082",
         "transcription": "Parto, ma tu, ben mio.",
         "composer_names": "Gluck, Christoph Willibald {RISM:67338}",
@@ -10221,7 +10221,7 @@
     },
     "1819-083": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "083",
         "transcription": "Va, più non dirmi infida.",
         "composer_names": "Gluck, Christoph Willibald {RISM:67338}",
@@ -10235,7 +10235,7 @@
     },
     "1819-084": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "084",
         "transcription": "Deh! se piacer mi vuoi.",
         "composer_names": "Gluck, Christoph Willibald {RISM:67338}",
@@ -10249,7 +10249,7 @@
     },
     "1819-085": {
         "inventory": "1819",
-        "page": "8",
+        "page": "11",
         "id": "085",
         "transcription": "Amo te solo, Te solo amai",
         "composer_names": "Gluck, Christoph Willibald {RISM:67338}",
@@ -10263,7 +10263,7 @@
     },
     "1819-086": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "086",
         "transcription": "Guglielmi / Pietro / Perfido, a questo eccesso. Con recitativo precedente.",
         "composer_names": "Guglielmi, Pietro Alessandro {RISM:30001398}",
@@ -10277,7 +10277,7 @@
     },
     "1819-087": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "087",
         "transcription": "Dove son? ove fuggo. Scena con Aria.",
         "composer_names": "Guglielmi, Pietro Alessandro {RISM:30001398}",
@@ -10291,7 +10291,7 @@
     },
     "1819-088": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "088",
         "transcription": "Resta, o cara, e calma intanto. Terzetto con recitativo.",
         "composer_names": "Guglielmi, Pietro Alessandro {RISM:30001398}",
@@ -10305,7 +10305,7 @@
     },
     "1819-089": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "089",
         "transcription": "Ahi! Che il cor si gela in petto. Terzetto.",
         "composer_names": "Guglielmi, Pietro Alessandro {RISM:30001398}",
@@ -10319,7 +10319,7 @@
     },
     "1819-090": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "090",
         "transcription": "Hayden / Giuseppe / Dove sei mio bel tesoro. Cantata a voce sola, con recitativo, e accompagnamento del piano forte.",
         "composer_names": "Haydn, Joseph {RISM:55803}",
@@ -10333,7 +10333,7 @@
     },
     "1819-091": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "091",
         "transcription": "Hasse / Giov. Adolfo / detto il Sassone So che riduce a piangere.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10347,7 +10347,7 @@
     },
     "1819-092": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "092",
         "transcription": "Chi non sente al mio dolore.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10361,7 +10361,7 @@
     },
     "1819-093": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "093",
         "transcription": "Misero pargoletto.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10375,7 +10375,7 @@
     },
     "1819-094": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "094",
         "transcription": "Pallido il sole, Torbido il cielo. Aria con recitativo precedente. Due copie.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10389,7 +10389,7 @@
     },
     "1819-095": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "095",
         "transcription": "Se tutti i mali miei.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10403,7 +10403,7 @@
     },
     "1819-096": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "096",
         "transcription": "Parto se vuoi così.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10417,7 +10417,7 @@
     },
     "1819-097": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "097",
         "transcription": "Cadrà fra poco in cenere.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10431,7 +10431,7 @@
     },
     "1819-098": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "098",
         "transcription": "Solcar pensa un mar sicuro.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10445,7 +10445,7 @@
     },
     "1819-099": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "099",
         "transcription": "Sinfonia.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10459,7 +10459,7 @@
     },
     "1819-100": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "100",
         "transcription": "Se mai senti spirarti sul volto. Due copie.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10473,7 +10473,7 @@
     },
     "1819-101": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "101",
         "transcription": "In te spero, o sposo amato. Due copie.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10487,7 +10487,7 @@
     },
     "1819-102": {
         "inventory": "1819",
-        "page": "9",
+        "page": "12",
         "id": "102",
         "transcription": "Perché se tanti siete.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10501,7 +10501,7 @@
     },
     "1819-103": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "103",
         "transcription": "Hendel Fiamma bella che in cielo s’invia.",
         "composer_names": "Händel, Georg Friedrich {RISM:36552}",
@@ -10515,7 +10515,7 @@
     },
     "1819-104": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "104",
         "transcription": "Incognite, o più tosto anonime. Non perdo la calma",
         "composer_names": "Sala, Nicola {RISM:30004062}",
@@ -10529,7 +10529,7 @@
     },
     "1819-105": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "105",
         "transcription": "Io non pretendo, oh! stelle.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10543,7 +10543,7 @@
     },
     "1819-106": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "106",
         "transcription": "Notturno a due canti.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10557,7 +10557,7 @@
     },
     "1819-107": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "107",
         "transcription": "Figlia di un dolce amore.",
         "composer_names": "Perez, Davide {RISM:30002480}",
@@ -10571,7 +10571,7 @@
     },
     "1819-108": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "108",
         "transcription": "Io non so se amor tu sei.",
         "composer_names": "Conforto, Nicola {RISM:30000716}",
@@ -10585,7 +10585,7 @@
     },
     "1819-109": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "109",
         "transcription": "Se perde l’usignuolo.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -10599,7 +10599,7 @@
     },
     "1819-110": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "110",
         "transcription": "Signò mme ne vao, comm’aggio da fa?",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10613,7 +10613,7 @@
     },
     "1819-111": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "111",
         "transcription": "Va, ti consola, addio.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -10627,7 +10627,7 @@
     },
     "1819-112": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "112",
         "transcription": "Per quel paterno amplesso.",
         "composer_names": "Leo, Leonardo {RISM:20000322}",
@@ -10641,7 +10641,7 @@
     },
     "1819-113": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "113",
         "transcription": "Son giovinetta, spiritosetta.",
         "composer_names": "Albinoni, Tomaso {RISM:30000064}",
@@ -10655,7 +10655,7 @@
     },
     "1819-114": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "114",
         "transcription": "Ah! non parlar d’amore.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10669,7 +10669,7 @@
     },
     "1819-115": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "115",
         "transcription": "Hœc requies mea in seculum.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -10683,7 +10683,7 @@
     },
     "1819-116": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "116",
         "transcription": "D’un lusinghiero ardore.",
         "composer_names": "Leo, Leonardo {RISM:20000322}",
@@ -10697,7 +10697,7 @@
     },
     "1819-117": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "117",
         "transcription": "Col bel piacere, che al cor già sento.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10711,7 +10711,7 @@
     },
     "1819-118": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "118",
         "transcription": "Non perch’è il sol turbato.",
         "composer_names": "Albinoni, Tomaso {RISM:30000064}",
@@ -10725,7 +10725,7 @@
     },
     "1819-119": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "119",
         "transcription": "La tortorella d’un solo amore.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10739,7 +10739,7 @@
     },
     "1819-120": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "120",
         "transcription": "Ninna nonna, con istrumenti obbligati.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10753,7 +10753,7 @@
     },
     "1819-121": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "121",
         "transcription": "Nò, non chiedo amate stelle.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10767,7 +10767,7 @@
     },
     "1819-122": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "122",
         "transcription": "Non cangia tempre di Teseo il cor.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10781,7 +10781,7 @@
     },
     "1819-123": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "123",
         "transcription": "Guardami pure in volto.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10795,7 +10795,7 @@
     },
     "1819-124": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "124",
         "transcription": "Sì, ti sarò fedele. A due voci.",
         "composer_names": "Sarri, Domenico Natale {RISM:30002828}",
@@ -10809,7 +10809,7 @@
     },
     "1819-125": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "125",
         "transcription": "Scherno degli astri e gioco.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10823,7 +10823,7 @@
     },
     "1819-126": {
         "inventory": "1819",
-        "page": "10",
+        "page": "13",
         "id": "126",
         "transcription": "Se il mio duol, se i mali miei.",
         "composer_names": "Hasse, Johann Adolf {RISM:51928}",
@@ -10837,7 +10837,7 @@
     },
     "1819-127": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "127",
         "transcription": "Noctis recolitur, cœna novissima.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10851,7 +10851,7 @@
     },
     "1819-128": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "128",
         "transcription": "Iube me, Domine, ad tuam misericordiam pervenire.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10865,7 +10865,7 @@
     },
     "1819-129": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "129",
         "transcription": "Per chi tanto io sospirai. Con recitativo precedente.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10879,7 +10879,7 @@
     },
     "1819-130": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "130",
         "transcription": "Domine Jesu Christe.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10893,7 +10893,7 @@
     },
     "1819-131": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "131",
         "transcription": "Idol mio se più non vivi.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10907,7 +10907,7 @@
     },
     "1819-132": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "132",
         "transcription": "T’amai, no ’l niego, e t’amo. Barcarola.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10921,7 +10921,7 @@
     },
     "1819-133": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "133",
         "transcription": "Filen ripiglia l’arco. Barcarola.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10935,7 +10935,7 @@
     },
     "1819-134": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "134",
         "transcription": "Tu mi disprezzi ingrato.",
         "composer_names": "Albinoni, Tomaso {RISM:30000064}",
@@ -10949,7 +10949,7 @@
     },
     "1819-135": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "135",
         "transcription": "Si mio caro, io parto, Addio. Duetto.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10963,7 +10963,7 @@
     },
     "1819-136": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "136",
         "transcription": "Rasserena il mesto ciglio. Con recitativo precedente.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -10977,7 +10977,7 @@
     },
     "1819-137": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "137",
         "transcription": "Nel duol che prova, l’alma smarrita.",
         "composer_names": "Sarri, Domenico Natale {RISM:30002828}",
@@ -10991,7 +10991,7 @@
     },
     "1819-138": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "138",
         "transcription": "Grazie agl’inganni tuoi, alfin respiro, o Nice.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11005,7 +11005,7 @@
     },
     "1819-139": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "139",
         "transcription": "In rea procella di mare infido.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11019,7 +11019,7 @@
     },
     "1819-140": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "140",
         "transcription": "Con lusinghe e con amore.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11033,7 +11033,7 @@
     },
     "1819-141": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "141",
         "transcription": "Barbara sorte, Amor tiranno.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11047,7 +11047,7 @@
     },
     "1819-142": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "142",
         "transcription": "Vago del tuo sembiante.",
         "composer_names": "Errichelli, Pasquale {RISM:30000983}",
@@ -11061,7 +11061,7 @@
     },
     "1819-143": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "143",
         "transcription": "Vo’ sperar, ti veggo in volto.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11075,7 +11075,7 @@
     },
     "1819-144": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "144",
         "transcription": "In questo core più va crescendo. Cantata a voce sola.",
         "composer_names": "Astorga, Emanuele d' {RISM:30000157}",
@@ -11089,7 +11089,7 @@
     },
     "1819-145": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "145",
         "transcription": "Dal mio dolce amico albergo. Cantata pastorale.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11103,7 +11103,7 @@
     },
     "1819-146": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "146",
         "transcription": "Quel nome se ascolto.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11117,7 +11117,7 @@
     },
     "1819-147": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "147",
         "transcription": "Ricordati ben mio. ",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11131,7 +11131,7 @@
     },
     "1819-148": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "148",
         "transcription": "Non vedi, tiranno, Ch’io moro d’affanno.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11145,7 +11145,7 @@
     },
     "1819-149": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "149",
         "transcription": "Dirai, che amar non vuoi",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11159,7 +11159,7 @@
     },
     "1819-150": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "150",
         "transcription": "Sò che il riso, e sò che il vezzo.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11173,7 +11173,7 @@
     },
     "1819-151": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "151",
         "transcription": "T’amo, o cara; anch’io t’adoro. Duetto.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11187,7 +11187,7 @@
     },
     "1819-152": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "152",
         "transcription": "Tonate [sic] per cembalo.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11201,7 +11201,7 @@
     },
     "1819-153": {
         "inventory": "1819",
-        "page": "11",
+        "page": "14",
         "id": "153",
         "transcription": "Sorge qual luccioletta.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11215,7 +11215,7 @@
     },
     "1819-154": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "154",
         "transcription": "Il mio crudel martoro.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11229,7 +11229,7 @@
     },
     "1819-155": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "155",
         "transcription": "Mi è così cara, così gradita.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11243,7 +11243,7 @@
     },
     "1819-156": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "156",
         "transcription": "Il più bel della mia fé.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11257,7 +11257,7 @@
     },
     "1819-157": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "157",
         "transcription": "La destra ti chiedo, mio dolce sostegno. Duetto.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11271,7 +11271,7 @@
     },
     "1819-158": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "158",
         "transcription": "Nei giorni tuoi felici. Duetto.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11285,7 +11285,7 @@
     },
     "1819-159": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "159",
         "transcription": "Se l’amor tuo mi rendi.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11299,7 +11299,7 @@
     },
     "1819-160": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "160",
         "transcription": "Son io quel peregrino.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11313,7 +11313,7 @@
     },
     "1819-161": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "161",
         "transcription": "Cantata sagra. Mancante del principio.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11327,7 +11327,7 @@
     },
     "1819-162": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "162",
         "transcription": "Più bello di me, di me più bizzarro.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11341,7 +11341,7 @@
     },
     "1819-163": {
         "inventory": "1819",
-        "page": "12",
+        "page": "15",
         "id": "163",
         "transcription": "Aire da Battello n. 12 i di cui principj sono i seguenti. Nina ghò un oseletto. Fra tante pene e tante. Anca la primavera. No te domando, o cara. Nina negni [sic] al balcon. Fora putazze care. Via cara perdoname. Sta nolta [sic] la xè fatta. Xè pur causa d’occhi mori. Don’o l’amor Catina. Xè guà Patrona quel grametto. L’occasion delle mie pene.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11355,7 +11355,7 @@
     },
     "1819-164": {
         "inventory": "1819",
-        "page": "12; 13",
+        "page": "15; 16",
         "id": "164",
         "transcription": "Tavola di balli n.° 42. in stampa antica. Merita osservazione, che i due balli intitolati il Marchese di Saluzzo, e Cavalca caval gagliardo [sic] sono nominati dal Berni nel Capitolo della Piva.",
         "composer_names": "Anonymus {RISM:30004985}",
@@ -11369,7 +11369,7 @@
     },
     "1819-165": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "165",
         "transcription": "Insanguine / Giacomo / detto Monopoli Dopo un tuo sguardo, ingrata.",
         "composer_names": "Insanguine, Giacomo {RISM:30001595}",
@@ -11383,7 +11383,7 @@
     },
     "1819-166": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "166",
         "transcription": "Dovrei, ma nò, l’amore.",
         "composer_names": "Insanguine, Giacomo {RISM:30001595}",
@@ -11397,7 +11397,7 @@
     },
     "1819-167": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "167",
         "transcription": "D’un genio che m’accende.",
         "composer_names": "Insanguine, Giacomo {RISM:30001595}",
@@ -11411,7 +11411,7 @@
     },
     "1819-168": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "168",
         "transcription": "Prigioniera abbandonata.",
         "composer_names": "Insanguine, Giacomo {RISM:30001595}",
@@ -11425,7 +11425,7 @@
     },
     "1819-169": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "169",
         "transcription": "Toccata per cembalo.",
         "composer_names": "Insanguine, Giacomo {RISM:30001595}",
@@ -11439,7 +11439,7 @@
     },
     "1819-170": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "170",
         "transcription": "Jommelli / Niccola / Spartito della Ifigenia.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11453,7 +11453,7 @@
     },
     "1819-171": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "171",
         "transcription": "Spartito dell’oratorio della Passione",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11467,7 +11467,7 @@
     },
     "1819-172": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "172",
         "transcription": "In te spero, o sposo amato.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11481,7 +11481,7 @@
     },
     "1819-173": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "173",
         "transcription": "Aggitata dal vento, e dall’onde.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11495,7 +11495,7 @@
     },
     "1819-174": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "174",
         "transcription": "Se mai turbo il tuo riposo.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11509,7 +11509,7 @@
     },
     "1819-175": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "175",
         "transcription": "Se troppo crede al ciglio.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11523,7 +11523,7 @@
     },
     "1819-176": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "176",
         "transcription": "Giovani amanti, non vi fidate.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11537,7 +11537,7 @@
     },
     "1819-177": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "177",
         "transcription": "Dhe! lasciami in pace.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11551,7 +11551,7 @@
     },
     "1819-178": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "178",
         "transcription": "Così fra doppio vento. Con recitativo obbligato.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11565,7 +11565,7 @@
     },
     "1819-179": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "179",
         "transcription": "Tanto esposta alle sventure. Con recitativo obblig.o",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11579,7 +11579,7 @@
     },
     "1819-180": {
         "inventory": "1819",
-        "page": "13",
+        "page": "16",
         "id": "180",
         "transcription": "Tu digli in vece mia.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11593,7 +11593,7 @@
     },
     "1819-181": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "181",
         "transcription": "Tempeste il mar minaccia.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11607,7 +11607,7 @@
     },
     "1819-182": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "182",
         "transcription": "Là nel torbido fiume di Lete. Con recitat.o obbligato.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11621,7 +11621,7 @@
     },
     "1819-183": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "183",
         "transcription": "Ah! mio cor, che mai prevedi.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11635,7 +11635,7 @@
     },
     "1819-184": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "184",
         "transcription": "Prudente mi chiedi.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11649,7 +11649,7 @@
     },
     "1819-185": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "185",
         "transcription": "Solo sì rio pensiero.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11663,7 +11663,7 @@
     },
     "1819-186": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "186",
         "transcription": "Se cerca, se dice. Con recitativo obbligato.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11677,7 +11677,7 @@
     },
     "1819-187": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "187",
         "transcription": "Prendi l’estremo Addio.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11691,7 +11691,7 @@
     },
     "1819-188": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "188",
         "transcription": "Ah! frenate il pianto imbelle. Con recitat.o obbligato.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11705,7 +11705,7 @@
     },
     "1819-189": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "189",
         "transcription": "Resta, o cara; e calma intanto.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11719,7 +11719,7 @@
     },
     "1819-190": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "190",
         "transcription": "La destra ti chiedo. Duetto.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11733,7 +11733,7 @@
     },
     "1819-191": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "191",
         "transcription": "Già vedo il volto pallido. Con recit.o obbligato.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11747,7 +11747,7 @@
     },
     "1819-192": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "192",
         "transcription": "Padre perdona, oh! pene. Terzetto.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11761,7 +11761,7 @@
     },
     "1819-193": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "193",
         "transcription": "Ah! ti sento mio povero core.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11775,7 +11775,7 @@
     },
     "1819-194": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "194",
         "transcription": "Guarda chi lascio. Con recitativo obbligato.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11789,7 +11789,7 @@
     },
     "1819-195": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "195",
         "transcription": "Sinfonia di salterio, con violino, e basso.",
         "composer_names": "Jommelli, Niccolò {RISM:118329}",
@@ -11803,7 +11803,7 @@
     },
     "1819-196": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "196",
         "transcription": "Latilla / Gaetano / Bella, mo che te scermio.",
         "composer_names": "Latilla, Gaetano {RISM:30001874}",
@@ -11817,7 +11817,7 @@
     },
     "1819-197": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "197",
         "transcription": "Amore è un gran furbetto.",
         "composer_names": "Latilla, Gaetano {RISM:30001874}",
@@ -11831,7 +11831,7 @@
     },
     "1819-198": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "198",
         "transcription": "Povera mia bellezza.",
         "composer_names": "Latilla, Gaetano {RISM:30001874}",
@@ -11845,7 +11845,7 @@
     },
     "1819-199": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "199",
         "transcription": "Se mai vedi il mio tesoro. Con recitat.o obbligato.",
         "composer_names": "Latilla, Gaetano {RISM:30001874}",
@@ -11859,7 +11859,7 @@
     },
     "1819-200": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "200",
         "transcription": "Leo / Leonardo / Grazie agl’inganni tuoi. Barcheruola.",
         "composer_names": "Leo, Leonardo {RISM:20000322}",
@@ -11873,7 +11873,7 @@
     },
     "1819-201": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "201",
         "transcription": "Parto, o cara, cara addio.",
         "composer_names": "Leo, Leonardo {RISM:20000322}",
@@ -11887,7 +11887,7 @@
     },
     "1819-202": {
         "inventory": "1819",
-        "page": "14",
+        "page": "17",
         "id": "202",
         "transcription": "Tu lusingar vorresti.",
         "composer_names": "Leo, Leonardo {RISM:20000322}",
@@ -11901,7 +11901,7 @@
     },
     "1819-203": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "203",
         "transcription": "Nacqui grande, e serbo ancora.",
         "composer_names": "Leo, Leonardo {RISM:20000322}",
@@ -11915,7 +11915,7 @@
     },
     "1819-204": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "204",
         "transcription": "Chi mai non vide Fuggir le sponde.",
         "composer_names": "Leo, Leonardo {RISM:20000322}",
@@ -11929,7 +11929,7 @@
     },
     "1819-205": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "205",
         "transcription": "Leggi negli occhi miei.",
         "composer_names": "Leo, Leonardo {RISM:20000322}",
@@ -11943,7 +11943,7 @@
     },
     "1819-206": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "206",
         "transcription": "Che giova il dirmi io t’amo?",
         "composer_names": "Leo, Leonardo {RISM:20000322}",
@@ -11957,7 +11957,7 @@
     },
     "1819-207": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "207",
         "transcription": "Lotti / Antonio / Quanto al mio cor sei cara. Cantata a voce sola.",
         "composer_names": "Lotti, Antonio {RISM:123588}",
@@ -11971,7 +11971,7 @@
     },
     "1819-208": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "208",
         "transcription": "de Majo / Francesco /  Da quel sembiante appresi.",
         "composer_names": "De Majo, Gian Francesco {RISM:30002047}",
@@ -11985,7 +11985,7 @@
     },
     "1819-209": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "209",
         "transcription": "Quel caro amato oggetto.",
         "composer_names": "De Majo, Gian Francesco {RISM:30002047}",
@@ -11999,7 +11999,7 @@
     },
     "1819-210": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "210",
         "transcription": "Deh! perchè tanto, o Dio.",
         "composer_names": "De Majo, Gian Francesco {RISM:30002047}",
@@ -12013,7 +12013,7 @@
     },
     "1819-211": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "211",
         "transcription": "Se pietà da te non trovo.",
         "composer_names": "De Majo, Gian Francesco {RISM:30002047}",
@@ -12027,7 +12027,7 @@
     },
     "1819-212": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "212",
         "transcription": "Goda con me s’io godo.",
         "composer_names": "De Majo, Gian Francesco {RISM:30002047}",
@@ -12041,7 +12041,7 @@
     },
     "1819-213": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "213",
         "transcription": "de Majo / Giuseppe / Quì ti sfido, o mostro infame.",
         "composer_names": "De Majo, Giuseppe {RISM:30004430}",
@@ -12055,7 +12055,7 @@
     },
     "1819-214": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "214",
         "transcription": "Nel pugnar col mostro infido.",
         "composer_names": "De Majo, Giuseppe {RISM:30004430}",
@@ -12069,7 +12069,7 @@
     },
     "1819-215": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "215",
         "transcription": "Taci in sen, ch’io non ti sento.",
         "composer_names": "De Majo, Giuseppe {RISM:30004430}",
@@ -12083,7 +12083,7 @@
     },
     "1819-216": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "216",
         "transcription": "Non sempre il cielo irato.",
         "composer_names": "De Majo, Giuseppe {RISM:30004430}",
@@ -12097,7 +12097,7 @@
     },
     "1819-217": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "217",
         "transcription": "Ricordati ben mio, che mi giurasti amor.",
         "composer_names": "De Majo, Giuseppe {RISM:30004430}",
@@ -12111,7 +12111,7 @@
     },
     "1819-218": {
         "inventory": "1819",
-        "page": "15",
+        "page": "18",
         "id": "218",
         "transcription": "Man... / Francesco / Scelta di arie degli amanti generosi.",
         "composer_names": "Mancini, Francesco {RISM:30004020}",
@@ -12125,7 +12125,7 @@
     },
     "1819-219": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "219",
         "transcription": "Maraucci / Giacomo /  Per darvi alcun pegno.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12139,7 +12139,7 @@
     },
     "1819-220": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "220",
         "transcription": "Quella cetra, ah! pur tu non sei. Cantata con recitativo.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12153,7 +12153,7 @@
     },
     "1819-221": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "221",
         "transcription": "Sulle piume dei sospiri.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12167,7 +12167,7 @@
     },
     "1819-222": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "222",
         "transcription": "Gelosia lasciami star.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12181,7 +12181,7 @@
     },
     "1819-223": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "223",
         "transcription": "Se chiudi il ciglio. Con recitativo.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12195,7 +12195,7 @@
     },
     "1819-224": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "224",
         "transcription": "Destrier ch’è all’armi usato.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12209,7 +12209,7 @@
     },
     "1819-225": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "225",
         "transcription": "Solo sì rio pensiero.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12223,7 +12223,7 @@
     },
     "1819-226": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "226",
         "transcription": "Che st’uocchie tuoie mme fanno, Meneca pazzià. Con recitativo.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12237,7 +12237,7 @@
     },
     "1819-227": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "227",
         "transcription": "Io lo so, che il bel sembiante. Con recitativo",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12251,7 +12251,7 @@
     },
     "1819-228": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "228",
         "transcription": "Leon di straggi altero.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12265,7 +12265,7 @@
     },
     "1819-229": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "229",
         "transcription": "Guerrier che i colpi affretta.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12279,7 +12279,7 @@
     },
     "1819-230": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "230",
         "transcription": "Face all’ommo na figliola.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12293,7 +12293,7 @@
     },
     "1819-231": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "231",
         "transcription": "Non è ver che l’ira insegni.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12307,7 +12307,7 @@
     },
     "1819-232": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "232",
         "transcription": "È vero che oppresso La sorte mi tiene.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12321,7 +12321,7 @@
     },
     "1819-233": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "233",
         "transcription": "Squallido e senza lume.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12335,7 +12335,7 @@
     },
     "1819-234": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "234",
         "transcription": "Trova un sol mia bella Clori. Con recitativo. ",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12349,7 +12349,7 @@
     },
     "1819-235": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "235",
         "transcription": "Ma tu tremi, o mio tesoro. Cantata con recit.o",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12363,7 +12363,7 @@
     },
     "1819-236": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "236",
         "transcription": "Crudo amore, oh! Dio, ti sento.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12377,7 +12377,7 @@
     },
     "1819-237": {
         "inventory": "1819",
-        "page": "16",
+        "page": "19",
         "id": "237",
         "transcription": "Marcelli / Signora / Se mi ascolta il ciel pietoso.",
         "composer_names": "Maraucci, Giacomo {RISM:30004022}",
@@ -12391,7 +12391,7 @@
     },
     "1819-238": {
         "inventory": "1819",
-        "page": "17",
+        "page": "20",
         "id": "238",
         "transcription": "Martin / Vincenzo / Dodici Canoni stampati in Vienna. Nel mirari, oh Dio, mi sento. Mille cose in un momento. Se placar volete amore. Io sento, che in petto. Amo te solo. È la fede degli amanti. Se viver non poss’io. Fralle belle sono quella. Ti lascio mio bene. È pur soave amore. Se fo toccarmi il sen. Fa pur, fa pur così.",
         "composer_names": "Martín y Soler, Vicente {RISM:30002097}",
@@ -12405,7 +12405,7 @@
     },
     "1819-239": {
         "inventory": "1819",
-        "page": "17",
+        "page": "20",
         "id": "239",
         "transcription": "Mazzoni / Ant.o / Quì ti sfido o mostro infame. Con recitativo precedente.",
         "composer_names": "Mazzoni, Antonio Maria {RISM:30002150}",
@@ -12419,7 +12419,7 @@
     },
     "1819-240": {
         "inventory": "1819",
-        "page": "17",
+        "page": "20",
         "id": "240",
         "transcription": "Ti amerò, sarò costante.",
         "composer_names": "Mazzoni, Antonio Maria {RISM:30002150}",
@@ -12433,7 +12433,7 @@
     },
     "1819-241": {
         "inventory": "1819",
-        "page": "17",
+        "page": "20",
         "id": "241",
         "transcription": "Mayer Amante mi sarete.",
         "composer_names": "Mayr, Johann Simon {RISM:98061}",
@@ -12447,7 +12447,7 @@
     },
     "1819-242": {
         "inventory": "1819",
-        "page": "17; 18",
+        "page": "20; 21",
         "id": "242",
         "transcription": "Millico / Giuseppe / Sei ariette italiane stampate in Vienna. Altre sei ariette italiane stampate similmente a Vienna. Fugando noi gli affanni. Fille se mai pretendi. Se i tuoi vezzosi lumi. Se irato sempre giri. Ah! m‘ingannai nel crederti. In questa ombrosa riva. Chi bada a’ fatti altrui. Veh! come bello è il mare. Ho sparse tante lacrime. Dormia sul margine d’un ruscelletto. Mira quel fiumicello. La più vezzosa figlia.",
         "composer_names": "Millico, Giuseppe {RISM:30002218}",
@@ -12461,7 +12461,7 @@
     },
     "1819-243": {
         "inventory": "1819",
-        "page": "18",
+        "page": "21",
         "id": "243",
         "transcription": "Mislivecek / Gius.e / detto il Boemo. Se cerca, se dice. Con recitativo precedente.",
         "composer_names": "Mysliveček, Josef {RISM:30002301}",
@@ -12475,7 +12475,7 @@
     },
     "1819-244": {
         "inventory": "1819",
-        "page": "18",
+        "page": "21",
         "id": "244",
         "transcription": "Mombelli Sei ariette italiane stampate in Vienna. Ti dicono gli occhi, il labbro ti dice. Tante volte, vita mia. Pupille amabili del mio tesoro. Spira pur, ma spira lento. Sognando mi parea. La mia Nice talvolta ridendo.",
         "composer_names": "Mombelli, Domenico {RISM:30003217}",
@@ -12489,7 +12489,7 @@
     },
     "1819-245": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "245",
         "transcription": "Nauman / Amodeo / Se mai vedi il mio tesoro.",
         "composer_names": "Naumann, Amadeus {RISM:30107090}",
@@ -12503,7 +12503,7 @@
     },
     "1819-246": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "246",
         "transcription": "Nasci / Michele / Clori bella, amabil Clori. Notturno strumentato.",
         "composer_names": "Nasci, Michele {RISM:30006409}",
@@ -12517,7 +12517,7 @@
     },
     "1819-247": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "247",
         "transcription": "Orefice Sopra di un verde colle. Cantata a solo di Contraldo. [sic]",
         "composer_names": "Orefice, Antonio {RISM:30005234}",
@@ -12531,7 +12531,7 @@
     },
     "1819-248": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "248",
         "transcription": "Paisiello / Giovanni / Or che il Cielo a me ti rende.",
         "composer_names": "Paisiello, Giovanni {RISM:1874}",
@@ -12545,7 +12545,7 @@
     },
     "1819-249": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "249",
         "transcription": "Grazie agl’inganni tuoi. Duettini a due voci, e cembalo.",
         "composer_names": "Paisiello, Giovanni {RISM:1874}",
@@ -12559,7 +12559,7 @@
     },
     "1819-250": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "250",
         "transcription": "Se cerca se dice. Con recitativo precedente.",
         "composer_names": "Paisiello, Giovanni {RISM:1874}",
@@ -12573,7 +12573,7 @@
     },
     "1819-251": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "251",
         "transcription": "L’usignuol col mesto canto.",
         "composer_names": "Paisiello, Giovanni {RISM:1874}",
@@ -12587,7 +12587,7 @@
     },
     "1819-252": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "252",
         "transcription": "Come al corso il sole è lento.",
         "composer_names": "Paisiello, Giovanni {RISM:1874}",
@@ -12601,7 +12601,7 @@
     },
     "1819-253": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "253",
         "transcription": "Palella / Antonio / Non si adiri di grazia, ch’io taccio.",
         "composer_names": "Palella, Antonio {RISM:30002424}",
@@ -12615,7 +12615,7 @@
     },
     "1819-254": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "254",
         "transcription": "Ama nel tuo diletto.",
         "composer_names": "Palella, Antonio {RISM:30002424}",
@@ -12629,7 +12629,7 @@
     },
     "1819-255": {
         "inventory": "1819",
-        "page": "19",
+        "page": "22",
         "id": "255",
         "transcription": "Non sai che dico? ingrata. Duetto.",
         "composer_names": "Palella, Antonio {RISM:30002424}",
@@ -12643,7 +12643,7 @@
     },
     "1819-256": {
         "inventory": "1819",
-        "page": "20",
+        "page": "23",
         "id": "256",
         "transcription": "Perez / Davide /  Via su cari compagni. Duettini da campagna.",
         "composer_names": "Perez, Davide {RISM:30002480}",
@@ -12657,7 +12657,7 @@
     },
     "1819-257": {
         "inventory": "1819",
-        "page": "20",
+        "page": "23",
         "id": "257",
         "transcription": "Son sventurato; ma pure, o stelle.",
         "composer_names": "Perez, Davide {RISM:30002480}",
@@ -12671,7 +12671,7 @@
     },
     "1819-258": {
         "inventory": "1819",
-        "page": "20",
+        "page": "23",
         "id": "258",
         "transcription": "Se ardire e speranza dal ciel non mi viene.",
         "composer_names": "Perez, Davide {RISM:30002480}",
@@ -12685,7 +12685,7 @@
     },
     "1819-259": {
         "inventory": "1819",
-        "page": "20",
+        "page": "23",
         "id": "259",
         "transcription": "Voi, che le mie vicende.",
         "composer_names": "Perez, Davide {RISM:30002480}",
@@ -12699,7 +12699,7 @@
     },
     "1819-260": {
         "inventory": "1819",
-        "page": "20",
+        "page": "23",
         "id": "260",
         "transcription": "Pergolese Dite, ch’ogni momento. Con recitativo precedente.",
         "composer_names": "Pergolesi, Giovanni Battista {RISM:30002483}",
@@ -12713,7 +12713,7 @@
     },
     "1819-261": {
         "inventory": "1819",
-        "page": "20",
+        "page": "23",
         "id": "261",
         "transcription": "Se cerca, se dice. Con recitativo precedente.",
         "composer_names": "Pergolesi, Giovanni Battista {RISM:30002483}",
@@ -12727,7 +12727,7 @@
     },
     "1819-262": {
         "inventory": "1819",
-        "page": "20",
+        "page": "23",
         "id": "262",
         "transcription": "Perugini / Giuliano / Già della terra i figli. Giove fulminante, cantata a voce sola. Nota. Nello stesso fascetto seguono Cantate del sig.r Romaldi. Cantata del Sig. Bencini. Cantata di Basso del Sig.r Andrea Amendola. Cantata del Sig. Ferantino; con altre Cantate ed arie.",
         "composer_names": "Perrugini, Giuliano {RISM:unspecified}",
@@ -12741,7 +12741,7 @@
     },
     "1819-263": {
         "inventory": "1819",
-        "page": "20",
+        "page": "23",
         "id": "263",
         "transcription": "Piccinni / Niccola / Se possono tanto",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12755,7 +12755,7 @@
     },
     "1819-264": {
         "inventory": "1819",
-        "page": "20",
+        "page": "23",
         "id": "264",
         "transcription": "Se mai turbo il tuo riposo. Duetto.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12769,7 +12769,7 @@
     },
     "1819-265": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "265",
         "transcription": "Musso asciutto, ntracchiatella",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12783,7 +12783,7 @@
     },
     "1819-266": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "266",
         "transcription": "Padre, sposo, io vado a morte.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12797,7 +12797,7 @@
     },
     "1819-267": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "267",
         "transcription": "Se delirar mi fate.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12811,7 +12811,7 @@
     },
     "1819-268": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "268",
         "transcription": "Sol che appresso al genitore.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12825,7 +12825,7 @@
     },
     "1819-269": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "269",
         "transcription": "Non sdegnarti, a te mi fido.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12839,7 +12839,7 @@
     },
     "1819-270": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "270",
         "transcription": "Scherza il nocchier talora.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12853,7 +12853,7 @@
     },
     "1819-271": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "271",
         "transcription": "Mi credi spietata, Mi chiami crudele.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12867,7 +12867,7 @@
     },
     "1819-272": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "272",
         "transcription": "Va tra le selve ircane",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12881,7 +12881,7 @@
     },
     "1819-273": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "273",
         "transcription": "Deh ricevi o Prence amato.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12895,7 +12895,7 @@
     },
     "1819-274": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "274",
         "transcription": "Se il barbaro amante: Rimiro in periglio.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12909,7 +12909,7 @@
     },
     "1819-275": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "275",
         "transcription": "Ch’io parta, m’accheto: Rispetto il comando.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12923,7 +12923,7 @@
     },
     "1819-276": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "276",
         "transcription": "Gelusiello, no ncappare.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12937,7 +12937,7 @@
     },
     "1819-277": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "277",
         "transcription": "Se cerca, se dice. Con recitativo precedente.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12951,7 +12951,7 @@
     },
     "1819-278": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "278",
         "transcription": "Se il ciel mi divide.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12965,7 +12965,7 @@
     },
     "1819-279": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "279",
         "transcription": "Una povera ragazza.",
         "composer_names": "Piccinni, Niccolò {RISM:17950}",
@@ -12979,7 +12979,7 @@
     },
     "1819-280": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "280",
         "transcription": "Porpora / Niccola / Son prigioniera d’amore anch’io.",
         "composer_names": "Porpora, Nicola {RISM:30002570}",
@@ -12993,7 +12993,7 @@
     },
     "1819-281": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "281",
         "transcription": "Siedi Amarilli mia, siedi e m’ascolta. Cantata.",
         "composer_names": "Porpora, Nicola {RISM:30002570}",
@@ -13007,7 +13007,7 @@
     },
     "1819-282": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "282",
         "transcription": "Il pastor, se torna aprile.",
         "composer_names": "Porpora, Nicola {RISM:30002570}",
@@ -13021,7 +13021,7 @@
     },
     "1819-283": {
         "inventory": "1819",
-        "page": "21",
+        "page": "24",
         "id": "283",
         "transcription": "Rispoli / Salvatore / Parte seconda di una sua Cantata scritta di proprio suo carattere.",
         "composer_names": "Rispoli, Salvatore {RISM:30002702}",
@@ -13035,7 +13035,7 @@
     },
     "1819-284": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "284",
         "transcription": "Rossi / Biaggio / Berenice che fai? Recitativo strumentato colla Cavatina seguente, e coll’Aria, Perché se tanti siete.",
         "composer_names": "Rossi, Biagio {RISM:unspecified}",
@@ -13049,7 +13049,7 @@
     },
     "1819-285": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "285",
         "transcription": "Sacchini / Antonio / Nacqui grande, e serbo ancora.",
         "composer_names": "Sacchini, Antonio {RISM:30002777}",
@@ -13063,7 +13063,7 @@
     },
     "1819-286": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "286",
         "transcription": "Poveri affetti miei.",
         "composer_names": "Sacchini, Antonio {RISM:30002777}",
@@ -13077,7 +13077,7 @@
     },
     "1819-287": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "287",
         "transcription": "Luci vezzose e amate.",
         "composer_names": "Sacchini, Antonio {RISM:30002777}",
@@ -13091,7 +13091,7 @@
     },
     "1819-288": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "288",
         "transcription": "Mio bene adorato, perdona l’eccesso. Con recitativo precedente.",
         "composer_names": "Sacchini, Antonio {RISM:30002777}",
@@ -13105,7 +13105,7 @@
     },
     "1819-289": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "289",
         "transcription": "Se mai turbo il tuo riposo. Duetto con recitativo precedente.",
         "composer_names": "Sacchini, Antonio {RISM:30002777}",
@@ -13119,7 +13119,7 @@
     },
     "1819-290": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "290",
         "transcription": "Sala / Niccola / Si soffre una tiranna.",
         "composer_names": "Sala, Nicola {RISM:30004062}",
@@ -13133,7 +13133,7 @@
     },
     "1819-291": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "291",
         "transcription": "Voi leggete in ogni core. Con recitativo precedente.",
         "composer_names": "Sala, Nicola {RISM:30004062}",
@@ -13147,7 +13147,7 @@
     },
     "1819-292": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "292",
         "transcription": "Salimbeni Ognor tu fosti il mio Tenero padre amante.",
         "composer_names": "Salimbeni {RISM:unspecified}",
@@ -13161,7 +13161,7 @@
     },
     "1819-293": {
         "inventory": "1819",
-        "page": "22",
+        "page": "25",
         "id": "293",
         "transcription": "Sammartino Cara ti lascio. Addio.",
         "composer_names": "Sammartino {RISM:unspecified}",
@@ -13175,7 +13175,7 @@
     },
     "1819-294": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "294",
         "transcription": "Sarri / Domenico / Qualor la lingua al canto. Cantata.",
         "composer_names": "Sarri, Domenico Natale {RISM:30002828}",
@@ -13189,7 +13189,7 @@
     },
     "1819-295": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "295",
         "transcription": "Digli ch’io son fedele.",
         "composer_names": "Sarri, Domenico Natale {RISM:30002828}",
@@ -13203,7 +13203,7 @@
     },
     "1819-296": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "296",
         "transcription": "Se amore a questo petto.",
         "composer_names": "Sarri, Domenico Natale {RISM:30002828}",
@@ -13217,7 +13217,7 @@
     },
     "1819-297": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "297",
         "transcription": "Sogna così la sponda. Con recitativo precedente.",
         "composer_names": "Sarri, Domenico Natale {RISM:30002828}",
@@ -13231,7 +13231,7 @@
     },
     "1819-298": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "298",
         "transcription": "Placida nell’aspetto.",
         "composer_names": "Sarri, Domenico Natale {RISM:30002828}",
@@ -13245,7 +13245,7 @@
     },
     "1819-299": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "299",
         "transcription": "Scarlatti / Alessandro / Sul margine fiorito. Cantata a voce sola di soprano.",
         "composer_names": "Scarlatti, Alessandro {RISM:30002848}",
@@ -13259,7 +13259,7 @@
     },
     "1819-300": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "300",
         "transcription": "Fonti amiche, erbe care. Cantata a voce sola di soprano.",
         "composer_names": "Scarlatti, Alessandro {RISM:30002848}",
@@ -13273,7 +13273,7 @@
     },
     "1819-301": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "301",
         "transcription": "Farfalla che s’aggira. Cantata a voce sola di soprano.",
         "composer_names": "Scarlatti, Alessandro {RISM:30002848}",
@@ -13287,7 +13287,7 @@
     },
     "1819-302": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "302",
         "transcription": "Coronate il bel crine. Cantata a voce sola di soprano.",
         "composer_names": "Scarlatti, Alessandro {RISM:30002848}",
@@ -13301,7 +13301,7 @@
     },
     "1819-303": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "303",
         "transcription": "Langue Clori vezzosa. Cantata a voce sola di soprano.",
         "composer_names": "Scarlatti, Alessandro {RISM:30002848}",
@@ -13315,7 +13315,7 @@
     },
     "1819-304": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "304",
         "transcription": "Fiero acerbo destin dell’alma mia. Cantata a voce sola di soprano.",
         "composer_names": "Scarlatti, Alessandro {RISM:30002848}",
@@ -13329,7 +13329,7 @@
     },
     "1819-305": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "305",
         "transcription": "Al fine, al fin mi ucciderete. Cantaa a voce sola di soprano.",
         "composer_names": "Scarlatti, Alessandro {RISM:30002848}",
@@ -13343,7 +13343,7 @@
     },
     "1819-306": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "306",
         "transcription": "E pure il gran tormento. Cantata a voce sola di soprano.",
         "composer_names": "Scarlatti, Alessandro {RISM:30002848}",
@@ -13357,7 +13357,7 @@
     },
     "1819-307": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "307",
         "transcription": "Solitudini care. Cantata a voce sola di soprano",
         "composer_names": "Scarlatti, Alessandro {RISM:30002848}",
@@ -13371,7 +13371,7 @@
     },
     "1819-308": {
         "inventory": "1819",
-        "page": "23",
+        "page": "26",
         "id": "308",
         "transcription": "Scolari / Giuseppe / A torto spergiuro quel labbro mi dice.",
         "composer_names": "Scolari, Giuseppe {RISM:30004069}",
@@ -13385,7 +13385,7 @@
     },
     "1819-309": {
         "inventory": "1819",
-        "page": "24",
+        "page": "27",
         "id": "309",
         "transcription": "Scuster / Giuseppe /  Sassone Son regina, e sono amante.",
         "composer_names": "Schuster, Joseph {RISM:133066}",
@@ -13399,7 +13399,7 @@
     },
     "1819-310": {
         "inventory": "1819",
-        "page": "24",
+        "page": "27",
         "id": "310",
         "transcription": "Sterkel / J.F. / Sei duettini a due Soprani, stampati in Vienna. Luci adorabili, Deh! non sapete. Bel piacer saria d’un core. No, non vedrete mai. Il vago augellino, La rosa che spunta. Che ti giova, amabil Fille, Tanto pregio di beltà? Oh! quanto mai son belle.",
         "composer_names": "Sterkel, Johann Franz Xaver {RISM:128216}",
@@ -13413,7 +13413,7 @@
     },
     "1819-311": {
         "inventory": "1819",
-        "page": "24",
+        "page": "27",
         "id": "311",
         "transcription": "Terradellas / Domenico / Passaggier, che sulla sponda",
         "composer_names": "Terradellas, Domingo {RISM:30003118}",
@@ -13427,7 +13427,7 @@
     },
     "1819-312": {
         "inventory": "1819",
-        "page": "24",
+        "page": "27",
         "id": "312",
         "transcription": "Spiega ormai le placid’ali. Con due recitativi e due arie.",
         "composer_names": "Terradellas, Domingo {RISM:30003118}",
@@ -13441,7 +13441,7 @@
     },
     "1819-313": {
         "inventory": "1819",
-        "page": "24",
+        "page": "27",
         "id": "313",
         "transcription": "Traetta / Tommaso / Va dove amor ti chiama.",
         "composer_names": "Traetta, Tommaso {RISM:143099}",
@@ -13455,7 +13455,7 @@
     },
     "1819-314": {
         "inventory": "1819",
-        "page": "24",
+        "page": "27",
         "id": "314",
         "transcription": "Se l’affanno, o Dio, che sento.",
         "composer_names": "Traetta, Tommaso {RISM:143099}",
@@ -13469,7 +13469,7 @@
     },
     "1819-315": {
         "inventory": "1819",
-        "page": "24",
+        "page": "27",
         "id": "315",
         "transcription": "Tritto / Giacomo / Ah! se a morir ten vai. Scena con cori.",
         "composer_names": "Tritto, Giacomo {RISM:20000385}",
@@ -13483,7 +13483,7 @@
     },
     "1819-316": {
         "inventory": "1819",
-        "page": "24",
+        "page": "27",
         "id": "316",
         "transcription": "D’un barbaro affanno. Duetto con recitativo.",
         "composer_names": "Tritto, Giacomo {RISM:20000385}",
@@ -13497,7 +13497,7 @@
     },
     "1819-317": {
         "inventory": "1819",
-        "page": "25",
+        "page": "28",
         "id": "317",
         "transcription": "Vinci / Leonardo / Nuje femmene simmo mparate.",
         "composer_names": "Vinci, Leonardo {RISM:30003262}",
@@ -13511,7 +13511,7 @@
     },
     "1819-318": {
         "inventory": "1819",
-        "page": "25",
+        "page": "28",
         "id": "318",
         "transcription": "Nube di denso orrore.",
         "composer_names": "Vinci, Leonardo {RISM:30003262}",
@@ -13525,7 +13525,7 @@
     },
     "1819-319": {
         "inventory": "1819",
-        "page": "25",
+        "page": "28",
         "id": "319",
         "transcription": "Sentirsi il petto accendere.",
         "composer_names": "Vinci, Leonardo {RISM:30003262}",
@@ -13539,7 +13539,7 @@
     },
     "1819-320": {
         "inventory": "1819",
-        "page": "25",
+        "page": "28",
         "id": "320",
         "transcription": "Confusa, smarrita.",
         "composer_names": "Vinci, Leonardo {RISM:30003262}",
@@ -13553,7 +13553,7 @@
     },
     "1819-321": {
         "inventory": "1819",
-        "page": "25",
+        "page": "28",
         "id": "321",
         "transcription": "Vinci / Pasquale / Il mio pensier dolente.",
         "composer_names": "Vinci, Pasquale {RISM:unspecified}",
@@ -13567,7 +13567,7 @@
     },
     "1819-322": {
         "inventory": "1819",
-        "page": "25",
+        "page": "28",
         "id": "322",
         "transcription": "Zingarelli / Niccola /  Furie orrende correte, volate. Con recitativo, e più arie.",
         "composer_names": "Zingarelli, Niccolò Antonio {RISM:100966}",
@@ -13581,7 +13581,7 @@
     },
     "1819-323": {
         "inventory": "1819",
-        "page": "25",
+        "page": "28",
         "id": "323",
         "transcription": "Monologo intitolato, Saffo.",
         "composer_names": "Zingarelli, Niccolò Antonio {RISM:100966}",
@@ -13595,7 +13595,7 @@
     },
     "1819-324": {
         "inventory": "1819",
-        "page": "25",
+        "page": "28",
         "id": "324",
         "transcription": "La danza. Cantata dell’Ab.e Metastasio.",
         "composer_names": "Zingarelli, Niccolò Antonio {RISM:100966}",
@@ -13609,7 +13609,7 @@
     },
     "1819-325": {
         "inventory": "1819",
-        "page": "25; 26",
+        "page": "28; 29",
         "id": "325",
         "transcription": "Zucconi / Francesco / Six chansons Italiennes. Stampate in Vienna. Non lagnarti, o Nice mia.  D’un visetto lusinghiero. Solitario bosco ombroso. || Se tu m’ami, se sospiri. Se la cagion crudele. Dorilla, che sarà?",
         "composer_names": "Zucconi, Francesco de {RISM:30017204}",
@@ -13623,7 +13623,7 @@
     },
     "1819-326": {
         "inventory": "1819",
-        "page": "26",
+        "page": "29",
         "id": "326",
         "transcription": "Musica Istrumentale Stampata Albrechtsberger / G. / Sei fughe, per l’organo, o Clavicembalo. In Vienna.",
         "composer_names": "Albrechtsberger, Johann Georg {RISM:1061}",
@@ -13637,7 +13637,7 @@
     },
     "1819-327": {
         "inventory": "1819",
-        "page": "26",
+        "page": "29",
         "id": "327",
         "transcription": "Beethoven / van Louis / Deux sonates pour le Piano-forte.",
         "composer_names": "Beethoven, Ludwig van {RISM:11035}",
@@ -13651,7 +13651,7 @@
     },
     "1819-328": {
         "inventory": "1819",
-        "page": "26",
+        "page": "29",
         "id": "328",
         "transcription": "Altra simile. Stampata in Vienna.",
         "composer_names": "Beethoven, Ludwig van {RISM:11035}",
@@ -13665,7 +13665,7 @@
     },
     "1819-329": {
         "inventory": "1819",
-        "page": "26",
+        "page": "29",
         "id": "329",
         "transcription": "6. Ländlerische Tänze. Per forte-piano. Vienna.",
         "composer_names": "Beethoven, Ludwig van {RISM:11035}",
@@ -13679,7 +13679,7 @@
     },
     "1819-330": {
         "inventory": "1819",
-        "page": "26",
+        "page": "29",
         "id": "330",
         "transcription": "Altre sei per due violini e basso. Vienna.",
         "composer_names": "Beethoven, Ludwig van {RISM:11035}",
@@ -13693,7 +13693,7 @@
     },
     "1819-331": {
         "inventory": "1819",
-        "page": "26",
+        "page": "29",
         "id": "331",
         "transcription": "Tre sonate per Clavicembalo, o Piano-forte con Violino. Vienna.",
         "composer_names": "Beethoven, Ludwig van {RISM:11035}",
@@ -13707,7 +13707,7 @@
     },
     "1819-332": {
         "inventory": "1819",
-        "page": "26",
+        "page": "29",
         "id": "332",
         "transcription": "Gran quintetto, per due Violini, due Viole, e Violoncello. Vienna.",
         "composer_names": "Beethoven, Ludwig van {RISM:11035}",
@@ -13721,7 +13721,7 @@
     },
     "1819-333": {
         "inventory": "1819",
-        "page": "27",
+        "page": "30",
         "id": "333",
         "transcription": "Cagiati / Jean / Six Variations, et Rondeau pour le Clavecin, ou Piano-forte. Vienna.",
         "composer_names": "Cagiati, Giovanni {RISM:30011213}",
@@ -13735,7 +13735,7 @@
     },
     "1819-334": {
         "inventory": "1819",
-        "page": "27",
+        "page": "30",
         "id": "334",
         "transcription": "Cloneso Licio / P.A. / Sei sinfonie, delle quali se ne trova una sola. Venezia.",
         "composer_names": "Cloneso, Licio {RISM:30013045}",
@@ -13749,7 +13749,7 @@
     },
     "1819-335": {
         "inventory": "1819",
-        "page": "27",
+        "page": "30",
         "id": "335",
         "transcription": "Ditters de Dittersdorf / M.r C. / Trois simphonies, expriments trois Métamorphoses d’Ovide. Vienna.",
         "composer_names": "Dittersdorf, Carl Ditters von {RISM:14522}",
@@ -13763,7 +13763,7 @@
     },
     "1819-336": {
         "inventory": "1819",
-        "page": "27",
+        "page": "30",
         "id": "336",
         "transcription": "Ferrari / J.G. / Douze petites pieces, pour le clavecin, ou Piano forte. Vienna.",
         "composer_names": "Ferrari, Giacomo Gotifredo {RISM:30001051}",
@@ -13777,7 +13777,7 @@
     },
     "1819-337": {
         "inventory": "1819",
-        "page": "27",
+        "page": "30",
         "id": "337",
         "transcription": "Caprice pour le Clavecin, ou Piano forte. Vienna.",
         "composer_names": "Ferrari, Giacomo Gotifredo {RISM:30001051}",
@@ -13791,7 +13791,7 @@
     },
     "1819-338": {
         "inventory": "1819",
-        "page": "27",
+        "page": "30",
         "id": "338",
         "transcription": "Gÿrowetz / Adalbert / Notturno V.o pour Forte-piano, avec accompagnement d’un Violon, ou Flute, et Violoncelle. Vienna.",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13805,7 +13805,7 @@
     },
     "1819-339": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "339",
         "transcription": "Notturno VI.o",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13819,7 +13819,7 @@
     },
     "1819-340": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "340",
         "transcription": "Notturno VII.o",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13833,7 +13833,7 @@
     },
     "1819-341": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "341",
         "transcription": "Trois sonates pour Forte-piano, avec accompagnement de Violon, et Violoncelle. Vienna.",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13847,7 +13847,7 @@
     },
     "1819-342": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "342",
         "transcription": "Altre tre sonate con simile accompagnamento. Vienna.",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13861,7 +13861,7 @@
     },
     "1819-343": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "343",
         "transcription": "Notturno per Piano-forte con accompagnamento di Violino, e di Violoncello. Vienna.",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13875,7 +13875,7 @@
     },
     "1819-344": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "344",
         "transcription": "Divertimento per Piano-forte, con accompagnamento di Violino e di Violoncello. Vienna.",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13889,7 +13889,7 @@
     },
     "1819-345": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "345",
         "transcription": "Trois sonates pour le Forte-piano avec Violon, et Flûte, et Violoncelle. Vienna.",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13903,7 +13903,7 @@
     },
     "1819-346": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "346",
         "transcription": "Altre tre sonate con simile accompagnamento. Vienna. Due copie.",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13917,7 +13917,7 @@
     },
     "1819-347": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "347",
         "transcription": "Altre tre sonate con simile accompagnamento. Vienna.",
         "composer_names": "Gyrowetz, Adalbert {RISM:94547}",
@@ -13931,7 +13931,7 @@
     },
     "1819-348": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "348",
         "transcription": "Haÿdn / M.r J. / Grande simphonie a plusieurs instruments. Vienna.",
         "composer_names": "Haydn, Joseph {RISM:55803}",
@@ -13945,7 +13945,7 @@
     },
     "1819-349": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "349",
         "transcription": "Simphonie à plusieurs instruments. Vienna.",
         "composer_names": "Haydn, Joseph {RISM:55803}",
@@ -13959,7 +13959,7 @@
     },
     "1819-350": {
         "inventory": "1819",
-        "page": "28",
+        "page": "31",
         "id": "350",
         "transcription": "Variations pour le clavecin, ou Pianoforte. Vienna.",
         "composer_names": "Haydn, Joseph {RISM:55803}",
@@ -13973,7 +13973,7 @@
     },
     "1819-351": {
         "inventory": "1819",
-        "page": "29",
+        "page": "32",
         "id": "351",
         "transcription": "Hoffmeister / F.A. / Simphonie a plusieurs instruments. Vienne.",
         "composer_names": "Hoffmeister, Franz Anton {RISM:94981}",
@@ -13987,7 +13987,7 @@
     },
     "1819-352": {
         "inventory": "1819",
-        "page": "29",
+        "page": "32",
         "id": "352",
         "transcription": "Altra sinfonia. Vienna.",
         "composer_names": "Hoffmeister, Franz Anton {RISM:94981}",
@@ -14001,7 +14001,7 @@
     },
     "1819-353": {
         "inventory": "1819",
-        "page": "29",
+        "page": "32",
         "id": "353",
         "transcription": "Hummel / Giov. Nep. / XIII. Variazioni, con aggiunta di coda in fine, composta sopra una canzonetta nazionale austriaca per Clavicembalo, o Forte-piano. Vienna.",
         "composer_names": "Hummel, Johann Nepomuk {RISM:107007}",
@@ -14015,7 +14015,7 @@
     },
     "1819-354": {
         "inventory": "1819",
-        "page": "29",
+        "page": "32",
         "id": "354",
         "transcription": "Altre variazioni con accompagnamento di flauto o di Violino obbligato, sopra il Romanse dell’opera / una follia / Vienna.",
         "composer_names": "Hummel, Johann Nepomuk {RISM:107007}",
@@ -14029,7 +14029,7 @@
     },
     "1819-355": {
         "inventory": "1819",
-        "page": "29",
+        "page": "32",
         "id": "355",
         "transcription": "Kauer / Ferdinando / Quartetto per Forte-piano, violino, Viola, e Violoncello. Vienna.",
         "composer_names": "Kauer, Ferdinand {RISM:7360}",
@@ -14043,7 +14043,7 @@
     },
     "1819-356": {
         "inventory": "1819",
-        "page": "29",
+        "page": "32",
         "id": "356",
         "transcription": "Matauschek / L’Abate / IX. Variations pour le Clavecin, ou Forte-piano, sur un piece tirée du Ballet / Das Waldmädchen / Vienna.",
         "composer_names": "Matoušek, Antonín {RISM:30016393}",
@@ -14057,7 +14057,7 @@
     },
     "1819-357": {
         "inventory": "1819",
-        "page": "30",
+        "page": "33",
         "id": "357",
         "transcription": "Mosel / Ig. F. / Die Scöpfung [sic] ein Oratorium in Musik gesetzt von H.n Jos: Haÿdn Doctor des [sic] Tonkunst, auf Quartetten für zwei Violinen, Viola, und Violoncello. Wien.",
         "composer_names": "Haydn, Joseph {RISM:55803}",
@@ -14071,7 +14071,7 @@
     },
     "1819-358": {
         "inventory": "1819",
-        "page": "30",
+        "page": "33",
         "id": "358",
         "transcription": "Mozart / W.A. / Grande Sinphonie periodique a plusieurs instruments. Vienna.  Altra copia della stessa.",
         "composer_names": "Mozart, Wolfgang Amadeus {RISM:115324}",
@@ -14085,7 +14085,7 @@
     },
     "1819-359": {
         "inventory": "1819",
-        "page": "30",
+        "page": "33",
         "id": "359",
         "transcription": "Pausewang / Charles / Sonate pour le Piano-forte. Vienna.",
         "composer_names": "Pausewang, Charles {RISM:30017036}",
@@ -14099,7 +14099,7 @@
     },
     "1819-360": {
         "inventory": "1819",
-        "page": "30",
+        "page": "33",
         "id": "360",
         "transcription": "Romberg / Andreas / Trois Duos pour le Violon et Violoncelle. Vienna.",
         "composer_names": "Romberg, Andreas Jakob {RISM:61092}",
@@ -14113,7 +14113,7 @@
     },
     "1819-361": {
         "inventory": "1819",
-        "page": "31",
+        "page": "34",
         "id": "361",
         "transcription": "Sardi / Giuseppe / Tre sonate per Clavicembalo o Forte-piano, con accompagnamento di un Violino. Vienna.",
         "composer_names": "Sarti, Giuseppe {RISM:30002832}",
@@ -14127,7 +14127,7 @@
     },
     "1819-362": {
         "inventory": "1819",
-        "page": "31",
+        "page": "34",
         "id": "362",
         "transcription": "Sterkel / J.F. / Trois sonates pour le Clavecin ou Piano-forte, avec accompagnement d’un Violon, et Violoncelle obligés. Vienne.",
         "composer_names": "Sterkel, Johann Franz Xaver {RISM:128216}",
@@ -14141,7 +14141,7 @@
     },
     "1819-363": {
         "inventory": "1819",
-        "page": "31",
+        "page": "34",
         "id": "363",
         "transcription": "Quintette pour deux Violons, Deux Tailles, et Violoncelle. Vienne.",
         "composer_names": "Sterkel, Johann Franz Xaver {RISM:128216}",
@@ -14155,7 +14155,7 @@
     },
     "1819-364": {
         "inventory": "1819",
-        "page": "31",
+        "page": "34",
         "id": "364",
         "transcription": "Triebensee / M.r Georg / 24. Exercices en Variations pour Clarinette, avec accompagnement de Viole. Vienne.",
         "composer_names": "Triebensee, Georg {RISM:30016897}",
@@ -14169,7 +14169,7 @@
     },
     "1819-365": {
         "inventory": "1819",
-        "page": "31",
+        "page": "34",
         "id": "365",
         "transcription": "Vanhall / Jean / Six Alemandes a plusieurs instruments. Vienna.",
         "composer_names": "Vanhal, Johann Baptist {RISM:114557}",
@@ -14183,7 +14183,7 @@
     },
     "1819-366": {
         "inventory": "1819",
-        "page": "32",
+        "page": "35",
         "id": "366",
         "transcription": "Wanhal / J. / Variations pour le Forte-piano. Vienna.",
         "composer_names": "Vanhal, Johann Baptist {RISM:114557}",
@@ -14197,7 +14197,7 @@
     },
     "1819-367": {
         "inventory": "1819",
-        "page": "32",
+        "page": "35",
         "id": "367",
         "transcription": "IX. Variazioni per Clavicembalo o Fortepiano. Vienna.",
         "composer_names": "Vanhal, Johann Baptist {RISM:114557}",
@@ -14211,7 +14211,7 @@
     },
     "1819-368": {
         "inventory": "1819",
-        "page": "32",
+        "page": "35",
         "id": "368",
         "transcription": "Zorawsky / de A.H. / Trois Polonoises pour le Piano-forte, avec accompagnement d’un Violon, et Violoncelle. / ad libitum / Vienna.",
         "composer_names": "Zorawski, A. H. de {RISM:30017202}",
