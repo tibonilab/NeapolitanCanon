@@ -83,11 +83,11 @@ module.exports = environment => ({
         }),
         new webpack.DefinePlugin({
             PRODUCTION: environment.production,
-            DEBUG: false, //!environment.production, // if true it will show the query parameters into console
+            DEBUG: !environment.production, // if true it will show the query parameters into console
 
             // here it is the endpoint for Diva JS manifest server
             DIVA_BASE_MANIFEST_SERVER: environment.production
-                ? JSON.stringify('http://neapolitancanon.hkb.bfh.ch/public/')
+                ? JSON.stringify('https://neapolitancanon.hkb.bfh.ch/public/')
                 : JSON.stringify('/public/'),
 
             // here it is the endpoint for remote onstage search server 
