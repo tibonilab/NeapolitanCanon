@@ -87,8 +87,8 @@ module.exports = environment => ({
 
             // here it is the endpoint for Diva JS manifest server
             DIVA_BASE_MANIFEST_SERVER: environment.production
-                ? JSON.stringify('https://neapolitancanon.hkb.bfh.ch/public/')
-                : JSON.stringify('/public/'),
+                ? JSON.stringify('https://neapolitancanon.hkb.bfh.ch/public/manifests/')
+                : JSON.stringify('/public/manifests/'),
 
             // here it is the endpoint for remote onstage search server 
             // used only if useRemoteServer is setted as true, as explained above
