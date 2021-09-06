@@ -105,7 +105,7 @@ const NapoliState = props => {
     const fetchDataStore = () => {
         if (!dataStore) {
             RestClient
-                .get({ url: '/public/inventari-di-napoli.json' })
+                .get({ url: '/public/dataset.json' })
                 .then(dataStore => {
 
                     let filteredDataStore = {};
