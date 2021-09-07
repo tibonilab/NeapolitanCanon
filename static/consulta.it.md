@@ -6,7 +6,7 @@ Attraverso i collegamenti qui di seguito è possibile consultare gli inventari p
     [consulta l'inventario del 1801](/consulta/1801)<br/><br/>
 
 
-- Catalogo manoscritto della collezione Arditi, 1819 (I-Nc Archivio storico Ministeriali 9/1074):
+- Catalogo manoscritto della collezione Arditi, 1819 (I-Ncas Ministeriali 9/1074):
     [consulta l'inventario del 1819](/consulta/1819)<br/><br/>
 
 
