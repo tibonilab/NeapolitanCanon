@@ -43,28 +43,18 @@ cp DUMMYgulp.config.js gulp.staging.config.js
 
 Next, open your config files and customize them for your needs.
 
-
-The environment target is specified by the *env* parameter. 
-
-```bash
-npm run deploy -- --env=<env>
-```
-
-Consider that deploying to the _staging_ env will generate a build in _development_ mode.
+You can switch the config file imported in the `gulpfile.js` file in order to switch the environmeent.
 
 
 
 ### Frontend configurations
-Since the data is all retrieved from backend application, it is necessary to configure API endpoints and the Manifest server in `webpack.config.js`.
+Since the data is all retrieved from public JSON, it is only necessary to configure the Manifest server endpoint in `webpack.config.js` file.
 
 ```js
-DIVA_BASE_MANIFEST_SERVER: JSON.stringify('your-server/manifest-path'),
-
-JSON_BASE_SERVER: : environment.dev
-    ? JSON.stringify('') // leave this empty: it would be managed by the dev server proxy
-    : environment.production 
-        ? JSON.stringify('production-backend-api-endpoint')
-        : JSON.stringify('staging-backend-api-endpoint')
+    // here it is the endpoint for Diva JS manifest server
+    DIVA_BASE_MANIFEST_SERVER: environment.production
+        ? JSON.stringify('https://my-host.com/public/manifests/')
+        : JSON.stringify('/public/manifests/'),
 ```
 
 ### Deployment tasks
@@ -72,20 +62,17 @@ JSON_BASE_SERVER: : environment.dev
 To deploy frontend, backend and dataset simply run
 
 ```bash
-npm run deploy -- --env=<env>
+npm run deploy
 ```
 
 you can otherwise use one of the following commands to update a peculiar aspect of the application
 
 ```bash
 # Deploy frontend application
-npm run deploy:frontend -- --env=<env>
-
-# Deploy backend application
-npm run deploy:backend -- --env=<env>
+npm run deploy:frontend
 
 # Upload the dataset
-npm run deploy:dataset -- --env=<env>
+npm run deploy:dataset
 ```
 
 ### Frontend Apache configuration
@@ -96,10 +83,10 @@ VirtualHost ip:80>
     ServerName my-host.com
 
     # Tell Apache where your app's code directory is
-    DocumentRoot /var/www/kapellmeisterbuck/frontend
+    DocumentRoot /var/www/NeapolitanCanon
 
     # Relax Apache security settings
-    <Directory /var/www/kapellmeisterbuck/frontend>
+    <Directory /var/www/NeapolitanCanon>
       Allow from all
       Options -MultiViews
       # Uncomment this if you're on Apache >= 2.4:
@@ -122,40 +109,6 @@ VirtualHost ip:80>
     </Directory>
 
     Header set Access-Control-Allow-Origin "*"
-
-</VirtualHost>
-```
-
-### Backend Apache configuration
-The backend application is deployed using `passenger` module for Apache.
-
-```bash
-# Install passenger if not there already
-sudo apt-get install libapache2-mod-passenger passenger
-```
-
-And just create the virtual host:
-
-
-```apache
-<VirtualHost ip:80>
-    ServerName production-backend-api-endpoint
-
-    # Tell Apache and Passenger where your app's code directory is
-    DocumentRoot /var/www/NeapolitanCanon/backend
-    PassengerAppRoot /var/www/NeapolitanCanon/backend
-
-    # Tell Passenger that your app is a Node.js app
-    PassengerAppType node
-    PassengerStartupFile server.js
-
-    # Relax Apache security settings
-    <Directory /var/www/NeapolitanCanon/backend>
-      Allow from all
-      Options -MultiViews
-      # Uncomment this if you're on Apache >= 2.4:
-      #Require all granted
-    </Directory>
 
 </VirtualHost>
 ```
