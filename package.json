@@ -1,7 +1,7 @@
 {
-  "name": "onstage-frontend",
-  "version": "0.0.1",
-  "description": "onStage frontend",
+  "name": "neapolitan-canon",
+  "version": "1.0.0",
+  "description": "NeapolitanCanon HKB app",
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rism-ch/onstage-frontend.git"
+    "url": "git+https://github.com/tibonilab/NeapolitanCanon.git"
   },
   "author": "",
   "license": "ISC",
