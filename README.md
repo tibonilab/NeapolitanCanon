@@ -43,12 +43,29 @@ cp DUMMYgulp.config.js gulp.staging.config.js
 
 Next, open your config files and customize them for your needs.
 
-You can switch the config file imported in the `gulpfile.js` file in order to switch the environmeent.
+You can switch the config file imported in the `gulpfile.js` file in order to switch the environment.
 
 
 
 ### Frontend configurations
-Since the data is all retrieved from public JSON, it is only necessary to configure the Manifest server endpoint in `webpack.config.js` file.
+Since the data is all retrieved from public JSON, it is necessary to configure the Manifest server endpoints and the dev server to reach the `/public/dataset.json` file in `webpack.config.js` file.
+
+
+```js
+    // here it is the local server configuration
+    proxy: {
+        '/public/**': {
+            target: 'http://localhost/path/to/local/dataset/',
+            changeOrigin: true,
+            secure: false,
+        },
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
+    },
+```
+
+And 
 
 ```js
     // here it is the endpoint for Diva JS manifest server
