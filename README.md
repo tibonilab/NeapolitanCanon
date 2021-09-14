@@ -1,197 +1,156 @@
-# OnStage Frontend Application
+# NeapolitanCanon
 
-This is a react.js application that connects to the solr backend of onstage, to retreive documents from the index and the images. To run OnStage these elements are necessary:
+This repository contains the *frontend* application codebase and the whole *dataset* for "NeapolitanCanon" project.
 
-* IIIF image server serving the images
-* TEI files formatted with metagata for each program and pointers to the images and OCR data
-* Solr Installation (see https://github.com/rism-ch/onstage-backend)
-* Solr _aadapter_ ([see this paragraph](#solr-adapter))
-* Manifest server (https://github.com/rism-ch/onstage-backend) to retreive IIIF documents from the TEI documents
-* Optional static pages
+```
+/src              # frontend
+/dataset          # dataset
+```
 
-## Basic installation and configuration
 
-OnStage is made to be compiled on a host machine and deployed to the target server via gulp, so no installation of components on the server is necessary. The first step is setting up the local dev environment, secondly the apache server on the target.
-
-### OnStage Development installation
-
-#### Installation
-
-pull the repo (remember! this is on a _local_ machine) and make sure you have the basic components installed:
+## Development
+Pull the repository and make sure you have the basic components installed on your machine:
 
 ```bash
 sudo apt install npm gulp
-git clone https://github.com/rism-ch/onstage-frontend
-cd onstage-frontend
+git clone https://github.com/tibonilab/NeapolitanCanon
+cd NeapolitanCanon
 npm install
 ```
 
-The static pages can be in `static/` in the `onstage-frontend` root directory. These will be static pages that are accessible in onstage-host/page/xxx (for example, a page called about.en.md in `static/` will be accessibe at `example.com/page/about`). Note that the pages are localized, so the name is in the format `name.code.md`, such as `about.en.md` or `about.de.md`. Missing language translations will show a "missing page" error.
-The static pages can be on a different repo, for example
+### Frontend
+Frontend application is a single page application built on top of react.js, you can launch the dev server with
 
 ```bash
-git clone https://github.com/rism-ch/onstage-texts static
+npm start
 ```
 
-Static pages are built atuomatically.
+## Deployment
+Deployment requires configuring the gulpfile to connect to the server. The server must be already setup and configured to have access from the host machine via ssh with key authentication.
 
-#### Build
+### Environments
+The gulpfile is designed to automate _staging_ or _production_ deployment. 
 
-Simply run in the onstage-frontend root:
+In order to let this work you have to create 2 different gulp configuration files.
 
 ```bash
-npm run build
-```
-
-This will create `build/index.bundle.js` and `build/index.html` which can be copied to the server. It is best to deploy as described later.
-
-#### Run in development
-
-To run locally, it is necessary to change the connector server. Install `onstage-backend` and then set the `useRemoteServer` const to `false` on top of your `webpack.config.js` file. Remember to start solr with a complete index!
-
-```js
-const useRemoteServer = false;
-```
-
-Then start the `solr-adaptor` server running ```node solr-adaptor/server.js```
-
-And finally ```npm start```
-
-`npm start`
-
-#### Deployment
-
-Deployment requires configuring the gulpfile to connect to the server. The server must be already setup and installed (see later) and configured to have access from the host machine via ssh with key authentication. First copy the example file to the real one:
-
-```bash
+# Create production config file
 cp DUMMYgulp.config.js gulp.config.js
+
+# Create staging config file
+cp DUMMYgulp.config.js gulp.staging.config.js
 ```
 
-Next, customize it to the settings used. Since the ssh key password is inserted in clreartext, it is desirable to have a dedicated ssh key.
+Next, open your config files and customize them for your needs.
 
-Some items to configure:
 
-```
-WEB_SERVER_BASE_PATH -> Installation top level path, /var/www
-host -> target host
-username -> user to log in as
-passphrase -> ssh key passphrase
-privateKey -> your local private key (unlocked by the passphrase), complete path!
-```
-
-The key must be in PEM format or it will not work.
+The environment target is specified by the *env* parameter. 
 
 ```bash
-ssh-keygen -m PEM -t rsa -b 4096 ...
-````
-
-Once gulp is configured, it should be possible to deploy to the target machine:
-
-```bash
-npm run deploy
+npm run deploy -- --env=<env>
 ```
 
-The various components can be deployed separately:
+Consider that deploying to the _staging_ env will generate a build in _development_ mode.
 
-```bash
-npm run deploy # deploy all
-npm run deploy:adapter # guess it, only adapter
-npm run deploy:frontend # only frontend
-```
 
-### Application configuration
 
-Since the TEI documents are all retrived from Solr, it is only necessary to configure the SOLR adaptor connector and the Manifest server in `webpack.config.js`
+### Frontend configurations
+Since the data is all retrieved from backend application, it is necessary to configure API endpoints and the Manifest server in `webpack.config.js`.
 
 ```js
-DIVA_BASE_MANIFEST_SERVER: JSON.stringify('yourserver/manifest-path'),
+DIVA_BASE_MANIFEST_SERVER: JSON.stringify('your-server/manifest-path'),
 
-SOLR_BASE_SERVER: environment.production || useRemoteServer
-                ? JSON.stringify('your-search-adapter-url')
-                : JSON.stringify(''),
+JSON_BASE_SERVER: : environment.dev
+    ? JSON.stringify('') // leave this empty: it would be managed by the dev server proxy
+    : environment.production 
+        ? JSON.stringify('production-backend-api-endpoint')
+        : JSON.stringify('staging-backend-api-endpoint')
 ```
 
-### Apache configuration on server
+### Deployment tasks
 
+To deploy frontend, backend and dataset simply run
+
+```bash
+npm run deploy -- --env=<env>
+```
+
+you can otherwise use one of the following commands to update a peculiar aspect of the application
+
+```bash
+# Deploy frontend application
+npm run deploy:frontend -- --env=<env>
+
+# Deploy backend application
+npm run deploy:backend -- --env=<env>
+
+# Upload the dataset
+npm run deploy:dataset -- --env=<env>
+```
+
+### Frontend Apache configuration
 Apache requires no special configuration, excepy for a Rewrite to make the paths availabe in react
 
 ```apache
 VirtualHost ip:80>
     ServerName my-host.com
 
-    # Tell Apache and Passenger where your app's code directory is
-    DocumentRoot /var/www/onstage-frontend
+    # Tell Apache where your app's code directory is
+    DocumentRoot /var/www/kapellmeisterbuck/frontend
 
     # Relax Apache security settings
-    <Directory /var/www/onstage-frontend>
+    <Directory /var/www/kapellmeisterbuck/frontend>
       Allow from all
       Options -MultiViews
       # Uncomment this if you're on Apache >= 2.4:
       #Require all granted
 
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews
-    </IfModule>
+        <IfModule mod_rewrite.c>
+            <IfModule mod_negotiation.c>
+                Options -MultiViews
+            </IfModule>
 
-    RewriteEngine On
+            RewriteEngine On
 
-    # Serve Client Application
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_URI} ^(.).
-    RewriteRule ^(.*)$ index.html [L]
-</IfModule>
+            # Serve Client Application
+            RewriteCond %{REQUEST_FILENAME} !-d
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_URI} ^(.).
+            RewriteRule ^(.*)$ index.html [L]
+        </IfModule>
 
     </Directory>
 
     Header set Access-Control-Allow-Origin "*"
 
-
 </VirtualHost>
 ```
 
-### Clean up installation
-Sometimes it is necessary to clean the installed modules, for example when updating:
-
-```bash
-rm -rf node_modules
-npm install
-```
-
-## Solr Adapter
-In order *_not_* to expose solr directly on the internet, a small adapter that filters the onstage queries and translates them to solr requests was created. The `solr-adapter` application is a small application that runs on the same machine as solr and connects to it throgh localhost (*note*: solr should always be bound to localhost and _never_ exposed to the internet!). The `solr-adapter` listens for incoming API calls and proxies them to solr. It will run as an apache wirtual host.
-`solr-adapter` is deployed using `passenger`, which is handy if there are also rails applications.
+### Backend Apache configuration
+The backend application is deployed using `passenger` module for Apache.
 
 ```bash
 # Install passenger if not there already
 sudo apt-get install libapache2-mod-passenger passenger
 ```
-From your host:
 
-```bash
-npm run deploy:adapter
-```
+And just create the virtual host:
 
-it will copy the adapter to the configured directory in `gulp.config.js` (defaults to `/var/www/solr-adapter`)
-
-
-Create a virtual host for apache:
 
 ```apache
 <VirtualHost ip:80>
-    ServerName search-server-url
+    ServerName production-backend-api-endpoint
 
     # Tell Apache and Passenger where your app's code directory is
-    DocumentRoot /var/www/solr-adapter/
-    PassengerAppRoot /var/www/solr-adapter
+    DocumentRoot /var/www/NeapolitanCanon/backend
+    PassengerAppRoot /var/www/NeapolitanCanon/backend
 
     # Tell Passenger that your app is a Node.js app
     PassengerAppType node
     PassengerStartupFile server.js
 
     # Relax Apache security settings
-    <Directory /var/www/solr-adapter>
+    <Directory /var/www/NeapolitanCanon/backend>
       Allow from all
       Options -MultiViews
       # Uncomment this if you're on Apache >= 2.4:
@@ -200,12 +159,3 @@ Create a virtual host for apache:
 
 </VirtualHost>
 ```
-
-No configuration is really necessary, but make sure `server.js` point to the correct solr installation:
-
-```js
-const SOLR_URL_PRFIX = 'http://localhost:8984';
-```
-
-
-

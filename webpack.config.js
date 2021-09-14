@@ -89,12 +89,6 @@ module.exports = environment => ({
             DIVA_BASE_MANIFEST_SERVER: environment.production
                 ? JSON.stringify('https://neapolitancanon.hkb.bfh.ch/public/manifests/')
                 : JSON.stringify('/public/manifests/'),
-
-            // here it is the endpoint for remote onstage search server 
-            // used only if useRemoteServer is setted as true, as explained above
-            SOLR_BASE_SERVER: environment.production || useRemoteServer
-                ? JSON.stringify('http://onstage-search.rism-ch.org')
-                : JSON.stringify(''),
         })
     ]
 });
