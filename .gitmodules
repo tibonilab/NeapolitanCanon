@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:baccia/NeapolitanCanon_dataset.git
+	branch = main
