@@ -30,7 +30,7 @@ module.exports = environment => ({
         // here it is the local server configuration
         proxy: {
             '/public/**': {
-                target: 'http://localhost/HKB/inventari-di-napoli/',
+                target: 'http://localhost/HKB/NeapolitanCanon/',
                 changeOrigin: true,
                 secure: false,
             },
