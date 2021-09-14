@@ -15,5 +15,11 @@
         color: $white;
         border-radius: .25rem;
         outline: none;
+        font-family: 'Lato', Arial, Helvetica, sans-serif;
+        cursor: pointer;
+
+        option {
+            font-family: 'Lato', Arial, Helvetica, sans-serif;
+        }
     }
 }

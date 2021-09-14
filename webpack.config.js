@@ -29,8 +29,8 @@ module.exports = environment => ({
 
         // here it is the local server configuration
         proxy: {
-            '/api/**': {
-                target: 'http://localhost:5000',
+            '/public/**': {
+                target: 'http://localhost/HKB/inventari-di-napoli/',
                 changeOrigin: true,
                 secure: false,
             },
@@ -72,19 +72,9 @@ module.exports = environment => ({
                 }
             },
             {
-                test: /\.md$/,
-                use: [
-                    {
-                        loader: 'html-loader'
-                    },
-                    {
-                        loader: 'markdown-loader',
-                        options: {
-                            /* your options here */
-                        }
-                    }
-                ]
-            }
+                test: /\.md$/i,
+                use: 'raw-loader'
+            },
         ]
     },
     plugins: [
@@ -96,7 +86,9 @@ module.exports = environment => ({
             DEBUG: !environment.production, // if true it will show the query parameters into console
 
             // here it is the endpoint for Diva JS manifest server
-            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/'),
+            DIVA_BASE_MANIFEST_SERVER: environment.production
+                ? JSON.stringify('https://neapolitancanon.hkb.bfh.ch/public/manifests/')
+                : JSON.stringify('/public/manifests/'),
 
             // here it is the endpoint for remote onstage search server 
             // used only if useRemoteServer is setted as true, as explained above

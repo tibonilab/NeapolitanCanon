@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { Link, withRouter } from 'react-router-dom';
 
-import { SearchIcon, BrowseIcon, PinIcon } from './Icons.jsx';
+import { SearchIcon, BrowseIcon, PinIcon, BookIcon } from './Icons.jsx';
 import { ClearButton } from './Buttons.jsx';
 import AnalysisContext from '../../../context/analysisContext';
 
@@ -19,24 +19,30 @@ const SidebarWithRoute = props => {
 
     return (
         <div className="sidebar-root">
-            <Link onClick={() => {searchContext.unsetSearchSelected ? searchContext.unsetSearchSelected() : false;}} to="/search">
-                <ClearButton isActive={isActive('search')}>
+            <Link onClick={() => { searchContext.unsetSearchSelected ? searchContext.unsetSearchSelected() : false; }} to="/inventari">
+                <ClearButton isActive={isActive('inventari')}>
                     <SearchIcon />
                 </ClearButton>
             </Link>
 
-            <Link onClick={() => {browseContext.unsetSearchResults ? browseContext.unsetSearchResults(): false; browseContext.unsetSearchSelected ? browseContext.unsetSearchSelected() : false;}} to="/browse">
+            <Link onClick={() => { browseContext.unsetSearchResults ? browseContext.unsetSearchResults() : false; browseContext.unsetSearchSelected ? browseContext.unsetSearchSelected() : false; }} to="/browse">
                 <ClearButton isActive={isActive('browse')}>
                     <BrowseIcon />
                 </ClearButton>
             </Link>
 
-            <Link to="/pin">
+            <Link to="/page/consulta">
+                <ClearButton isActive={isActive('consulta')}>
+                    <BookIcon />
+                </ClearButton>
+            </Link>
+
+            {/* <Link to="/pin">
                 <ClearButton isActive={isActive('pin')}>
                     {pinnedDocuments.length > 0 && <span className="badge">{pinnedDocuments.length}</span>}
                     <PinIcon />
                 </ClearButton>
-            </Link>
+            </Link> */}
         </div>
     );
 };

@@ -5,6 +5,16 @@
             margin-top: 1em
         }
     }
+
+    .no-content {
+        width: 100%;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #aaa;
+        background: #f1f1f1;
+    }
 }
 
 .diva-title,

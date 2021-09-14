@@ -58,9 +58,7 @@ const SearchPage = () => {
                 />
 
             </React.Fragment>
-        ) : (
-                !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
-            );
+        ) : !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>;
     };
 
     const renderForm = () => (

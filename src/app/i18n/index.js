@@ -10,7 +10,7 @@ const resources = {
     de: deutsch
 };
 
-const FALLBACK_LANGUAGE = 'en';
+const FALLBACK_LANGUAGE = 'it';
 
 let resource;
 
