@@ -84,6 +84,7 @@ const getUniqueElementsByIndex = (dataStore, selectedIndex) => {
 const NapoliState = props => {
 
     const [dataStore, setDataStore] = useStateWithSession(false, 'dataStore', SESSION_PREFIX);
+    const [invalidDataStore, setInvalidDataStore] = useStateWithSession(false, 'invalidDataStore', SESSION_PREFIX);
     const [searchResults, setSearchResults] = useStateWithSession({}, 'searchResults', SESSION_PREFIX);
     const [browseIndex, setBrowseIndex] = useState({});
 
@@ -104,9 +105,16 @@ const NapoliState = props => {
 
     const fetchDataStore = () => {
         if (!dataStore) {
+            setInvalidDataStore(false);
             RestClient
                 .get({ url: '/public/dataset.json' })
                 .then(dataStore => {
+
+                    if (typeof dataStore !== 'object' || dataStore == null) {
+                        setInvalidDataStore(true);
+                        setBooted(true);
+                        throw new SyntaxError('JSON file is not well formed');
+                    }
 
                     let filteredDataStore = {};
 
@@ -164,7 +172,8 @@ const NapoliState = props => {
                 dataStore,
                 fullTextSearch,
                 searchResults,
-                browseIndex
+                browseIndex,
+                invalidDataStore
             }}
         >
             {props.children}
