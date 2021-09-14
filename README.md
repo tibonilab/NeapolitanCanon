@@ -56,12 +56,9 @@ Since the data is all retrieved from public JSON, it is necessary to configure t
     proxy: {
         '/public/**': {
             target: 'http://localhost/path/to/local/dataset/',
-            changeOrigin: true,
-            secure: false,
+            ...
         },
-        headers: {
-            'Access-Control-Allow-Origin': '*'
-        }
+        ...
     },
 ```
 
